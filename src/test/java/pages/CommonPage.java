@@ -5,8 +5,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
-import java.nio.file.WatchEvent;
-
 public class CommonPage {
 
     public CommonPage(){
@@ -36,4 +34,14 @@ public class CommonPage {
 
     @FindBy(xpath = "//*[@id='register-submit']")
     public WebElement sendAppointment;
+
+     @FindBy(xpath = "//span[contains(text(),'MY PAGES')]")
+    public WebElement myPages;
+
+     @FindBy(xpath = "//span[contains(text(),'In Patient')]")
+    public WebElement inPatientUnderMyPages;
+
+
+
+
 }
