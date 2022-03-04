@@ -10,7 +10,7 @@ import utilities.Driver;
 public class Hooks {
     @Before
     public void setUp(){
-
+        Driver.wait(5);
 
     }
 
@@ -22,7 +22,7 @@ public class Hooks {
 
             scenario.attach(screenshot, "image/png","screenshots");
         }
-
+     //  Driver.getDriver().close();
     }
 
 }
