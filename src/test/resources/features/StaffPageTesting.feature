@@ -8,3 +8,6 @@ Feature: All locaters should work good
     Then User write a date fromDateBox
     Then User write a date toDateBox
     Then User clicks firts Edit Button
+    Then User verifies that he,she is in In Patients Edit Page
+    When User clicks the Save Button verify the red alert
+

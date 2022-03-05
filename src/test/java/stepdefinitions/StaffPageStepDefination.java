@@ -3,6 +3,8 @@ package stepdefinitions;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Actions;
 import pages.CommonPage;
 import pages.SignInPage;
 import pages.StaffInPatientEditPage;
@@ -35,7 +37,11 @@ public class StaffPageStepDefination extends ReusableMethods {
         commonPage.myPages.click();
         commonPage.inPatientUnderMyPages.click();
 
+    }
+    @Then("User verifies that he,she is in In patient page at In Patients Page")
+    public void userVerifiesThatHeSheIsInInPatientPageAtInPatientsPage() throws InterruptedException {
 
+        Assert.assertTrue(staffInPatient.inPatientsText.isEnabled());
     }
 
     @Then("User write a date fromDateBox")
@@ -56,9 +62,20 @@ public class StaffPageStepDefination extends ReusableMethods {
         Thread.sleep(5000);
     }
 
-    @Then("User verifies that he,she is in In patient page at In Patients Page")
-    public void userVerifiesThatHeSheIsInInPatientPageAtInPatientsPage() throws InterruptedException {
+
+    @Then("User verifies that he,she is in In Patients Edit Page")
+    public void userVerifiesThatHeSheIsInInPatientsEditPage() {
         waitForVisibility(staffInPatientEdit.createOrEditAInPatientText,10);
         Assert.assertTrue(staffInPatientEdit.createOrEditAInPatientText.isEnabled());
+    }
+
+    @When("User clicks the Save Button verify the red alert")
+    public void userClicksTheSaveButtonVerifyTheRedAlert() {
+
+        Actions actions=new Actions(Driver.getDriver());
+        actions.sendKeys(Keys.PAGE_DOWN).sendKeys(Keys.PAGE_DOWN).sendKeys(Keys.PAGE_DOWN);
+        Assert.assertTrue(staffInPatientEdit.saveButton.isEnabled());
+        staffInPatientEdit.backButton.click();
+       // Assert.assertTrue(staffInPatientEdit.redAlert.isEnabled());
     }
 }

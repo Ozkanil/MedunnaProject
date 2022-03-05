@@ -43,8 +43,9 @@ public class StaffInPatientEditPage {
     @FindBy(xpath = "//span[contains(text(),'Back')]")
     public WebElement backButton;
 
-    @FindBy(xpath = "//button[@id='save-entity']")
+    @FindBy(xpath = "//span[contains(text(),'Save')]")
     public WebElement saveButton;
 
-
+    @FindBy(xpath = "//div[contains(text(),'InPatient status can not be changed with this type')]")
+    public WebElement redAlert;
 }
