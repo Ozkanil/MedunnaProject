@@ -17,19 +17,30 @@ public class SignInPage {
     @FindBy(xpath = "//*[@id='password']")
     public WebElement password;
 
-    @FindBy(xpath = "//*[@id='rememberMe']")
+    @FindBy(id = "rememberMe")
     public WebElement rememberMe;
 
-    @FindBy(xpath = "(//*[.='Cancel'])[1]]")
+    @FindBy(xpath = "(//*[@type='button'])[3]")
     public WebElement cancelButton;
 
     @FindBy(xpath = "//*[@type='submit']")
     public WebElement singInButton;
 
-    @FindBy(xpath = "//*[.='Failed to sign in!']")
+    @FindBy(xpath = "//*[contains(text(),'Failed')]")
     public WebElement FailedAlert;
 
     @FindBy(xpath = "//*[.='Authentication information not correct.']")
     public WebElement failedMessage;
+
+    @FindBy(xpath = "(//span)[16]")
+    public WebElement singinPageHeader;
+
+    @FindBy(xpath = "(//*[@class='invalid-feedback'])[1]")
+    public WebElement emptyUsernameFailMessage;
+
+    @FindBy(xpath = "(//*[@class='invalid-feedback'])[2]")
+    public WebElement emptyPasswordFailMessage;
+
+
 
 }
