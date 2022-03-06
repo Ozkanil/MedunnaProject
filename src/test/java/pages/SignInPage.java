@@ -17,10 +17,10 @@ public class SignInPage {
     @FindBy(xpath = "//*[@id='password']")
     public WebElement password;
 
-    @FindBy(xpath = "//*[@id='rememberMe']")
+    @FindBy(id = "rememberMe")
     public WebElement rememberMe;
 
-    @FindBy(xpath = "(//*[.='Cancel'])[1]]")
+    @FindBy(xpath = "(//*[@type='button'])[3]")
     public WebElement cancelButton;
 
     @FindBy(xpath = "//*[@type='submit']")

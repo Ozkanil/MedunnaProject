@@ -1,5 +1,7 @@
 package stepdefinitions;
 
+import io.cucumber.java.bs.A;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
@@ -64,4 +66,30 @@ public class SigninStepDefs {
             Driver.waitForVisibility(signInPage.FailedAlert,5);
         Assert.assertTrue(signInPage.FailedAlert.isDisplayed());
     }
-}}
+}
+
+    @And("user clicks cancel button")
+    public void userClicksCancelButton() {
+
+        signInPage.cancelButton.click();
+        signInPage.cancelButton.click();
+    }
+
+    @Then("user verifies that signin is canceled and user is on home page")
+    public void userVerifiesThatSigninIsCnacelledAndUserIsOnHomePage() {
+
+        Assert.assertTrue(Driver.waitForVisibility(commonPage.homePageAssertionText,10).isDisplayed());
+
+    }
+
+    @And("user verifies that remember me box is visible and clickable")
+    public void userVerifiesThatRememberMeBoxIsVisibleAndClickable() throws InterruptedException {
+
+        Driver.waitForClickablility(signInPage.rememberMe,10).click();
+        signInPage.rememberMe.click();
+        Thread.sleep(5000);
+        String clickText= signInPage.rememberMe.getAttribute("value");
+        Assert.assertEquals("true", clickText);
+
+    }
+}

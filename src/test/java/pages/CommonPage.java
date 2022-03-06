@@ -41,6 +41,9 @@ public class CommonPage {
      @FindBy(xpath = "//span[contains(text(),'In Patient')]")
     public WebElement inPatientUnderMyPages;
 
+    @FindBy(xpath = "//*[contains(text(),'Welcome to MEDUNNA')]")
+    public WebElement homePageAssertionText;
+
 
 
 
