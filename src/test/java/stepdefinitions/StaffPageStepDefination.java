@@ -75,7 +75,7 @@ public class StaffPageStepDefination extends ReusableMethods {
         Actions actions=new Actions(Driver.getDriver());
         actions.sendKeys(Keys.PAGE_DOWN).sendKeys(Keys.PAGE_DOWN).sendKeys(Keys.PAGE_DOWN);
         Assert.assertTrue(staffInPatientEdit.saveButton.isEnabled());
-        staffInPatientEdit.backButton.click();
-       // Assert.assertTrue(staffInPatientEdit.redAlert.isEnabled());
+        staffInPatientEdit.saveButton.click();
+        Assert.assertTrue(Driver.waitForVisibility(staffInPatientEdit.redAlert,10).isDisplayed());
     }
 }
