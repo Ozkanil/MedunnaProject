@@ -41,6 +41,22 @@ public class SignInPage {
     @FindBy(xpath = "(//*[@class='invalid-feedback'])[2]")
     public WebElement emptyPasswordFailMessage;
 
+    @FindBy(xpath = "(//span)[19]")
+    public WebElement passwordResetButton;
+
+    @FindBy(xpath = "//h1")
+    public WebElement resetPasswordPageHeader;
+
+    @FindBy(xpath = "(//span)[22]")
+    public WebElement registrationButtonAtSigninPage;
+
+    @FindBy(xpath = "//*[@class='svg-inline--fa fa-sign-out-alt fa-w-16 fa-fw ']")
+    public WebElement signoutButton;
+
+    @FindBy(xpath = "//h2")
+    public WebElement signoutMessage;
+
+
 
 
 }
