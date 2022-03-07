@@ -7,6 +7,7 @@ import utilities.Driver;
 
 public class SearchPatientOnStaffPage {
 
+
     public SearchPatientOnStaffPage() {
 
         PageFactory.initElements(Driver.getDriver(),this);
@@ -18,7 +19,7 @@ public class SearchPatientOnStaffPage {
     @FindBy(linkText = "Search Patient")
     public WebElement searchPatientDropdown;
 
-    @FindBy(id= "patient-heading")
+    @FindBy(xpath= "//h2")
     public WebElement patientsText;
 
     @FindBy(name="ssn")
@@ -27,10 +28,10 @@ public class SearchPatientOnStaffPage {
     @FindBy(xpath = "(//*[@class='btn btn-info btn-sm'])[1]")
     public WebElement viewButtonOnPatientSearch;
 
-    @FindBy(className = "btn btn-info")
+    @FindBy(xpath = "//*[@class='btn btn-info']")
     public WebElement cancelButtonAfterView;
 
-    @FindBy(className = "btn btn-primary")
+    @FindBy(xpath ="//*[@class='btn btn-primary']")
     public WebElement editButtonAfterView;
 
     @FindBy(xpath = "(//*[@class='btn btn-primary btn-sm'])[1]")
@@ -87,13 +88,16 @@ public class SearchPatientOnStaffPage {
     @FindBy(name= "cancel-save")
     public WebElement backButtonCreateEditPatient;
 
-    @FindBy(name= "save-entity")
+    @FindBy(xpath = "//*[@class='btn btn-info']")
+    public WebElement backButtonAtPatientInfo;
+
+    @FindBy(xpath = "(//button)[2]")
     public WebElement saveButtonCreateEditPatient;
 
-    @FindBy(name= "appointment-heading")
+    @FindBy(xpath= "//h2")
     public WebElement appointmentTextUnderShowAppointments;
 
-    @FindBy(className= "btn btn-warning btn-sm")
+    @FindBy(xpath= "//*[@class='btn btn-warning btn-sm']")
     public WebElement editButtonUnderShowAppointments;
 
     @FindBy(xpath= "//h2")
@@ -123,7 +127,7 @@ public class SearchPatientOnStaffPage {
     @FindBy(name="description")
     public WebElement descriptionBoxCreateEditAppointment;
 
-    @FindBy(name="physician.id")
+    @FindBy(xpath = "//*[@id='appointment-physician']")
     public WebElement physicianDropdownCreateEditAppointment;
 
     @FindBy(name="patient.id")
@@ -141,23 +145,10 @@ public class SearchPatientOnStaffPage {
     @FindBy(id="c-test-heading")
     public WebElement testsTextUnderShowTests;
 
+    @FindBy(xpath = "//*[@class='Toastify__toast-body']")
+    public WebElement saveSuccessAlert;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    @FindBy(xpath = "//*[@class='btn btn-warning btn-sm']")
+    public WebElement editButtonAppointments;
 
 }

@@ -8,7 +8,7 @@ import org.junit.Assert;
 import pages.CommonPage;
 import pages.RegistrationPage;
 import pages.SignInPage;
-import utilities.ConfigurationReader;
+import utilities.ConfigReader;
 import utilities.Driver;
 
 public class SigninStepDefs {
@@ -17,12 +17,12 @@ public class SigninStepDefs {
     CommonPage commonPage=new CommonPage();
     RegistrationPage registrationPage=new RegistrationPage();
 
-    @When("User navigates to the home page")
-    public void user_navigates_to_the_home_page() {
-
-        Driver.getDriver().get(ConfigurationReader.getProperty("medunna_login_url"));
-
-    }
+//    @When("User navigates to the home page")
+//    public void user_navigates_to_the_home_page() {
+//
+//        Driver.getDriver().get(ConfigReader.getProperty("app_url"));
+//
+//    }
     @When("user clicks sign in button at the home page and navigates to sign in page")
     public void user_clicks_sign_in_button_at_the_home_page_and_navigates_to_sign_in_page() {
 
