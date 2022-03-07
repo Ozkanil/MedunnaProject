@@ -6,7 +6,11 @@ test-output
 Hooks
 utilities
 configuration.properties
+<<<<<<< HEAD
 ExcelUtil
 Driver
 /src/test/java/utilities/
 /src/test/java/Hooks/
+=======
+
+>>>>>>> parent of 57e1ece (mustafa)
