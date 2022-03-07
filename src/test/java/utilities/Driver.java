@@ -1,5 +1,5 @@
 package utilities;
-
+//Test for gitignore
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -33,7 +33,7 @@ public class Driver {
     public static WebDriver getDriver() {
         //create the driver if and only if it is null
         if (driver == null) {
-            String browser = ConfigReader.getProperty("browser");
+            String browser = ConfigurationReader.getProperty("browser");
             if ("chrome".equals(browser)) {
                 WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver();
