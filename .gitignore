@@ -3,5 +3,10 @@
 target
 .DS_Store
 test-output
+Hooks
+utilities
+configuration.properties
+ExcelUtil
+Driver
 /src/test/java/utilities/
 /src/test/java/Hooks/
