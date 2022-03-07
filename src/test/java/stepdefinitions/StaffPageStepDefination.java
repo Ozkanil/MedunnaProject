@@ -13,6 +13,9 @@ import utilities.Driver;
 import utilities.JSUtils;
 import utilities.ReusableMethods;
 
+import java.awt.*;
+import java.awt.event.KeyEvent;
+
 public class StaffPageStepDefination extends ReusableMethods {
 
     CommonPage commonPage=new CommonPage();
@@ -20,6 +23,10 @@ public class StaffPageStepDefination extends ReusableMethods {
     StaffInPatientPage staffInPatient=new StaffInPatientPage();
     StaffInPatientEditPage staffInPatientEdit=new StaffInPatientEditPage();
     JSUtils jsUtils=new JSUtils();
+    Robot robot=new Robot();
+
+    public StaffPageStepDefination() throws AWTException {
+    }
 
     @When("User sign in as a Staff at homepage")
     public void user_sign_in_as_a_staff_at_homepage() throws InterruptedException {
@@ -30,6 +37,7 @@ public class StaffPageStepDefination extends ReusableMethods {
         signInPage.password.sendKeys("11!!qqQQ");
         signInPage.singInButton.click();
         Thread.sleep(3000);
+
 
     }
     @Then("User clicks the In Patient under MY PAGES at homepage")
@@ -73,7 +81,12 @@ public class StaffPageStepDefination extends ReusableMethods {
     public void userClicksTheSaveButtonVerifyTheRedAlert() {
 
         Actions actions=new Actions(Driver.getDriver());
-        actions.sendKeys(Keys.PAGE_DOWN).sendKeys(Keys.PAGE_DOWN).sendKeys(Keys.PAGE_DOWN);
+        //actions.sendKeys(Keys.PAGE_DOWN).sendKeys(Keys.PAGE_DOWN).sendKeys(Keys.PAGE_DOWN).sendKeys(Keys.PAGE_DOWN);
+        robot.keyPress(KeyEvent.VK_PAGE_DOWN);
+        robot.keyPress(KeyEvent.VK_PAGE_DOWN);
+        robot.keyPress(KeyEvent.VK_PAGE_DOWN);
+        robot.keyPress(KeyEvent.VK_PAGE_DOWN);
+        robot.keyPress(KeyEvent.VK_PAGE_DOWN);
         Assert.assertTrue(staffInPatientEdit.saveButton.isEnabled());
         staffInPatientEdit.saveButton.click();
         Assert.assertTrue(Driver.waitForVisibility(staffInPatientEdit.redAlert,10).isDisplayed());
