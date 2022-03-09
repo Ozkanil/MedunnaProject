@@ -20,6 +20,7 @@ Feature: US02 Choose a username that can contain any chars, but it cannot be bla
       | invalid username |
       | Mus_ta!fa        |
       |                  |
+      |                  |
 
   @TC0005_Email,@Usernamebox_and_Emailbox_UI
   Scenario: TC_0005 Positive Scnenario with a valid email

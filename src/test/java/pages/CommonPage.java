@@ -7,7 +7,7 @@ import utilities.Driver;
 
 public class CommonPage {
 
-    public CommonPage(){
+    public CommonPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
@@ -35,17 +35,20 @@ public class CommonPage {
     @FindBy(xpath = "//*[@id='register-submit']")
     public WebElement sendAppointment;
 
-     @FindBy(xpath = "//span[contains(text(),'MY PAGES')]")
+    @FindBy(xpath = "//span[contains(text(),'MY PAGES')]")
     public WebElement myPages;
 
-     @FindBy(xpath = "//span[contains(text(),'In Patient')]")
+    @FindBy(xpath = "//span[contains(text(),'In Patient')]")
     public WebElement inPatientUnderMyPages;
 
     @FindBy(xpath = "//span[contains(text(),'Search Patient')]")
     public WebElement searchPatientUnderMyPages;
 
+        @FindBy(xpath = "(//*[@class='d-flex align-items-center dropdown-toggle nav-link'])[1]")
+    public WebElement itemsAndTitles;
 
-
+    @FindBy(xpath = "//*[@data-icon='glasses']")
+    public WebElement testItemUnderItemAndTest;
 
 
 }
