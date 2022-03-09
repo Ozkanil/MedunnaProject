@@ -1,5 +1,5 @@
-package utilities;
-//Test for gitignore
+package stepdefinitions.utilities;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -56,15 +56,14 @@ public class Driver {
         return driver;
     }
 
-    public static void closeDriver() throws InterruptedException {
-        Thread.sleep(1000);
-        if (driver!=null){
-            driver.quit();
+    public static void closeDriver() {
+        if (driver != null) {//if the driver is pointing chrome
+            driver.quit();//quit the driver
+            driver = null;//set it back to null to make sure driver is null
+            // so I can initialize it again
+            //This is important especially you do cross browser testing(testing with
+            // multiple browser like chrome, firefox, ie etc.)
         }
-        // burada yeniden null degeri atamamizin sebebi. bir sonraki getDriver method'u cagirisimizda
-        // yeni deger atayabilmek istememizdir.
-        driver=null;
-
     }
 
     public static void waitAndClick(WebElement element, int timeout) {

@@ -20,8 +20,12 @@ public class UserSettingsSteps {
     @When("User clicks on SignIn button  on the right top")
     public void user_clicks_on_sign_in_button_on_the_right_top() {
         userPage.sigInIcon.click();
-        userPage.SignIn.click();
 
+
+    }
+    @Then("User clicks on signIn in dropdown list")
+    public void user_clicks_on_sign_in_in_dropdown_list() {
+        userPage.SignIn.click();
     }
 
     @Then("User enters username {string}")
