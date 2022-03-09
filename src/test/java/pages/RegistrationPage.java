@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
 public class RegistrationPage {
-    public RegistrationPage(){
+    public RegistrationPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
@@ -82,4 +82,9 @@ public class RegistrationPage {
 
     @FindBy(xpath = "(//*[@class='invalid-feedback'])[6]")
     public WebElement invalidPasswordFeedback;
+
+    @FindBy(xpath = "(//*[@class='invalid-feedback'])")
+    public WebElement generalInvalidFeedback;
+
+
 }
