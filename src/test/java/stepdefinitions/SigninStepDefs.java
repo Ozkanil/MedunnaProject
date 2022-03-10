@@ -7,25 +7,24 @@ import org.junit.Assert;
 import pages.CommonPage;
 import pages.RegistrationPage;
 import pages.SignInPage;
+import utilities.ConfigurationReader;
 import utilities.Driver;
 
 public class SigninStepDefs {
 
     SignInPage signInPage=new SignInPage();
     CommonPage commonPage=new CommonPage();
-    RegistrationPage registrationPage=new RegistrationPage();
+    @When("User navigates to the home page")
+    public void user_navigates_to_the_home_page() {
 
-//    @When("User navigates to the home page")
-//    public void user_navigates_to_the_home_page() {
-//
-//        Driver.getDriver().get(ConfigReader.getProperty("app_url"));
-//
-//    }
+        Driver.getDriver().get(ConfigurationReader.getProperty("medunna_login_url"));
+
+    }
     @When("user clicks sign in button at the home page and navigates to sign in page")
     public void user_clicks_sign_in_button_at_the_home_page_and_navigates_to_sign_in_page() {
 
        commonPage.accountMenu.click();
-       Driver.waitForClickablility(commonPage.signIn,5).click();
+       commonPage.signIn.click();
 
     }
     @Then("user verifies that sign in page header is visible")
@@ -55,14 +54,6 @@ public class SigninStepDefs {
 
     }
 
-    @And("user clicks sign out and verifies sign out")
-    public void userClicksSignOutAndVerifiesSignOut() {
-
-        commonPage.accountMenu.click();
-        Driver.waitForClickablility(signInPage.signoutButton,5).click();
-        Assert.assertTrue(signInPage.signoutMessage.isDisplayed());
-
-    }
 
     @Then("user verifies that sign in is unsuccessful in case {string}")
     public void user_verifies_that_sign_in_is_unsuccessful_in_case(String string) {
@@ -88,6 +79,7 @@ public class SigninStepDefs {
     public void userVerifiesThatSigninIsCnacelledAndUserIsOnHomePage() {
 
 
+        Assert.assertTrue(Driver.waitForVisibility(commonPage.homePageAssertionText,10).isDisplayed());
 
     }
 
@@ -102,32 +94,6 @@ public class SigninStepDefs {
 
     }
 
-    @And("user verifies that password reset button is visible and clicks it")
-    public void userVerifiesThatPasswordResetButtonIsVisibleAndClicksIt() throws InterruptedException {
-
-        Assert.assertTrue(signInPage.passwordResetButton.isDisplayed());
-        Driver.waitForClickablility(signInPage.passwordResetButton,5).click();
-        signInPage.passwordResetButton.click();
-    }
-
-    @Then("user verifies that navigated to the password reset page")
-    public void userVerifiesThatNavigatedToThePasswordResetPage() {
-
-        Assert.assertTrue(signInPage.resetPasswordPageHeader.isDisplayed());
-    }
-
-    @And("user verifies that register button is visible and clicks it")
-    public void userVerifiesThatRegisterButtonIsVisibleAndClicksIt() {
-
-        Assert.assertTrue(signInPage.registrationButtonAtSigninPage.isDisplayed());
-        Driver.waitForClickablility(signInPage.registrationButtonAtSigninPage,5).click();
-        signInPage.registrationButtonAtSigninPage.click();
-    }
-    @Then("user verifies that navigated to the registration page")
-    public void userVerifiesThatNavigatedToTheRegistrationPage() {
-
-        Assert.assertTrue(registrationPage.registrationTitle.isDisplayed());
-    }
 
 
 
