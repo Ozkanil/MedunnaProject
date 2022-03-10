@@ -1,14 +1,22 @@
-package stepdefinitions.uistep;
+package stepdefinitions;
 
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.restassured.response.Response;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import pages.*;
+import utilities.ConfigurationReader;
 import utilities.Driver;
 
-public class US13_Doctor_Request_Results_UI_StepDef {
+import static org.hamcrest.Matchers.hasItems;
+import static utilities.ApiUtils.getRequest;
+import static utilities.Authentication.generateToken;
+
+public class US13_Doctor_Request_Results_StepDef {
 
     Actions actions;
+    Response response;
     CommonPage commonPage = new CommonPage();
     SignInPage signInPage=new SignInPage();
     MyAppointmentPageAsDoctor myAppointmentPageAsDoctor=new MyAppointmentPageAsDoctor();
@@ -51,6 +59,20 @@ public class US13_Doctor_Request_Results_UI_StepDef {
         Assert.assertTrue(Driver.waitForVisibility(id_1401_page.description,10).isEnabled());
         Assert.assertTrue(Driver.waitForVisibility(id_1401_page.testItem1401,10).isEnabled());
         Assert.assertTrue(Driver.waitForVisibility(id_1401_page.defaultMinValue,10).isEnabled());
+
+    }
+
+    @Given("user set the url and generate the token for patient page")
+    public void userSetTheUrlAndGenerateTheTokenForPatientPage() {
+
+        response = getRequest(generateToken(), ConfigurationReader.getProperty("registrant_endpoint_in_patient"));
+        response.prettyPrint();
+
+    }
+    @Then("user validate the in patient \\( patient can stay in hospital )")
+    public void userValidateTheInPatientPatientCanStayInHospital() {
+
+        response.then().assertThat().body("room.roomType",hasItems("SUITE"));
 
     }
 
