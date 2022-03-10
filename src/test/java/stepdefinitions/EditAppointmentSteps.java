@@ -1,4 +1,4 @@
-package stepdefinitions.uisteps;
+package stepdefinitions;
 
 import io.cucumber.java.en.Given;
 import org.openqa.selenium.WebElement;

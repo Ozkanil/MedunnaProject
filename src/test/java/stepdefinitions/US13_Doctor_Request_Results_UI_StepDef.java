@@ -1,4 +1,4 @@
-package stepdefinitions.uistep;
+package stepdefinitions;
 
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.interactions.Actions;

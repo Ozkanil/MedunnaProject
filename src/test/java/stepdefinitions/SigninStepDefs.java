@@ -1,6 +1,5 @@
 package stepdefinitions;
 
-import io.cucumber.java.bs.A;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -8,7 +7,6 @@ import org.junit.Assert;
 import pages.CommonPage;
 import pages.RegistrationPage;
 import pages.SignInPage;
-import utilities.ConfigReader;
 import utilities.Driver;
 
 public class SigninStepDefs {

@@ -50,5 +50,8 @@ public class CommonPage {
     @FindBy(xpath = "//*[@data-icon='glasses']")
     public WebElement testItemUnderItemAndTest;
 
+    @FindBy(xpath = "//*[span='Appointment']" )
+    public WebElement adminAppointment;
+
 
 }

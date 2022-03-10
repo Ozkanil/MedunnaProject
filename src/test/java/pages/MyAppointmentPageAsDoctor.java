@@ -7,12 +7,26 @@ import utilities.Driver;
 
 public class MyAppointmentPageAsDoctor {
     public MyAppointmentPageAsDoctor() { PageFactory.initElements(Driver.getDriver(), this);
+
     }
+
+    @FindBy(xpath =" (//a[span])[8]")
+     public WebElement myAccountDropdownText;
+
     @FindBy(xpath = "//*[span='MY PAGES']" )
     public WebElement myPagesDropdown;
+//=======ADMIN========
+    @FindBy(xpath = "//*[span='Items&Titles']" )
+    public WebElement itemsTitlesDropdown;
+//========PATIENT=======
+@FindBy(xpath = "//*[span='MY PAGES(PATIENT)']" )
+public WebElement patientMyPagesDropdown;
 
     @FindBy(xpath = "//*[span='My Appointments']" )
     public WebElement myAppointment;
+
+    @FindBy(xpath = "//*[span='Appointment']" )
+    public WebElement adminAppointment;
 
     @FindBy(id="appointment-heading")
     public WebElement appointmentHeading;
@@ -121,6 +135,8 @@ public class MyAppointmentPageAsDoctor {
 
     @FindBy(xpath = "//*[.='Days between begin date and end date must be max 15 days']")
     public WebElement alertMessage;
+    @FindBy(className = "Toastify__toast-body")
+    public WebElement alertElement;
 
 
 

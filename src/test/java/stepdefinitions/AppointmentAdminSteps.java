@@ -1,4 +1,4 @@
-package stepdefinitions.uisteps;
+package stepdefinitions;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -26,8 +26,8 @@ public class AppointmentAdminSteps {
     }
     @Given("user navigates to appointment page")
     public void user_navigates_to_appointment_page() {
-       Driver.waitAndClick(commonPage.ItemsOrTitles);
-       Driver.waitAndClick(commonPage.Appointment);
+       Driver.waitAndClick(commonPage.itemsAndTitles);
+       Driver.waitAndClick(commonPage.adminAppointment);
     }
     @Given("user clicks to Create a new Appointment button")
     public void user_clicks_to_create_a_new_appointment_button() {

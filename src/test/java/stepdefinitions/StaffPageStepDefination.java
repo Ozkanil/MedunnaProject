@@ -3,14 +3,12 @@ package stepdefinitions;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import pages.CommonPage;
 import pages.SignInPage;
 import pages.StaffInPatientEditPage;
 import pages.StaffInPatientPage;
 import utilities.Driver;
-import utilities.JSUtils;
 import utilities.ReusableMethods;
 
 import java.awt.*;
