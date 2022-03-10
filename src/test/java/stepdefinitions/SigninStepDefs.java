@@ -87,7 +87,7 @@ public class SigninStepDefs {
     @Then("user verifies that signin is canceled and user is on home page")
     public void userVerifiesThatSigninIsCnacelledAndUserIsOnHomePage() {
 
-        Assert.assertTrue(Driver.waitForVisibility(commonPage.homePageAssertionText,10).isDisplayed());
+
 
     }
 

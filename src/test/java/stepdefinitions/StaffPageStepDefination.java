@@ -20,7 +20,7 @@ public class StaffPageStepDefination extends ReusableMethods {
     SignInPage signInPage=new SignInPage();
     StaffInPatientPage staffInPatient=new StaffInPatientPage();
     StaffInPatientEditPage staffInPatientEdit=new StaffInPatientEditPage();
-    JSUtils jsUtils=new JSUtils();
+
     Robot robot=new Robot();
 
     public StaffPageStepDefination() throws AWTException {
