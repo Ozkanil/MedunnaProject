@@ -1,0 +1,276 @@
+Index: src/test/java/stepdefinitions/SearchPatientOnStaffStepDefs.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package stepdefinitions;\n\nimport com.github.javafaker.Faker;\nimport io.cucumber.datatable.DataTable;\nimport io.cucumber.java.bs.A;\nimport io.cucumber.java.en.And;\nimport io.cucumber.java.en.Then;\nimport io.cucumber.java.en.When;\nimport org.junit.Assert;\nimport org.openqa.selenium.support.ui.Select;\nimport pages.SearchPatientOnStaffPage;\nimport pages.SignInPage;\nimport utilities.ConfigurationReader;\nimport utilities.Driver;\n\nimport java.util.List;\n\npublic class SearchPatientOnStaffStepDefs {\n\n\n    SearchPatientOnStaffPage searchPatientOnStaffPage=new SearchPatientOnStaffPage();\n\n\n    @When(\"user clicks my pages\")\n    public void user_clicks_my_pages() {\n\n\n        Driver.waitAndClick(searchPatientOnStaffPage.myPagesDropdown, 5);\n\n    }\n\n    @When(\"user clicks search patient\")\n    public void user_clicks_search_patient() {\n\n        Driver.waitAndClick(searchPatientOnStaffPage.searchPatientDropdown, 5);\n\n    }\n\n    @And(\"user provides a valid ssn number into search box\")\n    public void userProvidesAValidSsnNumberIntoSearchBox(DataTable ssn) {\n\n        List<String> ssnList= ssn.row(1);\n        searchPatientOnStaffPage.patientSSNSearchBox.sendKeys(ssnList.get(0));\n\n    }\n\n    @When(\"user clicks view button\")\n    public void user_clicks_view_button() {\n\n\n        Driver.waitAndClick(searchPatientOnStaffPage.viewButtonOnPatientSearch, 5);\n\n    }\n\n    @Then(\"user verifies patient info is visible\")\n    public void user_verifies_patient_info_is_visible() {\n\n\n        Assert.assertTrue(Driver.waitForVisibility(searchPatientOnStaffPage.patientsText,5).isDisplayed());\n\n    }\n\n    @Then(\"user clicks back button\")\n    public void user_clicks_back_button() {\n\n    Driver.waitAndClick(searchPatientOnStaffPage.backButtonAtPatientInfo,5);\n\n    }\n\n    @And(\"user clicks edit button\")\n    public void userClicksEditButton() {\n\n       Driver.waitAndClick(searchPatientOnStaffPage.editButtonOnPatientSearch, 5);\n    }\n\n    @Then(\"user verifies create or edit patient page\")\n    public void userVerifiesCreateOrEditPatientPage() {\n\n        Driver.waitForVisibility(searchPatientOnStaffPage.createEditPatientText,5).isDisplayed();\n    }\n\n    @And(\"user provides necessary data to edit patient info\")\n    public void userProvidesNecessaryDataToEditPatientInfo() {\n\n       searchPatientOnStaffPage.nameBoxInCreateEditPatient.clear();\n        searchPatientOnStaffPage.nameBoxInCreateEditPatient.sendKeys(Faker.instance().name().firstName());\n        searchPatientOnStaffPage.lastnameBoxCreateEditPatient.clear();\n        searchPatientOnStaffPage.lastnameBoxCreateEditPatient.sendKeys(Faker.instance().name().lastName());\n        searchPatientOnStaffPage.emailBoxCreateEditPatient.clear();\n        searchPatientOnStaffPage.emailBoxCreateEditPatient.sendKeys(Faker.instance().internet().emailAddress());\n        searchPatientOnStaffPage.phoneBoxCreateEditPatient.clear();\n        searchPatientOnStaffPage.phoneBoxCreateEditPatient.sendKeys(\"4569875896\");\n\n    }\n\n    @And(\"user clicks save button\")\n    public void userClicksSaveButton() {\n        Driver.waitAndClick(searchPatientOnStaffPage.saveButtonCreateEditPatient,5);\n        //searchPatientOnStaffPage.saveButtonCreateEditPatient.click();\n    }\n\n    @Then(\"user verifies patient info update message\")\n    public void userVerifiesPatientInfoUpdateMessage() {\n\n        Assert.assertTrue(Driver.waitForVisibility(searchPatientOnStaffPage.saveSuccessAlert,5).isDisplayed());\n    }\n\n\n\n    @And(\"user clicks show appointments button\")\n    public void userClicksShowAppointmentsButton() {\n\n        Driver.waitAndClick(searchPatientOnStaffPage.showAppointmentsButton,5);\n    }\n\n    @And(\"user verifies appointments page header\")\n    public void userVerifiesAppointmentsPageHeader() {\n\n        Assert.assertTrue(Driver.waitForVisibility(searchPatientOnStaffPage.appointmentTextUnderShowAppointments,5).isDisplayed());\n    }\n\n    @Then(\"user verifies create and edit appointments page\")\n    public void userVerifiesCreateAndEditAppointmentsPage() {\n\n        Assert.assertTrue(Driver.waitForVisibility(searchPatientOnStaffPage.createEditAppointmentText,5).isDisplayed());\n    }\n\n    @And(\"user makes necessary updates\")\n    public void userMakesNecessaryUpdates() throws InterruptedException {\n\n        searchPatientOnStaffPage.diagnosisBoxCreateEditAppointment.sendKeys(\"123\");\n        searchPatientOnStaffPage.prescriptionBoxCreateEditAppointment.sendKeys(\"987\");\n        Thread.sleep(3000);\n        new Select(searchPatientOnStaffPage.physicianDropdownCreateEditAppointment).selectByIndex(1);\n\n    }\n\n    @Then(\"verifies update is successful\")\n    public void verifiesUpdateIsSuccessful() {\n\n        Assert.assertTrue(Driver.waitForVisibility(searchPatientOnStaffPage.saveSuccessAlert,5).isDisplayed());\n    }\n\n    @And(\"user clicks edit button under appointments\")\n    public void userClicksEditButtonUnderAppointments() {\n\n        Driver.waitAndClick(searchPatientOnStaffPage.editButtonAppointments,5);\n    }\n}
+===================================================================
+diff --git a/src/test/java/stepdefinitions/SearchPatientOnStaffStepDefs.java b/src/test/java/stepdefinitions/SearchPatientOnStaffStepDefs.java
+--- a/src/test/java/stepdefinitions/SearchPatientOnStaffStepDefs.java	
++++ b/src/test/java/stepdefinitions/SearchPatientOnStaffStepDefs.java	
+@@ -106,7 +106,6 @@
+     }
+ 
+ 
+-
+     @And("user clicks show appointments button")
+     public void userClicksShowAppointmentsButton() {
+ 
+@@ -146,4 +145,9 @@
+ 
+         Driver.waitAndClick(searchPatientOnStaffPage.editButtonAppointments,5);
+     }
++
++
++
++
++
+ }
+\ No newline at end of file
+Index: src/test/java/pages/CommonPage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package pages;\n\nimport org.openqa.selenium.WebElement;\nimport org.openqa.selenium.support.FindBy;\nimport org.openqa.selenium.support.PageFactory;\nimport utilities.Driver;\n\npublic class CommonPage {\n\n    public CommonPage(){\n        PageFactory.initElements(Driver.getDriver(), this);\n    }\n\n    @FindBy(xpath = \"//li[@id='account-menu']\")\n    public WebElement accountMenu;\n\n    @FindBy(xpath = \"(//*[@class='dropdown-item'])[1]\")\n    public WebElement signIn;\n\n    @FindBy(xpath = \"(//*[@class='dropdown-item'])[2]\")\n    public WebElement Register;\n\n    @FindBy(xpath = \"//*[@id='ssn']\")\n    public WebElement ssn;\n\n    @FindBy(xpath = \"//*[@id='email']\")\n    public WebElement email;\n\n    @FindBy(xpath = \"//*[@id='phone']\")\n    public WebElement phone;\n\n    @FindBy(xpath = \"//*[@id='appoDate']\")\n    public WebElement appointmentDate;\n\n    @FindBy(xpath = \"//*[@id='register-submit']\")\n    public WebElement sendAppointment;\n\n     @FindBy(xpath = \"//span[contains(text(),'MY PAGES')]\")\n    public WebElement myPages;\n\n     @FindBy(xpath = \"//span[contains(text(),'In Patient')]\")\n    public WebElement inPatientUnderMyPages;\n\n    @FindBy(xpath = \"//span[contains(text(),'Search Patient')]\")\n    public WebElement searchPatientUnderMyPages;\n\n\n\n\n\n}
+===================================================================
+diff --git a/src/test/java/pages/CommonPage.java b/src/test/java/pages/CommonPage.java
+--- a/src/test/java/pages/CommonPage.java	
++++ b/src/test/java/pages/CommonPage.java	
+@@ -44,6 +44,9 @@
+     @FindBy(xpath = "//span[contains(text(),'Search Patient')]")
+     public WebElement searchPatientUnderMyPages;
+ 
++    @FindBy(xpath = "//h1")
++    public WebElement homePageAssertionText;
++
+ 
+ 
+ 
+Index: src/test/java/pages/SignInPage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package pages;\n\nimport io.github.bonigarcia.wdm.WebDriverManager;\nimport org.openqa.selenium.WebDriver;\nimport org.openqa.selenium.WebElement;\nimport org.openqa.selenium.chrome.ChromeDriver;\nimport org.openqa.selenium.support.FindBy;\nimport org.openqa.selenium.support.PageFactory;\nimport utilities.Driver;\n\nimport java.sql.DriverManager;\n\npublic class SignInPage {\n\n    public SignInPage(){\n\n        PageFactory.initElements(Driver.getDriver(), this);\n    }\n\n    @FindBy(xpath = \"//*[@id='username']\")\n    public WebElement username;\n\n    @FindBy(xpath = \"//*[@id='password']\")\n    public WebElement password;\n\n    @FindBy(id = \"rememberMe\")\n    public WebElement rememberMe;\n\n    @FindBy(xpath = \"(//*[@type='button'])[3]\")\n    public WebElement cancelButton;\n\n    @FindBy(xpath = \"//*[@type='submit']\")\n    public WebElement singInButton;\n\n    @FindBy(xpath = \"//*[contains(text(),'Failed')]\")\n    public WebElement FailedAlert;\n\n    @FindBy(xpath = \"//*[.='Authentication information not correct.']\")\n    public WebElement failedMessage;\n\n    @FindBy(xpath = \"(//span)[16]\")\n    public WebElement singinPageHeader;\n\n    @FindBy(xpath = \"(//*[@class='invalid-feedback'])[1]\")\n    public WebElement emptyUsernameFailMessage;\n\n    @FindBy(xpath = \"(//*[@class='invalid-feedback'])[2]\")\n    public WebElement emptyPasswordFailMessage;\n\n    @FindBy(xpath = \"(//span)[19]\")\n    public WebElement passwordResetButton;\n\n    @FindBy(xpath = \"//h1\")\n    public WebElement resetPasswordPageHeader;\n\n    @FindBy(xpath = \"(//span)[22]\")\n    public WebElement registrationButtonAtSigninPage;\n\n    @FindBy(xpath = \"//*[@class='svg-inline--fa fa-sign-out-alt fa-w-16 fa-fw ']\")\n    public WebElement signoutButton;\n\n    @FindBy(xpath = \"//h2\")\n    public WebElement signoutMessage;\n\n}\n
+===================================================================
+diff --git a/src/test/java/pages/SignInPage.java b/src/test/java/pages/SignInPage.java
+--- a/src/test/java/pages/SignInPage.java	
++++ b/src/test/java/pages/SignInPage.java	
+@@ -62,4 +62,7 @@
+     @FindBy(xpath = "//h2")
+     public WebElement signoutMessage;
+ 
++
++
++
+ }
+Index: src/test/resources/features/login_page.feature
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>Feature: User login\n\n  @user_login_positive @smoke\n  Scenario Outline: Verifying user login with correct username and password\n\n  #When User navigates to the home page\n  And user clicks sign in button at the home page and navigates to sign in page\n  Then user verifies that sign in page header is visible\n  And user enters username \"<username>\" and password \"<password>\"\n  And user clicks sign in button\n  Then user verifies that sign in is successful\n  #And user clicks sign out and verifies sign out\n\n    Examples:Test data\n    |username|password|\n    |hazel     |13579  |\n\n  @user_login_negative @smoke\n  Scenario Outline: Verifying that user cannot login with incorrect or missing login data\n\n    #When User navigates to the home page\n    And user clicks sign in button at the home page and navigates to sign in page\n    Then user verifies that sign in page header is visible\n    And user enters username \"<username>\" and password \"<password>\"\n    And user clicks sign in button\n    Then user verifies that sign in is unsuccessful in case \"<case>\"\n\n    Examples:Test data\n      |username|password|case|\n      |        |        |1   |\n      |frank   |123456  |2   |\n      |frank1  |123456f |2   |\n      |frank1  |123456f |2   |\n\n    @cancel_login\n    Scenario: User cancels login on login page\n\n      #When User navigates to the home page\n      And user clicks sign in button at the home page and navigates to sign in page\n      Then user verifies that sign in page header is visible\n      And user clicks cancel button\n      Then user verifies that signin is canceled and user is on home page\n\n    @rememberme_box\n    Scenario: User can see and click remember me box\n\n      #When User navigates to the home page\n      And user clicks sign in button at the home page and navigates to sign in page\n      Then user verifies that sign in page header is visible\n      And user verifies that remember me box is visible and clickable\n\n     @password_reset @smoke\n     Scenario: User can see and click password reset option\n\n      #When User navigates to the home page\n      And user clicks sign in button at the home page and navigates to sign in page\n      And user verifies that sign in page header is visible\n      And user verifies that password reset button is visible and clicks it\n      Then user verifies that navigated to the password reset page\n\n      @registration_page @smoke\n      Scenario: User can see and click register button\n\n      #When User navigates to the home page\n      And user clicks sign in button at the home page and navigates to sign in page\n      And user verifies that sign in page header is visible\n      And user verifies that register button is visible and clicks it\n      Then user verifies that navigated to the registration page\n\n\n\n\n\n
+===================================================================
+diff --git a/src/test/resources/features/login_page.feature b/src/test/resources/features/login_page.feature
+--- a/src/test/resources/features/login_page.feature	
++++ b/src/test/resources/features/login_page.feature	
+@@ -9,7 +9,7 @@
+   And user enters username "<username>" and password "<password>"
+   And user clicks sign in button
+   Then user verifies that sign in is successful
+-  #And user clicks sign out and verifies sign out
++  And user clicks sign out and verifies sign out
+ 
+     Examples:Test data
+     |username|password|
+Index: src/test/java/stepdefinitions/US_001_StepDef.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package stepdefinitions;\n\nimport io.cucumber.java.en.Given;\nimport io.cucumber.java.en.Then;\nimport org.junit.Assert;\nimport org.openqa.selenium.By;\nimport org.openqa.selenium.Keys;\nimport pages.CommonPage;\nimport pages.RegistrationPage;\nimport utilities.ConfigurationReader;\nimport utilities.Driver;\n\nimport static org.junit.Assert.assertFalse;\nimport static org.junit.Assert.assertTrue;\n\npublic class US_001_StepDef {\n    CommonPage commonPage = new CommonPage();\n    RegistrationPage registrationPage = new RegistrationPage();\n\n    @Given(\"user is on the common page\")\n    public void user_is_on_the_common_page() {\n        Driver.getDriver().get(ConfigurationReader.getProperty(\"medunna_login_url\"));\n    }\n    @Given(\"user navigates to registration page\")\n    public void user_navigates_to_registration_page() {\n        Driver.waitAndClick(commonPage.accountMenu);\n        Driver.waitAndClick(commonPage.Register);\n    }\n    @Given(\"user provides the valid {string} of the applicant\")\n    public void user_provides_the_valid_of_the_applicant(String snn) {\n        Driver.waitAndSendText(registrationPage.ssn, snn);\n        Driver.waitAndClick(registrationPage.registrationTitle);\n    }\n\n    @Then(\"should not get any error\")\n    public void should_not_get_any_error() {\n\n    }\n\n    @Given(\"user provides the invalid {string} of the applicant\")\n    public void user_provides_the_invalid_of_the_applicant(String ssn) {\n        Driver.waitAndSendText(registrationPage.ssn, ssn);\n        Driver.waitAndClick(registrationPage.registrationTitle);\n    }\n    @Then(\"there should be displayed Your SSN is invalid message\")\n    public void there_should_be_displayed_your_ssn_is_invalid_message() {\n        assertTrue(registrationPage.invalidSsnFeedback.isDisplayed());\n    }\n\n    @Given(\"user lefts {string} textbox blank\")\n    public void user_lefts_textbox_blank(String ssn) {\n        Driver.waitAndSendText(registrationPage.ssn, ssn);\n        Driver.waitAndClick(registrationPage.registrationTitle);\n    }\n\n    @Given(\"user types some spaces on {string} textbox\")\n    public void user_types_some_spaces_on_textbox(String ssn) {\n        Driver.waitAndSendText(registrationPage.ssn, ssn);\n        Driver.waitAndClick(registrationPage.registrationTitle);\n    }\n\n    @Given(\"user provides the valid first name {string} of the applicant\")\n    public void user_provides_the_valid_first_name_of_the_applicant(String firstName) {\n        Driver.waitAndSendText(registrationPage.firstName, firstName);\n        Driver.waitAndClick(registrationPage.registrationTitle);\n    }\n\n    @Given(\"user lefts first name {string} textbox blank\")\n    public void user_lefts_first_name_textbox_blank(String firstName) {\n        Driver.waitAndSendText(registrationPage.firstName, firstName);\n        Driver.waitAndClick(registrationPage.registrationTitle);\n    }\n\n    @Given(\"user types some spaces on first name {string} textbox\")\n    public void user_types_some_spaces_on_first_name_textbox(String firstName) {\n        Driver.waitAndSendText(registrationPage.firstName, firstName);\n        Driver.waitAndClick(registrationPage.registrationTitle);\n    }\n\n    @Then(\"verify Your FirstName is required. message\")\n    public void verify_your_first_name_is_required_message() {\n        assertTrue(registrationPage.invalidfeedback.isDisplayed());\n    }\n\n    @Given(\"user provides the valid last Name {string} of the applicant\")\n    public void user_provides_the_valid_last_name_of_the_applicant(String lastName) {\n        Driver.waitAndSendText(registrationPage.lastName, lastName);\n        Driver.waitAndClick(registrationPage.registrationTitle);\n    }\n\n    @Given(\"user lefts last Name {string} textbox blank\")\n    public void user_lefts_last_name_textbox_blank(String lastName) {\n        Driver.waitAndSendText(registrationPage.lastName, lastName);\n        Driver.waitAndClick(registrationPage.registrationTitle);\n    }\n\n    @Given(\"user types some spaces on last Name {string} textbox\")\n    public void user_types_some_spaces_on_last_name_textbox(String lastName) {\n        Driver.waitAndSendText(registrationPage.lastName, lastName);\n        Driver.waitAndClick(registrationPage.registrationTitle);\n    }\n\n    @Then(\"verify Your LastName is required. message\")\n    public void verify_your_last_name_is_required_message() {\n        assertTrue(registrationPage.invalidfeedback.isDisplayed());\n    }\n}\n
+===================================================================
+diff --git a/src/test/java/stepdefinitions/US_001_StepDef.java b/src/test/java/stepdefinitions/US_001_StepDef.java
+--- a/src/test/java/stepdefinitions/US_001_StepDef.java	
++++ b/src/test/java/stepdefinitions/US_001_StepDef.java	
+@@ -7,7 +7,7 @@
+ import org.openqa.selenium.Keys;
+ import pages.CommonPage;
+ import pages.RegistrationPage;
+-import utilities.ConfigurationReader;
++import utilities.ConfigReader;
+ import utilities.Driver;
+ 
+ import static org.junit.Assert.assertFalse;
+@@ -19,7 +19,7 @@
+ 
+     @Given("user is on the common page")
+     public void user_is_on_the_common_page() {
+-        Driver.getDriver().get(ConfigurationReader.getProperty("medunna_login_url"));
++        Driver.getDriver().get(ConfigReader.getProperty("medunna_login_url"));
+     }
+     @Given("user navigates to registration page")
+     public void user_navigates_to_registration_page() {
+Index: src/test/java/stepdefinitions/uistep/RegistrationUISteps.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package stepdefinitions.uistep;\n\nimport com.github.javafaker.Faker;\nimport io.cucumber.java.en.Given;\nimport io.cucumber.java.en.Then;\nimport org.junit.Assert;\nimport pages.RegistrationPage;\nimport pojos.Registrant;\nimport utilities.Driver;\n\nimport static utilities.WriteToTxt.saveRegistrantData;\n\npublic class RegistrationUISteps {\n\n    Registrant registrant = new Registrant();//SAVE DATA AND REUSE DATA\n    Faker faker = new Faker();\n    RegistrationPage rp = new RegistrationPage();//INITIALIZED WEBELEMENTS\n\n\n    @Given(\"user provides ssn id {string}\")\n    public void user_provides_ssn_id(String ssn) {\n\n        ssn = faker.idNumber().ssnValid();\n        registrant.setSsn(ssn);\n        Driver.waitAndSendText(rp.ssnTextBox,ssn);\n\n\n    }\n    @Given(\"user provides firstname and lastname {string} and {string}\")\n    public void user_provides_firstname_and_lastname_and(String firstname, String lastname) {\n\n        firstname = faker.name().firstName();\n        lastname = faker.name().lastName();\n\n        registrant.setFirstName(firstname);\n        registrant.setLastName(lastname);\n\n        Driver.waitAndSendText(rp.firstnameTextBox,firstname);\n        Driver.waitAndSendText(rp.lastnameTextBox,lastname);\n\n\n    }\n    @Then(\"user creates username {string}\")\n    public void user_creates_username(String username) {\n        username = registrant.getFirstName() + registrant.getLastName();\n        registrant.setLogin(username);\n        Driver.waitAndSendText(rp.usernameTextBox,username);\n\n    }\n    @Then(\"user provides also email {string}\")\n    public void user_provides_also_email(String email) {\n\n        email = faker.internet().emailAddress();\n        registrant.setEmail(email);\n        Driver.waitAndSendText(rp.emailTextbox,email);\n    }\n    @Then(\"user generates the password {string}\")\n    public void user_generates_the_password(String password) {\n\n        password = faker.internet().password(8,20, true,true);\n        registrant.setPassword(password);\n        Driver.waitAndSendText(rp.firstPasswordTextBox,password);\n        Driver.waitAndSendText(rp.newPasswordTextBox,password);\n    }\n    @Then(\"user registers and validates\")\n    public void user_registers_and_validates() {\n        Driver.waitAndClick(rp.registerButton);\n        Assert.assertTrue(Driver.waitForVisibility(rp.successMessageToastContainer, 5).isDisplayed());\n    }\n    @Then(\"user creates the records to a correspondent file\")\n    public void user_creates_the_records_to_a_correspondent_file() {\n\n        saveRegistrantData(registrant);\n    }\n\n\n\n    @Given(\"user provides the password {string}\")\n    public void user_provides_the_password(String password) {\n        Driver.waitAndSendText(rp.firstPasswordTextBox,password );\n    }\n    @Then(\"user valides the password strength {string}\")\n    public void user_valides_the_password_strength(String level) {\n\n        if( 1 == Integer.parseInt(level)){\n            Assert.assertTrue(rp.passwordStrength1.isDisplayed());\n        }else if(2 == Integer.parseInt(level)){\n            Assert.assertTrue(rp.passwordStrength2.isDisplayed());\n        }else if(3 == Integer.parseInt(level)){\n            Assert.assertTrue(rp.passwordStrength3.isDisplayed());\n        }\n\n\n    }\n\n}\n
+===================================================================
+diff --git a/src/test/java/stepdefinitions/uistep/RegistrationUISteps.java b/src/test/java/stepdefinitions/uistep/RegistrationUISteps.java
+--- a/src/test/java/stepdefinitions/uistep/RegistrationUISteps.java	
++++ b/src/test/java/stepdefinitions/uistep/RegistrationUISteps.java	
+@@ -12,85 +12,84 @@
+ 
+ public class RegistrationUISteps {
+ 
+-    Registrant registrant = new Registrant();//SAVE DATA AND REUSE DATA
+-    Faker faker = new Faker();
+-    RegistrationPage rp = new RegistrationPage();//INITIALIZED WEBELEMENTS
+-
+-
+-    @Given("user provides ssn id {string}")
+-    public void user_provides_ssn_id(String ssn) {
+-
+-        ssn = faker.idNumber().ssnValid();
+-        registrant.setSsn(ssn);
+-        Driver.waitAndSendText(rp.ssnTextBox,ssn);
+-
+-
+-    }
+-    @Given("user provides firstname and lastname {string} and {string}")
+-    public void user_provides_firstname_and_lastname_and(String firstname, String lastname) {
+-
+-        firstname = faker.name().firstName();
+-        lastname = faker.name().lastName();
+-
+-        registrant.setFirstName(firstname);
+-        registrant.setLastName(lastname);
+-
+-        Driver.waitAndSendText(rp.firstnameTextBox,firstname);
+-        Driver.waitAndSendText(rp.lastnameTextBox,lastname);
+-
+-
+-    }
+-    @Then("user creates username {string}")
+-    public void user_creates_username(String username) {
+-        username = registrant.getFirstName() + registrant.getLastName();
+-        registrant.setLogin(username);
+-        Driver.waitAndSendText(rp.usernameTextBox,username);
+-
+-    }
+-    @Then("user provides also email {string}")
+-    public void user_provides_also_email(String email) {
+-
+-        email = faker.internet().emailAddress();
+-        registrant.setEmail(email);
+-        Driver.waitAndSendText(rp.emailTextbox,email);
+-    }
+-    @Then("user generates the password {string}")
+-    public void user_generates_the_password(String password) {
+-
+-        password = faker.internet().password(8,20, true,true);
+-        registrant.setPassword(password);
+-        Driver.waitAndSendText(rp.firstPasswordTextBox,password);
+-        Driver.waitAndSendText(rp.newPasswordTextBox,password);
+-    }
+-    @Then("user registers and validates")
+-    public void user_registers_and_validates() {
+-        Driver.waitAndClick(rp.registerButton);
+-        Assert.assertTrue(Driver.waitForVisibility(rp.successMessageToastContainer, 5).isDisplayed());
+-    }
+-    @Then("user creates the records to a correspondent file")
+-    public void user_creates_the_records_to_a_correspondent_file() {
+-
+-        saveRegistrantData(registrant);
+-    }
+-
+-
++//    Registrant registrant = new Registrant();//SAVE DATA AND REUSE DATA
++//    Faker faker = new Faker();
++//    RegistrationPage rp = new RegistrationPage();//INITIALIZED WEBELEMENTS
++//
++//
++//    @Given("user provides ssn id {string}")
++//    public void user_provides_ssn_id(String ssn) {
++//
++//        ssn = faker.idNumber().ssnValid();
++//        registrant.setSsn(ssn);
++//        Driver.waitAndSendText(rp.ssnTextBox,ssn);
++//
++//
++//    }
++//    @Given("user provides firstname and lastname {string} and {string}")
++//    public void user_provides_firstname_and_lastname_and(String firstname, String lastname) {
++//
++//        firstname = faker.name().firstName();
++//        lastname = faker.name().lastName();
++//
++//        registrant.setFirstName(firstname);
++//        registrant.setLastName(lastname);
++//
++//        Driver.waitAndSendText(rp.firstnameTextBox,firstname);
++//        Driver.waitAndSendText(rp.lastnameTextBox,lastname);
++//
++//
++//    }
++//    @Then("user creates username {string}")
++//    public void user_creates_username(String username) {
++//        username = registrant.getFirstName() + registrant.getLastName();
++//        registrant.setLogin(username);
++//        Driver.waitAndSendText(rp.usernameTextBox,username);
++//
++//    }
++//    @Then("user provides also email {string}")
++//    public void user_provides_also_email(String email) {
++//
++//        email = faker.internet().emailAddress();
++//        registrant.setEmail(email);
++//        Driver.waitAndSendText(rp.emailTextbox,email);
++//    }
++//    @Then("user generates the password {string}")
++//    public void user_generates_the_password(String password) {
++//
++//        password = faker.internet().password(8,20, true,true);
++//        registrant.setPassword(password);
++//        Driver.waitAndSendText(rp.firstPasswordTextBox,password);
++//        Driver.waitAndSendText(rp.newPasswordTextBox,password);
++//    }
++//    @Then("user registers and validates")
++//    public void user_registers_and_validates() {
++//        Driver.waitAndClick(rp.registerButton);
++//        Assert.assertTrue(Driver.waitForVisibility(rp.successMessageToastContainer, 5).isDisplayed());
++//    }
++//    @Then("user creates the records to a correspondent file")
++//    public void user_creates_the_records_to_a_correspondent_file() {
++//
++//        saveRegistrantData(registrant);
++//    }
++//
++//
++//
++//    @Given("user provides the password {string}")
++//    public void user_provides_the_password(String password) {
++//        Driver.waitAndSendText(rp.firstPasswordTextBox,password );
++//    }
++//    @Then("user valides the password strength {string}")
++//    public void user_valides_the_password_strength(String level) {
++//
++//        if( 1 == Integer.parseInt(level)){
++//            Assert.assertTrue(rp.passwordStrength1.isDisplayed());
++//        }else if(2 == Integer.parseInt(level)){
++//            Assert.assertTrue(rp.passwordStrength2.isDisplayed());
++//        }else if(3 == Integer.parseInt(level)){
++//            Assert.assertTrue(rp.passwordStrength3.isDisplayed());
++//        }
+ 
+-    @Given("user provides the password {string}")
+-    public void user_provides_the_password(String password) {
+-        Driver.waitAndSendText(rp.firstPasswordTextBox,password );
+-    }
+-    @Then("user valides the password strength {string}")
+-    public void user_valides_the_password_strength(String level) {
+ 
+-        if( 1 == Integer.parseInt(level)){
+-            Assert.assertTrue(rp.passwordStrength1.isDisplayed());
+-        }else if(2 == Integer.parseInt(level)){
+-            Assert.assertTrue(rp.passwordStrength2.isDisplayed());
+-        }else if(3 == Integer.parseInt(level)){
+-            Assert.assertTrue(rp.passwordStrength3.isDisplayed());
+-        }
++    }
+ 
+-
+-    }
+-
+-}

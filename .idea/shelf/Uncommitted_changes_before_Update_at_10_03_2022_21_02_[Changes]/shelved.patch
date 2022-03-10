@@ -1,0 +1,124 @@
+Index: src/test/java/pages/AppointmentPage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package pages;\n\nimport org.openqa.selenium.WebElement;\nimport org.openqa.selenium.support.FindBy;\nimport org.openqa.selenium.support.PageFactory;\nimport utilities.Driver;\n\npublic class AppointmentPage {\n\n    public AppointmentPage(){\n\n        PageFactory.initElements(Driver.getDriver(), this);\n\n    }\n\n    @FindBy(xpath = \"//*[text()='Make an']\")\n    public WebElement MakeAnAppointmentButton;\n\n    @FindBy(id = \"firstName\")\n    public WebElement firstnameTextbox;\n\n    @FindBy(id = \"lastName\")\n    public WebElement lastnameTextbox;\n\n    @FindBy(id = \"ssn\")\n    public WebElement ssnTextbox;\n\n    @FindBy(id = \"email\")\n    public WebElement emailTextbox;\n\n    @FindBy(id = \"phone\")\n    public WebElement phoneTextbox;\n\n    @FindBy(name = \"appoDate\")\n    public WebElement dateTextbox;\n\n    @FindBy(xpath = \"//*[text()='Send an Appointment Request']\")\n    public WebElement requestButton;\n\n\n    @FindBy(xpath = \"//*[text()='Appointment registration saved!']\")\n    public WebElement successMessageToastContainer;\n\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/pages/AppointmentPage.java b/src/test/java/pages/AppointmentPage.java
+--- a/src/test/java/pages/AppointmentPage.java	(revision 81d3d24acf141bf7c56114bf1eb3122a92913140)
++++ b/src/test/java/pages/AppointmentPage.java	(date 1646935293321)
+@@ -3,13 +3,13 @@
+ import org.openqa.selenium.WebElement;
+ import org.openqa.selenium.support.FindBy;
+ import org.openqa.selenium.support.PageFactory;
+-import utilities.Driver;
++
+ 
+ public class AppointmentPage {
+ 
+     public AppointmentPage(){
+ 
+-        PageFactory.initElements(Driver.getDriver(), this);
++        PageFactory.initElements(stepdefinitions.utilities.Driver.getDriver(), this);
+ 
+     }
+ 
+Index: src/test/java/stepdefinitions/SigninStepDefs.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package stepdefinitions;\n\nimport io.cucumber.java.bs.A;\nimport io.cucumber.java.en.And;\nimport io.cucumber.java.en.Then;\nimport io.cucumber.java.en.When;\nimport org.junit.Assert;\nimport pages.CommonPage;\nimport pages.RegistrationPage;\nimport pages.SignInPage;\nimport utilities.ConfigReader;\nimport utilities.Driver;\n\npublic class SigninStepDefs {\n\n    SignInPage signInPage=new SignInPage();\n    CommonPage commonPage=new CommonPage();\n    RegistrationPage registrationPage=new RegistrationPage();\n\n//    @When(\"User navigates to the home page\")\n//    public void user_navigates_to_the_home_page() {\n//\n//        Driver.getDriver().get(ConfigReader.getProperty(\"app_url\"));\n//\n//    }\n    @When(\"user clicks sign in button at the home page and navigates to sign in page\")\n    public void user_clicks_sign_in_button_at_the_home_page_and_navigates_to_sign_in_page() {\n\n       commonPage.accountMenu.click();\n       Driver.waitForClickablility(commonPage.signIn,5).click();\n\n    }\n    @Then(\"user verifies that sign in page header is visible\")\n    public void user_verifies_that_sign_in_page_header_is_visible() {\n\n        Driver.waitForVisibility(signInPage.singinPageHeader, 5);\n        Assert.assertTrue(signInPage.singinPageHeader.isDisplayed());\n\n    }\n    @Then(\"user enters username {string} and password {string}\")\n    public void user_enters_username_and_password(String username, String password) {\n\n        signInPage.username.sendKeys(username);\n        signInPage.password.sendKeys(password);\n\n    }\n    @Then(\"user clicks sign in button\")\n    public void user_clicks_sign_in_button() {\n\n        signInPage.singInButton.click();\n\n    }\n    @Then(\"user verifies that sign in is successful\")\n    public void sser_verifies_that_sign_in_is_successful() {\n\n        Assert.assertTrue(commonPage.accountMenu.isDisplayed());\n\n    }\n\n    @And(\"user clicks sign out and verifies sign out\")\n    public void userClicksSignOutAndVerifiesSignOut() {\n\n        commonPage.accountMenu.click();\n        Driver.waitForClickablility(signInPage.signoutButton,5).click();\n        Assert.assertTrue(signInPage.signoutMessage.isDisplayed());\n\n    }\n\n    @Then(\"user verifies that sign in is unsuccessful in case {string}\")\n    public void user_verifies_that_sign_in_is_unsuccessful_in_case(String string) {\n\n        if (Integer.parseInt(string)==1){\n            Driver.waitForVisibility(signInPage.emptyUsernameFailMessage, 5);\n            Assert.assertTrue(signInPage.emptyUsernameFailMessage.isDisplayed());\n            Assert.assertTrue(signInPage.emptyPasswordFailMessage.isDisplayed());\n        }else{\n            Driver.waitForVisibility(signInPage.FailedAlert,5);\n        Assert.assertTrue(signInPage.FailedAlert.isDisplayed());\n    }\n}\n\n    @And(\"user clicks cancel button\")\n    public void userClicksCancelButton() {\n\n        signInPage.cancelButton.click();\n        signInPage.cancelButton.click();\n    }\n\n    @Then(\"user verifies that signin is canceled and user is on home page\")\n    public void userVerifiesThatSigninIsCnacelledAndUserIsOnHomePage() {\n\n        Assert.assertTrue(Driver.waitForVisibility(commonPage.homePageAssertionText,10).isDisplayed());\n\n    }\n\n    @And(\"user verifies that remember me box is visible and clickable\")\n    public void userVerifiesThatRememberMeBoxIsVisibleAndClickable() throws InterruptedException {\n\n        Driver.waitForClickablility(signInPage.rememberMe,10).click();\n        signInPage.rememberMe.click();\n        Thread.sleep(5000);\n        String clickText= signInPage.rememberMe.getAttribute(\"value\");\n        Assert.assertEquals(\"true\", clickText);\n\n    }\n\n    @And(\"user verifies that password reset button is visible and clicks it\")\n    public void userVerifiesThatPasswordResetButtonIsVisibleAndClicksIt() throws InterruptedException {\n\n        Assert.assertTrue(signInPage.passwordResetButton.isDisplayed());\n        Driver.waitForClickablility(signInPage.passwordResetButton,5).click();\n        signInPage.passwordResetButton.click();\n    }\n\n    @Then(\"user verifies that navigated to the password reset page\")\n    public void userVerifiesThatNavigatedToThePasswordResetPage() {\n\n        Assert.assertTrue(signInPage.resetPasswordPageHeader.isDisplayed());\n    }\n\n    @And(\"user verifies that register button is visible and clicks it\")\n    public void userVerifiesThatRegisterButtonIsVisibleAndClicksIt() {\n\n        Assert.assertTrue(signInPage.registrationButtonAtSigninPage.isDisplayed());\n        Driver.waitForClickablility(signInPage.registrationButtonAtSigninPage,5).click();\n        signInPage.registrationButtonAtSigninPage.click();\n    }\n    @Then(\"user verifies that navigated to the registration page\")\n    public void userVerifiesThatNavigatedToTheRegistrationPage() {\n\n        Assert.assertTrue(registrationPage.registrationTitle.isDisplayed());\n    }\n\n\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/stepdefinitions/SigninStepDefs.java b/src/test/java/stepdefinitions/SigninStepDefs.java
+--- a/src/test/java/stepdefinitions/SigninStepDefs.java	(revision 81d3d24acf141bf7c56114bf1eb3122a92913140)
++++ b/src/test/java/stepdefinitions/SigninStepDefs.java	(date 1646933760086)
+@@ -6,28 +6,26 @@
+ import io.cucumber.java.en.When;
+ import org.junit.Assert;
+ import pages.CommonPage;
+-import pages.RegistrationPage;
+ import pages.SignInPage;
+-import utilities.ConfigReader;
++import utilities.ConfigurationReader;
+ import utilities.Driver;
+ 
+ public class SigninStepDefs {
+ 
+     SignInPage signInPage=new SignInPage();
+     CommonPage commonPage=new CommonPage();
+-    RegistrationPage registrationPage=new RegistrationPage();
++
++    @When("User navigates to the home page")
++    public void user_navigates_to_the_home_page() {
+ 
+-//    @When("User navigates to the home page")
+-//    public void user_navigates_to_the_home_page() {
+-//
+-//        Driver.getDriver().get(ConfigReader.getProperty("app_url"));
+-//
+-//    }
++        Driver.getDriver().get(ConfigurationReader.getProperty("medunna_login_url"));
++
++    }
+     @When("user clicks sign in button at the home page and navigates to sign in page")
+     public void user_clicks_sign_in_button_at_the_home_page_and_navigates_to_sign_in_page() {
+ 
+        commonPage.accountMenu.click();
+-       Driver.waitForClickablility(commonPage.signIn,5).click();
++       commonPage.signIn.click();
+ 
+     }
+     @Then("user verifies that sign in page header is visible")
+@@ -57,15 +55,6 @@
+ 
+     }
+ 
+-    @And("user clicks sign out and verifies sign out")
+-    public void userClicksSignOutAndVerifiesSignOut() {
+-
+-        commonPage.accountMenu.click();
+-        Driver.waitForClickablility(signInPage.signoutButton,5).click();
+-        Assert.assertTrue(signInPage.signoutMessage.isDisplayed());
+-
+-    }
+-
+     @Then("user verifies that sign in is unsuccessful in case {string}")
+     public void user_verifies_that_sign_in_is_unsuccessful_in_case(String string) {
+ 
+@@ -103,34 +92,4 @@
+         Assert.assertEquals("true", clickText);
+ 
+     }
+-
+-    @And("user verifies that password reset button is visible and clicks it")
+-    public void userVerifiesThatPasswordResetButtonIsVisibleAndClicksIt() throws InterruptedException {
+-
+-        Assert.assertTrue(signInPage.passwordResetButton.isDisplayed());
+-        Driver.waitForClickablility(signInPage.passwordResetButton,5).click();
+-        signInPage.passwordResetButton.click();
+-    }
+-
+-    @Then("user verifies that navigated to the password reset page")
+-    public void userVerifiesThatNavigatedToThePasswordResetPage() {
+-
+-        Assert.assertTrue(signInPage.resetPasswordPageHeader.isDisplayed());
+-    }
+-
+-    @And("user verifies that register button is visible and clicks it")
+-    public void userVerifiesThatRegisterButtonIsVisibleAndClicksIt() {
+-
+-        Assert.assertTrue(signInPage.registrationButtonAtSigninPage.isDisplayed());
+-        Driver.waitForClickablility(signInPage.registrationButtonAtSigninPage,5).click();
+-        signInPage.registrationButtonAtSigninPage.click();
+-    }
+-    @Then("user verifies that navigated to the registration page")
+-    public void userVerifiesThatNavigatedToTheRegistrationPage() {
+-
+-        Assert.assertTrue(registrationPage.registrationTitle.isDisplayed());
+-    }
+-
+-
+-
+ }
