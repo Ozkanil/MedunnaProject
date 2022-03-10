@@ -79,7 +79,7 @@ public class SigninStepDefs {
     public void userVerifiesThatSigninIsCnacelledAndUserIsOnHomePage() {
 
 
-        Assert.assertTrue(Driver.waitForVisibility(commonPage.homePageAssertionText,10).isDisplayed());
+        //Assert.assertTrue(Driver.waitForVisibility(commonPage.homePageAssertionText,10).isDisplayed());
 
     }
 
