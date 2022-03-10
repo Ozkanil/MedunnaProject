@@ -104,4 +104,6 @@ public class US_001_StepDef {
     public void verify_your_last_name_is_required_message() {
         assertTrue(registrationPage.invalidfeedback.isDisplayed());
     }
+
+
 }

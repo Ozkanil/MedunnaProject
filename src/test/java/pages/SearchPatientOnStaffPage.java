@@ -8,7 +8,6 @@ import utilities.Driver;
 public class SearchPatientOnStaffPage {
 
     public SearchPatientOnStaffPage() {
-
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
