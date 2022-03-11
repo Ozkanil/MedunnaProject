@@ -25,6 +25,7 @@ ShowTestResultPage showTestResultPage=new ShowTestResultPage();
         Driver.wait(1);
         Driver.clickWithJS(showTestResultPage.viewResultsOfFirstTest);
 
+
     }
 
     @Then("user should see Test Results including all necessary information")

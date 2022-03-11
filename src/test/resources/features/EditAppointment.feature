@@ -1,5 +1,6 @@
 Feature: test appointment page as admin
 
+
   @UIEditAppointmentAdmin
   Scenario Outline:  test appointment page as admin
     Given user logs in as admin "<username>","<password>"

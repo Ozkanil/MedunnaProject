@@ -10,6 +10,7 @@ public class Id_1401_Page {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
+
     @FindBy(xpath = "//span[contains(text(),'Default Max. Value')]")
     public WebElement defaultMaxValue;
 

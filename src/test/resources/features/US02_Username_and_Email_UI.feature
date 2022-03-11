@@ -4,6 +4,7 @@ Feature: US02 Choose a username that can contain any chars, but it cannot be bla
     Given Go to medunna homepage
     Then User navigates to registration page
 
+
   @TC0001_UserName @Usernamebox_and_Emailbox_UI
   Scenario: TC_0001 Positive Scnenario with a valid username
     Then User clicks on the username textbox

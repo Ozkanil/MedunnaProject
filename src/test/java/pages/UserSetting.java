@@ -17,6 +17,7 @@ public class UserSetting {
     @FindBy(xpath = "//*[text()='Sign in']")
     public WebElement SignIn;
 
+
     @FindBy(xpath = "//*[text()='Register']")
     public WebElement registerBtn;
 

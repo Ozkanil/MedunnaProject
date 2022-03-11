@@ -13,6 +13,7 @@ public class CreateOrEditAnAppointmentPage {
     @FindBy(xpath = "//*[@id='appointment-startDate']")
     public WebElement startDateTime;
 
+
     @FindBy(xpath = "//*[@id='appointment-endDate']")
     public WebElement endDateTime;
 

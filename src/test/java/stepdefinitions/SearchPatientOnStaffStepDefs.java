@@ -67,8 +67,8 @@ public class SearchPatientOnStaffStepDefs {
 
     }
 
-    @And("user clicks edit button")
-    public void userClicksEditButton() {
+    @And("user clicks patient edit button")
+    public void userClicksPetientEditButton() {
 
        Driver.waitAndClick(searchPatientOnStaffPage.editButtonOnPatientSearch, 5);
     }

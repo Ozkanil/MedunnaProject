@@ -1,5 +1,6 @@
 Feature: All locaters should work good
 
+
   @Staff
   Scenario: Checking In Patients Page as a Staff
     When User sign in as a Staff at homepage

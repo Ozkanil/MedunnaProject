@@ -23,6 +23,7 @@
         |SSN        |
         |412-51-785|
 
+
     @US_001_TC_0003
     Scenario Outline: TC_0001_negative_Scenario
       Given user is on the common page

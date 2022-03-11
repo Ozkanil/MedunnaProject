@@ -5,6 +5,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
+
 public class AppointmentAdminPage {
     public AppointmentAdminPage(){
         PageFactory.initElements(Driver.getDriver(),this);

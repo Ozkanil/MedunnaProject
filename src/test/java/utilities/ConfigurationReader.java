@@ -28,6 +28,7 @@ public class ConfigurationReader {
 
 
 
+
     //3-test classlarindan configReader classina
     // ulasip yukaridaki islemleri yapmamizi saglayacak bir method
 

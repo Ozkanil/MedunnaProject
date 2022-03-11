@@ -26,6 +26,7 @@ public class PasswordSettingUserSteps {
         Driver.wait(1);
     }
 
+
     @Then("User reenters new password {string}")
     public void user_reenters_new_password(String confirmPwd) {
        userPage.confirmPwd.sendKeys(confirmPwd);

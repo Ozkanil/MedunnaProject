@@ -28,6 +28,7 @@ public WebElement patientMyPagesDropdown;
     @FindBy(xpath = "//*[span='Appointment']" )
     public WebElement adminAppointment;
 
+
     @FindBy(id="appointment-heading")
     public WebElement appointmentHeading;
 

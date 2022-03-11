@@ -110,7 +110,7 @@ Driver.waitAndClick(myAppointmentPageAsDoctor.adminAppointment);
     }
 
     @And("user clicks on the view button")
-    public void userClicksOnTheViewButton() {
+    public void userClickOnTheViewButton() {
         Driver.waitAndClick(requestATestPage.adminViewAppointment);
     }
 

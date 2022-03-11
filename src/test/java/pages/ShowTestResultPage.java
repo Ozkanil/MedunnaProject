@@ -10,6 +10,7 @@ public class ShowTestResultPage {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
+
     @FindBy(xpath = "//*[h2='Tests']")
     public WebElement testHeading;
 

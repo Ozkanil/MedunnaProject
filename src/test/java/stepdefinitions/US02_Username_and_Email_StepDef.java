@@ -27,6 +27,7 @@ public class US02_Username_and_Email_StepDef {
 
     }
 
+
     @Then("User clicks on the username textbox")
     public void user_clicks_on_the_username_textbox() {
 

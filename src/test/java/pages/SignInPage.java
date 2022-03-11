@@ -53,6 +53,7 @@ public class SignInPage {
     @FindBy(xpath = "//h1")
     public WebElement resetPasswordPageHeader;
 
+
     @FindBy(xpath = "(//span)[22]")
     public WebElement registrationButtonAtSigninPage;
 

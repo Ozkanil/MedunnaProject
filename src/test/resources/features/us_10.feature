@@ -12,6 +12,7 @@ Feature: US_10
     |title |fromDate|toDate|
     |doctor|26/02/2022  |11/03/2022|
 
+
     @appointment_edit_doctor
     Scenario Outline: doctor should be able to edit appointments
       Given user on the Create or Edit an Appointment page

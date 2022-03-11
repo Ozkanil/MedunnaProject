@@ -3,7 +3,7 @@ Feature: Search patient on staff page
   @view_patients_staff_page
   Scenario Outline: View patient info
 
-    #When User navigates to the home page
+    When User navigates to the home page
     And user clicks sign in button at the home page and navigates to sign in page
     Then user verifies that sign in page header is visible
     And user enters username "<username>" and password "<password>"
@@ -27,7 +27,7 @@ Feature: Search patient on staff page
   @edit_patient_info
   Scenario Outline: Edit patient info
 
-    #@When User navigates to the home page
+    When User navigates to the home page
     And user clicks sign in button at the home page and navigates to sign in page
     Then user verifies that sign in page header is visible
     And user enters username "<username>" and password "<password>"
@@ -38,7 +38,7 @@ Feature: Search patient on staff page
     When user provides a valid ssn number into search box
       |ssn        |
       |777-85-7963|
-    And user clicks edit button
+    And user clicks patient edit button
     Then user verifies create or edit patient page
     And user provides necessary data to edit patient info
     And user clicks save button
@@ -51,7 +51,7 @@ Feature: Search patient on staff page
     @view_edit_appointments
     Scenario Outline: View appointments
 
-    #When User navigates to the home page
+    When User navigates to the home page
     And user clicks sign in button at the home page and navigates to sign in page
     Then user verifies that sign in page header is visible
     And user enters username "<username>" and password "<password>"

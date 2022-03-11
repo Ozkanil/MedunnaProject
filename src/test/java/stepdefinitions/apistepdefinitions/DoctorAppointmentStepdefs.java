@@ -29,6 +29,7 @@ public class DoctorAppointmentStepdefs  {
         response.then().statusCode(arg0);
     }
 
+
     @And("response format should be {string}")
     public void responseFormatShouldBe(String arg0) {
         response.then().contentType(arg0);

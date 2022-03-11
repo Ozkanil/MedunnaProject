@@ -79,6 +79,7 @@ public class MyAppointmentsStepdefs {
         Driver.waitAndClick(myAppointmentPageAsDoctor.myAppointment);
     }
 
+
     @When("user on the Appointments page")
     public void userOnTheAppointmentsPage() {
         Driver.waitForVisibility(myAppointmentPageAsDoctor.appointmentHeading,1);

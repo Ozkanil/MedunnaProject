@@ -10,6 +10,7 @@ import utilities.ConfigurationReader;
 import utilities.Driver;
 
 public class SigninStepDefs {
+
     SignInPage signInPage=new SignInPage();
     CommonPage commonPage=new CommonPage();
 
@@ -17,7 +18,7 @@ public class SigninStepDefs {
     public void user_navigates_to_the_home_page() {
 
         Driver.getDriver().get(ConfigurationReader.getProperty("medunna_url"));
-        Driver.waitForVisibility(commonPage.accountMenu,3);
+
     }
     @When("user clicks sign in button at the home page and navigates to sign in page")
     public void user_clicks_sign_in_button_at_the_home_page_and_navigates_to_sign_in_page() {

@@ -6,6 +6,7 @@ Feature: Registration_page_should_restrict_password
     When User clicks on SignIn button  on the right top
     Then User clicks on Register in dropdown list
 
+
   Scenario Outline:TC_0001 User enters four charts passwords
     Then User enters four chars password "<password>"
     Then User verifies password chart color is "1"

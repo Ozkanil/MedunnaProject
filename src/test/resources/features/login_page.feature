@@ -50,6 +50,7 @@ Feature: User login
       Then user verifies that sign in page header is visible
       And user verifies that remember me box is visible and clickable
 
+
      @password_reset @smoke
      Scenario: User can see and click password reset option
 

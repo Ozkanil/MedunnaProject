@@ -22,6 +22,7 @@ Feature: setting homepage feature
     And User clicks on Save button
     Examples:
 
+
       | firstname | lastname | email        |
       | David     | Martin   | dm@gmail.com |
       | Kavin     | Maven    | km@gmail.com |

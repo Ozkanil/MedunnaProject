@@ -22,6 +22,7 @@ public class Hooks {
 
     public static RequestSpecification spec;
 
+
     @Before(value = "@ApiRegistrant")
     public void setup(){
         spec = new RequestSpecBuilder().setBaseUri(ConfigurationReader.getProperty("base_url")).build();
@@ -34,6 +35,13 @@ public class Hooks {
             scenario.attach(screenshot,"image/png","screenshots");
         }
 //         Driver.closeDriver();
+    }
+
+    @Before(order = 1, value = "@user_login_positive")
+    public void navigateToRegistrationPage(){
+
+        Driver.getDriver().get(ConfigurationReader.getProperty("medunna_url"));
+
     }
 
 

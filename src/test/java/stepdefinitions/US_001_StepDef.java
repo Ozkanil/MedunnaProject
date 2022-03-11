@@ -32,6 +32,7 @@ public class US_001_StepDef {
         Driver.waitAndClick(registrationPage.registrationTitle);
     }
 
+
     @Then("should not get any error")
     public void should_not_get_any_error() {
 

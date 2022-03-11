@@ -28,6 +28,7 @@ public class PasswordStrenghtTestSteps {
         Driver.wait(1);
     }
 
+
     @Then("User verifies password  chart color is {string}")
     public void user_verifies_password(String level) {
         colorStrength(level);

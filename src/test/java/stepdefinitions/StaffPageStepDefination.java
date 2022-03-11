@@ -26,6 +26,7 @@ public class StaffPageStepDefination extends ReusableMethods {
     public StaffPageStepDefination() throws AWTException {
     }
 
+
     @When("User sign in as a Staff at homepage")
     public void user_sign_in_as_a_staff_at_homepage() throws InterruptedException {
         Driver.getDriver().get("https://medunna.com/");

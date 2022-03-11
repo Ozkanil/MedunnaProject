@@ -6,6 +6,7 @@ Feature: setting homepage feature
     Then User clicks on signIn in dropdown list
 
 
+
   Scenario Outline: User creates a new Password
     Then User enters username "mclara"
     Then User enters password "<password>"

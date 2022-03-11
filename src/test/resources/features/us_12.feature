@@ -14,6 +14,7 @@ Then user should see the "<message>"
    |message|
    |A new Test is created with identifier|
 
+
 @doctor_show_test_results
 Scenario:user should be able to see test results
     Given user on the Create or Edit an Appointment page

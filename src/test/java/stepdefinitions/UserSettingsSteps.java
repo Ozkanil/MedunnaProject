@@ -22,6 +22,7 @@ public class UserSettingsSteps {
         userPage.sigInIcon.click();
 
 
+
     }
     @Then("User clicks on signIn in dropdown list")
     public void user_clicks_on_sign_in_in_dropdown_list() {

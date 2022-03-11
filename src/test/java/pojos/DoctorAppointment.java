@@ -19,6 +19,7 @@ public class DoctorAppointment {
                 '}';
     }
 
+
     public int getId() {
         return id;
     }

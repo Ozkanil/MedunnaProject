@@ -29,6 +29,7 @@ public class US13_Doctor_Request_Results_UI_StepDef {
         Driver.waitAndClickElement(commonPage.itemsAndTitles,10);
 
 
+
     }
     @Then("Click the Test Item")
     public void click_the_test_item() {

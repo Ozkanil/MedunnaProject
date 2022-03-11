@@ -11,6 +11,7 @@ public class DoctorTestItemsPage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
+
     @FindBy(xpath = "//td[contains(text(),'Glucose')]")
     public WebElement glucose;
 

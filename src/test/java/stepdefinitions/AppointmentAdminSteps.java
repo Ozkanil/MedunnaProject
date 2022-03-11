@@ -60,6 +60,7 @@ public class AppointmentAdminSteps {
        Driver.selectByValue(createOrEditAnAppointmentPage.physician,physician);
        Driver.selectByValue(createOrEditAnAppointmentPage.patient,patient);
 
+
     }
     @When("user click on save button")
     public void user_click_on_save_button() {

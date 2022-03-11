@@ -14,6 +14,7 @@ public class RegistrationPage {
     @FindBy(xpath = "//*[@name='ssn']")
     public WebElement ssn;
 
+
     @FindBy(xpath = "//*[@name='firstName']")
     public WebElement firstName;
 
