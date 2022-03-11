@@ -26,8 +26,8 @@ public class US13_Doctor_Request_Results_StepDef {
     public void sign_in_as_a_doctor() throws InterruptedException {
         commonPage.accountMenu.click();
         commonPage.signIn.click();
-        signInPage.username.sendKeys("doktormustafa");
-        signInPage.password.sendKeys("11!!qqQQ");
+        signInPage.username.sendKeys("MedunnaAdmin");
+        signInPage.password.sendKeys("1@qweASD");
         signInPage.singInButton.click();
         Thread.sleep(3000);
 
@@ -40,7 +40,8 @@ public class US13_Doctor_Request_Results_StepDef {
     }
     @Then("Click the Test Item")
     public void click_the_test_item() {
-        commonPage.testItemUnderItemAndTest.click();
+        Driver.waitAndClickElement(commonPage.testItemUnderItemAndTest,10);
+
     }
     @Then("Check the id, name\\(Urea, Sodium, Glucose etc..), default max value, default min value, test, description and the date")
     public void check_the_id_name_urea_sodium_glucose_etc_default_max_value_default_min_value_test_description_and_the_date() {

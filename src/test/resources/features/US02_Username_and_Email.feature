@@ -43,7 +43,6 @@ Feature: US02 Choose a username that can contain any chars, but it cannot be bla
     Examples: test data
       | invalid email      |
       | mustafaqa@gmail    |
-      |                    |
       | mustafaqagmail.com |
       | mustafaqa@gmail    |
       | mustafaqa@com      |
