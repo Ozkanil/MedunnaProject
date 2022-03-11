@@ -1,0 +1,500 @@
+Index: .idea/runConfigurations.xml
+===================================================================
+diff --git a/.idea/runConfigurations.xml b/.idea/runConfigurations.xml
+deleted file mode 100644
+--- a/.idea/runConfigurations.xml	(revision 88d01ef5b2a3cca165f1bd9d0837b6a26c9e528b)
++++ /dev/null	(revision 88d01ef5b2a3cca165f1bd9d0837b6a26c9e528b)
+@@ -1,10 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="RunConfigurationProducerService">
+-    <option name="ignoredProducers">
+-      <set>
+-        <option value="com.android.tools.idea.compose.preview.runconfiguration.ComposePreviewRunConfigurationProducer" />
+-      </set>
+-    </option>
+-  </component>
+-</project>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"MavenProjectsManager\">\r\n    <option name=\"originalFiles\">\r\n      <list>\r\n        <option value=\"$PROJECT_DIR$/pom.xml\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_16\" default=\"true\" project-jdk-name=\"1.6\" project-jdk-type=\"JavaSDK\" />\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 88d01ef5b2a3cca165f1bd9d0837b6a26c9e528b)
++++ b/.idea/misc.xml	(date 1646942053188)
+@@ -8,5 +8,5 @@
+       </list>
+     </option>
+   </component>
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_16" default="true" project-jdk-name="1.6" project-jdk-type="JavaSDK" />
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="openjdk-17" project-jdk-type="JavaSDK" />
+ </project>
+\ No newline at end of file
+Index: .idea/compiler.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"CompilerConfiguration\">\r\n    <annotationProcessing>\r\n      <profile name=\"Maven default annotation processors profile\" enabled=\"true\">\r\n        <sourceOutputDir name=\"target/generated-sources/annotations\" />\r\n        <sourceTestOutputDir name=\"target/generated-test-sources/test-annotations\" />\r\n        <outputRelativeToContentRoot value=\"true\" />\r\n        <module name=\"medunna\" />\r\n      </profile>\r\n    </annotationProcessing>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/compiler.xml b/.idea/compiler.xml
+--- a/.idea/compiler.xml	(revision 88d01ef5b2a3cca165f1bd9d0837b6a26c9e528b)
++++ b/.idea/compiler.xml	(date 1646943277870)
+@@ -2,11 +2,13 @@
+ <project version="4">
+   <component name="CompilerConfiguration">
+     <annotationProcessing>
++      <profile default="true" name="Default" enabled="true" />
+       <profile name="Maven default annotation processors profile" enabled="true">
+         <sourceOutputDir name="target/generated-sources/annotations" />
+         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+         <outputRelativeToContentRoot value="true" />
+         <module name="medunna" />
++        <module name="mycucumberproject" />
+       </profile>
+     </annotationProcessing>
+   </component>
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"c28a1f2b-ea9c-46c3-bebd-707f51e01257\" name=\"Changes\" comment=\"Project last version\">\r\n      <change beforePath=\"$PROJECT_DIR$/.gitignore\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.gitignore\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/stepdefinitions/SignInStepdefs.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/stepdefinitions/SignInStepdefs.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"master\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitSEFilterConfiguration\">\r\n    <file-type-list>\r\n      <filtered-out-file-type name=\"LOCAL_BRANCH\" />\r\n      <filtered-out-file-type name=\"REMOTE_BRANCH\" />\r\n      <filtered-out-file-type name=\"TAG\" />\r\n      <filtered-out-file-type name=\"COMMIT_BY_MESSAGE\" />\r\n    </file-type-list>\r\n  </component>\r\n  <component name=\"GithubProjectSettings\">\r\n    <option name=\"branchProtectionPatterns\">\r\n      <list>\r\n        <option value=\"master\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"25i3J0oKw0GbkWLgL64in4pxkYw\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"Git.Branch.Popup.ShowAllRemotes\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"settings.editor.selected.configurable\" value=\"reference.settings.project.maven.repository.indices\" />\r\n  </component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"$PROJECT_DIR$/src/test/resources/features\" />\r\n      <recent name=\"$PROJECT_DIR$/src/test/resources/testdata\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Cucumber Java.Scenario: Verifying user login with correct username and password\">\r\n    <configuration name=\"Scenario: Edit patient info\" type=\"CucumberJavaRunConfigurationType\" factoryName=\"Cucumber java\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"CUCUMBER_CORE_VERSION\" value=\"5\" />\r\n      <option name=\"FILE_PATH\" value=\"$PROJECT_DIR$/src/test/resources/features/search_patient_staff_page.feature\" />\r\n      <option name=\"GLUE\" value=\"stepdefinitions Hooks\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"io.cucumber.core.cli.Main\" />\r\n      <module name=\"medunna\" />\r\n      <option name=\"NAME_FILTER\" value=\"^Edit patient info$\" />\r\n      <option name=\"PROGRAM_PARAMETERS\" value=\" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Edit patient info$&quot;\" />\r\n      <option name=\"SUGGESTED_NAME\" value=\"Scenario: Edit patient info\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$MODULE_WORKING_DIR$\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"io.cucumber.core.cli.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Scenario: Verifying user login with correct username and password\" type=\"CucumberJavaRunConfigurationType\" factoryName=\"Cucumber java\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"CUCUMBER_CORE_VERSION\" value=\"5\" />\r\n      <option name=\"FILE_PATH\" value=\"$PROJECT_DIR$/src/test/resources/features/login_page.feature\" />\r\n      <option name=\"GLUE\" value=\"stepdefinitions Hooks\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"io.cucumber.core.cli.Main\" />\r\n      <module name=\"medunna\" />\r\n      <option name=\"NAME_FILTER\" value=\"^Verifying user login with correct username and password$\" />\r\n      <option name=\"PROGRAM_PARAMETERS\" value=\" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verifying user login with correct username and password$&quot;\" />\r\n      <option name=\"SUGGESTED_NAME\" value=\"Scenario: Verifying user login with correct username and password\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$MODULE_WORKING_DIR$\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"io.cucumber.core.cli.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Scenario: View appointments\" type=\"CucumberJavaRunConfigurationType\" factoryName=\"Cucumber java\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"CUCUMBER_CORE_VERSION\" value=\"5\" />\r\n      <option name=\"FILE_PATH\" value=\"$PROJECT_DIR$/src/test/resources/features/search_patient_staff_page.feature\" />\r\n      <option name=\"GLUE\" value=\"stepdefinitions Hooks\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"io.cucumber.core.cli.Main\" />\r\n      <module name=\"medunna\" />\r\n      <option name=\"NAME_FILTER\" value=\"^View appointments$\" />\r\n      <option name=\"PROGRAM_PARAMETERS\" value=\" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^View appointments$&quot;\" />\r\n      <option name=\"SUGGESTED_NAME\" value=\"Scenario: View appointments\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$MODULE_WORKING_DIR$\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"io.cucumber.core.cli.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Scenario: View patient info\" type=\"CucumberJavaRunConfigurationType\" factoryName=\"Cucumber java\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"CUCUMBER_CORE_VERSION\" value=\"5\" />\r\n      <option name=\"FILE_PATH\" value=\"$PROJECT_DIR$/src/test/resources/features/search_patient_staff_page.feature\" />\r\n      <option name=\"GLUE\" value=\"stepdefinitions Hooks\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"io.cucumber.core.cli.Main\" />\r\n      <module name=\"medunna\" />\r\n      <option name=\"NAME_FILTER\" value=\"^View patient info$\" />\r\n      <option name=\"PROGRAM_PARAMETERS\" value=\" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^View patient info$&quot;\" />\r\n      <option name=\"SUGGESTED_NAME\" value=\"Scenario: View patient info\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$MODULE_WORKING_DIR$\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"io.cucumber.core.cli.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Runner\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"medunna\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"runners.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"PACKAGE_NAME\" value=\"runners\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"runners.Runner\" />\r\n      <option name=\"TEST_OBJECT\" value=\"class\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration default=\"true\" type=\"JetRunConfigurationType\">\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration default=\"true\" type=\"KotlinStandaloneScriptRunConfigurationType\">\r\n      <option name=\"filePath\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Cucumber Java.Scenario: Verifying user login with correct username and password\" />\r\n        <item itemvalue=\"JUnit.Runner\" />\r\n        <item itemvalue=\"Cucumber Java.Scenario: View patient info\" />\r\n        <item itemvalue=\"Cucumber Java.Scenario: View appointments\" />\r\n        <item itemvalue=\"Cucumber Java.Scenario: Edit patient info\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"c28a1f2b-ea9c-46c3-bebd-707f51e01257\" name=\"Changes\" comment=\"\" />\r\n      <created>1645996007419</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1645996007419</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"New commit\">\r\n      <created>1646039392863</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1646039392864</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"New commit\">\r\n      <created>1646376082469</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1646376082470</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"First commit\">\r\n      <created>1646400039127</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1646400039128</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"New commit-login page\">\r\n      <created>1646558835608</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1646558835608</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"New commit-login page\">\r\n      <created>1646577807718</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1646577807718</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"New commit-login page\">\r\n      <created>1646640806607</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1646640806607</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"New commit-login page\">\r\n      <created>1646663047436</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1646663047437</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"Project last version\">\r\n      <created>1646940590691</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1646940590692</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"Project last version\">\r\n      <created>1646940882081</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1646940882081</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"Project last version\">\r\n      <created>1646941210270</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1646941210270</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"Project last version\">\r\n      <created>1646941255010</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1646941255010</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"12\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State>\r\n              <option name=\"FILTERS\">\r\n                <map>\r\n                  <entry key=\"branch\">\r\n                    <value>\r\n                      <list>\r\n                        <option value=\"origin/hulya\" />\r\n                      </list>\r\n                    </value>\r\n                  </entry>\r\n                </map>\r\n              </option>\r\n            </State>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"New commit\" />\r\n    <MESSAGE value=\"First commit\" />\r\n    <MESSAGE value=\"New commit-login page\" />\r\n    <MESSAGE value=\"Project last version\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Project last version\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 88d01ef5b2a3cca165f1bd9d0837b6a26c9e528b)
++++ b/.idea/workspace.xml	(date 1646943277855)
+@@ -4,9 +4,31 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="c28a1f2b-ea9c-46c3-bebd-707f51e01257" name="Changes" comment="Project last version">
+-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
++    <list default="true" id="c28a1f2b-ea9c-46c3-bebd-707f51e01257" name="Changes" comment="">
++      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_03_2022_08_59__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_03_2022_08_59__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_03_2022_08_59__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_03_2022_08_59__Changes_1.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_03_2022_20_35__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_03_2022_20_35__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_03_2022_21_02__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_03_2022_21_02__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_15_55__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_15_55__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_22_15__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_22_15__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_22_28__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_22_28__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_03_2022_00_45__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_03_2022_00_45__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_03_2022_11_14__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_03_2022_11_14__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_03_2022_11_16__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_03_2022_11_16__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_03_2022_11_17__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_03_2022_11_17__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_03_2022_11_17__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_03_2022_11_17__Changes_1.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_03_2022_21_44__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_03_2022_21_44__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_9_03_2022_15_47__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_9_03_2022_15_47__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_9_03_2022_15_53__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_9_03_2022_15_53__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_9_03_2022_15_53__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_9_03_2022_15_53__Changes_1.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_9_03_2022_15_54__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_9_03_2022_15_54__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_9_03_2022_15_54__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_9_03_2022_15_54__Changes_1.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/test/java/stepdefinitions/SignInStepdefs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepdefinitions/SignInStepdefs.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/java/stepdefinitions/apistepdefinitions/DoctorAppointmentStepdefs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepdefinitions/apistepdefinitions/DoctorAppointmentStepdefs.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -55,6 +77,9 @@
+     <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
+     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
++    <property name="project.structure.last.edited" value="Modules" />
++    <property name="project.structure.proportion" value="0.15" />
++    <property name="project.structure.side.proportion" value="0.2" />
+     <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
+   </component>
+   <component name="RecentsManager">
+@@ -63,16 +88,15 @@
+       <recent name="$PROJECT_DIR$/src/test/resources/testdata" />
+     </key>
+   </component>
+-  <component name="RunManager" selected="Cucumber Java.Scenario: Verifying user login with correct username and password">
+-    <configuration name="Scenario: Edit patient info" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
++  <component name="RunManager" selected="Cucumber Java.Feature: us_12">
++    <configuration name="Feature: us_12" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+       <option name="CUCUMBER_CORE_VERSION" value="5" />
+-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/search_patient_staff_page.feature" />
+-      <option name="GLUE" value="stepdefinitions Hooks" />
++      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/us_12.feature" />
++      <option name="GLUE" value="stepdefinitions hooks" />
+       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+-      <module name="medunna" />
+-      <option name="NAME_FILTER" value="^Edit patient info$" />
+-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Edit patient info$&quot;" />
+-      <option name="SUGGESTED_NAME" value="Scenario: Edit patient info" />
++      <module name="mycucumberproject" />
++      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
++      <option name="SUGGESTED_NAME" value="Feature: us_12" />
+       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+       <extension name="coverage">
+         <pattern>
+@@ -89,9 +113,9 @@
+       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/login_page.feature" />
+       <option name="GLUE" value="stepdefinitions Hooks" />
+       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+-      <module name="medunna" />
+       <option name="NAME_FILTER" value="^Verifying user login with correct username and password$" />
+       <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verifying user login with correct username and password$&quot;" />
++      <shortenClasspath name="NONE" />
+       <option name="SUGGESTED_NAME" value="Scenario: Verifying user login with correct username and password" />
+       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+       <extension name="coverage">
+@@ -172,11 +196,11 @@
+     </configuration>
+     <recent_temporary>
+       <list>
++        <item itemvalue="Cucumber Java.Feature: us_12" />
+         <item itemvalue="Cucumber Java.Scenario: Verifying user login with correct username and password" />
+         <item itemvalue="JUnit.Runner" />
+         <item itemvalue="Cucumber Java.Scenario: View patient info" />
+         <item itemvalue="Cucumber Java.Scenario: View appointments" />
+-        <item itemvalue="Cucumber Java.Scenario: Edit patient info" />
+       </list>
+     </recent_temporary>
+   </component>
+@@ -291,7 +315,6 @@
+         </entry>
+       </map>
+     </option>
+-    <option name="oldMeFiltersMigrated" value="true" />
+   </component>
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="New commit" />
+Index: src/test/java/stepdefinitions/SignInStepdefs.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package stepdefinitions;\r\n\r\nimport io.cucumber.java.bs.A;\r\nimport io.cucumber.java.en.And;\r\nimport io.cucumber.java.en.Then;\r\nimport io.cucumber.java.en.When;\r\nimport org.junit.Assert;\r\nimport pages.CommonPage;\r\nimport pages.SignInPage;\r\nimport utilities.ConfigurationReader;\r\nimport utilities.Driver;\r\n\r\npublic class SigninStepDefs {\r\n\r\n    SignInPage signInPage=new SignInPage();\r\n    CommonPage commonPage=new CommonPage();\r\n\r\n    @When(\"User navigates to the home page\")\r\n    public void user_navigates_to_the_home_page() {\r\n\r\n        Driver.getDriver().get(ConfigurationReader.getProperty(\"medunna_login_url\"));\r\n\r\n    }\r\n    @When(\"user clicks sign in button at the home page and navigates to sign in page\")\r\n    public void user_clicks_sign_in_button_at_the_home_page_and_navigates_to_sign_in_page() {\r\n\r\n       commonPage.accountMenu.click();\r\n       commonPage.signIn.click();\r\n\r\n    }\r\n    @Then(\"user verifies that sign in page header is visible\")\r\n    public void user_verifies_that_sign_in_page_header_is_visible() {\r\n\r\n        Driver.waitForVisibility(signInPage.singinPageHeader, 5);\r\n        Assert.assertTrue(signInPage.singinPageHeader.isDisplayed());\r\n\r\n    }\r\n    @Then(\"user enters username {string} and password {string}\")\r\n    public void user_enters_username_and_password(String username, String password) {\r\n\r\n        signInPage.username.sendKeys(username);\r\n        signInPage.password.sendKeys(password);\r\n\r\n    }\r\n    @Then(\"user clicks sign in button\")\r\n    public void user_clicks_sign_in_button() {\r\n\r\n        signInPage.singInButton.click();\r\n\r\n    }\r\n    @Then(\"user verifies that sign in is successful\")\r\n    public void sser_verifies_that_sign_in_is_successful() {\r\n\r\n        Assert.assertTrue(commonPage.accountMenu.isDisplayed());\r\n\r\n    }\r\n\r\n    @Then(\"user verifies that sign in is unsuccessful in case {string}\")\r\n    public void user_verifies_that_sign_in_is_unsuccessful_in_case(String string) {\r\n\r\n        if (Integer.parseInt(string)==1){\r\n            Driver.waitForVisibility(signInPage.emptyUsernameFailMessage, 5);\r\n            Assert.assertTrue(signInPage.emptyUsernameFailMessage.isDisplayed());\r\n            Assert.assertTrue(signInPage.emptyPasswordFailMessage.isDisplayed());\r\n        }else{\r\n            Driver.waitForVisibility(signInPage.FailedAlert,5);\r\n        Assert.assertTrue(signInPage.FailedAlert.isDisplayed());\r\n    }\r\n}\r\n\r\n    @And(\"user clicks cancel button\")\r\n    public void userClicksCancelButton() {\r\n\r\n        signInPage.cancelButton.click();\r\n        signInPage.cancelButton.click();\r\n    }\r\n\r\n    @Then(\"user verifies that signin is canceled and user is on home page\")\r\n    public void userVerifiesThatSigninIsCnacelledAndUserIsOnHomePage() {\r\n\r\n        Assert.assertTrue(Driver.waitForVisibility(commonPage.homePageAssertionText,10).isDisplayed());\r\n\r\n    }\r\n\r\n    @And(\"user verifies that remember me box is visible and clickable\")\r\n    public void userVerifiesThatRememberMeBoxIsVisibleAndClickable() throws InterruptedException {\r\n\r\n        Driver.waitForClickablility(signInPage.rememberMe,10).click();\r\n        signInPage.rememberMe.click();\r\n        Thread.sleep(5000);\r\n        String clickText= signInPage.rememberMe.getAttribute(\"value\");\r\n        Assert.assertEquals(\"true\", clickText);\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/stepdefinitions/SignInStepdefs.java b/src/test/java/stepdefinitions/SignInStepdefs.java
+--- a/src/test/java/stepdefinitions/SignInStepdefs.java	(revision 88d01ef5b2a3cca165f1bd9d0837b6a26c9e528b)
++++ b/src/test/java/stepdefinitions/SignInStepdefs.java	(date 1646941461779)
+@@ -1,24 +1,22 @@
+ package stepdefinitions;
+ 
+-import io.cucumber.java.bs.A;
+ import io.cucumber.java.en.And;
+ import io.cucumber.java.en.Then;
+ import io.cucumber.java.en.When;
+ import org.junit.Assert;
+ import pages.CommonPage;
++import pages.RegistrationPage;
+ import pages.SignInPage;
+-import utilities.ConfigurationReader;
+ import utilities.Driver;
+ 
+ public class SigninStepDefs {
+ 
+     SignInPage signInPage=new SignInPage();
+     CommonPage commonPage=new CommonPage();
+-
+     @When("User navigates to the home page")
+     public void user_navigates_to_the_home_page() {
+ 
+-        Driver.getDriver().get(ConfigurationReader.getProperty("medunna_login_url"));
++      //  Driver.getDriver().get(ConfigurationReader.getProperty("medunna_login_url"));
+ 
+     }
+     @When("user clicks sign in button at the home page and navigates to sign in page")
+@@ -55,6 +53,7 @@
+ 
+     }
+ 
++
+     @Then("user verifies that sign in is unsuccessful in case {string}")
+     public void user_verifies_that_sign_in_is_unsuccessful_in_case(String string) {
+ 
+@@ -78,7 +77,8 @@
+     @Then("user verifies that signin is canceled and user is on home page")
+     public void userVerifiesThatSigninIsCnacelledAndUserIsOnHomePage() {
+ 
+-        Assert.assertTrue(Driver.waitForVisibility(commonPage.homePageAssertionText,10).isDisplayed());
++
++        //Assert.assertTrue(Driver.waitForVisibility(commonPage.homePageAssertionText,10).isDisplayed());
+ 
+     }
+ 
+@@ -92,4 +92,8 @@
+         Assert.assertEquals("true", clickText);
+ 
+     }
++
++
++
++
+ }
+Index: src/test/java/stepdefinitions/apistepdefinitions/DoctorAppointmentStepdefs.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package stepdefinitions.apistepdefinitions;\r\n\r\nimport io.cucumber.java.en.And;\r\nimport io.cucumber.java.en.Given;\r\nimport io.cucumber.java.en.Then;\r\nimport com.fasterxml.jackson.databind.ObjectMapper;\r\nimport io.restassured.response.Response;\r\nimport org.junit.Assert;\r\nimport pojos.DoctorAppointment;\r\n\r\nimport java.io.IOException;\r\n\r\nimport static utilities.ApiUtils.getRequest;\r\nimport static utilities.Authentication.generateToken;\r\n\r\npublic class DoctorAppointmentStepdefs  {\r\n\r\n static    DoctorAppointment expectedData;\r\n    Response response;\r\n\r\n    @Given(\"user sends get request to the {string}\")\r\n    public void userSendsGetRequestToThe(String arg0) {\r\n        response=getRequest(generateToken(),arg0);\r\n         }\r\n\r\n    @Then(\"status code should be {int}\")\r\n    public void statusCodeShouldBe(int arg0) {\r\n        response.then().statusCode(arg0);\r\n    }\r\n\r\n    @And(\"response format should be {string}\")\r\n    public void responseFormatShouldBe(String arg0) {\r\n        response.then().contentType(arg0);\r\n    }\r\n\r\n    @And(\"response body should include expected information\")\r\n    public void responseBodyShouldIncludeExpectedInformation() throws IOException {\r\n        ObjectMapper obj=new ObjectMapper();\r\nDoctorAppointment []doctorAppointments=obj.readValue(response.asString(),DoctorAppointment[].class);\r\n        Assert.assertEquals(4,doctorAppointments.length);\r\n        for (DoctorAppointment d:doctorAppointments\r\n             ) {\r\n            switch (d.getId()){\r\n            case 11868:\r\n                /*\r\n                 \"id\": 11868,\r\n    \"startDate\": \"2022-03-07T00:00:00Z\",\r\n    \"endDate\": \"2022-03-07T01:00:00Z\",\r\n    \"status\": \"UNAPPROVED\"\r\n                 */\r\n                expectedData =new DoctorAppointment(\r\n                        11868,\"2022-03-07T00:00:00Z\",\"2022-03-07T01:00:00Z\",\"UNAPPROVED\");\r\n                Assert.assertEquals(d.getId(),expectedData.getId());\r\n                Assert.assertEquals(d.getEndDate(),expectedData.getEndDate());\r\n                Assert.assertEquals(d.getStartDate(),expectedData.getStartDate());\r\n                Assert.assertEquals(d.getStatus(),expectedData.getStatus());\r\n\r\n                break;\r\n\r\n            case 11883:\r\n                /*\r\n                \"id\": 11883,\r\n    \"startDate\": \"2022-03-08T00:00:00Z\",\r\n    \"endDate\": \"2022-03-08T01:00:00Z\",\r\n    \"status\": \"CANCELLED\",\r\n                 */\r\n                expectedData =new DoctorAppointment(\r\n                        11883,\"2022-03-08T00:00:00Z\",\"2022-03-08T01:00:00Z\",\"CANCELLED\");\r\n                Assert.assertEquals(d.getId(),expectedData.getId());\r\n                Assert.assertEquals(d.getEndDate(),expectedData.getEndDate());\r\n                Assert.assertEquals(d.getStartDate(),expectedData.getStartDate());\r\n                Assert.assertEquals(d.getStatus(),expectedData.getStatus());\r\n                break;\r\n            case 11885:\r\n                /*\r\n             \"id\": 11885,\r\n    \"startDate\": \"2022-03-10T00:00:00Z\",\r\n    \"endDate\": \"2022-03-10T01:00:00Z\",\r\n    \"status\": \"COMPLETED\",\r\n                 */\r\n                expectedData =new DoctorAppointment(\r\n                        11885,\"2022-03-10T00:00:00Z\",\"2022-03-10T01:00:00Z\",\"COMPLETED\");\r\n                Assert.assertEquals(d.getId(),expectedData.getId());\r\n                Assert.assertEquals(d.getEndDate(),expectedData.getEndDate());\r\n                Assert.assertEquals(d.getStartDate(),expectedData.getStartDate());\r\n                Assert.assertEquals(d.getStatus(),expectedData.getStatus());\r\n                break;\r\n                case 13800:\r\n           /* \"id\": 13800,\r\n                    \"startDate\": \"2022-03-09T00:00:00Z\",\r\n                    \"endDate\": \"2022-03-09T01:00:00Z\",\r\n                    \"status\": \"PENDING\",*/\r\n                    expectedData =new DoctorAppointment(\r\n                            13800,\"2022-03-09T00:00:00Z\",\"2022-03-09T01:00:00Z\",\"PENDING\");\r\n\r\n                    Assert.assertEquals(d.getId(),expectedData.getId());\r\n                    Assert.assertEquals(d.getEndDate(),expectedData.getEndDate());\r\n                    Assert.assertEquals(d.getStartDate(),expectedData.getStartDate());\r\n                    Assert.assertEquals(d.getStatus(),expectedData.getStatus());\r\n                    break;\r\n            default:\r\n                break;\r\n\r\n        }\r\n\r\n\r\n\r\n        }\r\n\r\n\r\n    }\r\n\r\n\r\n\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/stepdefinitions/apistepdefinitions/DoctorAppointmentStepdefs.java b/src/test/java/stepdefinitions/apistepdefinitions/DoctorAppointmentStepdefs.java
+--- a/src/test/java/stepdefinitions/apistepdefinitions/DoctorAppointmentStepdefs.java	(revision 88d01ef5b2a3cca165f1bd9d0837b6a26c9e528b)
++++ b/src/test/java/stepdefinitions/apistepdefinitions/DoctorAppointmentStepdefs.java	(date 1646942152660)
+@@ -7,6 +7,7 @@
+ import io.restassured.response.Response;
+ import org.junit.Assert;
+ import pojos.DoctorAppointment;
++import utilities.ConfigurationReader;
+ 
+ import java.io.IOException;
+ 
+@@ -20,7 +21,8 @@
+ 
+     @Given("user sends get request to the {string}")
+     public void userSendsGetRequestToThe(String arg0) {
+-        response=getRequest(generateToken(),arg0);
++        response=getRequest(generateToken(ConfigurationReader.getProperty("doctor_username"),
++                ConfigurationReader.getProperty("doctor_password")),arg0);
+          }
+ 
+     @Then("status code should be {int}")
+Index: src/test/java/stepdefinitions/RequestATestStepdefs.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package stepdefinitions;\r\n\r\nimport com.github.javafaker.Faker;\r\nimport io.cucumber.java.en.And;\r\nimport io.cucumber.java.en.Then;\r\nimport io.cucumber.java.en.When;\r\nimport org.junit.Assert;\r\nimport org.openqa.selenium.WebElement;\r\nimport pages.AppointmentEditPageForDoctor;\r\nimport pages.MyAppointmentPageAsDoctor;\r\nimport pages.RequestATestPage;\r\nimport utilities.Driver;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\n\r\npublic class RequestATestStepdefs {\r\n\r\n    RequestATestPage requestATestPage=new RequestATestPage();\r\n    MyAppointmentPageAsDoctor myAppointmentPageAsDoctor=new MyAppointmentPageAsDoctor();\r\n    AppointmentEditPageForDoctor appointmentEditPageForDoctor=new AppointmentEditPageForDoctor();\r\n\r\n\r\n    @Then(\"verify by id's that each test type is included as a checkmark option\")\r\n    public void verifyByIdSThatEachTestTypeIsIncludedAsACheckmarkOption() {\r\n        Driver.wait(1);\r\n/*\r\n===============Test ID's=================\r\nGlucose         => 1401\r\nUrea            => 1402\r\nCreatinine      =>1403\r\nSodium          =>1404\r\nPotassium       =>1405\r\nTotal protein   =>1406\r\nAlbumin         =>1407\r\nHemoglobin      =>1408\r\n */\r\n        List<String> expectedData=new ArrayList<>();\r\n       for (int i=1401;i<1409;i++){\r\n           expectedData.add(Integer.toString(i));\r\n       }\r\n        System.out.println(expectedData);\r\n\r\n      List<String> actualData=new ArrayList<>();\r\n\r\n        for (WebElement w: requestATestPage.allCheckMarks\r\n             ) {\r\n           actualData.add(w.getAttribute(\"id\"));\r\n        }\r\n        System.out.println(actualData);\r\n\r\n    Assert.assertTrue(actualData.containsAll(expectedData));\r\n\r\n\r\n    }\r\n\r\n\r\n    @And(\"user checks randomly one of them\")\r\n    public void userChecksRandomlyOneOfThem() {\r\n        Faker faker=new Faker();\r\n        int random=faker.number().numberBetween(1,9);\r\n        switch (random){\r\n            case 1:\r\n                Driver.waitAndClick(requestATestPage.hemoglobinCheck);\r\n                break;\r\n            case 2:\r\n                Driver.waitAndClick(requestATestPage.albuminCheck);\r\n                break;\r\n            case 3:\r\n                Driver.waitAndClick(requestATestPage.totalProteinCheck);\r\n                break;\r\n            case 4:\r\n                Driver.waitAndClick(requestATestPage.sodiumCheck);\r\n                break;\r\n            case 5:\r\n                Driver.waitAndClick(requestATestPage.potassiumCheck);\r\n                break;\r\n            case 6:\r\n                Driver.waitAndClick(requestATestPage.ureaCheck);\r\n                break;\r\n            case 7:\r\n                Driver.waitAndClick(requestATestPage.creatinineCheck);\r\n                break;\r\n            case 8:\r\n                Driver.waitAndClick(requestATestPage.glucoseCheck);\r\n                break;\r\n            case 9:\r\n                Driver.waitAndClick(requestATestPage.albimoCheck);\r\n                break;\r\n        }\r\n    }\r\n\r\n    @When(\"user clicks on the Save button\")\r\n    public void userClicksOnTheSaveButton() {\r\n        Driver.clickWithJS(requestATestPage.saveButton);\r\n    }\r\n\r\n    @Then(\"user should see the {string}\")\r\n    public void userShouldSeeThe(String arg0) {\r\n        Assert.assertTrue(\r\n                Driver.waitForVisibility(requestATestPage.alertElement,1).getText().contains(arg0)\r\n        );\r\n\r\n    }\r\n//===============Request A Test for ADMIN=================\r\n\r\n    @And(\"user selects Appointment item and clicks\")\r\n    public void userSelectsAppointmentItemAndClicks() {\r\nDriver.waitAndClick(myAppointmentPageAsDoctor.adminAppointment);\r\n    }\r\n\r\n    @And(\"user clicks on the view button\")\r\n    public void userClicksOnTheViewButton() {\r\n        Driver.waitAndClick(requestATestPage.adminViewAppointment);\r\n    }\r\n\r\n    @When(\"user clicks edit button\")\r\n    public void userClicksEditButton() {\r\n        Driver.waitAndClick(requestATestPage.adminEditAppointment);\r\n//        Driver.waitForVisibility(appointmentEditPageForDoctor.createOrEditAnAppointmentHeader,1);\r\n    }\r\n\r\n    @Then(\"user should NOT see Request A Test button\")\r\n    public void userShouldNOTSeeRequestATestButton() {\r\n\r\n        try{Assert.assertTrue(Driver.waitForVisibility(appointmentEditPageForDoctor.requestATestButton,3).isDisplayed());\r\n        }catch (Exception e){\r\n            System.out.println(\"You are NOT allowed to Request A Test\");\r\n        }\r\n    }\r\n\r\n    @When(\"user navigates to the test request page {string}\")\r\n    public void userNavigatesToTheTestRequestPage(String arg0) {\r\n        Driver.getDriver().navigate().to(arg0);\r\n    }\r\n\r\n    @And(\"user selects Search Patient item and clicks\")\r\n    public void userSelectsSearchPatientItemAndClicks() {\r\n    Driver.waitAndClick(requestATestPage.searchPatientDropdown);\r\n    }\r\n\r\n    @When(\"user clicks on the Show Tests button\")\r\n    public void userClicksOnTheShowTestsButton() {\r\n        Driver.waitAndClick(requestATestPage.patientShowTest);\r\n    }\r\n\r\n    @Then(\"user should see the unauthorized {string}\")\r\n    public void userShouldSeeTheUnauthorized(String arg0) {\r\n        Assert.assertEquals(arg0,Driver.waitForVisibility(requestATestPage.unauthorizedMessage,1).getText());\r\n    }\r\n\r\n\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/stepdefinitions/RequestATestStepdefs.java b/src/test/java/stepdefinitions/RequestATestStepdefs.java
+--- a/src/test/java/stepdefinitions/RequestATestStepdefs.java	(revision 88d01ef5b2a3cca165f1bd9d0837b6a26c9e528b)
++++ b/src/test/java/stepdefinitions/RequestATestStepdefs.java	(date 1646942735448)
+@@ -114,10 +114,10 @@
+         Driver.waitAndClick(requestATestPage.adminViewAppointment);
+     }
+ 
+-    @When("user clicks edit button")
+-    public void userClicksEditButton() {
++    @When("user click edit button")
++    public void userClickEditButton() {
+         Driver.waitAndClick(requestATestPage.adminEditAppointment);
+-//        Driver.waitForVisibility(appointmentEditPageForDoctor.createOrEditAnAppointmentHeader,1);
++        Driver.waitForVisibility(appointmentEditPageForDoctor.createOrEditAnAppointmentHeader,1);
+     }
+ 
+     @Then("user should NOT see Request A Test button")
+Index: src/test/resources/features/us_12.feature
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>@request_a_test\r\nFeature: US_12\r\n    @doctor_request_test\r\n  Scenario Outline: TC01 Doctor may request a test\r\n\r\nGiven user on the Create or Edit an Appointment page\r\nWhen user clicks on the Request A Test button\r\nThen verify by id's that each test type is included as a checkmark option\r\nAnd user checks randomly one of them\r\nWhen user clicks on the Save button\r\nThen user should see the \"<message>\"\r\n\r\n    Examples:\r\n   |message|\r\n   |A new Test is created with identifier|\r\n\r\n@doctor_show_test_results\r\nScenario:user should be able to see test results\r\n    Given user on the Create or Edit an Appointment page\r\n    When user clicks on the Show Test Results button\r\n    Then user should see Tests\r\n    When user clicks on View Result button of first test\r\n    Then user should see Test Results including all necessary information\r\n\r\n\r\n\r\n@admin_request_test\r\nScenario Outline:TC02 admin may not request a test\r\n    Given user sign in as a \"<title>\"\r\n    And user selects Appointment item and clicks\r\n    And user clicks on the view button\r\n    When user clicks edit button\r\n    Then user should NOT see Request A Test button\r\n    When user navigates to the test request page \"<url>\"\r\n    Then user should see the unauthorized \"<message>\"\r\n    Examples:\r\n        |title|message                                    |url                                     |\r\n        |admin|You are not authorized to access this page.|https://medunna.com/physician_test/11883|\r\n    @staff_request_test\r\n    Scenario Outline:TC03 staff may not request a test\r\n        Given user sign in as a \"<title>\"\r\n        And user selects Search Patient item and clicks\r\n        And user clicks on the view button\r\n        When user clicks edit button\r\n        Then user should NOT see Request A Test button\r\n        When user navigates to the test request page \"<url>\"\r\n        Then user should see the unauthorized \"<message>\"\r\n        Examples:\r\n            |title|message                                    |url                                     |\r\n            |staff|You are not authorized to access this page.|https://medunna.com/physician_test/11883|\r\n    @patient_request_test\r\n    Scenario Outline:TC04 patient may not request a test\r\n        Given user sign in as a \"<title>\"\r\n        And user selects My Appointments item and clicks\r\n        When user clicks on the Show Tests button\r\n        Then user should NOT see Request A Test button\r\n        When user clicks on View Result button of first test\r\n        Then user should NOT see Request A Test button\r\n        When user navigates to the test request page \"<url>\"\r\n        Then user should see the unauthorized \"<message>\"\r\n        Examples:\r\n            |title  |message                                    |url                                     |\r\n            |patient|You are not authorized to access this page.|https://medunna.com/physician_test/11883|\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/resources/features/us_12.feature b/src/test/resources/features/us_12.feature
+--- a/src/test/resources/features/us_12.feature	(revision 88d01ef5b2a3cca165f1bd9d0837b6a26c9e528b)
++++ b/src/test/resources/features/us_12.feature	(date 1646942735454)
+@@ -29,7 +29,7 @@
+     Given user sign in as a "<title>"
+     And user selects Appointment item and clicks
+     And user clicks on the view button
+-    When user clicks edit button
++    When user click edit button
+     Then user should NOT see Request A Test button
+     When user navigates to the test request page "<url>"
+     Then user should see the unauthorized "<message>"
+Index: pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project xmlns=\"http://maven.apache.org/POM/4.0.0\"\r\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n         xsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd\">\r\n    <modelVersion>4.0.0</modelVersion>\r\n\r\n    <groupId>org.example</groupId>\r\n    <artifactId>mycucumberproject</artifactId>\r\n    <version>1.0-SNAPSHOT</version>\r\n\r\n    <properties>\r\n        <maven.compiler.source>1.8</maven.compiler.source>\r\n        <maven.compiler.target>1.8</maven.compiler.target>\r\n    </properties>\r\n\r\n    <dependencies>\r\n        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->\r\n        <dependency>\r\n            <groupId>org.seleniumhq.selenium</groupId>\r\n            <artifactId>selenium-java</artifactId>\r\n            <version>4.1.1</version>\r\n        </dependency>\r\n\r\n        <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->\r\n        <dependency>\r\n            <groupId>io.github.bonigarcia</groupId>\r\n            <artifactId>webdrivermanager</artifactId>\r\n            <version>5.0.3</version>\r\n        </dependency>\r\n        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->\r\n        <dependency>\r\n            <groupId>org.apache.poi</groupId>\r\n            <artifactId>poi</artifactId>\r\n            <version>4.1.2</version>\r\n        </dependency>\r\n        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->\r\n        <dependency>\r\n            <groupId>org.apache.poi</groupId>\r\n            <artifactId>poi-ooxml</artifactId>\r\n            <version>4.1.2</version>\r\n        </dependency>\r\n        <!--        a library to generate fake data when needed-->\r\n        <!-- https://mvnrepository.com/artifact/com.github.javafaker/javafaker -->\r\n        <dependency>\r\n            <groupId>com.github.javafaker</groupId>\r\n            <artifactId>javafaker</artifactId>\r\n            <version>1.0.2</version>\r\n        </dependency>\r\n\r\n        <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->\r\n        <dependency>\r\n            <groupId>io.cucumber</groupId>\r\n            <artifactId>cucumber-java</artifactId>\r\n            <version>7.2.3</version>\r\n        </dependency>\r\n        <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->\r\n        <dependency>\r\n            <groupId>io.cucumber</groupId>\r\n            <artifactId>cucumber-junit</artifactId>\r\n            <version>7.2.3</version>\r\n            <scope>test</scope>\r\n        </dependency>\r\n        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-compress -->\r\n        <dependency>\r\n            <groupId>org.apache.commons</groupId>\r\n            <artifactId>commons-compress</artifactId>\r\n            <version>1.20</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>org.apache.poi</groupId>\r\n            <artifactId>poi</artifactId>\r\n            <version>4.0.1</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>org.apache.poi</groupId>\r\n            <artifactId>poi-ooxml</artifactId>\r\n            <version>4.0.1</version>\r\n        </dependency>\r\n        <!-- https://mvnrepository.com/artifact/com.itextpdf/itextpdf -->\r\n        <dependency>\r\n            <groupId>com.itextpdf</groupId>\r\n            <artifactId>itextpdf</artifactId>\r\n            <version>5.4.2</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>com.fasterxml.jackson.core</groupId>\r\n            <artifactId>jackson-databind</artifactId>\r\n            <version>2.9.8</version>\r\n        </dependency>\r\n\r\n\r\n        <!--        &lt;!&ndash; https://mvnrepository.com/artifact/tech.grasshopper/extentreports-cucumber7-adapter &ndash;&gt;-->\r\n        <!--        <dependency>-->\r\n        <!--            <groupId>tech.grasshopper</groupId>-->\r\n        <!--            <artifactId>extentreports-cucumber7-adapter</artifactId>-->\r\n        <!--            <version>1.2.0</version>-->\r\n        <!--        </dependency>-->\r\n\r\n\r\n        <dependency>\r\n            <groupId>org.postgresql</groupId>\r\n            <artifactId>postgresql</artifactId>\r\n            <version>42.2.8</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>io.rest-assured</groupId>\r\n            <artifactId>rest-assured</artifactId>\r\n            <version>4.5.0</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>com.aventstack</groupId>\r\n            <artifactId>extentreports</artifactId>\r\n            <version>4.0.9</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>com.fasterxml.jackson.core</groupId>\r\n            <artifactId>jackson-databind</artifactId>\r\n            <version>2.13.1</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>org.testng</groupId>\r\n            <artifactId>testng</artifactId>\r\n            <version>7.5</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>io.github.javiercanillas</groupId>\r\n            <artifactId>jackson-masker</artifactId>\r\n            <version>0.9.6</version>\r\n            <scope>compile</scope>\r\n        </dependency>\r\n    </dependencies>\r\n\r\n    <build>\r\n        <plugins>\r\n            <plugin>\r\n                <groupId>org.apache.maven.plugins</groupId>\r\n                <artifactId>maven-failsafe-plugin</artifactId>\r\n                <version>3.0.0-M1</version>\r\n                <configuration>\r\n                    <testFailureIgnore>true</testFailureIgnore>\r\n                    <skipTests>false</skipTests>\r\n                    <includes>\r\n                        <include>**/runners/*TestRunner*.java</include>\r\n                    </includes>\r\n                </configuration>\r\n            </plugin>\r\n            <plugin>\r\n                <groupId>org.apache.maven.plugins</groupId>\r\n                <artifactId>maven-surefire-plugin</artifactId>\r\n                <version>3.0.0-M1</version>\r\n                <configuration>\r\n                    <parallel>classes</parallel>\r\n                    <forkMode>perthread</forkMode>\r\n                    <threadCount>2</threadCount>\r\n                    <reuseForks>false</reuseForks>\r\n                    <argLine>-Duser.language=en</argLine>\r\n                    <argLine>-Xmx1024m</argLine>\r\n                    <argLine>-XX:MaxPermSize=256m</argLine>\r\n                    <argLine>-Dfile.encoding=UTF-8</argLine>\r\n                    <useFile>false</useFile>\r\n                    <includes>\r\n                        <include>**/runners/*TestRunner*.java</include>\r\n                    </includes>\r\n                    <testFailureIgnore>true</testFailureIgnore>\r\n                </configuration>\r\n            </plugin>\r\n            <plugin>\r\n                <groupId>net.masterthought</groupId>\r\n                <artifactId>maven-cucumber-reporting</artifactId>\r\n                <version>5.0.0</version>\r\n                <executions>\r\n                    <execution>\r\n                        <id>execution</id>\r\n                        <phase>verify</phase>\r\n                        <goals>\r\n                            <goal>generate</goal>\r\n                        </goals>\r\n                        <configuration>\r\n                            <projectName>cucumber-framework</projectName>\r\n                            <outputDirectory>${project.build.directory}</outputDirectory>\r\n                            <!--                            <cucumberOutput>${project.build.directory}</cucumberOutput>-->\r\n                            <inputDirectory>${project.build.directory}</inputDirectory>\r\n                            <jsonFiles>\r\n                                <param>**/json-reports/*.json</param>\r\n                            </jsonFiles><classificationFiles>->\r\n                            <param>sample.properties</param>\r\n                            <param>other.properties</param>\r\n                        </classificationFiles>\r\n                        </configuration>\r\n                    </execution>\r\n                </executions>\r\n            </plugin>\r\n        </plugins>\r\n    </build>\r\n\r\n\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/pom.xml b/pom.xml
+--- a/pom.xml	(revision 88d01ef5b2a3cca165f1bd9d0837b6a26c9e528b)
++++ b/pom.xml	(date 1646941945079)
+@@ -89,12 +89,12 @@
+         </dependency>
+ 
+ 
+-        <!--        &lt;!&ndash; https://mvnrepository.com/artifact/tech.grasshopper/extentreports-cucumber7-adapter &ndash;&gt;-->
+-        <!--        <dependency>-->
+-        <!--            <groupId>tech.grasshopper</groupId>-->
+-        <!--            <artifactId>extentreports-cucumber7-adapter</artifactId>-->
+-        <!--            <version>1.2.0</version>-->
+-        <!--        </dependency>-->
++        <!-- https://mvnrepository.com/artifact/tech.grasshopper/extentreports-cucumber7-adapter -->
++        <dependency>
++            <groupId>tech.grasshopper</groupId>
++            <artifactId>extentreports-cucumber7-adapter</artifactId>
++            <version>1.2.0</version>
++        </dependency>
+ 
+ 
+         <dependency>
+@@ -102,96 +102,83 @@
+             <artifactId>postgresql</artifactId>
+             <version>42.2.8</version>
+         </dependency>
+-        <dependency>
+-            <groupId>io.rest-assured</groupId>
+-            <artifactId>rest-assured</artifactId>
+-            <version>4.5.0</version>
+-        </dependency>
+-        <dependency>
+-            <groupId>com.aventstack</groupId>
+-            <artifactId>extentreports</artifactId>
+-            <version>4.0.9</version>
+-        </dependency>
+-        <dependency>
+-            <groupId>com.fasterxml.jackson.core</groupId>
+-            <artifactId>jackson-databind</artifactId>
+-            <version>2.13.1</version>
+-        </dependency>
++        <!-- https://mvnrepository.com/artifact/org.testng/testng -->
+         <dependency>
+             <groupId>org.testng</groupId>
+             <artifactId>testng</artifactId>
+             <version>7.5</version>
++            <scope>test</scope>
+         </dependency>
++
+         <dependency>
+-            <groupId>io.github.javiercanillas</groupId>
+-            <artifactId>jackson-masker</artifactId>
+-            <version>0.9.6</version>
+-            <scope>compile</scope>
++            <groupId>io.rest-assured</groupId>
++            <artifactId>rest-assured</artifactId>
++            <version>4.3.0</version>
+         </dependency>
+     </dependencies>
+ 
+-    <build>
+-        <plugins>
+-            <plugin>
+-                <groupId>org.apache.maven.plugins</groupId>
+-                <artifactId>maven-failsafe-plugin</artifactId>
+-                <version>3.0.0-M1</version>
+-                <configuration>
+-                    <testFailureIgnore>true</testFailureIgnore>
+-                    <skipTests>false</skipTests>
+-                    <includes>
+-                        <include>**/runners/*TestRunner*.java</include>
+-                    </includes>
+-                </configuration>
+-            </plugin>
+-            <plugin>
+-                <groupId>org.apache.maven.plugins</groupId>
+-                <artifactId>maven-surefire-plugin</artifactId>
+-                <version>3.0.0-M1</version>
+-                <configuration>
+-                    <parallel>classes</parallel>
+-                    <forkMode>perthread</forkMode>
+-                    <threadCount>2</threadCount>
+-                    <reuseForks>false</reuseForks>
+-                    <argLine>-Duser.language=en</argLine>
+-                    <argLine>-Xmx1024m</argLine>
+-                    <argLine>-XX:MaxPermSize=256m</argLine>
+-                    <argLine>-Dfile.encoding=UTF-8</argLine>
+-                    <useFile>false</useFile>
+-                    <includes>
+-                        <include>**/runners/*TestRunner*.java</include>
+-                    </includes>
+-                    <testFailureIgnore>true</testFailureIgnore>
+-                </configuration>
+-            </plugin>
+-            <plugin>
+-                <groupId>net.masterthought</groupId>
+-                <artifactId>maven-cucumber-reporting</artifactId>
+-                <version>5.0.0</version>
+-                <executions>
+-                    <execution>
+-                        <id>execution</id>
+-                        <phase>verify</phase>
+-                        <goals>
+-                            <goal>generate</goal>
+-                        </goals>
+-                        <configuration>
+-                            <projectName>cucumber-framework</projectName>
+-                            <outputDirectory>${project.build.directory}</outputDirectory>
+-                            <!--                            <cucumberOutput>${project.build.directory}</cucumberOutput>-->
+-                            <inputDirectory>${project.build.directory}</inputDirectory>
+-                            <jsonFiles>
+-                                <param>**/json-reports/*.json</param>
+-                            </jsonFiles><classificationFiles>->
+-                            <param>sample.properties</param>
+-                            <param>other.properties</param>
+-                        </classificationFiles>
+-                        </configuration>
+-                    </execution>
+-                </executions>
+-            </plugin>
+-        </plugins>
+-    </build>
++    <!--    <build>-->
++    <!--        <plugins>-->
++    <!--            <plugin>-->
++    <!--                <groupId>org.apache.maven.plugins</groupId>-->
++    <!--                <artifactId>maven-failsafe-plugin</artifactId>-->
++    <!--                <version>3.0.0-M1</version>-->
++    <!--                <configuration>-->
++    <!--                    <testFailureIgnore>true</testFailureIgnore>-->
++    <!--                    <skipTests>false</skipTests>-->
++    <!--                    <includes>-->
++    <!--                        <include>**/runners/*TestRunner*.java</include>-->
++    <!--                    </includes>-->
++    <!--                </configuration>-->
++    <!--            </plugin>-->
++    <!--            <plugin>-->
++    <!--                <groupId>org.apache.maven.plugins</groupId>-->
++    <!--                <artifactId>maven-surefire-plugin</artifactId>-->
++    <!--                <version>3.0.0-M1</version>-->
++    <!--                <configuration>-->
++    <!--                    <parallel>classes</parallel>-->
++    <!--                    <forkMode>perthread</forkMode>-->
++    <!--                    <threadCount>2</threadCount>-->
++    <!--                    <reuseForks>false</reuseForks>-->
++    <!--                    <argLine>-Duser.language=en</argLine>-->
++    <!--                    <argLine>-Xmx1024m</argLine>-->
++    <!--                    <argLine>-XX:MaxPermSize=256m</argLine>-->
++    <!--                    <argLine>-Dfile.encoding=UTF-8</argLine>-->
++    <!--                    <useFile>false</useFile>-->
++    <!--                    <includes>-->
++    <!--                        <include>**/runners/*TestRunner*.java</include>-->
++    <!--                    </includes>-->
++    <!--                    <testFailureIgnore>true</testFailureIgnore>-->
++    <!--                </configuration>-->
++    <!--            </plugin>-->
++    <!--            <plugin>-->
++    <!--                <groupId>net.masterthought</groupId>-->
++    <!--                <artifactId>maven-cucumber-reporting</artifactId>-->
++    <!--                <version>5.0.0</version>-->
++    <!--                <executions>-->
++    <!--                    <execution>-->
++    <!--                        <id>execution</id>-->
++    <!--                        <phase>verify</phase>-->
++    <!--                        <goals>-->
++    <!--                            <goal>generate</goal>-->
++    <!--                        </goals>-->
++    <!--                        <configuration>-->
++    <!--                            <projectName>cucumber-framework</projectName>-->
++    <!--                            <outputDirectory>${project.build.directory}</outputDirectory>-->
++    <!--                            &lt;!&ndash;                            <cucumberOutput>${project.build.directory}</cucumberOutput>&ndash;&gt;-->
++    <!--                            <inputDirectory>${project.build.directory}</inputDirectory>-->
++    <!--                            <jsonFiles>-->
++    <!--                                <param>**/json-reports/*.json</param>-->
++    <!--                            </jsonFiles><classificationFiles>->-->
++    <!--                            <param>sample.properties</param>-->
++    <!--                            <param>other.properties</param>-->
++    <!--                        </classificationFiles>-->
++    <!--                        </configuration>-->
++    <!--                    </execution>-->
++    <!--                </executions>-->
++    <!--            </plugin>-->
++    <!--        </plugins>-->
++    <!--    </build>-->
+ 
+ 
+ </project>
+\ No newline at end of file
