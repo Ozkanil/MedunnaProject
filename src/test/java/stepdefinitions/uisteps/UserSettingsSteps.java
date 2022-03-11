@@ -1,4 +1,4 @@
-package stepdefinitions;
+package stepdefinitions.uisteps;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -72,7 +72,7 @@ public class UserSettingsSteps {
       userPage.firstname.clear();
         Driver.wait(3);
     }
-    @Then("User sends a new firstname {string}")
+    @Then("User sends a new firstname {string} and verifies isEnabled")
     public void user_sends_a_new_firstname(String fname) {
         Driver.wait(3);
         userPage.firstname.sendKeys(fname + Keys.ENTER);
@@ -111,7 +111,7 @@ public class UserSettingsSteps {
         Driver.wait(3);
     }
 
-    @Then("User sends a new lastname  {string}")
+    @Then("User sends a new lastname  {string} and verifies isEnabled")
     public void user_sends_a_new_lastname(String lname) {
         Driver.wait(1);
         userPage.lastname.sendKeys(lname +Keys.ENTER);
@@ -122,7 +122,7 @@ public class UserSettingsSteps {
 
     }
 
-    @Then("User sends a new email {string}")
+    @Then("User sends a new email {string} and verifies isEnabled")
     public void user_sends_a_new_email(String email) {
         Driver.wait(3);
         String emailText=userPage.email.getText();
