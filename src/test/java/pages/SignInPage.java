@@ -62,4 +62,7 @@ public class SignInPage {
     @FindBy(xpath = "//h2")
     public WebElement signoutMessage;
 
+    @FindBy(xpath = "//*[@id='register-title']")
+    public WebElement registrationPageHeader;
+
 }
