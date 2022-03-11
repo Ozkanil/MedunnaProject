@@ -114,8 +114,8 @@ Driver.waitAndClick(myAppointmentPageAsDoctor.adminAppointment);
         Driver.waitAndClick(requestATestPage.adminViewAppointment);
     }
 
-    @When("user clicks edit button")
-    public void userClicksEditButton() {
+    @When("user click edit button")
+    public void userClickEditButton() {
         Driver.waitAndClick(requestATestPage.adminEditAppointment);
 //        Driver.waitForVisibility(appointmentEditPageForDoctor.createOrEditAnAppointmentHeader,1);
     }

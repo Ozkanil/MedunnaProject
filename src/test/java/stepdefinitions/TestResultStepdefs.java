@@ -22,7 +22,8 @@ ShowTestResultPage showTestResultPage=new ShowTestResultPage();
 
     @When("user clicks on View Result button of first test")
     public void userClicksOnViewResultButtonOfFirstTest() {
-        Driver.waitAndClick(showTestResultPage.viewResultsOfFirstTest);
+        Driver.wait(1);
+        Driver.clickWithJS(showTestResultPage.viewResultsOfFirstTest);
 
     }
 

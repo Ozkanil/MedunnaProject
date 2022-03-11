@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.response.Response;
 import org.junit.Assert;
 import pojos.DoctorAppointment;
+import utilities.ConfigurationReader;
 
 import java.io.IOException;
 
@@ -20,7 +21,7 @@ public class DoctorAppointmentStepdefs  {
 
     @Given("user sends get request to the {string}")
     public void userSendsGetRequestToThe(String arg0) {
-        response=getRequest(generateToken(),arg0);
+        response=getRequest(generateToken(ConfigurationReader.getProperty("doctor_username"),ConfigurationReader.getProperty("doctor_password")),arg0);
          }
 
     @Then("status code should be {int}")
