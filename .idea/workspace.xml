@@ -5,8 +5,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c28a1f2b-ea9c-46c3-bebd-707f51e01257" name="Changes" comment="Project last version">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_03_2022_08_59__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_03_2022_08_59__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_03_2022_08_59__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_03_2022_08_59__Changes_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_03_2022_20_35__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_03_2022_20_35__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_03_2022_21_02__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_03_2022_21_02__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_15_55__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_15_55__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_22_15__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_22_15__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_22_28__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_22_28__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_03_2022_00_45__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_03_2022_00_45__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_03_2022_11_14__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_03_2022_11_14__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_03_2022_11_16__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_03_2022_11_16__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_03_2022_11_17__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_03_2022_11_17__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_03_2022_11_17__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_03_2022_11_17__Changes_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_03_2022_21_44__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_03_2022_21_44__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_9_03_2022_15_47__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_9_03_2022_15_47__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_9_03_2022_15_53__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_9_03_2022_15_53__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_9_03_2022_15_53__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_9_03_2022_15_53__Changes_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_9_03_2022_15_54__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_9_03_2022_15_54__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_9_03_2022_15_54__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_9_03_2022_15_54__Changes_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hooks/Hooks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hooks/Hooks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/ShowTestResultPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/ShowTestResultPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/runners/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/runners/Runner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/stepdefinitions/DoctorAppointmentEditStepdefs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepdefinitions/DoctorAppointmentEditStepdefs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/stepdefinitions/MyAppointmentsStepdefs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepdefinitions/MyAppointmentsStepdefs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/stepdefinitions/RequestATestStepdefs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepdefinitions/RequestATestStepdefs.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/stepdefinitions/SignInStepdefs.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/stepdefinitions/TestResultStepdefs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepdefinitions/TestResultStepdefs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/stepdefinitions/apistepdefinitions/DoctorAppointmentStepdefs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepdefinitions/apistepdefinitions/DoctorAppointmentStepdefs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/us_12.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/us_12.feature" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,12 +65,8 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
-  <component name="GithubProjectSettings">
-    <option name="branchProtectionPatterns">
-      <list>
-        <option value="master" />
-      </list>
-    </option>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="25i3J0oKw0GbkWLgL64in4pxkYw" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -55,6 +80,9 @@
     <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
   </component>
   <component name="RecentsManager">
@@ -63,16 +91,15 @@
       <recent name="$PROJECT_DIR$/src/test/resources/testdata" />
     </key>
   </component>
-  <component name="RunManager" selected="Cucumber Java.Scenario: Verifying user login with correct username and password">
-    <configuration name="Scenario: Edit patient info" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.Runner (1)">
+    <configuration name="Feature: us_12" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/search_patient_staff_page.feature" />
-      <option name="GLUE" value="stepdefinitions Hooks" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/us_12.feature" />
+      <option name="GLUE" value="stepdefinitions hooks" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
-      <module name="medunna" />
-      <option name="NAME_FILTER" value="^Edit patient info$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Edit patient info$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: Edit patient info" />
+      <module name="mycucumberproject" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
+      <option name="SUGGESTED_NAME" value="Feature: us_12" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -89,30 +116,10 @@
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/login_page.feature" />
       <option name="GLUE" value="stepdefinitions Hooks" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
-      <module name="medunna" />
       <option name="NAME_FILTER" value="^Verifying user login with correct username and password$" />
       <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verifying user login with correct username and password$&quot;" />
+      <shortenClasspath name="NONE" />
       <option name="SUGGESTED_NAME" value="Scenario: Verifying user login with correct username and password" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="io.cucumber.core.cli.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Scenario: View appointments" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-      <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/search_patient_staff_page.feature" />
-      <option name="GLUE" value="stepdefinitions Hooks" />
-      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
-      <module name="medunna" />
-      <option name="NAME_FILTER" value="^View appointments$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^View appointments$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: View appointments" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -140,6 +147,21 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Runner (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="mycucumberproject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="runners.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="runners" />
+      <option name="MAIN_CLASS_NAME" value="runners.Runner" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -172,11 +194,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.Runner (1)" />
+        <item itemvalue="Cucumber Java.Feature: us_12" />
         <item itemvalue="Cucumber Java.Scenario: Verifying user login with correct username and password" />
         <item itemvalue="JUnit.Runner" />
         <item itemvalue="Cucumber Java.Scenario: View patient info" />
-        <item itemvalue="Cucumber Java.Scenario: View appointments" />
-        <item itemvalue="Cucumber Java.Scenario: Edit patient info" />
       </list>
     </recent_temporary>
   </component>
@@ -266,14 +288,7 @@
       <option name="project" value="LOCAL" />
       <updated>1646941255010</updated>
     </task>
-    <task id="LOCAL-00012" summary="Project last version">
-      <created>1646942122873</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1646942122873</updated>
-    </task>
-    <option name="localTasksCounter" value="13" />
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -298,7 +313,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="New commit" />

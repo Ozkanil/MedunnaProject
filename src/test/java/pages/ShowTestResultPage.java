@@ -10,7 +10,7 @@ public class ShowTestResultPage {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
-    @FindBy(id = "c-test-heading")
+    @FindBy(xpath = "//*[h2='Tests']")
     public WebElement testHeading;
 
     @FindBy(xpath = "(//*[tr])[1]")

@@ -19,7 +19,7 @@ public class DoctorAppointmentEditStepdefs {
 
     @Given("user on the Create or Edit an Appointment page")
     public void user_on_the_create_or_edit_an_appointment_page() {
-        Driver.getDriver().get(ConfigurationReader.getProperty("medunna_sign_in_url"));
+        Driver.getDriver().get(ConfigurationReader.getProperty("medunna_signin_url"));
         Driver.waitAndSendText(signInPage.username, ConfigurationReader.getProperty("doctor_username"));
         Driver.waitAndSendText(signInPage.password,ConfigurationReader.getProperty("doctor_password"));
         Driver.waitAndClick(signInPage.singInButton);
@@ -121,16 +121,19 @@ String actualStatus=select.getFirstSelectedOption().getText();
     @When("user clicks on the Request A Test button")
     public void userClicksOnTheRequestATestButton() {
 Driver.waitAndClick(appointmentEditPageForDoctor.requestATestButton);
+Driver.wait(1);
     }
 
     @When("user clicks on the Show Test Results button")
     public void userClicksOnTheShowTestResultsButton() {
-        Driver.waitAndClick(appointmentEditPageForDoctor.showTestResultButton);
+        Driver.clickWithJS(appointmentEditPageForDoctor.showTestResultButton);
+        Driver.wait(1);
     }
 
     @And("user clicks on the Request Inpatient button")
     public void userClicksOnTheRequestInpatientButton() {
-        Driver.waitAndClick(appointmentEditPageForDoctor.requestInpatientButton);
+        Driver.wait(1);
+        Driver.clickWithJS(appointmentEditPageForDoctor.requestInpatientButton);
         System.out.println(Driver.waitForVisibility(appointmentEditPageForDoctor.alertElement,1).getText());
     }
 

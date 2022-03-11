@@ -29,7 +29,7 @@ Scenario Outline:TC02 admin may not request a test
     Given user sign in as a "<title>"
     And user selects Appointment item and clicks
     And user clicks on the view button
-    When user clicks edit button
+    When user click edit button
     Then user should NOT see Request A Test button
     When user navigates to the test request page "<url>"
     Then user should see the unauthorized "<message>"
@@ -41,7 +41,7 @@ Scenario Outline:TC02 admin may not request a test
         Given user sign in as a "<title>"
         And user selects Search Patient item and clicks
         And user clicks on the view button
-        When user clicks edit button
+        When user click edit button
         Then user should NOT see Request A Test button
         When user navigates to the test request page "<url>"
         Then user should see the unauthorized "<message>"

@@ -12,7 +12,7 @@ import utilities.Driver;
 
 public class MyAppointmentsStepdefs {
    // WebDriver driver;
-   // CommonPage commonPage=new CommonPage();
+    CommonPage commonPage=new CommonPage();
     SignInPage signInPage=new SignInPage();
     MyAppointmentPageAsDoctor myAppointmentPageAsDoctor=new MyAppointmentPageAsDoctor();
   // SearchPatientOnStaffPage searchPatientOnStaffPage=new SearchPatientOnStaffPage();
@@ -21,7 +21,16 @@ public class MyAppointmentsStepdefs {
 
     @Given("user sign in as a {string}")
     public void userSignInAsA(String arg0) {
-       Driver.getDriver().get(ConfigurationReader.getProperty("medunna_sign_in_url"));
+       Driver.getDriver().get(ConfigurationReader.getProperty("medunna_signin_url"));
+//try{
+//    Driver.waitForVisibility(commonPage.accountMenu,5);
+//    Driver.clickWithJS(commonPage.accountMenu);
+//    Driver.clickWithJS(signInPage.signoutButton);
+//    Driver.getDriver().navigate().to(ConfigurationReader.getProperty("medunna_signin_url"));
+//
+//}catch (Exception e){
+//
+//}
        // Driver.getDriver().get("https://medunna.com/login?page=1&sort=id,asc");
         switch (arg0){
             case "doctor":
