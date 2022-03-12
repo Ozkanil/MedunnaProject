@@ -218,7 +218,7 @@ Feature: User_Story_001_Test
       |s$A2sf     |1   |
 
 
-  @SmokeTest
+  @smoke
     @user_register
     @UIRegistration
   Scenario Outline: test registration

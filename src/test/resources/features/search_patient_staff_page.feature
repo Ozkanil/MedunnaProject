@@ -47,7 +47,7 @@ Feature: Search patient on staff page
     Examples:
       |username|password|
       |hazel   |13579   |
-
+  @smoke
     @view_edit_appointments
     Scenario Outline: View appointments
 
@@ -61,7 +61,7 @@ Feature: Search patient on staff page
     And user clicks search patient
     When user provides a valid ssn number into search box
         |ssn        |
-        |610-64-0981|
+        |175-92-9123|
     And user click show appointments button
     Then user verifies appointments page header
     And user clicks edit button under appointments

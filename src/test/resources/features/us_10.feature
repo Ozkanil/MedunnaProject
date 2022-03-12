@@ -1,3 +1,4 @@
+@end_to_end
 @doctor_feature
 Feature: US_10
   @my_appointments_ui_doctor
@@ -12,7 +13,7 @@ Feature: US_10
     |title |fromDate|toDate|
     |doctor|26/02/2022  |11/03/2022|
 
-
+  @smoke
     @appointment_edit_doctor
     Scenario Outline: doctor should be able to edit appointments
       Given user on the Create or Edit an Appointment page

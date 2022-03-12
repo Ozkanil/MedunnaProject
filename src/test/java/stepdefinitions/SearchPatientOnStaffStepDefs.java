@@ -127,7 +127,7 @@ public class SearchPatientOnStaffStepDefs {
 
     @And("user makes necessary updates")
     public void userMakesNecessaryUpdates() throws InterruptedException {
-
+Driver.wait(1);
         searchPatientOnStaffPage.diagnosisBoxCreateEditAppointment.sendKeys("123");
         searchPatientOnStaffPage.prescriptionBoxCreateEditAppointment.sendKeys("987");
         Thread.sleep(3000);

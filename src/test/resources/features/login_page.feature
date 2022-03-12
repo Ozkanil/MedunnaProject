@@ -16,7 +16,7 @@ Feature: User login
     |username|password|
     |hazel     |13579  |
 
-  @user_login_negative @smoke
+  @user_login_negative
   Scenario Outline: Verifying that user cannot login with incorrect or missing login data
 
     When User navigates to the home page

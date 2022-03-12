@@ -1,5 +1,6 @@
 @US_07_UI_API_DB
 Feature: Appointment api test
+  @smoke
   @user_login_positive
   @Appointment_UI
   Scenario Outline: test appointments
