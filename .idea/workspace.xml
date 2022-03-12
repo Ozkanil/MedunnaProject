@@ -5,16 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c28a1f2b-ea9c-46c3-bebd-707f51e01257" name="Changes" comment="Project final version">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_22_15_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_22_15__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_22_28_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_22_28__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/US_07_AppointmentPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/US_07_AppointmentPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pojos/AppointmentOut.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pojos/AppointmentOut.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/stepdefinitions/US_07_UI_AppointmentSteps.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/UserSettings.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/UserSettings.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/login_page.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/login_page.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,11 +165,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.FailedRunner" />
         <item itemvalue="JUnit.SmokeRunner" />
         <item itemvalue="JUnit.Runner" />
-        <item itemvalue="Cucumber Java.Feature: registration_complete" />
+        <item itemvalue="JUnit.FailedRunner" />
         <item itemvalue="Cucumber Java.Feature: US_001" />
+        <item itemvalue="Cucumber Java.Feature: registration_complete" />
       </list>
     </recent_temporary>
   </component>
@@ -296,7 +287,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647043986051</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Project final version">
+      <created>1647093639642</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1647093639642</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -328,6 +326,7 @@
     <MESSAGE value="First commit" />
     <MESSAGE value="New commit-login page" />
     <MESSAGE value="Project last version" />
-    <option name="LAST_COMMIT_MESSAGE" value="Project last version" />
+    <MESSAGE value="Project final version" />
+    <option name="LAST_COMMIT_MESSAGE" value="Project final version" />
   </component>
 </project>
