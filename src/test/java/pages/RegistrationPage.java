@@ -14,6 +14,8 @@ public class RegistrationPage {
     @FindBy(xpath = "//*[@name='ssn']")
     public WebElement ssn;
 
+    @FindBy(xpath = "//*[contains(text(),'Registration Saved')]")
+    public WebElement successMessageToastContainer;
 
     @FindBy(xpath = "//*[@name='firstName']")
     public WebElement firstName;
