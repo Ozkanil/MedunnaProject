@@ -5,7 +5,6 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import pages.ShowTestResultPage;
 import pages.TestResultsPage;
-import utilities.Driver;
 
 import java.util.HashMap;
 import java.util.Map;

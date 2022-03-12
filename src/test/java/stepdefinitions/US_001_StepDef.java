@@ -2,13 +2,9 @@ package stepdefinitions;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import pages.CommonPage;
 import pages.RegistrationPage;
 import utilities.ConfigurationReader;
-import utilities.Driver;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;

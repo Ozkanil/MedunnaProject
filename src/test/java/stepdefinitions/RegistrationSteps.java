@@ -6,7 +6,6 @@ import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import pages.RegistrationPage;
 import pojos.Registrant;
-import utilities.Driver;
 
 import static utilities.WriteToTxt.saveRegistrantData;
 

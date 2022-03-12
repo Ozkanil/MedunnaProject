@@ -10,7 +10,6 @@ import pages.MyAppointmentPageAsDoctor;
 import pages.SignInPage;
 import pojos.DoctorAppointment;
 import utilities.ConfigurationReader;
-import utilities.Driver;
 
 public class DoctorAppointmentEditStepdefs {
     SignInPage signInPage=new SignInPage();

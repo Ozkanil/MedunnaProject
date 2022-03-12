@@ -4,7 +4,6 @@ import io.cucumber.java.en.Given;
 import pages.CommonPage;
 import pages.MyPatientsPageDoctor;
 import pages.SignInPage;
-import utilities.Driver;
 
 import static org.junit.Assert.assertTrue;
 

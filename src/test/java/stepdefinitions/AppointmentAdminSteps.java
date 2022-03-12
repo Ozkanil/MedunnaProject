@@ -4,9 +4,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.support.ui.Select;
 import pages.*;
-import utilities.Driver;
 
 public class AppointmentAdminSteps {
     SignInPage signinpage = new SignInPage();

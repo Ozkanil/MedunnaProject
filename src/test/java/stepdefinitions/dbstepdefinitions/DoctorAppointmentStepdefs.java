@@ -4,11 +4,6 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.Assert;
-import utilities.DBUtils;
-
-import java.sql.SQLException;
-import java.sql.Timestamp;
 
 import static org.junit.Assert.assertEquals;
 import static utilities.DBUtils.*;

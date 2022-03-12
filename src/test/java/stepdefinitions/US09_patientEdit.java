@@ -6,7 +6,6 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import pages.US09_patientPage;
-import utilities.Driver;
 
 import static org.junit.Assert.assertFalse;
 

@@ -2,9 +2,7 @@ package stepdefinitions;
 
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
-import org.openqa.selenium.devtools.v85.network.model.DataReceived;
 import pages.UserSetting;
-import utilities.Driver;
 
 public class PasswordSettingUserSteps {
     UserSetting userPage=new UserSetting();

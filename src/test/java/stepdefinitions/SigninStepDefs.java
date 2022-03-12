@@ -7,7 +7,6 @@ import org.junit.Assert;
 import pages.CommonPage;
 import pages.SignInPage;
 import utilities.ConfigurationReader;
-import utilities.Driver;
 
 public class SigninStepDefs {
 

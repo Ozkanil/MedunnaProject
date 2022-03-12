@@ -2,13 +2,10 @@ package stepdefinitions;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.support.FindBy;
 import pages.CommonPage;
-import pages.NewAppointmentPage;
 import pages.SearchPatientOnStaffPage;
 import pages.StatusPage;
 import utilities.ConfigurationReader;
-import utilities.Driver;
 
 public class StatusSteps {
 

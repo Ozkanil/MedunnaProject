@@ -3,7 +3,6 @@ package stepdefinitions.dbstepdefinitions;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import utilities.DBUtils;
 
 import java.sql.SQLException;
 

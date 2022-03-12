@@ -1,9 +1,7 @@
 package stepdefinitions;
 
 import io.cucumber.java.en.Given;
-import org.openqa.selenium.WebElement;
 import pages.*;
-import utilities.Driver;
 
 public class EditAppointmentSteps {
     SignInPage signinpage = new SignInPage();

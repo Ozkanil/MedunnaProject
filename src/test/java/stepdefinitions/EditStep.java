@@ -2,12 +2,10 @@ package stepdefinitions;
 
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import pages.*;
-import utilities.Driver;
 import pages.SearchPatientOnStaffPage;
 import pages.EditPage;
 import java.util.List;

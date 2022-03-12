@@ -3,12 +3,10 @@ package stepdefinitions;
 import io.cucumber.java.en.*;
 import io.restassured.response.Response;
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
 import pages.CommonPage;
 import pages.RegistrationPage;
 import utilities.ConfigurationReader;
-import utilities.Driver;
 
 import static org.hamcrest.Matchers.hasItems;
 import static utilities.ApiUtils.getRequest;

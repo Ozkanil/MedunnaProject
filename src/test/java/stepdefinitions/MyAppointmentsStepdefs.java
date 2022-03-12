@@ -7,7 +7,6 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import pages.*;
 import utilities.ConfigurationReader;
-import utilities.Driver;
 
 
 public class MyAppointmentsStepdefs {

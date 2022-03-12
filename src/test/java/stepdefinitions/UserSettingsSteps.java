@@ -1,6 +1,7 @@
 package stepdefinitions;
 
-import io.cucumber.java.en.Given;import io.cucumber.java.en.Then;import io.cucumber.java.en.When;import org.junit.Assert;import org.openqa.selenium.Keys;import pages.UserSetting;import utilities.Driver;
+import io.cucumber.java.en.Given;import io.cucumber.java.en.Then;import io.cucumber.java.en.When;import org.junit.Assert;import org.openqa.selenium.Keys;import pages.UserSetting;
+
 public class UserSettingsSteps {
     UserSetting userPage = new UserSetting();
     @Given("User navigates to {string}")    public void user_navigates_to(String url) {        Driver.getDriver().get(url);    }

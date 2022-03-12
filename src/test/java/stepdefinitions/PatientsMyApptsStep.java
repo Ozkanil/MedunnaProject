@@ -7,7 +7,6 @@ import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import pages.PatientPageAll;
 import pojos.Appointment;
-import utilities.Driver;
 
 public class PatientsMyApptsStep {
 

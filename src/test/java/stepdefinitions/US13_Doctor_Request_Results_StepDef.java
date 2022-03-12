@@ -7,7 +7,6 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import pages.*;
 import utilities.ConfigurationReader;
-import utilities.Driver;
 
 import static org.hamcrest.Matchers.hasItems;
 import static utilities.ApiUtils.getRequest;

@@ -1,14 +1,9 @@
 package stepdefinitions;
 
-import com.github.javafaker.Faker;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
-import org.openqa.selenium.WebDriver;
 import pages.CommonPage;
 import pages.NewAppointmentPage;
-import pages.SignInPage;
-import utilities.Driver;
 
 public class NewAppointmentsteps {
 
