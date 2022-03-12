@@ -1,0 +1,161 @@
+Index: src/test/java/runners/Runner.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package runners;\nimport io.cucumber.junit.Cucumber;\nimport io.cucumber.junit.CucumberOptions;\nimport org.junit.runner.RunWith;\n @RunWith(Cucumber.class)\n @CucumberOptions(\n        plugin = {\n                \"pretty\",\n                \"html:target/default-cucumber-reports.html\",\n                \"json:target/json-reports/cucumber.json\",\n                \"junit:target/xml-report/cucumber.xml\",\n                \"rerun:target/failedRerun.txt\"\n        },\n        features = \"./src/test/resources/features\",\n        glue = {\"stepdefinitions\",\"Hooks\"},\n        tags = \"@setting_homepage\",\n        dryRun = false\n)\npublic class Runner {\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/runners/Runner.java b/src/test/java/runners/Runner.java
+--- a/src/test/java/runners/Runner.java	
++++ b/src/test/java/runners/Runner.java	
+@@ -4,16 +4,16 @@
+ import org.junit.runner.RunWith;
+  @RunWith(Cucumber.class)
+  @CucumberOptions(
+-        plugin = {
+-                "pretty",
+-                "html:target/default-cucumber-reports.html",
+-                "json:target/json-reports/cucumber.json",
+-                "junit:target/xml-report/cucumber.xml",
+-                "rerun:target/failedRerun.txt"
+-        },
++//        plugin = {
++//                "pretty",
++//                "html:target/default-cucumber-reports.html",
++//                "json:target/json-reports/cucumber.json",
++//                "junit:target/xml-report/cucumber.xml",
++//                "rerun:target/failedRerun.txt"
++//        },
+         features = "./src/test/resources/features",
+         glue = {"stepdefinitions","Hooks"},
+-        tags = "@setting_homepage",
++        tags = "@smoke",
+         dryRun = false
+ )
+ public class Runner {
+Index: src/test/java/Hooks/Hooks.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Hooks;\n\nimport io.cucumber.java.After;\nimport io.cucumber.java.Before;\nimport io.cucumber.java.Scenario;\nimport io.restassured.builder.RequestSpecBuilder;\nimport io.restassured.specification.RequestSpecification;\nimport org.openqa.selenium.OutputType;\nimport org.openqa.selenium.TakesScreenshot;\nimport utilities.ConfigurationReader;\nimport utilities.Driver;\n\npublic class Hooks {\n    @Before\n    public void setUp(){\n        Driver.wait(5);\n\n    }\n\n    //\n    public static RequestSpecification spec;\n\n    @Before( value = \"@ApiRegistrant\")\n    public void setup(){\n\n        spec = new RequestSpecBuilder().setBaseUri(ConfigurationReader.getProperty(\"base_url\")).build();\n\n\n    }\n\n\n    @Before(order = 1, value = \"@UIRegistration\")\n    public void navigateToRegistrationPage(){\n\n        Driver.getDriver().get(ConfigurationReader.getProperty(\"medunna_registration_url\"));\n\n    }\n\n    @Before(order = 1, value = \"@Appointment\")\n    public void navigateToLandingPage(){\n\n        Driver.getDriver().get(ConfigurationReader.getProperty(\"medunna_registration_url\"));\n\n    }\n\n\n    @After\n    public void tearDown(Scenario scenario){\n\n        if (scenario.isFailed()) {\n            final byte[] screenshot=((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);\n\n            scenario.attach(screenshot, \"image/png\",\"screenshots\");\n        }\n     //  Driver.getDriver().close();\n    }\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/Hooks/Hooks.java b/src/test/java/Hooks/Hooks.java
+--- a/src/test/java/Hooks/Hooks.java	
++++ b/src/test/java/Hooks/Hooks.java	
+@@ -17,42 +17,36 @@
+ 
+     }
+ 
+-    //
++
++    @Before(value = "@smoke")
++    public void navigateToRegistrationPage(){
++
++        Driver.getDriver().get(ConfigurationReader.getProperty("app_url"));
++
++    }
++
++//    //
+     public static RequestSpecification spec;
+ 
+-    @Before( value = "@ApiRegistrant")
++    @Before( value = "")
+     public void setup(){
+ 
+-        spec = new RequestSpecBuilder().setBaseUri(ConfigurationReader.getProperty("base_url")).build();
+-
+-
+-    }
+-
+-
+-    @Before(order = 1, value = "@UIRegistration")
+-    public void navigateToRegistrationPage(){
+-
+-        Driver.getDriver().get(ConfigurationReader.getProperty("medunna_registration_url"));
+-
+-    }
+-
+-    @Before(order = 1, value = "@Appointment")
+-    public void navigateToLandingPage(){
++        spec = new RequestSpecBuilder().setBaseUri(ConfigurationReader.getProperty("app_url")).build();
+ 
+-        Driver.getDriver().get(ConfigurationReader.getProperty("medunna_registration_url"));
+ 
+     }
+ 
+ 
+-    @After
+-    public void tearDown(Scenario scenario){
+-
+-        if (scenario.isFailed()) {
+-            final byte[] screenshot=((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
+ 
+-            scenario.attach(screenshot, "image/png","screenshots");
+-        }
+-     //  Driver.getDriver().close();
+-    }
++//    @After
++//    public void tearDown(Scenario scenario){
++//
++//        if (scenario.isFailed()) {
++//            final byte[] screenshot=((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
++//
++//            scenario.attach(screenshot, "image/png","screenshots");
++//        }
++//     //  Driver.getDriver().close();
++//    }
+ 
+ }
+Index: src/test/java/stepdefinitions/Hooks.java
+===================================================================
+diff --git a/src/test/java/stepdefinitions/Hooks.java b/src/test/java/stepdefinitions/Hooks.java
+deleted file mode 100644
+--- a/src/test/java/stepdefinitions/Hooks.java	
++++ /dev/null	
+@@ -1,25 +0,0 @@
+-package stepdefinitions;
+-import io.cucumber.java.After;
+-import io.cucumber.java.Before;
+-import io.cucumber.java.Scenario;
+-import org.openqa.selenium.OutputType;
+-import org.openqa.selenium.TakesScreenshot;
+-import utilities.Driver;
+-
+-public class Hooks {
+-
+-    @Before
+-    public void setUp(){
+-
+-    }
+-
+-    @After
+-    public void tearDown(Scenario scenario) throws InterruptedException {
+-        final byte[] screenshot=((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
+-        if (scenario.isFailed()) {
+-            scenario.attach(screenshot, "image/png","screenshots");
+-        }
+-        Driver.closeDriver();
+-    }
+-
+-}
+\ No newline at end of file
+Index: src/test/java/utilities/Driver.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package utilities;\n//Test for gitignore\nimport io.github.bonigarcia.wdm.WebDriverManager;\nimport org.openqa.selenium.*;\nimport org.openqa.selenium.chrome.ChromeDriver;\nimport org.openqa.selenium.chrome.ChromeOptions;\nimport org.openqa.selenium.firefox.FirefoxDriver;\nimport org.openqa.selenium.ie.InternetExplorerDriver;\nimport org.openqa.selenium.interactions.Actions;\nimport org.openqa.selenium.safari.SafariDriver;\nimport org.openqa.selenium.support.ui.ExpectedCondition;\nimport org.openqa.selenium.support.ui.ExpectedConditions;\nimport org.openqa.selenium.support.ui.Select;\nimport org.openqa.selenium.support.ui.WebDriverWait;\nimport java.time.Duration;\nimport java.util.List;\nimport java.util.NoSuchElementException;\n\npublic class Driver {\n    //create a driver instance\n    private static WebDriver driver;\n    private static int timeout = 5;\n\n    //What?=>It is just to create, initialize the driver instance.(Singleton driver)\n    //Why?=>We don't want to create and initialize the driver when we don't need\n    //We will create and initialize the driver when it is null\n    //We can use Driver class with different browser(chrome,firefox,headless)\n    private Driver() {\n        //we don't want to create another abject. Singleton pattern\n    }\n\n    //to initialize the driver we create a static method\n    public static WebDriver getDriver() {\n        //create the driver if and only if it is null\n        if (driver == null) {\n            String browser = ConfigurationReader.getProperty(\"browser\");\n            if (\"chrome\".equals(browser)) {\n                WebDriverManager.chromedriver().setup();\n                driver = new ChromeDriver();\n            } else if (\"firefox\".equals(browser)) {\n                WebDriverManager.firefoxdriver().setup();\n                driver = new FirefoxDriver();\n            } else if (\"ie\".equals(browser)) {\n                WebDriverManager.iedriver().setup();\n                driver = new InternetExplorerDriver();\n            } else if (\"safari\".equals(browser)) {\n                WebDriverManager.getInstance(SafariDriver.class).setup();\n                driver = new SafariDriver();\n            } else if (\"chrome-headless\".equals(browser)) {\n                WebDriverManager.chromedriver().setup();\n                driver = new ChromeDriver(new ChromeOptions().setHeadless(true));\n            }\n        }\n//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));\n        driver.manage().window().maximize();\n        return driver;\n    }\n\n    public static void closeDriver() throws InterruptedException {\n        Thread.sleep(1000);\n        if (driver!=null){\n            driver.quit();\n        }\n        // burada yeniden null degeri atamamizin sebebi. bir sonraki getDriver method'u cagirisimizda\n        // yeni deger atayabilmek istememizdir.\n        driver=null;\n\n    }\n\n    public static void waitAndClick(WebElement element, int timeout) {\n        for (int i = 0; i < timeout; i++) {\n            try {\n                element.click();\n                return;\n            } catch (WebDriverException e) {\n                wait(1);\n            }\n        }\n    }\n\n    public static void waitAndClick(WebElement element) {\n        for (int i = 0; i < timeout; i++) {\n            try {\n                element.click();\n                return;\n            } catch (WebDriverException e) {\n                wait(1);\n            }\n        }\n    }\n\n\n    public static void waitAndSendText(WebElement element, String text, int timeout) {\n        for (int i = 0; i < timeout; i++) {\n            try {\n                element.sendKeys(text);\n                return;\n            } catch (WebDriverException e) {\n                wait(1);\n            }\n        }\n    }\n\n//    Driver.waitANdSendText(Element , \"TEXT\");\n    public static void waitAndSendText(WebElement element, String text) {\n        for (int i = 0; i < timeout; i++) {\n            try {\n                element.sendKeys(text);\n                return;\n            } catch (WebDriverException e) {\n                wait(1);\n            }\n        }\n    }\n\n    public static void waitAndSendTextWithDefaultTime(WebElement element, String text) {\n        for (int i = 0; i < timeout; i++) {\n            try {\n                element.sendKeys(text);\n                return;\n            } catch (WebDriverException e) {\n                wait(1);\n            }\n        }\n    }\n\n    public static String waitAndGetText(WebElement element, int timeout) {\n        String text = \"\";\n        for (int i = 0; i < timeout; i++) {\n            try {\n                text = element.getText();\n                return text;\n            } catch (WebDriverException e) {\n                wait(1);\n            }\n        }\n        return null;\n    }\n\n\n    //Webdriver\n    //ChromeDriver\n    //Iedriver\n    //FirefoxDriver\n\n    public static void wait2(int sec) {\n        try {\n            Thread.sleep(1000 * sec);\n        } catch (NoSuchElementException e) {\n            e.printStackTrace();\n        } catch (TimeoutException e) {\n            e.printStackTrace();\n        } catch (StaleElementReferenceException e) {\n            e.printStackTrace();\n        } catch (ElementClickInterceptedException e) {\n            e.printStackTrace();\n        } catch (Exception e) {\n            e.printStackTrace();\n        }\n\n    }\n\n    //5 seconds\n    public static void waitAndClickElement(WebElement element, int seconds) {\n        for (int i = 0; i < seconds; i++) {\n\n            try {\n                element.click();\n                break;\n            } catch (Exception e) {\n                wait2(1);\n            }\n\n\n        }\n    }\n\n    public static void wait(int secs) {\n\n        try {\n            Thread.sleep(1000 * secs);\n        } catch (InterruptedException e) {\n            e.printStackTrace();\n        } catch (TimeoutException e) {\n            e.printStackTrace();\n        } catch (NoSuchElementException e) {\n            e.printStackTrace();\n        } catch (StaleElementReferenceException e) {\n            e.printStackTrace();\n        } catch (Exception e) {\n            e.printStackTrace();\n        }\n    }\n\n    public static WebElement waitForVisibility(WebElement element, int timeToWaitInSec) {\n        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeout));\n        return wait.until(ExpectedConditions.visibilityOf(element));\n    }\n\n    public static WebElement waitForVisibility(By locator, int timeout) {\n        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeout));\n        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));\n    }\n\n    public static Boolean waitForInVisibility(By locator, int timeout) {\n        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeout));\n        return wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));\n    }\n\n    public static WebElement waitForClickablility(WebElement element, int timeout) {\n        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeout));\n        return wait.until(ExpectedConditions.elementToBeClickable(element));\n    }\n\n    public static WebElement waitForClickablility(By locator, int timeout) {\n        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeout));\n        return wait.until(ExpectedConditions.elementToBeClickable(locator));\n    }\n\n    public static void waitForPageToLoad(long timeOutInSeconds) {\n        ExpectedCondition<Boolean> expectation = new ExpectedCondition<Boolean>() {\n            public Boolean apply(WebDriver driver) {\n                return ((JavascriptExecutor) driver).executeScript(\"return document.readyState\").equals(\"complete\");\n            }\n        };\n        try {\n            WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeout));\n            wait.until(expectation);\n        } catch (Exception error) {\n            error.printStackTrace();\n        }\n    }\n\n    public static void executeJScommand(WebElement element, String command) {\n        JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();\n        jse.executeScript(command, element);\n    }\n\n    public static void selectAnItemFromDropdown(WebElement item, String selectableItem) {\n        wait(5);\n        Select select = new Select(item);\n        for (int i = 0; i < select.getOptions().size(); i++) {\n            if (select.getOptions().get(i).getText().equalsIgnoreCase(selectableItem)) {\n                select.getOptions().get(i).click();\n                break;\n            }\n        }\n\n    }\n\n    /**\n     * Clicks on an element using JavaScript\n     *\n     * @param element\n     */\n    public static void clickWithJS(WebElement element) {\n        ((JavascriptExecutor) Driver.getDriver()).executeScript(\"arguments[0].scrollIntoView(true);\", element);\n        ((JavascriptExecutor) Driver.getDriver()).executeScript(\"arguments[0].click();\", element);\n    }\n\n    /**\n     * Clicks on an element using JavaScript\n     *\n     * @param elements\n     */\n    public static void clickWithJSAsList(List<WebElement> elements) {\n        for (WebElement each : elements) {\n            ((JavascriptExecutor) Driver.getDriver()).executeScript(\"arguments[0].scrollIntoView(true);\", waitForVisibility(each, 5));\n            ((JavascriptExecutor) Driver.getDriver()).executeScript(\"arguments[0].click();\", each);\n        }\n    }\n\n    /**\n     * Performs double click action on an element\n     *\n     * @param element\n     */\n    public static void doubleClick(WebElement element) {\n        new Actions(Driver.getDriver()).doubleClick(element).build().perform();\n    }\n\n//    Parameter1 : WebElement\n//    Parameter2:  String\n//    Driver.selectByVisibleText(dropdown element, \"CHECKING-91303-116.98$\")\n    public static void selectByVisibleText(WebElement element, String text) {\n        Select objSelect = new Select(element);\n        objSelect.selectByVisibleText(text);\n    }\n//    Parameter1 : WebElement\n//    Parameter2:  int\n//    Driver.selectByIndex(dropdown element, 1)\n    public static void selectByIndex(WebElement element, int index) {\n        Select objSelect = new Select(element);\n        objSelect.selectByIndex(index);\n    }\n//    Parameter1 : WebElement\n//    Parameter2:  String\n//    Driver.selectByIndex(dropdown element, \"91303\")\n    public static void selectByValue(WebElement element, String value) {\n        Select objSelect = new Select(element);\n        List<WebElement> elementCount = objSelect.getOptions();\n        objSelect.selectByValue(value);\n        System.out.println(\"number of elements: \" + elementCount.size());\n    }\n\n    public static void sleep(int timeOut) {\n        try {\n            Thread.sleep(timeOut);\n        } catch (Exception e) {\n            e.printStackTrace();\n        }\n    }\n\n    public static void waitAndClickLocationText(WebElement element, String value) {\n        Driver.getDriver().findElement(By.xpath(\"//*[text()='\" + value + \"']\")).click();\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/utilities/Driver.java b/src/test/java/utilities/Driver.java
+--- a/src/test/java/utilities/Driver.java	
++++ b/src/test/java/utilities/Driver.java	
+@@ -15,6 +15,8 @@
+ import java.time.Duration;
+ import java.util.List;
+ import java.util.NoSuchElementException;
++import utilities.ConfigurationReader;
++
+ 
+ public class Driver {
+     //create a driver instance

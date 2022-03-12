@@ -1,30 +1,40 @@
 package utilities;
 
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.Properties;
 
 public class ConfigurationReader {
 
-    private static Properties properties;
+
+
+    //1-Properties objesi olusturacagiz
+    static Properties properties;
+
+    //2-Bu classin amaci configration.propertiesdosyasini okumak
+    // ve aradaki key ikililerini kullanarak istegimiz key e ait value bize getirmek
+
     static {
+        String dosyaYolu="configuration.properties";
 
-        String path = "configuration.properties";
         try {
-
-            FileInputStream file = new FileInputStream(path);
-
-            properties= new Properties();
-            properties.load(file);
-
-            file.close();
-        } catch (Exception e) {
+            FileInputStream fileInputStream=new FileInputStream(dosyaYolu);
+            properties=new Properties();
+            properties.load(fileInputStream);
+        }  catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    //    This method accepts the key and returns the value
-    public static String getProperty(String key){
-        return properties.getProperty(key);
-    }
 
+
+
+    //3-test classlarindan configReader classina
+    // ulasip yukaridaki islemleri yapmamizi saglayacak bir method
+
+    public static String getProperty(String key){
+
+        String value=properties.getProperty(key);
+        return value;
+    }
 }
