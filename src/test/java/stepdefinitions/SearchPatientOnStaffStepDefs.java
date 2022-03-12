@@ -73,8 +73,8 @@ public class SearchPatientOnStaffStepDefs {
        Driver.waitAndClick(searchPatientOnStaffPage.editButtonOnPatientSearch, 5);
     }
 
-    @Then("user verifies create or edit patient page")
-    public void userVerifiesCreateOrEditPatientPage() {
+    @Then("user verifies create or edit patient pages")
+    public void userVerifiesCreateOrEditPatientPages() {
 
         Driver.waitForVisibility(searchPatientOnStaffPage.createEditPatientText,5).isDisplayed();
     }
@@ -93,8 +93,8 @@ public class SearchPatientOnStaffStepDefs {
 
     }
 
-    @And("user clicks save button")
-    public void userClicksSaveButton() {
+    @And("user click save button")
+    public void userClickSaveButton() {
         Driver.waitAndClick(searchPatientOnStaffPage.saveButtonCreateEditPatient,5);
         //searchPatientOnStaffPage.saveButtonCreateEditPatient.click();
     }
@@ -107,8 +107,8 @@ public class SearchPatientOnStaffStepDefs {
 
 
 
-    @And("user clicks show appointments button")
-    public void userClicksShowAppointmentsButton() {
+    @And("user click show appointments button")
+    public void userClickShowAppointmentsButton() {
 
         Driver.waitAndClick(searchPatientOnStaffPage.showAppointmentsButton,5);
     }

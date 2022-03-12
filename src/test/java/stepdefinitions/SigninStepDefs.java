@@ -23,8 +23,8 @@ public class SigninStepDefs {
     @When("user clicks sign in button at the home page and navigates to sign in page")
     public void user_clicks_sign_in_button_at_the_home_page_and_navigates_to_sign_in_page() {
 
-        commonPage.accountMenu.click();
-        commonPage.signIn.click();
+       Driver.waitAndClick( commonPage.accountMenu);
+        Driver.waitAndClick( commonPage.signIn);
 
     }
     @Then("user verifies that sign in page header is visible")

@@ -5,10 +5,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.support.ui.Select;
-import pages.AppointmentAdminPage;
-import pages.CommonPage;
-import pages.CreateOrEditAnAppointmentPage;
-import pages.SignInPage;
+import pages.*;
 import utilities.Driver;
 
 public class AppointmentAdminSteps {
@@ -16,7 +13,7 @@ public class AppointmentAdminSteps {
     CommonPage commonPage = new CommonPage();
     CreateOrEditAnAppointmentPage createOrEditAnAppointmentPage = new CreateOrEditAnAppointmentPage();
     AppointmentAdminPage appointmentAdminPage = new AppointmentAdminPage();
-
+MyAppointmentPageAsDoctor myAppointmentPageAsDoctor=new MyAppointmentPageAsDoctor();
 
     @Given("user logs in as admin {string},{string}")
     public void user_logs_in_as_admin(String username, String password) {
@@ -26,8 +23,8 @@ public class AppointmentAdminSteps {
     }
     @Given("user navigates to appointment page")
     public void user_navigates_to_appointment_page() {
-       Driver.waitAndClick(commonPage.itemsAndTitles);
-       Driver.waitAndClick(commonPage.adminAppointment);
+       Driver.waitAndClick(myAppointmentPageAsDoctor.itemsTitlesDropdown);
+       Driver.waitAndClick(myAppointmentPageAsDoctor.adminAppointment);
     }
     @Given("user clicks to Create a new Appointment button")
     public void user_clicks_to_create_a_new_appointment_button() {

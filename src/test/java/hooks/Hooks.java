@@ -15,8 +15,7 @@ public class Hooks {
 
     @Before
     public void setUp(){
-        Driver.wait(1);
-        Driver.closeDriver();
+
     }
 
 
@@ -35,6 +34,8 @@ public class Hooks {
             scenario.attach(screenshot,"image/png","screenshots");
         }
 //         Driver.closeDriver();
+        Driver.wait(1);
+        Driver.closeDriver();
     }
 
     @Before(order = 1, value = "@user_login_positive")
@@ -43,7 +44,11 @@ public class Hooks {
         Driver.getDriver().get(ConfigurationReader.getProperty("medunna_url"));
 
     }
+@Before(order=1,value="@SignIn_Page")
+    public void navigateToLoginPage(){
+    Driver.getDriver().get(ConfigurationReader.getProperty("medunna_signin_url"));
 
+}
 
 
 }

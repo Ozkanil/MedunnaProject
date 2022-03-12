@@ -19,7 +19,7 @@ public class US_001_StepDef {
 
     @Given("user is on the common page")
     public void user_is_on_the_common_page() {
-        Driver.getDriver().get(ConfigurationReader.getProperty("medunna_login_url"));
+        Driver.getDriver().get(ConfigurationReader.getProperty("medunna_url"));
     }
     @Given("user navigates to registration page")
     public void user_navigates_to_registration_page() {

@@ -1,3 +1,4 @@
+@Password_Setting
 Feature: setting homepage feature
 
   Background:

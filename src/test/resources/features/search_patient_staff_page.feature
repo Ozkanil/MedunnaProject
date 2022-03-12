@@ -39,9 +39,9 @@ Feature: Search patient on staff page
       |ssn        |
       |777-85-7963|
     And user clicks patient edit button
-    Then user verifies create or edit patient page
+    Then user verifies create or edit patient pages
     And user provides necessary data to edit patient info
-    And user clicks save button
+    And user click save button
     Then user verifies patient info update message
 
     Examples:
@@ -62,12 +62,12 @@ Feature: Search patient on staff page
     When user provides a valid ssn number into search box
         |ssn        |
         |610-64-0981|
-    And user clicks show appointments button
+    And user click show appointments button
     Then user verifies appointments page header
     And user clicks edit button under appointments
     Then user verifies create and edit appointments page
     And user makes necessary updates
-    And user clicks save button
+    And user click save button
     Then verifies update is successful
 
 

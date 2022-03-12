@@ -54,5 +54,7 @@ public class CommonPage {
     @FindBy(xpath = "//*[span='Appointment']" )
     public WebElement adminAppointment;
 
+    @FindBy(xpath = "//*[span='My Patients']")
+    public WebElement myPatients;
 
 }

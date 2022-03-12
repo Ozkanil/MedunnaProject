@@ -1,6 +1,7 @@
+@AA
 Feature: test appointment page as admin
 
-
+  @SignIn_Page
   @UIAppointmentAdmin
   Scenario Outline:  test appointment page as admin
     Given user logs in as admin "<username>","<password>"
