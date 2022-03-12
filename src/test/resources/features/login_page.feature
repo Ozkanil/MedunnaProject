@@ -10,7 +10,7 @@ Feature: User login
   And user enters username "<username>" and password "<password>"
   And user clicks sign in button
   Then user verifies that sign in is successful
-  #And user clicks sign out and verifies sign out
+  And user clicks sign out and verifies sign out
 
     Examples:Test data
     |username|password|

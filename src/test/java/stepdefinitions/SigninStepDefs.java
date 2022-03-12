@@ -23,7 +23,7 @@ public class SigninStepDefs {
     @When("user clicks sign in button at the home page and navigates to sign in page")
     public void user_clicks_sign_in_button_at_the_home_page_and_navigates_to_sign_in_page() {
 
-       Driver.waitAndClick( commonPage.accountMenu);
+        Driver.waitAndClick( commonPage.accountMenu);
         Driver.waitAndClick( commonPage.signIn);
 
     }
@@ -122,5 +122,16 @@ public class SigninStepDefs {
     public void userVerifiesThatNavigatedToTheRegistrationPage() {
 
         Assert.assertTrue(Driver.waitForVisibility(signInPage.registrationPageHeader,5).isDisplayed());
+    }
+
+    @And("user clicks sign out and verifies sign out")
+    public void userClicksSignOutAndVerifiesSignOut() throws InterruptedException {
+
+        Thread.sleep(3000);
+        commonPage.accountMenu.click();
+        Thread.sleep(2000);
+        Driver.waitAndClick(signInPage.signoutButton);
+
+
     }
 }
