@@ -107,4 +107,43 @@ public class US_001_StepDef {
     }
 
 
+    @Given("user provides invalid username {string}")
+    public void userProvidesInvalidUsername(String arg0) {
+Driver.waitAndSendText(registrationPage.username,arg0);
+    }
+
+    @Then("user validates Your username is required. message")
+    public void userValidatesYourUsernameIsRequiredMessage() {
+
+    }
+
+    @Then("user validates Your username is invalid. message")
+    public void userValidatesYourUsernameIsInvalidMessage() {
+
+    }
+
+    @Given("user provides the invalid email {string}")
+    public void userProvidesTheInvalidEmail(String arg0) {
+
+    }
+
+    @Then("user validates This field is invalid")
+    public void userValidatesThisFieldIsInvalid() {
+
+    }
+
+    @Then("user validates Your email is required.")
+    public void userValidatesYourEmailIsRequired() {
+
+    }
+
+    @Given("user provides the password {string}")
+    public void userProvidesThePassword(String arg0) {
+
+    }
+
+    @Then("user validates the password strength {string}")
+    public void userValidatesThePasswordStrength(String arg0) {
+
+    }
 }

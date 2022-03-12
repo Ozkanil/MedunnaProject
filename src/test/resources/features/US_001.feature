@@ -161,6 +161,7 @@ Feature: User_Story_001_Test
       |lastName        |
       |  |
   @UIRegistrationTest
+    @user_register
   Scenario Outline: test username textbox
     Given user provides invalid username "<username>"
     Then  user validates Your username is required. message
@@ -170,6 +171,7 @@ Feature: User_Story_001_Test
       |  |
 
   @UIRegistrationTest
+    @user_register
   Scenario Outline: test username textbox
     Given user provides invalid username "<username>"
     Then  user validates Your username is invalid. message
@@ -179,6 +181,7 @@ Feature: User_Story_001_Test
       |userOn)(!|
 
   @UIRegistrationTest
+    @user_register
   Scenario Outline: test email textbox
     Given user provides the invalid email "<email>"
     Then user validates This field is invalid
@@ -191,6 +194,7 @@ Feature: User_Story_001_Test
       |@gmail.com   |
 
   @UIRegistrationTest
+    @user_register
   Scenario Outline: test email textbox
     Given user provides the invalid email "<email>"
     Then user validates Your email is required.
@@ -201,6 +205,7 @@ Feature: User_Story_001_Test
 
 
   @UIRegistrationTest
+    @user_register
   Scenario Outline: test password strength
     Given user provides the password "<password>"
     Then user validates the password strength "<strength>"

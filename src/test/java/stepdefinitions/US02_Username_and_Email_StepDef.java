@@ -24,7 +24,7 @@ public class US02_Username_and_Email_StepDef {
     @Given("user set the url and generate the token")
     public void user_set_the_url_and_generate_the_token() {
         //  String token="eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtZWR1bm5hYWRtaW4iLCJhdXRoIjoiUk9MRV9BRE1JTiIsImV4cCI6MTY0Njk5NjYzOH0.yylp6kWllONpUzaYRWfVJMjwDbWGwbCi2NDqRhJDCWZfQVpTNa8My4iAMfsPAS1nkNfKeJ9QkefhEpPeBh0KeQ";
-        response = getRequest(generateToken("admin79","admin"), ConfigurationReader.getProperty("registrant_endpoint_all_user"));
+        response = getRequest(generateToken("admin79","admin"), ConfigurationReader.getProperty("registrant_endpoint_2000"));
 
         response.prettyPrint();
 
@@ -70,23 +70,30 @@ public class US02_Username_and_Email_StepDef {
     @Then("Provide the {string} of the applicant for usernamebox")
     public void provide_the_of_the_applicant_for_usernamebox(String invalidUserName) throws InterruptedException {
 
-        registrationPage.username.sendKeys(invalidUserName);
-        registrationPage.email.click();
-        Thread.sleep(2000);
+        Driver.waitAndSendText(registrationPage.username,invalidUserName);
+        Driver.clickWithJS(registrationPage.email);
+
     }
 
     @Then("User should should see the error message.")
     public void user_should_should_see_the_error_message() throws InterruptedException {
 
-        Driver.waitForVisibility(registrationPage.generalInvalidFeedback,10);
-        Assert.assertTrue(registrationPage.generalInvalidFeedback.isEnabled());
-        Thread.sleep(5000);
+       // Driver.waitForVisibility(registrationPage.generalInvalidFeedback,10);
+       for (int i=0;i<5;i++){
+           try {
+               Assert.assertTrue(registrationPage.generalInvalidFeedback.isEnabled());
+           }catch (Exception e){
+               Driver.wait(1);
+           }
+       }
+
+
 
     }
 
     @Then("User clicks on the email textbox")
     public void user_clicks_on_the_email_textbox() {
-        registrationPage.email.click();
+        Driver.clickWithJS(registrationPage.email);
 
     }
 

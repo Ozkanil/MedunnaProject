@@ -49,6 +49,7 @@ Feature: US02 Choose a username that can contain any chars, but it cannot be bla
       | mustafaqa          |
 
   @ApiRegistrant
+    @Api_Username_email
   Scenario: TC_0004 username should be validated using api
     Given user set the url and generate the token
     Then user validate the email

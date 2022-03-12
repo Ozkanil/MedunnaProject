@@ -38,10 +38,10 @@ public class Hooks {
         Driver.closeDriver();
     }
 
-    @Before(order = 1, value = "@user_login_positive")
+    @Before(order = 1, value = "@user_register")
     public void navigateToRegistrationPage(){
 
-        Driver.getDriver().get(ConfigurationReader.getProperty("medunna_url"));
+        Driver.getDriver().get(ConfigurationReader.getProperty("medunna_registration_url"));
 
     }
 @Before(order=1,value="@SignIn_Page")
@@ -49,7 +49,12 @@ public class Hooks {
     Driver.getDriver().get(ConfigurationReader.getProperty("medunna_signin_url"));
 
 }
+    @Before(order = 1, value = "@user_login_positive")
+    public void navigateToHomePage(){
 
+        Driver.getDriver().get(ConfigurationReader.getProperty("medunna_url"));
+
+    }
 
 }
 
