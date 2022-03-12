@@ -1,6 +1,7 @@
 package utilities;
 
 import pojos.Appointment;
+import pojos.AppointmentGet;
 import pojos.Appointments;
 import pojos.Registrant;
 
@@ -87,5 +88,17 @@ public class WriteToTxt {
             e.printStackTrace();
         }
     }
+    public static void saveAppointmentCreation(AppointmentGet appointmentGet){
+        try{
 
+            FileWriter fileWriter = new FileWriter(ConfigurationReader.getProperty("appointment_creation_records"), true);
+            BufferedWriter writer = new BufferedWriter(fileWriter);
+            writer.append(appointmentGet+"\n");
+            writer.close();
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+    }
 }
