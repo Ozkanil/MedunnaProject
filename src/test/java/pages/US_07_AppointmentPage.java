@@ -42,3 +42,4 @@ public class US_07_AppointmentPage {
     public WebElement successMessageToastContainer;
 
 }
+

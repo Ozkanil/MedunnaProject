@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite errors="0" failures="1" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="12.555">
+<testcase classname="US_10" name="doctor should be able to edit appointments" time="12.012">
+<failure message="Expected data does NOT match actual data expected:&lt;2022-03-10T0[1]:00&gt; but was:&lt;2022-03-10T0[3]:00&gt;" type="org.junit.ComparisonFailure"><![CDATA[Given user on the Create or Edit an Appointment page........................passed
+And user verify appointment details like ID,StartDate,EndDate,Status........failed
+And user should see three buttons for requesting and showing test and requesting inpatient.skipped
+And user clicks on the Request Inpatient button.............................skipped
+And user should be able to go back without saving...........................skipped
+And user changes the status of appointment..................................skipped
+And user types information for "allergic reaction", "nasal sprays", "Skin Prick Test", "Otrivin", "Breathing problems".skipped
+And user saves the changes..................................................skipped
+
+StackTrace:
+org.junit.ComparisonFailure: Expected data does NOT match actual data expected:<2022-03-10T0[1]:00> but was:<2022-03-10T0[3]:00>
+	at org.junit.Assert.assertEquals(Assert.java:117)
+	at stepdefinitions.DoctorAppointmentEditStepdefs.userVerifyAppointmentDetailsLikeIDStartDateEndDateStatus(DoctorAppointmentEditStepdefs.java:46)
+	at ✽.user verify appointment details like ID,StartDate,EndDate,Status(file:///Users/beril/Documents/medunna/src/test/resources/features/us_10.feature:20)
+]]></failure>
+</testcase>
+</testsuite>

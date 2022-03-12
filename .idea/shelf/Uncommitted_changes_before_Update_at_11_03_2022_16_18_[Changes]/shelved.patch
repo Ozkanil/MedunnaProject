@@ -1,0 +1,582 @@
+Index: src/test/java/hooks/Hooks.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package hooks;\n\nimport io.cucumber.java.Before;\nimport io.cucumber.java.Scenario;\nimport io.restassured.builder.RequestSpecBuilder;\nimport io.restassured.specification.RequestSpecification;\nimport org.junit.After;\nimport org.openqa.selenium.OutputType;\nimport org.openqa.selenium.TakesScreenshot;\nimport utilities.ConfigurationReader;\nimport utilities.Driver;\n\npublic class Hooks {\n\n\n    public static RequestSpecification spec;\n\n    @Before(value = \"@ApiRegistrant\")\n    public void setup(){\n        spec = new RequestSpecBuilder().setBaseUri(ConfigurationReader.getProperty(\"base_url\")).build();\n    }\n\n    @After\n    public void tearDown(Scenario scenario){\n        if(scenario.isFailed()){\n            final byte[] screenshot=((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);\n            scenario.attach(screenshot,\"image/png\",\"screenshots\");\n        }\n        //  Driver.getDriver().close();\n    }\n\n\n\n}\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/hooks/Hooks.java b/src/test/java/hooks/Hooks.java
+--- a/src/test/java/hooks/Hooks.java	(revision f3ee5abf7efee53d68e9965bea7662542498c566)
++++ b/src/test/java/hooks/Hooks.java	(date 1646944427642)
+@@ -29,6 +29,13 @@
+         //  Driver.getDriver().close();
+     }
+ 
++    @Before(order = 1, value = "@user_login_positive")
++    public void navigateToRegistrationPage(){
++
++        Driver.getDriver().get(ConfigurationReader.getProperty("medunna_url"));
++
++    }
++
+ 
+ 
+ }
+Index: src/test/java/runners/Runner.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package runners;\nimport io.cucumber.junit.Cucumber;\nimport io.cucumber.junit.CucumberOptions;\nimport org.junit.runner.RunWith;\n@RunWith(Cucumber.class)\n@CucumberOptions(\n        plugin = {\n                \"pretty\",\n                \"html:target/default-cucumber-reports.html\",\n                \"json:target/json-reports/cucumber.json\",\n                \"junit:target/xml-report/cucumber.xml\",\n                \"rerun:target/failedRerun.txt\"\n        },\n        features = \"./src/test/resources/features\",\n        glue = {\"stepdefinitions\", \"hooks\"},\n        tags = \"@request_a_test\",\n        dryRun = false\n)\npublic class Runner {\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/runners/Runner.java b/src/test/java/runners/Runner.java
+--- a/src/test/java/runners/Runner.java	(revision f3ee5abf7efee53d68e9965bea7662542498c566)
++++ b/src/test/java/runners/Runner.java	(date 1646945455208)
+@@ -13,7 +13,7 @@
+         },
+         features = "./src/test/resources/features",
+         glue = {"stepdefinitions", "hooks"},
+-        tags = "@request_a_test",
++        tags = "@user_login_positive",
+         dryRun = false
+ )
+ public class Runner {
+Index: src/test/resources/features/search_patient_staff_page.feature
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>Feature: Search patient on staff page\n\n  @view_patients_staff_page\n  Scenario Outline: View patient info\n\n    #When User navigates to the home page\n    And user clicks sign in button at the home page and navigates to sign in page\n    Then user verifies that sign in page header is visible\n    And user enters username \"<username>\" and password \"<password>\"\n    And user clicks sign in button\n    Then user verifies that sign in is successful\n     When user clicks my pages\n     And user clicks search patient\n     And user provides a valid ssn number into search box\n        |ssn        |\n        |777-85-7963|\n\n     And user clicks view button\n     Then user verifies patient info is visible\n     And user clicks back button\n\n    Examples:\n      |username|password|\n      |hazel   |13579   |\n\n\n  @edit_patient_info\n  Scenario Outline: Edit patient info\n\n    #@When User navigates to the home page\n    And user clicks sign in button at the home page and navigates to sign in page\n    Then user verifies that sign in page header is visible\n    And user enters username \"<username>\" and password \"<password>\"\n    And user clicks sign in button\n    Then user verifies that sign in is successful\n    When user clicks my pages\n    And user clicks search patient\n    When user provides a valid ssn number into search box\n      |ssn        |\n      |777-85-7963|\n    And user clicks edit button\n    Then user verifies create or edit patient page\n    And user provides necessary data to edit patient info\n    And user clicks save button\n    Then user verifies patient info update message\n\n    Examples:\n      |username|password|\n      |hazel   |13579   |\n\n    @view_edit_appointments\n    Scenario Outline: View appointments\n\n    #When User navigates to the home page\n    And user clicks sign in button at the home page and navigates to sign in page\n    Then user verifies that sign in page header is visible\n    And user enters username \"<username>\" and password \"<password>\"\n    And user clicks sign in button\n    Then user verifies that sign in is successful\n    When user clicks my pages\n    And user clicks search patient\n    When user provides a valid ssn number into search box\n        |ssn        |\n        |610-64-0981|\n    And user clicks show appointments button\n    Then user verifies appointments page header\n    And user clicks edit button under appointments\n    Then user verifies create and edit appointments page\n    And user makes necessary updates\n    And user clicks save button\n    Then verifies update is successful\n\n\n      Examples:\n        |username|password|\n        |hazel   |13579   |\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/resources/features/search_patient_staff_page.feature b/src/test/resources/features/search_patient_staff_page.feature
+--- a/src/test/resources/features/search_patient_staff_page.feature	(revision f3ee5abf7efee53d68e9965bea7662542498c566)
++++ b/src/test/resources/features/search_patient_staff_page.feature	(date 1646945231350)
+@@ -3,7 +3,7 @@
+   @view_patients_staff_page
+   Scenario Outline: View patient info
+ 
+-    #When User navigates to the home page
++    When User navigates to the home page
+     And user clicks sign in button at the home page and navigates to sign in page
+     Then user verifies that sign in page header is visible
+     And user enters username "<username>" and password "<password>"
+@@ -27,7 +27,7 @@
+   @edit_patient_info
+   Scenario Outline: Edit patient info
+ 
+-    #@When User navigates to the home page
++    @When User navigates to the home page
+     And user clicks sign in button at the home page and navigates to sign in page
+     Then user verifies that sign in page header is visible
+     And user enters username "<username>" and password "<password>"
+@@ -38,7 +38,7 @@
+     When user provides a valid ssn number into search box
+       |ssn        |
+       |777-85-7963|
+-    And user clicks edit button
++    And user clicks patient edit button
+     Then user verifies create or edit patient page
+     And user provides necessary data to edit patient info
+     And user clicks save button
+Index: src/test/java/stepdefinitions/SearchPatientOnStaffStepDefs.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package stepdefinitions;\n\nimport com.github.javafaker.Faker;\nimport io.cucumber.datatable.DataTable;\nimport io.cucumber.java.bs.A;\nimport io.cucumber.java.en.And;\nimport io.cucumber.java.en.Then;\nimport io.cucumber.java.en.When;\nimport org.junit.Assert;\nimport org.openqa.selenium.support.ui.Select;\nimport pages.SearchPatientOnStaffPage;\nimport pages.SignInPage;\nimport utilities.ConfigurationReader;\nimport utilities.Driver;\n\nimport java.util.List;\n\npublic class SearchPatientOnStaffStepDefs {\n\n\n    SearchPatientOnStaffPage searchPatientOnStaffPage=new SearchPatientOnStaffPage();\n\n\n    @When(\"user clicks my pages\")\n    public void user_clicks_my_pages() {\n\n\n        Driver.waitAndClick(searchPatientOnStaffPage.myPagesDropdown, 5);\n\n    }\n\n    @When(\"user clicks search patient\")\n    public void user_clicks_search_patient() {\n\n        Driver.waitAndClick(searchPatientOnStaffPage.searchPatientDropdown, 5);\n\n    }\n\n    @And(\"user provides a valid ssn number into search box\")\n    public void userProvidesAValidSsnNumberIntoSearchBox(DataTable ssn) {\n\n        List<String> ssnList= ssn.row(1);\n        searchPatientOnStaffPage.patientSSNSearchBox.sendKeys(ssnList.get(0));\n\n    }\n\n    @When(\"user clicks view button\")\n    public void user_clicks_view_button() {\n\n\n        Driver.waitAndClick(searchPatientOnStaffPage.viewButtonOnPatientSearch, 5);\n\n    }\n\n    @Then(\"user verifies patient info is visible\")\n    public void user_verifies_patient_info_is_visible() {\n\n\n        Assert.assertTrue(Driver.waitForVisibility(searchPatientOnStaffPage.patientsText,5).isDisplayed());\n\n    }\n\n    @Then(\"user clicks back button\")\n    public void user_clicks_back_button() {\n\n    Driver.waitAndClick(searchPatientOnStaffPage.backButtonAtPatientInfo,5);\n\n    }\n\n    @And(\"user clicks edit button\")\n    public void userClicksEditButton() {\n\n       Driver.waitAndClick(searchPatientOnStaffPage.editButtonOnPatientSearch, 5);\n    }\n\n    @Then(\"user verifies create or edit patient page\")\n    public void userVerifiesCreateOrEditPatientPage() {\n\n        Driver.waitForVisibility(searchPatientOnStaffPage.createEditPatientText,5).isDisplayed();\n    }\n\n    @And(\"user provides necessary data to edit patient info\")\n    public void userProvidesNecessaryDataToEditPatientInfo() {\n\n       searchPatientOnStaffPage.nameBoxInCreateEditPatient.clear();\n        searchPatientOnStaffPage.nameBoxInCreateEditPatient.sendKeys(Faker.instance().name().firstName());\n        searchPatientOnStaffPage.lastnameBoxCreateEditPatient.clear();\n        searchPatientOnStaffPage.lastnameBoxCreateEditPatient.sendKeys(Faker.instance().name().lastName());\n        searchPatientOnStaffPage.emailBoxCreateEditPatient.clear();\n        searchPatientOnStaffPage.emailBoxCreateEditPatient.sendKeys(Faker.instance().internet().emailAddress());\n        searchPatientOnStaffPage.phoneBoxCreateEditPatient.clear();\n        searchPatientOnStaffPage.phoneBoxCreateEditPatient.sendKeys(\"4569875896\");\n\n    }\n\n    @And(\"user clicks save button\")\n    public void userClicksSaveButton() {\n        Driver.waitAndClick(searchPatientOnStaffPage.saveButtonCreateEditPatient,5);\n        //searchPatientOnStaffPage.saveButtonCreateEditPatient.click();\n    }\n\n    @Then(\"user verifies patient info update message\")\n    public void userVerifiesPatientInfoUpdateMessage() {\n\n        Assert.assertTrue(Driver.waitForVisibility(searchPatientOnStaffPage.saveSuccessAlert,5).isDisplayed());\n    }\n\n\n\n    @And(\"user clicks show appointments button\")\n    public void userClicksShowAppointmentsButton() {\n\n        Driver.waitAndClick(searchPatientOnStaffPage.showAppointmentsButton,5);\n    }\n\n    @And(\"user verifies appointments page header\")\n    public void userVerifiesAppointmentsPageHeader() {\n\n        Assert.assertTrue(Driver.waitForVisibility(searchPatientOnStaffPage.appointmentTextUnderShowAppointments,5).isDisplayed());\n    }\n\n    @Then(\"user verifies create and edit appointments page\")\n    public void userVerifiesCreateAndEditAppointmentsPage() {\n\n        Assert.assertTrue(Driver.waitForVisibility(searchPatientOnStaffPage.createEditAppointmentText,5).isDisplayed());\n    }\n\n    @And(\"user makes necessary updates\")\n    public void userMakesNecessaryUpdates() throws InterruptedException {\n\n        searchPatientOnStaffPage.diagnosisBoxCreateEditAppointment.sendKeys(\"123\");\n        searchPatientOnStaffPage.prescriptionBoxCreateEditAppointment.sendKeys(\"987\");\n        Thread.sleep(3000);\n        new Select(searchPatientOnStaffPage.physicianDropdownCreateEditAppointment).selectByIndex(1);\n\n    }\n\n    @Then(\"verifies update is successful\")\n    public void verifiesUpdateIsSuccessful() {\n\n        Assert.assertTrue(Driver.waitForVisibility(searchPatientOnStaffPage.saveSuccessAlert,5).isDisplayed());\n    }\n\n    @And(\"user clicks edit button under appointments\")\n    public void userClicksEditButtonUnderAppointments() {\n\n        Driver.waitAndClick(searchPatientOnStaffPage.editButtonAppointments,5);\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/stepdefinitions/SearchPatientOnStaffStepDefs.java b/src/test/java/stepdefinitions/SearchPatientOnStaffStepDefs.java
+--- a/src/test/java/stepdefinitions/SearchPatientOnStaffStepDefs.java	(revision f3ee5abf7efee53d68e9965bea7662542498c566)
++++ b/src/test/java/stepdefinitions/SearchPatientOnStaffStepDefs.java	(date 1646944186884)
+@@ -67,8 +67,8 @@
+ 
+     }
+ 
+-    @And("user clicks edit button")
+-    public void userClicksEditButton() {
++    @And("user clicks patient edit button")
++    public void userClicksPetientEditButton() {
+ 
+        Driver.waitAndClick(searchPatientOnStaffPage.editButtonOnPatientSearch, 5);
+     }
+Index: src/test/java/stepdefinitions/RequestATestStepdefs.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package stepdefinitions;\n\nimport com.github.javafaker.Faker;\nimport io.cucumber.java.en.And;\nimport io.cucumber.java.en.Then;\nimport io.cucumber.java.en.When;\nimport org.junit.Assert;\nimport org.openqa.selenium.WebElement;\nimport pages.AppointmentEditPageForDoctor;\nimport pages.MyAppointmentPageAsDoctor;\nimport pages.RequestATestPage;\nimport utilities.Driver;\n\nimport java.util.ArrayList;\nimport java.util.List;\n\npublic class RequestATestStepdefs {\n\n    RequestATestPage requestATestPage=new RequestATestPage();\n    MyAppointmentPageAsDoctor myAppointmentPageAsDoctor=new MyAppointmentPageAsDoctor();\n    AppointmentEditPageForDoctor appointmentEditPageForDoctor=new AppointmentEditPageForDoctor();\n\n\n    @Then(\"verify by id's that each test type is included as a checkmark option\")\n    public void verifyByIdSThatEachTestTypeIsIncludedAsACheckmarkOption() {\n        Driver.wait(1);\n/*\n===============Test ID's=================\nGlucose         => 1401\nUrea            => 1402\nCreatinine      =>1403\nSodium          =>1404\nPotassium       =>1405\nTotal protein   =>1406\nAlbumin         =>1407\nHemoglobin      =>1408\n */\n        List<String> expectedData=new ArrayList<>();\n       for (int i=1401;i<1409;i++){\n           expectedData.add(Integer.toString(i));\n       }\n        System.out.println(expectedData);\n\n      List<String> actualData=new ArrayList<>();\n\n        for (WebElement w: requestATestPage.allCheckMarks\n             ) {\n           actualData.add(w.getAttribute(\"id\"));\n        }\n        System.out.println(actualData);\n\n    Assert.assertTrue(actualData.containsAll(expectedData));\n\n\n    }\n\n\n    @And(\"user checks randomly one of them\")\n    public void userChecksRandomlyOneOfThem() {\n        Faker faker=new Faker();\n        int random=faker.number().numberBetween(1,9);\n        switch (random){\n            case 1:\n                Driver.waitAndClick(requestATestPage.hemoglobinCheck);\n                break;\n            case 2:\n                Driver.waitAndClick(requestATestPage.albuminCheck);\n                break;\n            case 3:\n                Driver.waitAndClick(requestATestPage.totalProteinCheck);\n                break;\n            case 4:\n                Driver.waitAndClick(requestATestPage.sodiumCheck);\n                break;\n            case 5:\n                Driver.waitAndClick(requestATestPage.potassiumCheck);\n                break;\n            case 6:\n                Driver.waitAndClick(requestATestPage.ureaCheck);\n                break;\n            case 7:\n                Driver.waitAndClick(requestATestPage.creatinineCheck);\n                break;\n            case 8:\n                Driver.waitAndClick(requestATestPage.glucoseCheck);\n                break;\n            case 9:\n                Driver.waitAndClick(requestATestPage.albimoCheck);\n                break;\n        }\n    }\n\n    @When(\"user clicks on the Save button\")\n    public void userClicksOnTheSaveButton() {\n        Driver.clickWithJS(requestATestPage.saveButton);\n    }\n\n    @Then(\"user should see the {string}\")\n    public void userShouldSeeThe(String arg0) {\n        Assert.assertTrue(\n                Driver.waitForVisibility(requestATestPage.alertElement,1).getText().contains(arg0)\n        );\n\n    }\n//===============Request A Test for ADMIN=================\n\n    @And(\"user selects Appointment item and clicks\")\n    public void userSelectsAppointmentItemAndClicks() {\nDriver.waitAndClick(myAppointmentPageAsDoctor.adminAppointment);\n    }\n\n    @And(\"user clicks on the view button\")\n    public void userClicksOnTheViewButton() {\n        Driver.waitAndClick(requestATestPage.adminViewAppointment);\n    }\n\n    @When(\"user clicks edit button\")\n    public void userClicksEditButton() {\n        Driver.waitAndClick(requestATestPage.adminEditAppointment);\n//        Driver.waitForVisibility(appointmentEditPageForDoctor.createOrEditAnAppointmentHeader,1);\n    }\n\n    @Then(\"user should NOT see Request A Test button\")\n    public void userShouldNOTSeeRequestATestButton() {\n\n        try{Assert.assertTrue(Driver.waitForVisibility(appointmentEditPageForDoctor.requestATestButton,3).isDisplayed());\n        }catch (Exception e){\n            System.out.println(\"You are NOT allowed to Request A Test\");\n        }\n    }\n\n    @When(\"user navigates to the test request page {string}\")\n    public void userNavigatesToTheTestRequestPage(String arg0) {\n        Driver.getDriver().navigate().to(arg0);\n    }\n\n    @And(\"user selects Search Patient item and clicks\")\n    public void userSelectsSearchPatientItemAndClicks() {\n    Driver.waitAndClick(requestATestPage.searchPatientDropdown);\n    }\n\n    @When(\"user clicks on the Show Tests button\")\n    public void userClicksOnTheShowTestsButton() {\n        Driver.waitAndClick(requestATestPage.patientShowTest);\n    }\n\n    @Then(\"user should see the unauthorized {string}\")\n    public void userShouldSeeTheUnauthorized(String arg0) {\n        Assert.assertEquals(arg0,Driver.waitForVisibility(requestATestPage.unauthorizedMessage,1).getText());\n    }\n\n\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/stepdefinitions/RequestATestStepdefs.java b/src/test/java/stepdefinitions/RequestATestStepdefs.java
+--- a/src/test/java/stepdefinitions/RequestATestStepdefs.java	(revision f3ee5abf7efee53d68e9965bea7662542498c566)
++++ b/src/test/java/stepdefinitions/RequestATestStepdefs.java	(date 1646943825185)
+@@ -110,12 +110,12 @@
+     }
+ 
+     @And("user clicks on the view button")
+-    public void userClicksOnTheViewButton() {
++    public void userClickOnTheViewButton() {
+         Driver.waitAndClick(requestATestPage.adminViewAppointment);
+     }
+ 
+     @When("user clicks edit button")
+-    public void userClicksEditButton() {
++    public void userClickEditButton() {
+         Driver.waitAndClick(requestATestPage.adminEditAppointment);
+ //        Driver.waitForVisibility(appointmentEditPageForDoctor.createOrEditAnAppointmentHeader,1);
+     }
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_15_55_[Changes]/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_15_55_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_15_55_[Changes]/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_15_55_[Changes]/shelved.patch	(revision f3ee5abf7efee53d68e9965bea7662542498c566)
++++ /dev/null	(revision f3ee5abf7efee53d68e9965bea7662542498c566)
+@@ -1,175 +0,0 @@
+-Index: src/test/java/pages/PageTest.java
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/src/test/java/pages/PageTest.java b/src/test/java/pages/SearchPatientOnStaffPage.java
+-rename from src/test/java/pages/PageTest.java
+-rename to src/test/java/pages/SearchPatientOnStaffPage.java
+---- a/src/test/java/pages/PageTest.java	(revision 935d74dbaafac0da6df45edebb3fa3e79106333e)
+-+++ b/src/test/java/pages/SearchPatientOnStaffPage.java	(date 1646380288431)
+-@@ -1,4 +1,163 @@
+- package pages;
+- 
+--public class PageTest {
+-+import org.openqa.selenium.WebElement;
+-+import org.openqa.selenium.support.FindBy;
+-+import org.openqa.selenium.support.PageFactory;
+-+import utilities.Driver;
+-+
+-+public class SearchPatientOnStaffPage {
+-+
+-+    public SearchPatientOnStaffPage() {
+-+
+-+        PageFactory.initElements(Driver.getDriver(),this);
+-+    }
+-+
+-+    @FindBy(linkText = "MY PAGES")
+-+    public WebElement myPagesDropdown;
+-+
+-+    @FindBy(linkText = "Search Patient")
+-+    public WebElement searchPatientDropdown;
+-+
+-+    @FindBy(id= "patient-heading")
+-+    public WebElement patientsText;
+-+
+-+    @FindBy(name="ssn")
+-+    public WebElement patientSSNSearchBox;
+-+
+-+    @FindBy(xpath = "(//*[@class='btn btn-info btn-sm'])[1]")
+-+    public WebElement viewButtonOnPatientSearch;
+-+
+-+    @FindBy(className = "btn btn-info")
+-+    public WebElement cancelButtonAfterView;
+-+
+-+    @FindBy(className = "btn btn-primary")
+-+    public WebElement editButtonAfterView;
+-+
+-+    @FindBy(xpath = "(//*[@class='btn btn-primary btn-sm'])[1]")
+-+    public WebElement editButtonOnPatientSearch;
+-+
+-+    @FindBy(xpath = "(//*[@class='btn btn-warning btn-sm'])[1]")
+-+    public WebElement showAppointmentsButton;
+-+
+-+    @FindBy(xpath = "//h2")
+-+    public WebElement patientTextAfterViewButton;
+-+
+-+    @FindBy(xpath = "(//dd)[1]")
+-+    public WebElement ssnTextAfterView;
+-+
+-+    @FindBy(xpath = "//h2")
+-+    public WebElement createEditPatientText;
+-+
+-+    @FindBy(name="firstName")
+-+    public WebElement nameBoxInCreateEditPatient;
+-+
+-+    @FindBy(name="lastName")
+-+    public WebElement lastnameBoxCreateEditPatient;
+-+
+-+    @FindBy(name="birthDate")
+-+    public WebElement birthdateBoxCreateEditPatient;
+-+
+-+    @FindBy(name= "email")
+-+    public WebElement emailBoxCreateEditPatient;
+-+
+-+    @FindBy(name= "phone")
+-+    public WebElement phoneBoxCreateEditPatient;
+-+
+-+    @FindBy(name= "gender")
+-+    public WebElement genderBoxCreateEditPatient;
+-+
+-+    @FindBy(name= "bloodGroup")
+-+    public WebElement bloodGroupBoxCreateEditPatient;
+-+
+-+    @FindBy(name= "adress")
+-+    public WebElement addressBoxCreateEditPatient;
+-+
+-+    @FindBy(name= "description")
+-+    public WebElement descriptionBoxCreateEditPatient;
+-+
+-+    @FindBy(name= "user.id")
+-+    public WebElement userBoxCreateEditPatient;
+-+
+-+    @FindBy(name= "country.id")
+-+    public WebElement countryBoxCreateEditPatient;
+-+
+-+    @FindBy(name= "cstate.id")
+-+    public WebElement stateBoxCreateEditPatient;
+-+
+-+    @FindBy(name= "cancel-save")
+-+    public WebElement backButtonCreateEditPatient;
+-+
+-+    @FindBy(name= "save-entity")
+-+    public WebElement saveButtonCreateEditPatient;
+-+
+-+    @FindBy(name= "appointment-heading")
+-+    public WebElement appointmentTextUnderShowAppointments;
+-+
+-+    @FindBy(className= "btn btn-warning btn-sm")
+-+    public WebElement editButtonUnderShowAppointments;
+-+
+-+    @FindBy(xpath= "//h2")
+-+    public WebElement createEditAppointmentText;
+-+
+-+    @FindBy(name="startDate")
+-+    public WebElement startDateBoxCreateEditAppointment;
+-+
+-+    @FindBy(name="endDate")
+-+    public WebElement endDateBoxCreateEditAppointment;
+-+
+-+    @FindBy(name="status")
+-+    public WebElement statusDropdownCreateEditAppointment;
+-+
+-+    @FindBy(name="anamnesis")
+-+    public WebElement anamnesisBoxCreateEditAppointment;
+-+
+-+    @FindBy(name="treatment")
+-+    public WebElement treatmentBoxCreateEditAppointment;
+-+
+-+    @FindBy(name="diagnosis")
+-+    public WebElement diagnosisBoxCreateEditAppointment;
+-+
+-+    @FindBy(name="prescription")
+-+    public WebElement prescriptionBoxCreateEditAppointment;
+-+
+-+    @FindBy(name="description")
+-+    public WebElement descriptionBoxCreateEditAppointment;
+-+
+-+    @FindBy(name="physician.id")
+-+    public WebElement physicianDropdownCreateEditAppointment;
+-+
+-+    @FindBy(name="patient.id")
+-+    public WebElement patientDropdownCreateEditAppointment;
+-+
+-+    @FindBy(id="cancel-save")
+-+    public WebElement cancelButtonCreateEditAppointment;
+-+
+-+    @FindBy(id="save-entity")
+-+    public WebElement saveButtonCreateEditAppointment;
+-+
+-+    @FindBy(xpath = "//*[@class='btn btn-primary btn-sm']")
+-+    public WebElement showTestsButton;
+-+
+-+    @FindBy(id="c-test-heading")
+-+    public WebElement testsTextUnderShowTests;
+-+
+-+
+-+
+-+
+-+
+-+
+-+
+-+
+-+
+-+
+-+
+-+
+-+
+-+
+-+
+-+
+-+
+-+
+-+
+-+
+- }
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_15_55__Changes_.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_15_55__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_15_55__Changes_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_15_55__Changes_.xml	(revision f3ee5abf7efee53d68e9965bea7662542498c566)
++++ /dev/null	(revision f3ee5abf7efee53d68e9965bea7662542498c566)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Update_at_4_03_2022_15_55_[Changes]" date="1646398553314" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_15_55_[Changes]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 4.03.2022 15:55 [Changes]" />
+-</changelist>
+\ No newline at end of file
+Index: src/test/java/stepdefinitions/apistepdefinitions/DoctorAppointmentStepdefs.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package stepdefinitions.apistepdefinitions;\n\nimport io.cucumber.java.en.And;\nimport io.cucumber.java.en.Given;\nimport io.cucumber.java.en.Then;\nimport com.fasterxml.jackson.databind.ObjectMapper;\nimport io.restassured.response.Response;\nimport org.junit.Assert;\nimport pojos.DoctorAppointment;\n\nimport java.io.IOException;\n\nimport static utilities.ApiUtils.getRequest;\nimport static utilities.Authentication.generateToken;\n\npublic class DoctorAppointmentStepdefs  {\n\n static    DoctorAppointment expectedData;\n    Response response;\n\n    @Given(\"user sends get request to the {string}\")\n    public void userSendsGetRequestToThe(String arg0) {\n        response=getRequest(generateToken(),arg0);\n         }\n\n    @Then(\"status code should be {int}\")\n    public void statusCodeShouldBe(int arg0) {\n        response.then().statusCode(arg0);\n    }\n\n    @And(\"response format should be {string}\")\n    public void responseFormatShouldBe(String arg0) {\n        response.then().contentType(arg0);\n    }\n\n    @And(\"response body should include expected information\")\n    public void responseBodyShouldIncludeExpectedInformation() throws IOException {\n        ObjectMapper obj=new ObjectMapper();\nDoctorAppointment []doctorAppointments=obj.readValue(response.asString(),DoctorAppointment[].class);\n        Assert.assertEquals(4,doctorAppointments.length);\n        for (DoctorAppointment d:doctorAppointments\n             ) {\n            switch (d.getId()){\n            case 11868:\n                /*\n                 \"id\": 11868,\n    \"startDate\": \"2022-03-07T00:00:00Z\",\n    \"endDate\": \"2022-03-07T01:00:00Z\",\n    \"status\": \"UNAPPROVED\"\n                 */\n                expectedData =new DoctorAppointment(\n                        11868,\"2022-03-07T00:00:00Z\",\"2022-03-07T01:00:00Z\",\"UNAPPROVED\");\n                Assert.assertEquals(d.getId(),expectedData.getId());\n                Assert.assertEquals(d.getEndDate(),expectedData.getEndDate());\n                Assert.assertEquals(d.getStartDate(),expectedData.getStartDate());\n                Assert.assertEquals(d.getStatus(),expectedData.getStatus());\n\n                break;\n\n            case 11883:\n                /*\n                \"id\": 11883,\n    \"startDate\": \"2022-03-08T00:00:00Z\",\n    \"endDate\": \"2022-03-08T01:00:00Z\",\n    \"status\": \"CANCELLED\",\n                 */\n                expectedData =new DoctorAppointment(\n                        11883,\"2022-03-08T00:00:00Z\",\"2022-03-08T01:00:00Z\",\"CANCELLED\");\n                Assert.assertEquals(d.getId(),expectedData.getId());\n                Assert.assertEquals(d.getEndDate(),expectedData.getEndDate());\n                Assert.assertEquals(d.getStartDate(),expectedData.getStartDate());\n                Assert.assertEquals(d.getStatus(),expectedData.getStatus());\n                break;\n            case 11885:\n                /*\n             \"id\": 11885,\n    \"startDate\": \"2022-03-10T00:00:00Z\",\n    \"endDate\": \"2022-03-10T01:00:00Z\",\n    \"status\": \"COMPLETED\",\n                 */\n                expectedData =new DoctorAppointment(\n                        11885,\"2022-03-10T00:00:00Z\",\"2022-03-10T01:00:00Z\",\"COMPLETED\");\n                Assert.assertEquals(d.getId(),expectedData.getId());\n                Assert.assertEquals(d.getEndDate(),expectedData.getEndDate());\n                Assert.assertEquals(d.getStartDate(),expectedData.getStartDate());\n                Assert.assertEquals(d.getStatus(),expectedData.getStatus());\n                break;\n                case 13800:\n           /* \"id\": 13800,\n                    \"startDate\": \"2022-03-09T00:00:00Z\",\n                    \"endDate\": \"2022-03-09T01:00:00Z\",\n                    \"status\": \"PENDING\",*/\n                    expectedData =new DoctorAppointment(\n                            13800,\"2022-03-09T00:00:00Z\",\"2022-03-09T01:00:00Z\",\"PENDING\");\n\n                    Assert.assertEquals(d.getId(),expectedData.getId());\n                    Assert.assertEquals(d.getEndDate(),expectedData.getEndDate());\n                    Assert.assertEquals(d.getStartDate(),expectedData.getStartDate());\n                    Assert.assertEquals(d.getStatus(),expectedData.getStatus());\n                    break;\n            default:\n                break;\n\n        }\n\n\n\n        }\n\n\n    }\n\n\n\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/stepdefinitions/apistepdefinitions/DoctorAppointmentStepdefs.java b/src/test/java/stepdefinitions/apistepdefinitions/DoctorAppointmentStepdefs.java
+--- a/src/test/java/stepdefinitions/apistepdefinitions/DoctorAppointmentStepdefs.java	(revision f3ee5abf7efee53d68e9965bea7662542498c566)
++++ b/src/test/java/stepdefinitions/apistepdefinitions/DoctorAppointmentStepdefs.java	(date 1646943612409)
+@@ -20,7 +20,7 @@
+ 
+     @Given("user sends get request to the {string}")
+     public void userSendsGetRequestToThe(String arg0) {
+-        response=getRequest(generateToken(),arg0);
++        response=getRequest(generateToken("jkj", "454"),arg0);
+          }
+ 
+     @Then("status code should be {int}")
+Index: src/test/java/stepdefinitions/SigninStepDefs.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/stepdefinitions/SigninStepDefs.java b/src/test/java/stepdefinitions/SigninStepDefs.java
+new file mode 100644
+--- /dev/null	(date 1646945872056)
++++ b/src/test/java/stepdefinitions/SigninStepDefs.java	(date 1646945872056)
+@@ -0,0 +1,110 @@
++package stepdefinitions;
++
++import io.cucumber.java.en.And;
++import io.cucumber.java.en.Then;
++import io.cucumber.java.en.When;
++import org.junit.Assert;
++import pages.CommonPage;
++import pages.SignInPage;
++import utilities.ConfigurationReader;
++import utilities.Driver;
++
++public class SigninStepDefs {
++
++    SignInPage signInPage=new SignInPage();
++    CommonPage commonPage=new CommonPage();
++
++    @When("User navigates to the home page")
++    public void user_navigates_to_the_home_page() {
++
++        Driver.getDriver().get(ConfigurationReader.getProperty("medunna_url"));
++
++    }
++    @When("user clicks sign in button at the home page and navigates to sign in page")
++    public void user_clicks_sign_in_button_at_the_home_page_and_navigates_to_sign_in_page() {
++
++        commonPage.accountMenu.click();
++        commonPage.signIn.click();
++
++    }
++    @Then("user verifies that sign in page header is visible")
++    public void user_verifies_that_sign_in_page_header_is_visible() {
++
++        Driver.waitForVisibility(signInPage.singinPageHeader, 5);
++        Assert.assertTrue(signInPage.singinPageHeader.isDisplayed());
++
++    }
++    @Then("user enters username {string} and password {string}")
++    public void user_enters_username_and_password(String username, String password) {
++
++        signInPage.username.sendKeys(username);
++        signInPage.password.sendKeys(password);
++
++    }
++    @Then("user clicks sign in button")
++    public void user_clicks_sign_in_button() {
++
++        signInPage.singInButton.click();
++
++    }
++    @Then("user verifies that sign in is successful")
++    public void sser_verifies_that_sign_in_is_successful() {
++
++        Assert.assertTrue(commonPage.accountMenu.isDisplayed());
++
++    }
++
++    @Then("user verifies that sign in is unsuccessful in case {string}")
++    public void user_verifies_that_sign_in_is_unsuccessful_in_case(String string) {
++
++        if (Integer.parseInt(string)==1){
++            Driver.waitForVisibility(signInPage.emptyUsernameFailMessage, 5);
++            Assert.assertTrue(signInPage.emptyUsernameFailMessage.isDisplayed());
++            Assert.assertTrue(signInPage.emptyPasswordFailMessage.isDisplayed());
++        }else{
++            Driver.waitForVisibility(signInPage.FailedAlert,5);
++            Assert.assertTrue(signInPage.FailedAlert.isDisplayed());
++        }
++    }
++
++    @And("user clicks cancel button")
++    public void userClicksCancelButton() {
++
++        signInPage.cancelButton.click();
++        signInPage.cancelButton.click();
++    }
++
++    @Then("user verifies that signin is canceled and user is on home page")
++    public void userVerifiesThatSigninIsCnacelledAndUserIsOnHomePage() {
++
++        //Assert.assertTrue(Driver.waitForVisibility(commonPage.homePageAssertionText,10).isDisplayed());
++
++    }
++
++    @And("user verifies that remember me box is visible and clickable")
++    public void userVerifiesThatRememberMeBoxIsVisibleAndClickable() throws InterruptedException {
++
++        Driver.waitForClickablility(signInPage.rememberMe,10).click();
++        signInPage.rememberMe.click();
++        Thread.sleep(5000);
++        String clickText= signInPage.rememberMe.getAttribute("value");
++        Assert.assertEquals("true", clickText);
++
++    }
++
++    @And("user verifies that password reset button is visible and clicks it")
++    public void userVerifiesThatPasswordResetButtonIsVisibleAndClicksIt() {
++    }
++
++    @Then("user verifies that navigated to the password reset page")
++    public void userVerifiesThatNavigatedToThePasswordResetPage() {
++    }
++
++    @And("user verifies that register button is visible and clicks it")
++    public void userVerifiesThatRegisterButtonIsVisibleAndClicksIt() {
++    }
++
++    @Then("user verifies that navigated to the registration page")
++    public void userVerifiesThatNavigatedToTheRegistrationPage() {
++    }
++}
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"c28a1f2b-ea9c-46c3-bebd-707f51e01257\" name=\"Changes\" comment=\"Project last version\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/stepdefinitions/SignInStepdefs.java\" beforeDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\n      <map>\n        <entry key=\"$PROJECT_DIR$\" value=\"master\" />\n      </map>\n    </option>\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"GitSEFilterConfiguration\">\n    <file-type-list>\n      <filtered-out-file-type name=\"LOCAL_BRANCH\" />\n      <filtered-out-file-type name=\"REMOTE_BRANCH\" />\n      <filtered-out-file-type name=\"TAG\" />\n      <filtered-out-file-type name=\"COMMIT_BY_MESSAGE\" />\n    </file-type-list>\n  </component>\n  <component name=\"GithubProjectSettings\">\n    <option name=\"branchProtectionPatterns\">\n      <list>\n        <option value=\"master\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"ProjectId\" id=\"25i3J0oKw0GbkWLgL64in4pxkYw\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\n  </component>\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">\n    <property name=\"Git.Branch.Popup.ShowAllRemotes\" value=\"true\" />\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\n    <property name=\"settings.editor.selected.configurable\" value=\"reference.settings.project.maven.repository.indices\" />\n  </component>\n  <component name=\"RecentsManager\">\n    <key name=\"MoveFile.RECENT_KEYS\">\n      <recent name=\"$PROJECT_DIR$/src/test/resources/features\" />\n      <recent name=\"$PROJECT_DIR$/src/test/resources/testdata\" />\n    </key>\n  </component>\n  <component name=\"RunManager\" selected=\"Cucumber Java.Scenario: Verifying user login with correct username and password\">\n    <configuration name=\"Scenario: Edit patient info\" type=\"CucumberJavaRunConfigurationType\" factoryName=\"Cucumber java\" temporary=\"true\" nameIsGenerated=\"true\">\n      <option name=\"CUCUMBER_CORE_VERSION\" value=\"5\" />\n      <option name=\"FILE_PATH\" value=\"$PROJECT_DIR$/src/test/resources/features/search_patient_staff_page.feature\" />\n      <option name=\"GLUE\" value=\"stepdefinitions Hooks\" />\n      <option name=\"MAIN_CLASS_NAME\" value=\"io.cucumber.core.cli.Main\" />\n      <module name=\"medunna\" />\n      <option name=\"NAME_FILTER\" value=\"^Edit patient info$\" />\n      <option name=\"PROGRAM_PARAMETERS\" value=\" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Edit patient info$&quot;\" />\n      <option name=\"SUGGESTED_NAME\" value=\"Scenario: Edit patient info\" />\n      <option name=\"WORKING_DIRECTORY\" value=\"$MODULE_WORKING_DIR$\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"io.cucumber.core.cli.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"Scenario: Verifying user login with correct username and password\" type=\"CucumberJavaRunConfigurationType\" factoryName=\"Cucumber java\" temporary=\"true\" nameIsGenerated=\"true\">\n      <option name=\"CUCUMBER_CORE_VERSION\" value=\"5\" />\n      <option name=\"FILE_PATH\" value=\"$PROJECT_DIR$/src/test/resources/features/login_page.feature\" />\n      <option name=\"GLUE\" value=\"stepdefinitions Hooks\" />\n      <option name=\"MAIN_CLASS_NAME\" value=\"io.cucumber.core.cli.Main\" />\n      <module name=\"medunna\" />\n      <option name=\"NAME_FILTER\" value=\"^Verifying user login with correct username and password$\" />\n      <option name=\"PROGRAM_PARAMETERS\" value=\" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verifying user login with correct username and password$&quot;\" />\n      <option name=\"SUGGESTED_NAME\" value=\"Scenario: Verifying user login with correct username and password\" />\n      <option name=\"WORKING_DIRECTORY\" value=\"$MODULE_WORKING_DIR$\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"io.cucumber.core.cli.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"Scenario: View appointments\" type=\"CucumberJavaRunConfigurationType\" factoryName=\"Cucumber java\" temporary=\"true\" nameIsGenerated=\"true\">\n      <option name=\"CUCUMBER_CORE_VERSION\" value=\"5\" />\n      <option name=\"FILE_PATH\" value=\"$PROJECT_DIR$/src/test/resources/features/search_patient_staff_page.feature\" />\n      <option name=\"GLUE\" value=\"stepdefinitions Hooks\" />\n      <option name=\"MAIN_CLASS_NAME\" value=\"io.cucumber.core.cli.Main\" />\n      <module name=\"medunna\" />\n      <option name=\"NAME_FILTER\" value=\"^View appointments$\" />\n      <option name=\"PROGRAM_PARAMETERS\" value=\" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^View appointments$&quot;\" />\n      <option name=\"SUGGESTED_NAME\" value=\"Scenario: View appointments\" />\n      <option name=\"WORKING_DIRECTORY\" value=\"$MODULE_WORKING_DIR$\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"io.cucumber.core.cli.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"Scenario: View patient info\" type=\"CucumberJavaRunConfigurationType\" factoryName=\"Cucumber java\" temporary=\"true\" nameIsGenerated=\"true\">\n      <option name=\"CUCUMBER_CORE_VERSION\" value=\"5\" />\n      <option name=\"FILE_PATH\" value=\"$PROJECT_DIR$/src/test/resources/features/search_patient_staff_page.feature\" />\n      <option name=\"GLUE\" value=\"stepdefinitions Hooks\" />\n      <option name=\"MAIN_CLASS_NAME\" value=\"io.cucumber.core.cli.Main\" />\n      <module name=\"medunna\" />\n      <option name=\"NAME_FILTER\" value=\"^View patient info$\" />\n      <option name=\"PROGRAM_PARAMETERS\" value=\" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^View patient info$&quot;\" />\n      <option name=\"SUGGESTED_NAME\" value=\"Scenario: View patient info\" />\n      <option name=\"WORKING_DIRECTORY\" value=\"$MODULE_WORKING_DIR$\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"io.cucumber.core.cli.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"Runner\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\n      <module name=\"medunna\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"runners.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <option name=\"PACKAGE_NAME\" value=\"runners\" />\n      <option name=\"MAIN_CLASS_NAME\" value=\"runners.Runner\" />\n      <option name=\"TEST_OBJECT\" value=\"class\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration default=\"true\" type=\"JetRunConfigurationType\">\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration default=\"true\" type=\"KotlinStandaloneScriptRunConfigurationType\">\n      <option name=\"filePath\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"Cucumber Java.Scenario: Verifying user login with correct username and password\" />\n        <item itemvalue=\"JUnit.Runner\" />\n        <item itemvalue=\"Cucumber Java.Scenario: View patient info\" />\n        <item itemvalue=\"Cucumber Java.Scenario: View appointments\" />\n        <item itemvalue=\"Cucumber Java.Scenario: Edit patient info\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"c28a1f2b-ea9c-46c3-bebd-707f51e01257\" name=\"Changes\" comment=\"\" />\n      <created>1645996007419</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1645996007419</updated>\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"New commit\">\n      <created>1646039392863</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1646039392864</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"New commit\">\n      <created>1646376082469</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1646376082470</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"First commit\">\n      <created>1646400039127</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1646400039128</updated>\n    </task>\n    <task id=\"LOCAL-00004\" summary=\"New commit-login page\">\n      <created>1646558835608</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1646558835608</updated>\n    </task>\n    <task id=\"LOCAL-00005\" summary=\"New commit-login page\">\n      <created>1646577807718</created>\n      <option name=\"number\" value=\"00005\" />\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1646577807718</updated>\n    </task>\n    <task id=\"LOCAL-00006\" summary=\"New commit-login page\">\n      <created>1646640806607</created>\n      <option name=\"number\" value=\"00006\" />\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1646640806607</updated>\n    </task>\n    <task id=\"LOCAL-00007\" summary=\"New commit-login page\">\n      <created>1646663047436</created>\n      <option name=\"number\" value=\"00007\" />\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1646663047437</updated>\n    </task>\n    <task id=\"LOCAL-00008\" summary=\"Project last version\">\n      <created>1646940590691</created>\n      <option name=\"number\" value=\"00008\" />\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1646940590692</updated>\n    </task>\n    <task id=\"LOCAL-00009\" summary=\"Project last version\">\n      <created>1646940882081</created>\n      <option name=\"number\" value=\"00009\" />\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1646940882081</updated>\n    </task>\n    <task id=\"LOCAL-00010\" summary=\"Project last version\">\n      <created>1646941210270</created>\n      <option name=\"number\" value=\"00010\" />\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1646941210270</updated>\n    </task>\n    <task id=\"LOCAL-00011\" summary=\"Project last version\">\n      <created>1646941255010</created>\n      <option name=\"number\" value=\"00011\" />\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1646941255010</updated>\n    </task>\n    <task id=\"LOCAL-00012\" summary=\"Project last version\">\n      <created>1646942122873</created>\n      <option name=\"number\" value=\"00012\" />\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1646942122873</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"13\" />\n    <servers />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State>\n              <option name=\"FILTERS\">\n                <map>\n                  <entry key=\"branch\">\n                    <value>\n                      <list>\n                        <option value=\"origin/hulya\" />\n                      </list>\n                    </value>\n                  </entry>\n                </map>\n              </option>\n            </State>\n          </value>\n        </entry>\n      </map>\n    </option>\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"New commit\" />\n    <MESSAGE value=\"First commit\" />\n    <MESSAGE value=\"New commit-login page\" />\n    <MESSAGE value=\"Project last version\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Project last version\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision f3ee5abf7efee53d68e9965bea7662542498c566)
++++ b/.idea/workspace.xml	(date 1647004552777)
+@@ -5,8 +5,14 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="c28a1f2b-ea9c-46c3-bebd-707f51e01257" name="Changes" comment="Project last version">
++      <change afterPath="$PROJECT_DIR$/src/test/java/stepdefinitions/SigninStepDefs.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/java/stepdefinitions/SignInStepdefs.java" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/java/hooks/Hooks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hooks/Hooks.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/java/runners/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/runners/Runner.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/java/stepdefinitions/RequestATestStepdefs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepdefinitions/RequestATestStepdefs.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/java/stepdefinitions/SearchPatientOnStaffStepDefs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepdefinitions/SearchPatientOnStaffStepDefs.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/java/stepdefinitions/apistepdefinitions/DoctorAppointmentStepdefs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepdefinitions/apistepdefinitions/DoctorAppointmentStepdefs.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/resources/features/search_patient_staff_page.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/search_patient_staff_page.feature" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -63,16 +69,15 @@
+       <recent name="$PROJECT_DIR$/src/test/resources/testdata" />
+     </key>
+   </component>
+-  <component name="RunManager" selected="Cucumber Java.Scenario: Verifying user login with correct username and password">
+-    <configuration name="Scenario: Edit patient info" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
++  <component name="RunManager" selected="JUnit.Runner">
++    <configuration name="Feature: search_patient_staff_page" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+       <option name="CUCUMBER_CORE_VERSION" value="5" />
+       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/search_patient_staff_page.feature" />
+-      <option name="GLUE" value="stepdefinitions Hooks" />
++      <option name="GLUE" value="stepdefinitions hooks" />
+       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+       <module name="medunna" />
+-      <option name="NAME_FILTER" value="^Edit patient info$" />
+-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Edit patient info$&quot;" />
+-      <option name="SUGGESTED_NAME" value="Scenario: Edit patient info" />
++      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
++      <option name="SUGGESTED_NAME" value="Feature: search_patient_staff_page" />
+       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+       <extension name="coverage">
+         <pattern>
+@@ -104,15 +109,15 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="Scenario: View appointments" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
++    <configuration name="Scenario: View patient info" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+       <option name="CUCUMBER_CORE_VERSION" value="5" />
+       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/search_patient_staff_page.feature" />
+-      <option name="GLUE" value="stepdefinitions Hooks" />
++      <option name="GLUE" value="stepdefinitions hooks" />
+       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+       <module name="medunna" />
+-      <option name="NAME_FILTER" value="^View appointments$" />
+-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^View appointments$&quot;" />
+-      <option name="SUGGESTED_NAME" value="Scenario: View appointments" />
++      <option name="NAME_FILTER" value="^View patient info$" />
++      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^View patient info$&quot;" />
++      <option name="SUGGESTED_NAME" value="Scenario: View patient info" />
+       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+       <extension name="coverage">
+         <pattern>
+@@ -124,15 +129,15 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="Scenario: View patient info" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
++    <configuration name="Scenario: test appointment page as admin" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+       <option name="CUCUMBER_CORE_VERSION" value="5" />
+-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/search_patient_staff_page.feature" />
+-      <option name="GLUE" value="stepdefinitions Hooks" />
++      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/AppointmentAdmin.feature" />
++      <option name="GLUE" value="stepdefinitions hooks" />
+       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+       <module name="medunna" />
+-      <option name="NAME_FILTER" value="^View patient info$" />
+-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^View patient info$&quot;" />
+-      <option name="SUGGESTED_NAME" value="Scenario: View patient info" />
++      <option name="NAME_FILTER" value="^test appointment page as admin$" />
++      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^test appointment page as admin$&quot;" />
++      <option name="SUGGESTED_NAME" value="Scenario: test appointment page as admin" />
+       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+       <extension name="coverage">
+         <pattern>
+@@ -172,11 +177,11 @@
+     </configuration>
+     <recent_temporary>
+       <list>
+-        <item itemvalue="Cucumber Java.Scenario: Verifying user login with correct username and password" />
+         <item itemvalue="JUnit.Runner" />
++        <item itemvalue="Cucumber Java.Scenario: Verifying user login with correct username and password" />
+         <item itemvalue="Cucumber Java.Scenario: View patient info" />
+-        <item itemvalue="Cucumber Java.Scenario: View appointments" />
+-        <item itemvalue="Cucumber Java.Scenario: Edit patient info" />
++        <item itemvalue="Cucumber Java.Feature: search_patient_staff_page" />
++        <item itemvalue="Cucumber Java.Scenario: test appointment page as admin" />
+       </list>
+     </recent_temporary>
+   </component>
+@@ -273,7 +278,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1646942122873</updated>
+     </task>
+-    <option name="localTasksCounter" value="13" />
++    <task id="LOCAL-00013" summary="Project last version">
++      <created>1646943183007</created>
++      <option name="number" value="00013" />
++      <option name="presentableId" value="LOCAL-00013" />
++      <option name="project" value="LOCAL" />
++      <updated>1646943183007</updated>
++    </task>
++    <option name="localTasksCounter" value="14" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
