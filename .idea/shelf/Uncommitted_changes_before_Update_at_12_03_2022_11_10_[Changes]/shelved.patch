@@ -1,0 +1,136 @@
+Index: src/test/resources/features/UserSettings.feature
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>@setting_homepage\nFeature: setting homepage feature\n\n  Background:\n    Given User navigates to \"https://www.medunna.com/\"\n    When User clicks on SignIn button  on the right top\n    Then User clicks on signIn in dropdown list\n    Then User enters username \"mclara\"\n    Then User enters password \"123abc$\"\n    Then User clicks on sign in button\n    Then  User clicks on newly signedIn User\n    And User clicks on Setting option\n\n\n  Scenario Outline: TC_001 user setting homepage  firstname editable\n    Then User clears existing firstname\n    And User sends a new firstname \"<firstname>\" and verifies isEnabled\n    Then User clears existing lastname\n    And User sends a new lastname  \"<lastname>\" and verifies isEnabled\n    Then User clears existing email\n    And User sends a new email \"<email>\" and verifies isEnabled\n    And User clicks on Save button\n    Examples:\n\n\n      | firstname | lastname | email        |\n      | David     | Martin   | dm@gmail.com |\n      | Kavin     | Maven    | km@gmail.com |\n\n#Scenario: TC_002\n#  Scenario: TC_001 user setting homepage  firstname editable\n#    Then User clears existing firstname\n#    And User sends a new firstname \"Marry\"\n#    Then User clears existing lastname\n#    Then User clears existing email\n#    And User clicks on Save button
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/resources/features/UserSettings.feature b/src/test/resources/features/UserSettings.feature
+--- a/src/test/resources/features/UserSettings.feature	(revision d96aa983090b7a72f7a6f25dfe25d2c6a67f2f5d)
++++ b/src/test/resources/features/UserSettings.feature	(date 1647027154611)
+@@ -27,10 +27,3 @@
+       | David     | Martin   | dm@gmail.com |
+       | Kavin     | Maven    | km@gmail.com |
+ 
+-#Scenario: TC_002
+-#  Scenario: TC_001 user setting homepage  firstname editable
+-#    Then User clears existing firstname
+-#    And User sends a new firstname "Marry"
+-#    Then User clears existing lastname
+-#    Then User clears existing email
+-#    And User clicks on Save button
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_22_15__Changes_.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_22_15__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_22_15__Changes_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_22_15__Changes_.xml	(revision d96aa983090b7a72f7a6f25dfe25d2c6a67f2f5d)
++++ /dev/null	(revision d96aa983090b7a72f7a6f25dfe25d2c6a67f2f5d)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Update_at_4_03_2022_22_15_[Changes]" date="1646421333317" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_22_15_[Changes]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 4.03.2022 22:15 [Changes]" />
+-</changelist>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_22_28_[Changes]/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_22_28_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_22_28_[Changes]/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_22_28_[Changes]/shelved.patch	(revision d96aa983090b7a72f7a6f25dfe25d2c6a67f2f5d)
++++ /dev/null	(revision d96aa983090b7a72f7a6f25dfe25d2c6a67f2f5d)
+@@ -1,11 +0,0 @@
+-Index: src/test/java/pages/PageTest.java
+-===================================================================
+-diff --git a/src/test/java/pages/PageTest.java b/src/test/java/pages/PageTest.java
+-deleted file mode 100644
+---- a/src/test/java/pages/PageTest.java	(revision 19f3c9ca9d48dd2e796c29ba7d51c8f86c3dbb7c)
+-+++ /dev/null	(revision 19f3c9ca9d48dd2e796c29ba7d51c8f86c3dbb7c)
+-@@ -1,4 +0,0 @@
+--package pages;
+--
+--public class PageTest {
+--}
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_22_15_[Changes]/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_22_15_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_22_15_[Changes]/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_22_15_[Changes]/shelved.patch	(revision d96aa983090b7a72f7a6f25dfe25d2c6a67f2f5d)
++++ /dev/null	(revision d96aa983090b7a72f7a6f25dfe25d2c6a67f2f5d)
+@@ -1,11 +0,0 @@
+-Index: src/test/java/pages/PageTest.java
+-===================================================================
+-diff --git a/src/test/java/pages/PageTest.java b/src/test/java/pages/PageTest.java
+-deleted file mode 100644
+---- a/src/test/java/pages/PageTest.java	(revision bb803214c4293b495ee03d74fff2db7ad43084b7)
+-+++ /dev/null	(revision bb803214c4293b495ee03d74fff2db7ad43084b7)
+-@@ -1,4 +0,0 @@
+--package pages;
+--
+--public class PageTest {
+--}
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_22_28__Changes_.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_22_28__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_22_28__Changes_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_22_28__Changes_.xml	(revision d96aa983090b7a72f7a6f25dfe25d2c6a67f2f5d)
++++ /dev/null	(revision d96aa983090b7a72f7a6f25dfe25d2c6a67f2f5d)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Update_at_4_03_2022_22_28_[Changes]" date="1646422316182" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_22_28_[Changes]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 4.03.2022 22:28 [Changes]" />
+-</changelist>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"c28a1f2b-ea9c-46c3-bebd-707f51e01257\" name=\"Changes\" comment=\"Project last version\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_15_55_[Changes]/shelved.patch\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_15_55__Changes_.xml\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/hooks/Hooks.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/hooks/Hooks.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/stepdefinitions/RequestATestStepdefs.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/stepdefinitions/RequestATestStepdefs.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/stepdefinitions/SearchPatientOnStaffStepDefs.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/stepdefinitions/SearchPatientOnStaffStepDefs.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/stepdefinitions/SigninStepDefs.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/stepdefinitions/SigninStepDefs.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/resources/features/search_patient_staff_page.feature\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/resources/features/search_patient_staff_page.feature\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\n      <map>\n        <entry key=\"$PROJECT_DIR$\" value=\"master\" />\n      </map>\n    </option>\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"GitSEFilterConfiguration\">\n    <file-type-list>\n      <filtered-out-file-type name=\"LOCAL_BRANCH\" />\n      <filtered-out-file-type name=\"REMOTE_BRANCH\" />\n      <filtered-out-file-type name=\"TAG\" />\n      <filtered-out-file-type name=\"COMMIT_BY_MESSAGE\" />\n    </file-type-list>\n  </component>\n  <component name=\"MarkdownSettingsMigration\">\n    <option name=\"stateVersion\" value=\"1\" />\n  </component>\n  <component name=\"ProjectId\" id=\"25i3J0oKw0GbkWLgL64in4pxkYw\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\n  </component>\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">\n    <property name=\"Git.Branch.Popup.ShowAllRemotes\" value=\"true\" />\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\n    <property name=\"project.structure.last.edited\" value=\"Project\" />\n    <property name=\"project.structure.proportion\" value=\"0.15\" />\n    <property name=\"project.structure.side.proportion\" value=\"0.2\" />\n    <property name=\"settings.editor.selected.configurable\" value=\"reference.settings.project.maven.repository.indices\" />\n  </component>\n  <component name=\"RecentsManager\">\n    <key name=\"MoveFile.RECENT_KEYS\">\n      <recent name=\"$PROJECT_DIR$/src/test/resources/features\" />\n      <recent name=\"$PROJECT_DIR$/src/test/resources/testdata\" />\n    </key>\n  </component>\n  <component name=\"RunManager\" selected=\"Cucumber Java.Scenario: Verifying user login with correct username and password (1)\">\n    <configuration name=\"Feature: us_12\" type=\"CucumberJavaRunConfigurationType\" factoryName=\"Cucumber java\" temporary=\"true\" nameIsGenerated=\"true\">\n      <option name=\"CUCUMBER_CORE_VERSION\" value=\"5\" />\n      <option name=\"FILE_PATH\" value=\"$PROJECT_DIR$/src/test/resources/features/us_12.feature\" />\n      <option name=\"GLUE\" value=\"stepdefinitions hooks\" />\n      <option name=\"MAIN_CLASS_NAME\" value=\"io.cucumber.core.cli.Main\" />\n      <module name=\"mycucumberproject\" />\n      <option name=\"PROGRAM_PARAMETERS\" value=\" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter\" />\n      <option name=\"SUGGESTED_NAME\" value=\"Feature: us_12\" />\n      <option name=\"WORKING_DIRECTORY\" value=\"$MODULE_WORKING_DIR$\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"io.cucumber.core.cli.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"Scenario: Verifying user login with correct username and password (1)\" type=\"CucumberJavaRunConfigurationType\" factoryName=\"Cucumber java\" temporary=\"true\" nameIsGenerated=\"true\">\n      <option name=\"CUCUMBER_CORE_VERSION\" value=\"5\" />\n      <option name=\"FILE_PATH\" value=\"$PROJECT_DIR$/src/test/resources/features/login_page.feature\" />\n      <option name=\"GLUE\" value=\"stepdefinitions hooks\" />\n      <option name=\"MAIN_CLASS_NAME\" value=\"io.cucumber.core.cli.Main\" />\n      <module name=\"medunna\" />\n      <option name=\"NAME_FILTER\" value=\"^Verifying user login with correct username and password$\" />\n      <option name=\"PROGRAM_PARAMETERS\" value=\" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verifying user login with correct username and password$&quot;\" />\n      <option name=\"SUGGESTED_NAME\" value=\"Scenario: Verifying user login with correct username and password\" />\n      <option name=\"WORKING_DIRECTORY\" value=\"$MODULE_WORKING_DIR$\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"io.cucumber.core.cli.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"Scenario: Verifying user login with correct username and password\" type=\"CucumberJavaRunConfigurationType\" factoryName=\"Cucumber java\" temporary=\"true\" nameIsGenerated=\"true\">\n      <option name=\"CUCUMBER_CORE_VERSION\" value=\"5\" />\n      <option name=\"FILE_PATH\" value=\"$PROJECT_DIR$/src/test/resources/features/login_page.feature\" />\n      <option name=\"GLUE\" value=\"stepdefinitions Hooks\" />\n      <option name=\"MAIN_CLASS_NAME\" value=\"io.cucumber.core.cli.Main\" />\n      <option name=\"NAME_FILTER\" value=\"^Verifying user login with correct username and password$\" />\n      <option name=\"PROGRAM_PARAMETERS\" value=\" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verifying user login with correct username and password$&quot;\" />\n      <shortenClasspath name=\"NONE\" />\n      <option name=\"SUGGESTED_NAME\" value=\"Scenario: Verifying user login with correct username and password\" />\n      <option name=\"WORKING_DIRECTORY\" value=\"$MODULE_WORKING_DIR$\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"io.cucumber.core.cli.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"Runner (1)\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\n      <module name=\"mycucumberproject\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"runners.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <option name=\"PACKAGE_NAME\" value=\"runners\" />\n      <option name=\"MAIN_CLASS_NAME\" value=\"runners.Runner\" />\n      <option name=\"TEST_OBJECT\" value=\"class\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"Runner\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\n      <module name=\"medunna\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"runners.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <option name=\"PACKAGE_NAME\" value=\"runners\" />\n      <option name=\"MAIN_CLASS_NAME\" value=\"runners.Runner\" />\n      <option name=\"TEST_OBJECT\" value=\"class\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration default=\"true\" type=\"JetRunConfigurationType\">\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration default=\"true\" type=\"KotlinStandaloneScriptRunConfigurationType\">\n      <option name=\"filePath\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"Cucumber Java.Scenario: Verifying user login with correct username and password (1)\" />\n        <item itemvalue=\"JUnit.Runner (1)\" />\n        <item itemvalue=\"Cucumber Java.Feature: us_12\" />\n        <item itemvalue=\"Cucumber Java.Scenario: Verifying user login with correct username and password\" />\n        <item itemvalue=\"JUnit.Runner\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"c28a1f2b-ea9c-46c3-bebd-707f51e01257\" name=\"Changes\" comment=\"\" />\n      <created>1645996007419</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1645996007419</updated>\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"New commit\">\n      <created>1646039392863</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1646039392864</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"New commit\">\n      <created>1646376082469</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1646376082470</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"First commit\">\n      <created>1646400039127</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1646400039128</updated>\n    </task>\n    <task id=\"LOCAL-00004\" summary=\"New commit-login page\">\n      <created>1646558835608</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1646558835608</updated>\n    </task>\n    <task id=\"LOCAL-00005\" summary=\"New commit-login page\">\n      <created>1646577807718</created>\n      <option name=\"number\" value=\"00005\" />\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1646577807718</updated>\n    </task>\n    <task id=\"LOCAL-00006\" summary=\"New commit-login page\">\n      <created>1646640806607</created>\n      <option name=\"number\" value=\"00006\" />\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1646640806607</updated>\n    </task>\n    <task id=\"LOCAL-00007\" summary=\"New commit-login page\">\n      <created>1646663047436</created>\n      <option name=\"number\" value=\"00007\" />\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1646663047437</updated>\n    </task>\n    <task id=\"LOCAL-00008\" summary=\"Project last version\">\n      <created>1646940590691</created>\n      <option name=\"number\" value=\"00008\" />\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1646940590692</updated>\n    </task>\n    <task id=\"LOCAL-00009\" summary=\"Project last version\">\n      <created>1646940882081</created>\n      <option name=\"number\" value=\"00009\" />\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1646940882081</updated>\n    </task>\n    <task id=\"LOCAL-00010\" summary=\"Project last version\">\n      <created>1646941210270</created>\n      <option name=\"number\" value=\"00010\" />\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1646941210270</updated>\n    </task>\n    <task id=\"LOCAL-00011\" summary=\"Project last version\">\n      <created>1646941255010</created>\n      <option name=\"number\" value=\"00011\" />\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1646941255010</updated>\n    </task>\n    <task id=\"LOCAL-00012\" summary=\"Project last version\">\n      <created>1646997904240</created>\n      <option name=\"number\" value=\"00012\" />\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1646997904240</updated>\n    </task>\n    <task id=\"LOCAL-00013\" summary=\"Project last version\">\n      <created>1646997924682</created>\n      <option name=\"number\" value=\"00013\" />\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1646997924682</updated>\n    </task>\n    <task id=\"LOCAL-00014\" summary=\"Project last version\">\n      <created>1646997947119</created>\n      <option name=\"number\" value=\"00014\" />\n      <option name=\"presentableId\" value=\"LOCAL-00014\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1646997947119</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"15\" />\n    <servers />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State>\n              <option name=\"FILTERS\">\n                <map>\n                  <entry key=\"branch\">\n                    <value>\n                      <list>\n                        <option value=\"origin/hulya\" />\n                      </list>\n                    </value>\n                  </entry>\n                </map>\n              </option>\n            </State>\n          </value>\n        </entry>\n      </map>\n    </option>\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"New commit\" />\n    <MESSAGE value=\"First commit\" />\n    <MESSAGE value=\"New commit-login page\" />\n    <MESSAGE value=\"Project last version\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Project last version\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision d96aa983090b7a72f7a6f25dfe25d2c6a67f2f5d)
++++ b/.idea/workspace.xml	(date 1647072616509)
+@@ -4,15 +4,9 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="c28a1f2b-ea9c-46c3-bebd-707f51e01257" name="Changes" comment="Project last version">
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_15_55_[Changes]/shelved.patch" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_15_55__Changes_.xml" beforeDir="false" />
++    <list default="true" id="c28a1f2b-ea9c-46c3-bebd-707f51e01257" name="Changes" comment="Project final version">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/java/hooks/Hooks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hooks/Hooks.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/java/stepdefinitions/RequestATestStepdefs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepdefinitions/RequestATestStepdefs.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/java/stepdefinitions/SearchPatientOnStaffStepDefs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepdefinitions/SearchPatientOnStaffStepDefs.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/java/stepdefinitions/SigninStepDefs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepdefinitions/SigninStepDefs.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/search_patient_staff_page.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/search_patient_staff_page.feature" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/resources/features/UserSettings.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/UserSettings.feature" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -286,7 +280,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1646997947119</updated>
+     </task>
+-    <option name="localTasksCounter" value="15" />
++    <task id="LOCAL-00015" summary="Project final version">
++      <created>1647026868392</created>
++      <option name="number" value="00015" />
++      <option name="presentableId" value="LOCAL-00015" />
++      <option name="project" value="LOCAL" />
++      <updated>1647026868392</updated>
++    </task>
++    <option name="localTasksCounter" value="16" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -318,6 +319,7 @@
+     <MESSAGE value="First commit" />
+     <MESSAGE value="New commit-login page" />
+     <MESSAGE value="Project last version" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Project last version" />
++    <MESSAGE value="Project final version" />
++    <option name="LAST_COMMIT_MESSAGE" value="Project final version" />
+   </component>
+ </project>
+\ No newline at end of file

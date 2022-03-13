@@ -47,8 +47,14 @@ public class CommonPage {
         @FindBy(xpath = "(//*[@class='d-flex align-items-center dropdown-toggle nav-link'])[1]")
     public WebElement itemsAndTitles;
 
+
     @FindBy(xpath = "//*[@data-icon='glasses']")
     public WebElement testItemUnderItemAndTest;
 
+    @FindBy(xpath = "//*[span='Appointment']" )
+    public WebElement adminAppointment;
+
+    @FindBy(xpath = "//*[span='My Patients']")
+    public WebElement myPatients;
 
 }

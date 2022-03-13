@@ -21,21 +21,19 @@ public class US13_Doctor_Request_Results_StepDef {
     SignInPage signInPage=new SignInPage();
     MyAppointmentPageAsDoctor myAppointmentPageAsDoctor=new MyAppointmentPageAsDoctor();
 
-
     @Then("Sign in as a Doctor")
     public void sign_in_as_a_doctor() throws InterruptedException {
         commonPage.accountMenu.click();
         commonPage.signIn.click();
-        signInPage.username.sendKeys("MedunnaAdmin");
-        signInPage.password.sendKeys("1@qweASD");
+        signInPage.username.sendKeys(ConfigurationReader.getProperty("doctor_username"));
+        signInPage.password.sendKeys(ConfigurationReader.getProperty("doctor_password"));
         signInPage.singInButton.click();
-        Thread.sleep(3000);
+//        Thread.sleep(3000);
 
     }
     @Then("Click the Items&Titles")
     public void click_the_items_titles() {
         Driver.waitAndClickElement(commonPage.itemsAndTitles,10);
-
 
     }
     @Then("Click the Test Item")
@@ -66,7 +64,7 @@ public class US13_Doctor_Request_Results_StepDef {
     @Given("user set the url and generate the token for patient page")
     public void userSetTheUrlAndGenerateTheTokenForPatientPage() {
 
-        response = getRequest(generateToken(), ConfigurationReader.getProperty("registrant_endpoint_in_patient"));
+        response = getRequest(generateToken(ConfigurationReader.getProperty("admin_username"),ConfigurationReader.getProperty("admin_password")), ConfigurationReader.getProperty("registrant_endpoint_in_patient"));
         response.prettyPrint();
 
     }

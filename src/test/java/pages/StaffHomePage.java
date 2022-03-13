@@ -14,6 +14,7 @@ public class StaffHomePage {
     @FindBy(xpath = "//span[contains(text(),'MY PAGES')]")
     public WebElement myPages;
 
+
     @FindBy(xpath = "//span[contains(text(),'In Patient')]")
     public WebElement inPatientUnderMyPages;
 }

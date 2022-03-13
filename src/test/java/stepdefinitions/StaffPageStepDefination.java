@@ -3,14 +3,12 @@ package stepdefinitions;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import pages.CommonPage;
 import pages.SignInPage;
 import pages.StaffInPatientEditPage;
 import pages.StaffInPatientPage;
 import utilities.Driver;
-import utilities.JSUtils;
 import utilities.ReusableMethods;
 
 import java.awt.*;
@@ -22,11 +20,12 @@ public class StaffPageStepDefination extends ReusableMethods {
     SignInPage signInPage=new SignInPage();
     StaffInPatientPage staffInPatient=new StaffInPatientPage();
     StaffInPatientEditPage staffInPatientEdit=new StaffInPatientEditPage();
-    JSUtils jsUtils=new JSUtils();
+
     Robot robot=new Robot();
 
     public StaffPageStepDefination() throws AWTException {
     }
+
 
     @When("User sign in as a Staff at homepage")
     public void user_sign_in_as_a_staff_at_homepage() throws InterruptedException {

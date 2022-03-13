@@ -16,6 +16,7 @@ public class Appointment {
     public Appointment() {
     }
 
+
     public Appointment(String firstname, String lastname, String ssn, String email, String phoneNumber, String date) {
         this.firstname = firstname;
         this.lastname = lastname;

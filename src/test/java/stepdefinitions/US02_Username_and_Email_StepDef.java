@@ -3,7 +3,6 @@ package stepdefinitions;
 import io.cucumber.java.en.*;
 import io.restassured.response.Response;
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
 import pages.CommonPage;
 import pages.RegistrationPage;
@@ -16,7 +15,6 @@ import static utilities.Authentication.generateToken;
 
 public class US02_Username_and_Email_StepDef {
 
-
     Actions actions;
     CommonPage commonPage = new CommonPage();
     RegistrationPage registrationPage = new RegistrationPage();
@@ -25,22 +23,18 @@ public class US02_Username_and_Email_StepDef {
     @Given("user set the url and generate the token")
     public void user_set_the_url_and_generate_the_token() {
         //  String token="eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtZWR1bm5hYWRtaW4iLCJhdXRoIjoiUk9MRV9BRE1JTiIsImV4cCI6MTY0Njk5NjYzOH0.yylp6kWllONpUzaYRWfVJMjwDbWGwbCi2NDqRhJDCWZfQVpTNa8My4iAMfsPAS1nkNfKeJ9QkefhEpPeBh0KeQ";
-        response = getRequest(generateToken(), ConfigurationReader.getProperty("registrant_endpoint_all_user"));
-
+        response = getRequest(generateToken("admin79","admin"), ConfigurationReader.getProperty("registrant_endpoint_2000"));
 
         response.prettyPrint();
 
         response.then().assertThat().body("login",hasItems("doktormustafa"));
     }
 
-
-
     @Then("user validate the email")
     public void user_validate_the_email() {
 
         response.then().assertThat().body("email",hasItems("doktormustafa@qa.com"));
     }
-
 
     @Given("Go to medunna homepage")
     public void goTomedunnahomepage() {
@@ -70,32 +64,35 @@ public class US02_Username_and_Email_StepDef {
     @Then("User should not see the error message Your username is invalid., or Your username is required.")
     public void user_should_not_see_the_error_message_your_username_is_invalid_or_your_username_is_required() {
 
-
     }
 
     @Then("Provide the {string} of the applicant for usernamebox")
     public void provide_the_of_the_applicant_for_usernamebox(String invalidUserName) throws InterruptedException {
 
-
-        registrationPage.username.sendKeys(invalidUserName);
-        registrationPage.email.click();
-        Thread.sleep(2000);
-
+        Driver.waitAndSendText(registrationPage.username,invalidUserName);
+        Driver.clickWithJS(registrationPage.email);
 
     }
 
     @Then("User should should see the error message.")
     public void user_should_should_see_the_error_message() throws InterruptedException {
 
-        Driver.waitForVisibility(registrationPage.generalInvalidFeedback,10);
-        Assert.assertTrue(registrationPage.generalInvalidFeedback.isEnabled());
-        Thread.sleep(5000);
+       // Driver.waitForVisibility(registrationPage.generalInvalidFeedback,10);
+       for (int i=0;i<5;i++){
+           try {
+               Assert.assertTrue(registrationPage.generalInvalidFeedback.isEnabled());
+           }catch (Exception e){
+               Driver.wait(1);
+           }
+       }
+
+
 
     }
 
     @Then("User clicks on the email textbox")
     public void user_clicks_on_the_email_textbox() {
-        registrationPage.email.click();
+        Driver.clickWithJS(registrationPage.email);
 
     }
 
@@ -117,5 +114,5 @@ public class US02_Username_and_Email_StepDef {
         //actions.sendKeys(Keys.PAGE_DOWN).sendKeys(Keys.PAGE_DOWN);
         Assert.assertTrue(Driver.waitForVisibility(registrationPage.generalInvalidFeedback,10).isEnabled());
 
-         }
+    }
 }
