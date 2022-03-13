@@ -1,9 +1,10 @@
-package stepdefinitions;
+package stepdefinitions.uistepdefinitions;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import pages.UserSetting;
+import utilities.*;
 
 public class PasswordStrenghtTestSteps {
 

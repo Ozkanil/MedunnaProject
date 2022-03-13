@@ -1,4 +1,4 @@
-package stepdefinitions;
+package stepdefinitions.uistepdefinitions;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -10,6 +10,7 @@ import pages.MyAppointmentPageAsDoctor;
 import pages.SignInPage;
 import pojos.DoctorAppointment;
 import utilities.ConfigurationReader;
+import utilities.Driver;
 
 public class DoctorAppointmentEditStepdefs {
     SignInPage signInPage=new SignInPage();

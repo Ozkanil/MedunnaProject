@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.Select;
 import pages.SearchPatientOnStaffPage;
 
 import java.util.List;
+import utilities.*;
 
 public class SearchPatientOnStaffStepDefs {
 

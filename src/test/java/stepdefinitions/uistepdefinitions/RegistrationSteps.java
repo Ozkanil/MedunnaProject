@@ -1,4 +1,4 @@
-package stepdefinitions;
+package stepdefinitions.uistepdefinitions;
 
 import com.github.javafaker.Faker;
 import io.cucumber.java.en.Given;
@@ -8,6 +8,7 @@ import pages.RegistrationPage;
 import pojos.Registrant;
 
 import static utilities.WriteToTxt.saveRegistrantData;
+import utilities.*;
 
 public class RegistrationSteps {
 

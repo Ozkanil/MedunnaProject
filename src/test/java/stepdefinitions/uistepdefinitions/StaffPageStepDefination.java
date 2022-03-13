@@ -1,4 +1,4 @@
-package stepdefinitions;
+package stepdefinitions.uistepdefinitions;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -12,6 +12,7 @@ import utilities.ReusableMethods;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import utilities.*;
 
 public class StaffPageStepDefination extends ReusableMethods {
 

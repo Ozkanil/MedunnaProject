@@ -1,9 +1,9 @@
-package stepdefinitions;
+package stepdefinitions.uistepdefinitions;
 
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-
+import utilities.*;
 import org.openqa.selenium.WebDriver;
 import pages.CommonPage;
 import pages.OptionalPage;

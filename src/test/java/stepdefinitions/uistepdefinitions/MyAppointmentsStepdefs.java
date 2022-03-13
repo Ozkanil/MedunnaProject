@@ -1,4 +1,4 @@
-package stepdefinitions;
+package stepdefinitions.uistepdefinitions;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -7,7 +7,7 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import pages.*;
 import utilities.ConfigurationReader;
-
+import utilities.*;
 
 public class MyAppointmentsStepdefs {
    // WebDriver driver;

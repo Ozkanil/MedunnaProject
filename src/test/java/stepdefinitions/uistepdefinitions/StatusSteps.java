@@ -1,4 +1,4 @@
-package stepdefinitions;
+package stepdefinitions.uistepdefinitions;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
@@ -6,6 +6,7 @@ import pages.CommonPage;
 import pages.SearchPatientOnStaffPage;
 import pages.StatusPage;
 import utilities.ConfigurationReader;
+import utilities.*;
 
 public class StatusSteps {
 

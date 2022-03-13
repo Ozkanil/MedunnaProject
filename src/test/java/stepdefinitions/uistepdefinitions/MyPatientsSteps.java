@@ -1,4 +1,4 @@
-package stepdefinitions;
+package stepdefinitions.uistepdefinitions;
 
 import io.cucumber.java.en.Given;
 import pages.CommonPage;
@@ -6,7 +6,7 @@ import pages.MyPatientsPageDoctor;
 import pages.SignInPage;
 
 import static org.junit.Assert.assertTrue;
-
+import utilities.*;
 public class MyPatientsSteps {
     SignInPage signInPage = new SignInPage();
     CommonPage commonPage = new CommonPage();

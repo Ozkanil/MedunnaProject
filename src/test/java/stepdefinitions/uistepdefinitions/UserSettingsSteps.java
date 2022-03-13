@@ -1,6 +1,7 @@
-package stepdefinitions;
+package stepdefinitions.uistepdefinitions;
 
 import io.cucumber.java.en.Given;import io.cucumber.java.en.Then;import io.cucumber.java.en.When;import org.junit.Assert;import org.openqa.selenium.Keys;import pages.UserSetting;
+import utilities.*;
 
 public class UserSettingsSteps {
     UserSetting userPage = new UserSetting();

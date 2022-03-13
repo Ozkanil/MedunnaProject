@@ -1,4 +1,4 @@
-package stepdefinitions;
+package stepdefinitions.uistepdefinitions;
 
 import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
@@ -12,6 +12,7 @@ import pages.RequestATestPage;
 
 import java.util.ArrayList;
 import java.util.List;
+import utilities.*;
 
 public class RequestATestStepdefs {
 

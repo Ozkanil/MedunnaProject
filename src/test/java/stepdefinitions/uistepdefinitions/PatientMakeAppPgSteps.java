@@ -1,4 +1,4 @@
-package stepdefinitions;
+package stepdefinitions.uistepdefinitions;
 
 
 import com.github.javafaker.Faker;
@@ -7,7 +7,7 @@ import io.cucumber.java.en.Given;
 import org.junit.Assert;
 import pages.PatientPageAll;
 import pojos.Appointment;
-
+import utilities.*;
 public class PatientMakeAppPgSteps {
 
     PatientPageAll patientPageAll = new PatientPageAll();

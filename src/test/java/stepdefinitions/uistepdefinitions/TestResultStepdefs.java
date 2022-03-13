@@ -1,4 +1,4 @@
-package stepdefinitions;
+package stepdefinitions.uistepdefinitions;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -8,6 +8,7 @@ import pages.TestResultsPage;
 
 import java.util.HashMap;
 import java.util.Map;
+import utilities.*;
 
 public class TestResultStepdefs {
 TestResultsPage testResultsPage=new TestResultsPage();

@@ -1,4 +1,4 @@
-package stepdefinitions;
+package stepdefinitions.uistepdefinitions;
 
 import io.cucumber.java.en.*;
 import io.restassured.response.Response;
@@ -11,6 +11,7 @@ import utilities.ConfigurationReader;
 import static org.hamcrest.Matchers.hasItems;
 import static utilities.ApiUtils.getRequest;
 import static utilities.Authentication.generateToken;
+import utilities.*;
 
 public class US02_Username_and_Email_StepDef {
 

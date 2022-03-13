@@ -1,4 +1,4 @@
-package stepdefinitions;
+package stepdefinitions.uistepdefinitions;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -8,6 +8,7 @@ import utilities.ConfigurationReader;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import utilities.*;
 
 public class US_001_StepDef {
     CommonPage commonPage = new CommonPage();

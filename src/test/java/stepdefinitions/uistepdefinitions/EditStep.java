@@ -1,4 +1,4 @@
-package stepdefinitions;
+package stepdefinitions.uistepdefinitions;
 
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
@@ -9,6 +9,8 @@ import pages.*;
 import pages.SearchPatientOnStaffPage;
 import pages.EditPage;
 import java.util.List;
+import utilities.*;
+
 public class EditStep {
 
     SearchPatientOnStaffPage searchPatientOnStaffPage = new SearchPatientOnStaffPage();

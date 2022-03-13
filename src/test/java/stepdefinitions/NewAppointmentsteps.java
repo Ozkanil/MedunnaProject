@@ -4,6 +4,7 @@ import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import pages.CommonPage;
 import pages.NewAppointmentPage;
+import utilities.Driver;
 
 public class NewAppointmentsteps {
 

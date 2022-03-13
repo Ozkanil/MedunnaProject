@@ -1,4 +1,4 @@
-package stepdefinitions;
+package stepdefinitions.uistepdefinitions;
 
 
 import io.cucumber.java.en.Then;
@@ -8,6 +8,7 @@ import org.openqa.selenium.Keys;
 import pages.US09_patientPage;
 
 import static org.junit.Assert.assertFalse;
+import utilities.*;
 
 
 public class US09_patientEdit {

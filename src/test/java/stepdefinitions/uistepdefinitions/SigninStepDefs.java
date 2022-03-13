@@ -1,4 +1,4 @@
-package stepdefinitions;
+package stepdefinitions.uistepdefinitions;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -7,6 +7,7 @@ import org.junit.Assert;
 import pages.CommonPage;
 import pages.SignInPage;
 import utilities.ConfigurationReader;
+import utilities.*;
 
 public class SigninStepDefs {
 

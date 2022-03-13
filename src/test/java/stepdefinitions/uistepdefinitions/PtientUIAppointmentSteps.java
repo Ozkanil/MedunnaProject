@@ -1,4 +1,4 @@
-package stepdefinitions;
+package stepdefinitions.uistepdefinitions;
 
 import com.github.javafaker.Faker;
 import io.cucumber.java.en.Given;
@@ -10,6 +10,8 @@ import pages.PatientAppointmentPage;
 import pojos.Appointments;
 
 import static utilities.WriteToTxt.saveAppointData;
+import utilities.*;
+
 public class PtientUIAppointmentSteps {
     PatientAppointmentPage appointmentPage = new PatientAppointmentPage();
     Faker faker = new Faker();

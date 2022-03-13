@@ -1,4 +1,4 @@
-package stepdefinitions;
+package stepdefinitions.uistepdefinitions;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -11,6 +11,7 @@ import utilities.ConfigurationReader;
 import static org.hamcrest.Matchers.hasItems;
 import static utilities.ApiUtils.getRequest;
 import static utilities.Authentication.generateToken;
+import utilities.*;
 
 public class US13_Doctor_Request_Results_StepDef {
 
