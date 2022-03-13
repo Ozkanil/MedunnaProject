@@ -15,6 +15,7 @@ public class Hooks {
 
     @Before
     public void setUp(){
+Driver.wait(1);
 
     }
 
