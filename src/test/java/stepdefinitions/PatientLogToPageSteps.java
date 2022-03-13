@@ -5,6 +5,7 @@ import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import pages.PatientPageAll;
 import pojos.Registrant;
+import utilities.Driver;
 
 public class PatientLogToPageSteps {
 

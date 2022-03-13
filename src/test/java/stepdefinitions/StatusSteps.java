@@ -6,6 +6,7 @@ import pages.CommonPage;
 import pages.SearchPatientOnStaffPage;
 import pages.StatusPage;
 import utilities.ConfigurationReader;
+import utilities.Driver;
 
 public class StatusSteps {
 

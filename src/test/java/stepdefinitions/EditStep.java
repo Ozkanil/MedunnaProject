@@ -8,6 +8,8 @@ import org.junit.Assert;
 import pages.*;
 import pages.SearchPatientOnStaffPage;
 import pages.EditPage;
+import utilities.Driver;
+
 import java.util.List;
 public class EditStep {
 

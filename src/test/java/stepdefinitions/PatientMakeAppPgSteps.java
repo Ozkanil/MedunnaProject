@@ -7,6 +7,7 @@ import io.cucumber.java.en.Given;
 import org.junit.Assert;
 import pages.PatientPageAll;
 import pojos.Appointment;
+import utilities.Driver;
 
 public class PatientMakeAppPgSteps {
 

@@ -11,6 +11,7 @@ import pages.SearchPatientOnStaffPage;
 import pages.SignInPage;
 
 import utilities.ConfigurationReader;
+import utilities.Driver;
 
 public class OptionalSteps {
     WebDriver driver;
