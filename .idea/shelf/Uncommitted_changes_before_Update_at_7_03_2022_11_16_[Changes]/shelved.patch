@@ -1,0 +1,396 @@
+Index: configuration.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>browser=chrome\ngmi_login_url=https://medunna.com/\nmedunna_registration_url=https://medunna.com/account/register\nmedunna_sign_in_url=https://medunna.com/login?page=1&sort=id,asc\ndoctor_username=ArifCanpol135\ndoctor_password=!2qweASD\nadmin_password=1@qweASD\nadmin_username=MedunnaAdmin\nstaff_username=javamoney\nstaff_password=LearnJavaEarn$\npatient_username=patientAccoun\npatient_password=!2qweASD.\nuser_username=UserNone\nuser_password=!2qweASD.
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/configuration.properties b/configuration.properties
+--- a/configuration.properties	(revision a1c72adc7c6efdcaac55474841c6e98e134e9ea6)
++++ b/configuration.properties	(date 1646640987816)
+@@ -1,14 +1,25 @@
+ browser=chrome
+-gmi_login_url=https://medunna.com/
++medunna_login_url=https://medunna.com/
+ medunna_registration_url=https://medunna.com/account/register
+-medunna_sign_in_url=https://medunna.com/login?page=1&sort=id,asc
+-doctor_username=ArifCanpol135
+-doctor_password=!2qweASD
+-admin_password=1@qweASD
+-admin_username=MedunnaAdmin
+-staff_username=javamoney
+-staff_password=LearnJavaEarn$
+-patient_username=patientAccoun
+-patient_password=!2qweASD.
+-user_username=UserNone
+-user_password=!2qweASD.
+\ No newline at end of file
++app_url=https://medunna.com/
++file_name=src/test/resources/testdata/AllRegistrantData.txt
++registrant_endpoint=https://medunna.com/api/users?=size=200
++api_registrant_data_file_name=src/test/resources/testdata/AllApiRegistrantData.txt
++registrant_endpoint_post=https://medunna.com/api/register
++registrant_endpoint_put=https://medunna.com/api/users
++db_credentials_url=jdbc:postgresql://medunna.com:5432/medunna_db
++db_username=medunnadb_user
++db_password=Medunnadb_@129
++db_user_ssn=src/test/resources/testdata/DBAllUserSSNs.txt
++appointments_endpoint=https://medunna.com/api/appointments?=size=200
++appointment_file_name=src/test/resources/testdata/AllAppointmentsApi.txt
++admin_username=OscarLebsack
++admin_password=$CdG89^svc
++
++#password: cD5uV$#0#!      username: WadeLakin         Wade,Lakin,WadeLakin,517-49-4533
++#password:  $CdG89^svc    username: OscarLebsack       Oscar,Lebsack,OscarLebsack,383-28-3054
++#you will use those to create admin, doctor, user , etc.
++#you will use only username and password to create the other roles.
++
++# user_name=MedunnaAdmin
++# password=1@qweASD
+\ No newline at end of file
+Index: src/test/java/runners/Runner.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package runners;\nimport io.cucumber.junit.Cucumber;\nimport io.cucumber.junit.CucumberOptions;\nimport org.junit.runner.RunWith;\n @RunWith(Cucumber.class)\n @CucumberOptions(\n        plugin = {\n                \"pretty\",\n                \"html:target/default-cucumber-reports.html\",\n                \"json:target/json-reports/cucumber.json\",\n                \"junit:target/xml-report/cucumber.xml\",\n                \"rerun:target/failedRerun.txt\"\n        },\n        features = \"./src/test/resources/features\",\n        glue = {\"stepdefinitions\",\"Hooks\"},\n        tags = \"@setting_homepage\",\n        dryRun = false\n)\npublic class Runner {\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/runners/Runner.java b/src/test/java/runners/Runner.java
+--- a/src/test/java/runners/Runner.java	(revision a1c72adc7c6efdcaac55474841c6e98e134e9ea6)
++++ b/src/test/java/runners/Runner.java	(date 1646640987861)
+@@ -4,16 +4,16 @@
+ import org.junit.runner.RunWith;
+  @RunWith(Cucumber.class)
+  @CucumberOptions(
+-        plugin = {
+-                "pretty",
+-                "html:target/default-cucumber-reports.html",
+-                "json:target/json-reports/cucumber.json",
+-                "junit:target/xml-report/cucumber.xml",
+-                "rerun:target/failedRerun.txt"
+-        },
++//        plugin = {
++//                "pretty",
++//                "html:target/default-cucumber-reports.html",
++//                "json:target/json-reports/cucumber.json",
++//                "junit:target/xml-report/cucumber.xml",
++//                "rerun:target/failedRerun.txt"
++//        },
+         features = "./src/test/resources/features",
+-        glue = {"stepdefinitions","Hooks"},
+-        tags = "@setting_homepage",
++        glue = {"stepdefinitions", "Hooks"},
++        tags = "@smoke",
+         dryRun = false
+ )
+ public class Runner {
+Index: src/test/java/Hooks/Hooks.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Hooks;\n\nimport io.cucumber.java.After;\nimport io.cucumber.java.Before;\nimport io.cucumber.java.Scenario;\nimport org.openqa.selenium.OutputType;\nimport org.openqa.selenium.TakesScreenshot;\nimport utilities.Driver;\n\npublic class Hooks {\n    @Before\n    public void setUp(){\n        Driver.wait(5);\n\n    }\n\n    @After\n    public void tearDown(Scenario scenario){\n\n        if (scenario.isFailed()) {\n            final byte[] screenshot=((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);\n\n            scenario.attach(screenshot, \"image/png\",\"screenshots\");\n        }\n     //  Driver.getDriver().close();\n    }\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/Hooks/Hooks.java b/src/test/java/Hooks/Hooks.java
+--- a/src/test/java/Hooks/Hooks.java	(revision a1c72adc7c6efdcaac55474841c6e98e134e9ea6)
++++ b/src/test/java/Hooks/Hooks.java	(date 1646640987866)
+@@ -5,6 +5,7 @@
+ import io.cucumber.java.Scenario;
+ import org.openqa.selenium.OutputType;
+ import org.openqa.selenium.TakesScreenshot;
++import utilities.ConfigurationReader;
+ import utilities.Driver;
+ 
+ public class Hooks {
+@@ -14,15 +15,21 @@
+ 
+     }
+ 
++    @Before(value = "@smoke")
++    public void navigateToRegistrationPage(){
++
++        Driver.getDriver().get(ConfigurationReader.getProperty("medunna_login_url"));
++
++    }
++
+     @After
+     public void tearDown(Scenario scenario){
+ 
+-        if (scenario.isFailed()) {
+-            final byte[] screenshot=((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
+-
+-            scenario.attach(screenshot, "image/png","screenshots");
+-        }
+-     //  Driver.getDriver().close();
+-    }
++//        if (scenario.isFailed()) {
++//            final byte[] screenshot=((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
++//
++//            scenario.attach(screenshot, "image/png","screenshots");
++//        }
++//       Driver.getDriver().close();
++    }}
+ 
+-}
+Index: src/test/java/utilities/DatabaseUtility.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/utilities/DatabaseUtility.java b/src/test/java/utilities/DatabaseUtility.java
+new file mode 100644
+--- /dev/null	(date 1646640987875)
++++ b/src/test/java/utilities/DatabaseUtility.java	(date 1646640987875)
+@@ -0,0 +1,228 @@
++package utilities;
++
++import java.sql.*;
++import java.util.ArrayList;
++import java.util.HashMap;
++import java.util.List;
++import java.util.Map;
++
++public class DatabaseUtility {
++
++
++    private static Connection connection;
++    private static Statement statement;
++    private static ResultSet resultSet;
++    public static void createConnection() {
++        String url = ConfigurationReader.getProperty("database_url");
++        String user = ConfigurationReader.getProperty("database_user");
++        String password = "Techpro_@126";
++        try {
++            connection = DriverManager.getConnection(url, user, password);
++        } catch (SQLException e) {
++            // TODO Auto-generated catch block
++            e.printStackTrace();
++        }
++    }
++    public static void main(String[] args) {
++        createConnection("jdbc:postgresql://medunna.com:5432/medunna_db","medunnadb_user" , "Medunnadb_@129");
++        System.out.println(getColumnData("Select * FROM jhi_user", "first_name"));
++        closeConnection();
++    }
++    public static void createConnection(String url, String user, String password) {
++        try {
++            connection = DriverManager.getConnection(url, user, password);
++        } catch (SQLException e) {
++            // TODO Auto-generated catch block
++            e.printStackTrace();
++        }
++    }
++    public static void closeConnection() {
++        try {
++            if (resultSet != null) {
++                resultSet.close();
++            }
++            if (statement != null) {
++                statement.close();
++            }
++            if (connection != null) {
++                connection.close();
++            }
++        } catch (SQLException e) {
++            e.printStackTrace();
++        }
++    }
++    /**
++     *
++     * @param query
++     * @return returns a single cell value. If the results in multiple rows and/or
++     *         columns of data, only first column of the first row will be returned.
++     *         The rest of the data will be ignored
++     */
++    public static Object getCellValue(String query) {
++        return getQueryResultList(query).get(0).get(0);
++    }
++    /**
++     *
++     * @param query
++     * @return returns a list of Strings which represent a row of data. If the query
++     *         results in multiple rows and/or columns of data, only first row will
++     *         be returned. The rest of the data will be ignored
++     */
++    public static List<Object> getRowList(String query) {
++        return getQueryResultList(query).get(0);
++    }
++    /**
++     *
++     * @param query
++     * @return returns a map which represent a row of data where key is the column
++     *         name. If the query results in multiple rows and/or columns of data,
++     *         only first row will be returned. The rest of the data will be ignored
++     */
++    public static Map<String, Object> getRowMap(String query) {
++        return getQueryResultMap(query).get(0);
++    }
++    /**
++     *
++     * @param query
++     * @return returns query result in a list of lists where outer list represents
++     *         collection of rows and inner lists represent a single row
++     */
++    public static List<List<Object>> getQueryResultList(String query) {
++        executeQuery(query);
++        List<List<Object>> rowList = new ArrayList<>();
++        ResultSetMetaData rsmd;
++        try {
++            rsmd = resultSet.getMetaData();
++            while (resultSet.next()) {
++                List<Object> row = new ArrayList<>();
++                for (int i = 1; i <= rsmd.getColumnCount(); i++) {
++                    row.add(resultSet.getObject(i));
++                }
++                rowList.add(row);
++            }
++        } catch (SQLException e) {
++            // TODO Auto-generated catch block
++            e.printStackTrace();
++        }
++        return rowList;
++    }
++    /**
++     *
++     * @param query
++     * @param column
++     * @return list of values of a single column from the result set
++     */
++    public static List<Object> getColumnData(String query, String column) {
++        executeQuery(query);
++        List<Object> rowList = new ArrayList<>();
++        ResultSetMetaData rsmd;
++        try {
++            rsmd = resultSet.getMetaData();
++            while (resultSet.next()) {
++                rowList.add(resultSet.getObject(column));
++            }
++        } catch (SQLException e) {
++            // TODO Auto-generated catch block
++            e.printStackTrace();
++        }
++        return rowList;
++    }
++    /**
++     *
++     * @param query
++     * @return returns query result in a list of maps where the list represents
++     *         collection of rows and a map represents represent a single row with
++     *         key being the column name
++     */
++    public static List<Map<String, Object>> getQueryResultMap(String query) {
++        executeQuery(query);
++        List<Map<String, Object>> rowList = new ArrayList<>();
++        ResultSetMetaData rsmd;
++        try {
++            rsmd = resultSet.getMetaData();
++            while (resultSet.next()) {
++                Map<String, Object> colNameValueMap = new HashMap<>();
++                for (int i = 1; i <= rsmd.getColumnCount(); i++) {
++                    colNameValueMap.put(rsmd.getColumnName(i), resultSet.getObject(i));
++                }
++                rowList.add(colNameValueMap);
++            }
++        } catch (SQLException e) {
++            // TODO Auto-generated catch block
++            e.printStackTrace();
++        }
++        return rowList;
++    }
++    /**
++     *
++     * @param query
++     * @return List of columns returned in result set
++     */
++    public static List<String> getColumnNames(String query) {
++        executeQuery(query);
++        List<String> columns = new ArrayList<>();
++        ResultSetMetaData rsmd;
++        try {
++            rsmd = resultSet.getMetaData();
++            int columnCount = rsmd.getColumnCount();
++            for (int i = 1; i <= columnCount; i++) {
++                columns.add(rsmd.getColumnName(i));
++            }
++        } catch (SQLException e) {
++            // TODO Auto-generated catch block
++            e.printStackTrace();
++        }
++        return columns;
++    }
++    public static void executeQuery(String query) {
++        try {
++            statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
++        } catch (SQLException e) {
++            // TODO Auto-generated catch block
++            e.printStackTrace();
++        }
++        try {
++            resultSet = statement.executeQuery(query);
++        } catch (SQLException e) {
++            // TODO Auto-generated catch block
++            e.printStackTrace();
++        }
++    }
++    public static int getRowCount() throws Exception {
++        resultSet.last();
++        int rowCount = resultSet.getRow();
++        return rowCount;
++    }
++    public static void insertCountry(String  countryName){
++    }
++    public static void executeInsertion(String query) {
++        try {
++            statement = connection.createStatement();
++        } catch (SQLException e) {
++            // TODO Auto-generated catch block
++            e.printStackTrace();
++        }
++        try {
++            boolean done = statement.execute(query);
++        } catch (SQLException e) {
++            // TODO Auto-generated catch block
++            e.printStackTrace();
++        }
++    }
++    public static int getMaxCountryId (String query,String column){
++        int max = 0;
++        List<Object> allIds = getColumnData(query, column);
++        for (int i=0; i<allIds.size();i++){
++            int num = Integer.parseInt(allIds.get(i).toString().trim());
++            if(max <= num)
++                max=num;
++        }
++        return max;
++    }
++    public static Object getCellValuewithRowsAndCells(String query,int row,int cell) {
++        return getQueryResultList(query).get(row).get(cell);
++    }
++    public static List<Object> getRowListWithParam(String query,int row) {
++        return getQueryResultList(query).get(row);
++    }
++}
+\ No newline at end of file
+Index: pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project xmlns=\"http://maven.apache.org/POM/4.0.0\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd\">\n    <modelVersion>4.0.0</modelVersion>\n\n    <groupId>org.example</groupId>\n    <artifactId>mycucumberproject</artifactId>\n    <version>1.0-SNAPSHOT</version>\n\n    <properties>\n        <maven.compiler.source>1.8</maven.compiler.source>\n        <maven.compiler.target>1.8</maven.compiler.target>\n    </properties>\n\n    <dependencies>\n        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->\n        <dependency>\n            <groupId>org.seleniumhq.selenium</groupId>\n            <artifactId>selenium-java</artifactId>\n            <version>4.1.1</version>\n        </dependency>\n\n        <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->\n        <dependency>\n            <groupId>io.github.bonigarcia</groupId>\n            <artifactId>webdrivermanager</artifactId>\n            <version>5.0.3</version>\n        </dependency>\n        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->\n        <dependency>\n            <groupId>org.apache.poi</groupId>\n            <artifactId>poi</artifactId>\n            <version>4.1.2</version>\n        </dependency>\n        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->\n        <dependency>\n            <groupId>org.apache.poi</groupId>\n            <artifactId>poi-ooxml</artifactId>\n            <version>4.1.2</version>\n        </dependency>\n        <!--        a library to generate fake data when needed-->\n        <!-- https://mvnrepository.com/artifact/com.github.javafaker/javafaker -->\n        <dependency>\n            <groupId>com.github.javafaker</groupId>\n            <artifactId>javafaker</artifactId>\n            <version>1.0.2</version>\n        </dependency>\n\n        <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->\n        <dependency>\n            <groupId>io.cucumber</groupId>\n            <artifactId>cucumber-java</artifactId>\n            <version>7.2.3</version>\n        </dependency>\n        <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->\n        <dependency>\n            <groupId>io.cucumber</groupId>\n            <artifactId>cucumber-junit</artifactId>\n            <version>7.2.3</version>\n            <scope>test</scope>\n        </dependency>\n        <!-- https://mvnrepository.com/artifact/org.testng/testng -->\n        <dependency>\n            <groupId>org.testng</groupId>\n            <artifactId>testng</artifactId>\n            <version>7.1.0</version>\n            <scope>test</scope>\n        </dependency>\n        <dependency>\n            <groupId>com.aventstack</groupId>\n            <artifactId>extentreports</artifactId>\n            <version>4.0.9</version>\n        </dependency>\n\n    </dependencies>\n\n    <build>\n        <plugins>\n            <plugin>\n                <groupId>org.apache.maven.plugins</groupId>\n                <artifactId>maven-failsafe-plugin</artifactId>\n                <version>3.0.0-M1</version>\n                <configuration>\n                    <testFailureIgnore>true</testFailureIgnore>\n                    <skipTests>false</skipTests>\n                    <includes>\n                        <include>**/runners/*TestRunner*.java</include>\n                    </includes>\n                </configuration>\n            </plugin>\n            <plugin>\n                <groupId>org.apache.maven.plugins</groupId>\n                <artifactId>maven-surefire-plugin</artifactId>\n                <version>3.0.0-M1</version>\n                <configuration>\n                    <parallel>classes</parallel>\n                    <forkMode>perthread</forkMode>\n                    <threadCount>2</threadCount>\n                    <reuseForks>false</reuseForks>\n                    <argLine>-Duser.language=en</argLine>\n                    <argLine>-Xmx1024m</argLine>\n                    <argLine>-XX:MaxPermSize=256m</argLine>\n                    <argLine>-Dfile.encoding=UTF-8</argLine>\n                    <useFile>false</useFile>\n                    <includes>\n                        <include>**/runners/*TestRunner*.java</include>\n                    </includes>\n                    <testFailureIgnore>true</testFailureIgnore>\n                </configuration>\n            </plugin>\n            <plugin>\n                <groupId>net.masterthought</groupId>\n                <artifactId>maven-cucumber-reporting</artifactId>\n                <version>5.0.0</version>\n                <executions>\n                    <execution>\n                        <id>execution</id>\n                        <phase>verify</phase>\n                        <goals>\n                            <goal>generate</goal>\n                        </goals>\n                        <configuration>\n                            <projectName>cucumber-framework</projectName>\n                            <outputDirectory>${project.build.directory}</outputDirectory>\n                            <!--                            <cucumberOutput>${project.build.directory}</cucumberOutput>-->\n                            <inputDirectory>${project.build.directory}</inputDirectory>\n                            <jsonFiles>\n                                <param>**/json-reports/*.json</param>\n                            </jsonFiles><classificationFiles>->\n                            <param>sample.properties</param>\n                            <param>other.properties</param>\n                        </classificationFiles>\n                        </configuration>\n                    </execution>\n                </executions>\n            </plugin>\n        </plugins>\n    </build>\n\n\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/pom.xml b/pom.xml
+--- a/pom.xml	(revision a1c72adc7c6efdcaac55474841c6e98e134e9ea6)
++++ b/pom.xml	(date 1646640987880)
+@@ -21,6 +21,12 @@
+             <version>4.1.1</version>
+         </dependency>
+ 
++        <dependency>
++            <groupId>org.postgresql</groupId>
++            <artifactId>postgresql</artifactId>
++            <version>42.2.8</version>
++        </dependency>
++
+         <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
+         <dependency>
+             <groupId>io.github.bonigarcia</groupId>

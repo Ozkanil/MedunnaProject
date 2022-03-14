@@ -1,0 +1,685 @@
+Index: src/test/resources/features/login_page.feature
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>@login_page_feature\nFeature: User login\n\n  @user_login_positive @smoke\n  Scenario Outline: Verifying user login with correct username and password\n\n  When User navigates to the home page\n  And user clicks sign in button at the home page and navigates to sign in page\n  Then user verifies that sign in page header is visible\n  And user enters username \"<username>\" and password \"<password>\"\n  And user clicks sign in button\n  Then user verifies that sign in is successful\n  And user clicks sign out and verifies sign out\n\n    Examples:Test data\n    |username|password|\n    |hazel     |13579  |\n\n  @user_login_negative @smoke\n  Scenario Outline: Verifying that user cannot login with incorrect or missing login data\n\n    When User navigates to the home page\n    And user clicks sign in button at the home page and navigates to sign in page\n    Then user verifies that sign in page header is visible\n    And user enters username \"<username>\" and password \"<password>\"\n    And user clicks sign in button\n    Then user verifies that sign in is unsuccessful in case \"<case>\"\n\n    Examples:Test data\n      |username|password|case|\n      |        |        |1   |\n      |frank   |123456  |2   |\n      |frank1  |123456f |2   |\n      |frank1  |123456f |2   |\n\n    @cancel_login\n    Scenario: User cancels login on login page\n\n      When User navigates to the home page\n      And user clicks sign in button at the home page and navigates to sign in page\n      Then user verifies that sign in page header is visible\n      And user clicks cancel button\n      Then user verifies that signin is canceled and user is on home page\n\n    @rememberme_box\n    Scenario: User can see and click remember me box\n\n      When User navigates to the home page\n      And user clicks sign in button at the home page and navigates to sign in page\n      Then user verifies that sign in page header is visible\n      And user verifies that remember me box is visible and clickable\n\n\n     @password_reset @smoke\n     Scenario: User can see and click password reset option\n\n      When User navigates to the home page\n      And user clicks sign in button at the home page and navigates to sign in page\n      And user verifies that sign in page header is visible\n      And user verifies that password reset button is visible and clicks it\n      Then user verifies that navigated to the password reset page\n\n      @registration_page @smoke\n      Scenario: User can see and click register button\n\n      When User navigates to the home page\n      And user clicks sign in button at the home page and navigates to sign in page\n      And user verifies that sign in page header is visible\n      And user verifies that register button is visible and clicks it\n      Then user verifies that navigated to the registration page\n\n\n\n\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/resources/features/login_page.feature b/src/test/resources/features/login_page.feature
+--- a/src/test/resources/features/login_page.feature	(revision efcdffac28679093d2ddcb924c9123d011b78166)
++++ b/src/test/resources/features/login_page.feature	(date 1647087953254)
+@@ -1,7 +1,8 @@
+ @login_page_feature
+ Feature: User login
+ 
+-  @user_login_positive @smoke
++  @smoke
++  @user_login_post
+   Scenario Outline: Verifying user login with correct username and password
+ 
+   When User navigates to the home page
+@@ -16,7 +17,7 @@
+     |username|password|
+     |hazel     |13579  |
+ 
+-  @user_login_negative @smoke
++  @user_login_negative
+   Scenario Outline: Verifying that user cannot login with incorrect or missing login data
+ 
+     When User navigates to the home page
+Index: src/test/java/runners/Runner.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package runners;\nimport io.cucumber.junit.Cucumber;\nimport io.cucumber.junit.CucumberOptions;\nimport org.junit.runner.RunWith;\n@RunWith(Cucumber.class)\n@CucumberOptions(\n        plugin = {\n                \"pretty\",\n                \"html:target/default-cucumber-reports.html\",\n                \"json:target/json-reports/cucumber.json\",\n                \"junit:target/xml-report/cucumber.xml\",\n                \"rerun:target/failedRerun.txt\"\n        },\n        features = \"./src/test/resources/features\",\n        glue = {\"stepdefinitions\", \"hooks\"},\n        tags = \"@UIRegistrationTest\",\n        dryRun = false\n)\npublic class Runner {\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/runners/Runner.java b/src/test/java/runners/Runner.java
+--- a/src/test/java/runners/Runner.java	(revision efcdffac28679093d2ddcb924c9123d011b78166)
++++ b/src/test/java/runners/Runner.java	(date 1647087953244)
+@@ -12,8 +12,8 @@
+                 "rerun:target/failedRerun.txt"
+         },
+         features = "./src/test/resources/features",
+-        glue = {"stepdefinitions", "hooks"},
+-        tags = "@UIRegistrationTest",
++        glue = {"stepdefinitions"},
++        tags = "@user_login_post",
+         dryRun = false
+ )
+ public class Runner {
+Index: src/test/resources/features/search_patient_staff_page.feature
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>Feature: Search patient on staff page\n\n  @view_patients_staff_page\n  Scenario Outline: View patient info\n\n    When User navigates to the home page\n    And user clicks sign in button at the home page and navigates to sign in page\n    Then user verifies that sign in page header is visible\n    And user enters username \"<username>\" and password \"<password>\"\n    And user clicks sign in button\n    Then user verifies that sign in is successful\n     When user clicks my pages\n     And user clicks search patient\n     And user provides a valid ssn number into search box\n        |ssn        |\n        |777-85-7963|\n\n     And user clicks view button\n     Then user verifies patient info is visible\n     And user clicks back button\n\n    Examples:\n      |username|password|\n      |hazel   |13579   |\n\n\n  @edit_patient_info\n  Scenario Outline: Edit patient info\n\n    When User navigates to the home page\n    And user clicks sign in button at the home page and navigates to sign in page\n    Then user verifies that sign in page header is visible\n    And user enters username \"<username>\" and password \"<password>\"\n    And user clicks sign in button\n    Then user verifies that sign in is successful\n    When user clicks my pages\n    And user clicks search patient\n    When user provides a valid ssn number into search box\n      |ssn        |\n      |777-85-7963|\n    And user clicks patient edit button\n    Then user verifies create or edit patient pages\n    And user provides necessary data to edit patient info\n    And user click save button\n    Then user verifies patient info update message\n\n    Examples:\n      |username|password|\n      |hazel   |13579   |\n\n    @view_edit_appointments\n    Scenario Outline: View appointments\n\n    When User navigates to the home page\n    And user clicks sign in button at the home page and navigates to sign in page\n    Then user verifies that sign in page header is visible\n    And user enters username \"<username>\" and password \"<password>\"\n    And user clicks sign in button\n    Then user verifies that sign in is successful\n    When user clicks my pages\n    And user clicks search patient\n    When user provides a valid ssn number into search box\n        |ssn        |\n        |610-64-0981|\n    And user click show appointments button\n    Then user verifies appointments page header\n    And user clicks edit button under appointments\n    Then user verifies create and edit appointments page\n    And user makes necessary updates\n    And user click save button\n    Then verifies update is successful\n\n\n      Examples:\n        |username|password|\n        |hazel   |13579   |\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/resources/features/search_patient_staff_page.feature b/src/test/resources/features/search_patient_staff_page.feature
+--- a/src/test/resources/features/search_patient_staff_page.feature	(revision efcdffac28679093d2ddcb924c9123d011b78166)
++++ b/src/test/resources/features/search_patient_staff_page.feature	(date 1647087389379)
+@@ -48,6 +48,7 @@
+       |username|password|
+       |hazel   |13579   |
+ 
++    @smoke
+     @view_edit_appointments
+     Scenario Outline: View appointments
+ 
+@@ -61,7 +62,7 @@
+     And user clicks search patient
+     When user provides a valid ssn number into search box
+         |ssn        |
+-        |610-64-0981|
++        |175-92-9123|
+     And user click show appointments button
+     Then user verifies appointments page header
+     And user clicks edit button under appointments
+Index: src/test/resources/features/US_001.feature
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>@US_001\nFeature: User_Story_001_Test\n\n  @US_001_TC_0001\n  Scenario Outline: TC_0001_positive_Scenario\n    Given user is on the common page\n    And user navigates to registration page\n    And user provides the valid \"<SSN>\" of the applicant\n    Then should not get any error\n\n    Examples: TC_0001_positive_Scenario_Data\n      |SSN        |\n      |412-51-7857|\n\n  @US_001_TC_0002\n  Scenario Outline: TC_0001_negative_Scenario\n    Given user is on the common page\n    And user navigates to registration page\n    And user provides the invalid \"<SSN>\" of the applicant\n    Then there should be displayed Your SSN is invalid message\n\n    Examples: TC_0001_negative_Scenario_Data\n      |SSN        |\n      |412-51-785|\n\n  @US_001_TC_0003\n  Scenario Outline: TC_0001_negative_Scenario\n    Given user is on the common page\n    And user navigates to registration page\n    And user provides the invalid \"<SSN>\" of the applicant\n    Then there should be displayed Your SSN is invalid message\n\n    Examples: TC_0001_negative_Scenario_Data\n      |SSN        |\n      |412-517857|\n\n\n  @US_001_TC_0004\n  Scenario Outline: TC_0001_negative_Scenario\n    Given user is on the common page\n    And user navigates to registration page\n    And user provides the invalid \"<SSN>\" of the applicant\n    Then there should be displayed Your SSN is invalid message\n\n    Examples: TC_0001_negative_Scenario_Data\n      |SSN        |\n      |412-51-78579|\n\n\n  @US_001_TC_0005\n  Scenario Outline: TC_0001_negative_Scenario\n    Given user is on the common page\n    And user navigates to registration page\n    And user provides the invalid \"<SSN>\" of the applicant\n    Then there should be displayed Your SSN is invalid message\n\n    Examples: TC_0001_negative_Scenario_Data\n      |SSN        |\n      |41251-7857|\n\n\n  @US_001_TC_0006\n  Scenario Outline: TC_0001_negative_Scenario\n    Given user is on the common page\n    And user navigates to registration page\n    And user provides the invalid \"<SSN>\" of the applicant\n    Then there should be displayed Your SSN is invalid message\n\n    Examples: TC_0001_negative_Scenario_Data\n      |SSN        |\n      |000-51-7857|\n\n\n  @US_001_TC_0007\n  Scenario Outline: TC_0001_negative_Scenario\n    Given user is on the common page\n    And user navigates to registration page\n    And user provides the invalid \"<SSN>\" of the applicant\n    Then there should be displayed Your SSN is invalid message\n\n    Examples: TC_0001_negative_Scenario_Data\n      |SSN        |\n      |412-b1-7857|\n\n  @US_001_TC_0009\n  Scenario: TC_0001_positive_Scenario\n    Given user is on the common page\n    And user navigates to registration page\n    And user lefts \"<SSN>\" textbox blank\n    Then there should be displayed Your SSN is invalid message\n\n\n  @US_001_TC_0010\n  Scenario Outline: TC_0001_positive_Scenario\n    Given user is on the common page\n    And user navigates to registration page\n    And user provides the valid first name \"<firstName>\" of the applicant\n    Then should not get any error\n\n    Examples: TC_0001_positive_Scenario_Data\n      |firstName        |\n      |Khalil           |\n\n\n  @US_001_TC_0011\n  Scenario Outline: TC_0001_negative_Scenario\n    Given user is on the common page\n    And user navigates to registration page\n    And user lefts first name \"<firstName>\" textbox blank\n    Then verify Your FirstName is required. message\n\n    Examples: TC_0001_negative_Scenario_Data\n      |firstName        |\n      ||\n\n\n  @US_001_TC_0012\n  Scenario Outline: TC_0001_negative_Scenario\n    Given user is on the common page\n    And user navigates to registration page\n    And user types some spaces on first name \"<firstName>\" textbox\n    Then verify Your FirstName is required. message\n\n    Examples: TC_0001_negative_Scenario_Data\n      |firstName        |\n      |  |\n\n\n  @US_001_TC_0013\n  Scenario Outline: TC_0001_positive_Scenario\n    Given user is on the common page\n    And user navigates to registration page\n    And user provides the valid last Name \"<lastName>\" of the applicant\n    Then should not get any error\n\n    Examples: TC_0001_positive_Scenario_Data\n      |lastName        |\n      |Riza           |\n\n\n  @US_001_TC_0014\n  Scenario Outline: TC_0001_negative_Scenario\n    Given user is on the common page\n    And user navigates to registration page\n    And user lefts last Name \"<lastName>\" textbox blank\n    Then verify Your LastName is required. message\n\n    Examples: TC_0001_negative_Scenario_Data\n      |lastName        |\n      ||\n\n\n  @US_001_TC_0015\n  Scenario Outline: TC_0001_negative_Scenario\n    Given user is on the common page\n    And user navigates to registration page\n    And user types some spaces on last Name \"<lastName>\" textbox\n    Then verify Your LastName is required. message\n\n    Examples: TC_0001_negative_Scenario_Data\n      |lastName        |\n      |  |\n  @UIRegistrationTest\n    @user_register\n  Scenario Outline: test username textbox\n    Given user provides invalid username \"<username>\"\n    Then  user validates Your username is required. message\n    Examples: test data\n      |username|\n      ||\n      |  |\n\n  @UIRegistrationTest\n    @user_register\n  Scenario Outline: test username textbox\n    Given user provides invalid username \"<username>\"\n    Then  user validates Your username is invalid. message\n    Examples: test data\n      |username|\n      | userOn|\n      |userOn)(!|\n\n  @UIRegistrationTest\n    @user_register\n  Scenario Outline: test email textbox\n    Given user provides the invalid email \"<email>\"\n    Then user validates This field is invalid\n    Examples: test data\n      |email        |\n      |linagmail.com|\n      |lina@.com    |\n      |lina@gmailcom|\n      |lina@gmail.  |\n      |@gmail.com   |\n\n  @UIRegistrationTest\n    @user_register\n  Scenario Outline: test email textbox\n    Given user provides the invalid email \"<email>\"\n    Then user validates Your email is required.\n    Examples: test data\n      |email        |\n      ||\n      |  |\n\n\n  @UIRegistrationTest\n    @user_register\n  Scenario Outline: test password strength\n    Given user provides the password \"<password>\"\n    Then user validates the password strength \"<strength>\"\n    Examples: test data\n      |password|strength|\n      |asdfgkdjs|1      |\n      |asdfgkdjs?|2    |\n      |asdhgsag?1|3    |\n      |asdhgsag?1A|4   |\n      |s$A2sf     |1   |\n\n\n  @SmokeTest\n    @user_register\n    @UIRegistration\n  Scenario Outline: test registration\n    Given user provides ssn id \"<SSN>\"\n    And  user provides firstname and lastname \"<firstname>\" and \"<lastname>\"\n    Then user creates username \"<username>\"\n    And user provides also email \"<email>\"\n    And user generates the password \"<password>\"\n    And user registers and validates\n    Then user creates the records to a correspondent file\n    Examples: test data\n      |SSN|firstname|lastname|username|email|password|\n      |384-37-3827|Irfan|Pishkin|irfanpish|irfan@gmail.com|asdfA123.|
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/resources/features/US_001.feature b/src/test/resources/features/US_001.feature
+--- a/src/test/resources/features/US_001.feature	(revision efcdffac28679093d2ddcb924c9123d011b78166)
++++ b/src/test/resources/features/US_001.feature	(date 1647086607624)
+@@ -1,6 +1,7 @@
+ @US_001
+ Feature: User_Story_001_Test
+ 
++
+   @US_001_TC_0001
+   Scenario Outline: TC_0001_positive_Scenario
+     Given user is on the common page
+@@ -218,7 +219,7 @@
+       |s$A2sf     |1   |
+ 
+ 
+-  @SmokeTest
++    @smoke
+     @user_register
+     @UIRegistration
+   Scenario Outline: test registration
+Index: .gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>target\n.idea
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.gitignore b/.gitignore
+--- a/.gitignore	(revision efcdffac28679093d2ddcb924c9123d011b78166)
++++ b/.gitignore	(date 1647087294484)
+@@ -1,2 +1,0 @@
+-target
+-.idea
+\ No newline at end of file
+Index: src/test/java/runners/SmokeRunner.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package runners;\nimport io.cucumber.junit.Cucumber;\nimport io.cucumber.junit.CucumberOptions;\nimport org.junit.runner.RunWith;\n\n@RunWith(Cucumber.class)\n@CucumberOptions(\n        plugin = {\n                \"pretty\",\n                \"html:target/default-cucumber-reports.html\",\n                \"json:target/json-reports/cucumber.json\",\n                \"junit:target/xml-report/cucumber.xml\",\n                \"rerun:target/failedRerun.txt\"\n        },\n        features = \"./src/test/resources/features\",\n        glue = {\"stepdefinitions\"},\n        tags = \"@smoke\",\n        dryRun = false\n)\npublic class SmokeRunner {\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/runners/SmokeRunner.java b/src/test/java/runners/SmokeRunner.java
+--- a/src/test/java/runners/SmokeRunner.java	(revision efcdffac28679093d2ddcb924c9123d011b78166)
++++ b/src/test/java/runners/SmokeRunner.java	(date 1647086864399)
+@@ -1,4 +1,6 @@
+ package runners;
++
++
+ import io.cucumber.junit.Cucumber;
+ import io.cucumber.junit.CucumberOptions;
+ import org.junit.runner.RunWith;
+@@ -13,7 +15,7 @@
+                 "rerun:target/failedRerun.txt"
+         },
+         features = "./src/test/resources/features",
+-        glue = {"stepdefinitions"},
++        glue = {"stepdefinitions", "hooks"},
+         tags = "@smoke",
+         dryRun = false
+ )
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_22_28_[Changes]/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_22_28_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_22_28_[Changes]/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_22_28_[Changes]/shelved.patch	(revision efcdffac28679093d2ddcb924c9123d011b78166)
++++ /dev/null	(revision efcdffac28679093d2ddcb924c9123d011b78166)
+@@ -1,11 +0,0 @@
+-Index: src/test/java/pages/PageTest.java
+-===================================================================
+-diff --git a/src/test/java/pages/PageTest.java b/src/test/java/pages/PageTest.java
+-deleted file mode 100644
+---- a/src/test/java/pages/PageTest.java	(revision 19f3c9ca9d48dd2e796c29ba7d51c8f86c3dbb7c)
+-+++ /dev/null	(revision 19f3c9ca9d48dd2e796c29ba7d51c8f86c3dbb7c)
+-@@ -1,4 +0,0 @@
+--package pages;
+--
+--public class PageTest {
+--}
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_22_15_[Changes]/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_22_15_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_22_15_[Changes]/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_22_15_[Changes]/shelved.patch	(revision efcdffac28679093d2ddcb924c9123d011b78166)
++++ /dev/null	(revision efcdffac28679093d2ddcb924c9123d011b78166)
+@@ -1,11 +0,0 @@
+-Index: src/test/java/pages/PageTest.java
+-===================================================================
+-diff --git a/src/test/java/pages/PageTest.java b/src/test/java/pages/PageTest.java
+-deleted file mode 100644
+---- a/src/test/java/pages/PageTest.java	(revision bb803214c4293b495ee03d74fff2db7ad43084b7)
+-+++ /dev/null	(revision bb803214c4293b495ee03d74fff2db7ad43084b7)
+-@@ -1,4 +0,0 @@
+--package pages;
+--
+--public class PageTest {
+--}
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_22_28__Changes_.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_22_28__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_22_28__Changes_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_22_28__Changes_.xml	(revision efcdffac28679093d2ddcb924c9123d011b78166)
++++ /dev/null	(revision efcdffac28679093d2ddcb924c9123d011b78166)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Update_at_4_03_2022_22_28_[Changes]" date="1646422316182" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_22_28_[Changes]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 4.03.2022 22:28 [Changes]" />
+-</changelist>
+\ No newline at end of file
+Index: src/test/java/stepdefinitions/US_07_UI_AppointmentSteps.java
+===================================================================
+diff --git a/src/test/java/stepdefinitions/US_07_UI_AppointmentSteps.java b/src/test/java/stepdefinitions/US_07_UI_AppointmentSteps.java
+deleted file mode 100644
+--- a/src/test/java/stepdefinitions/US_07_UI_AppointmentSteps.java	(revision efcdffac28679093d2ddcb924c9123d011b78166)
++++ /dev/null	(revision efcdffac28679093d2ddcb924c9123d011b78166)
+@@ -1,79 +0,0 @@
+-package stepdefinitions;
+-
+-import com.github.javafaker.Faker;
+-import io.cucumber.java.en.Given;
+-import io.cucumber.java.en.Then;
+-import io.cucumber.java.en.When;
+-import org.junit.Assert;
+-import org.openqa.selenium.Keys;
+-import pages.US_07_AppointmentPage;
+-import pojos.Appointment;
+-import utilities.Driver;
+-
+-import static utilities.WriteToTxt.saveAppointData;
+-
+-public class US_07_UI_AppointmentSteps {
+-
+-//    US_07_AppointmentPage appointmentPage = new US_07_AppointmentPage();
+-//    Faker faker = new Faker();
+-//    Appointment appointment = new Appointment();
+-//
+-//    @Given("user clicks on make an appointment")
+-//    public void user_clicks_on_make_an_appointment() {
+-//
+-//        Driver.waitAndClick(appointmentPage.MakeAnAppointmentButton);
+-//
+-//
+-//    }
+-//    @Given("user provides the appoinment name {string}")
+-//    public void user_provides_the_appoinment_name(String firstname) {
+-//        firstname = faker.name().firstName();
+-//        appointment.setFirstname(firstname);
+-//
+-//        Driver.waitAndSendText(appointmentPage.firstnameTextbox, firstname);
+-//
+-//    }
+-//    @Given("user provides the appointment lastname {string}")
+-//    public void user_provides_the_appointment_lastname(String lastname) {
+-//        lastname = faker.name().lastName();
+-//        appointment.setLastname(lastname);
+-//        Driver.waitAndSendText(appointmentPage.lastnameTextbox, lastname);
+-//
+-//    }
+-//    @Given("user provides ssn and email {string} and {string}")
+-//    public void user_provides_ssn_and_email_and(String ssn, String email) {
+-//        ssn = faker.idNumber().ssnValid();
+-//        email = faker.internet().emailAddress();
+-//        appointment.setSsn(ssn);
+-//        appointment.setEmail(email);
+-//
+-//
+-//        Driver.waitAndSendText(appointmentPage.ssnTextbox, ssn);
+-//        Driver.waitAndSendText(appointmentPage.emailTextbox, email);
+-//
+-//    }
+-//    @When("user provides the phone number {string}")
+-//    public void user_provides_the_phone_number(String phoneNumber) {
+-//        phoneNumber = "123-123-1234";
+-//        appointment.setPhoneNumber(phoneNumber);
+-//
+-//        Driver.waitAndSendText(appointmentPage.phoneTextbox, phoneNumber);
+-//    }
+-//    @When("user provides the date {string}")
+-//    public void user_provides_the_date(String date) {
+-//
+-//        appointment.setDate(date);
+-//
+-//        Driver.waitAndSendText(appointmentPage.dateTextbox, date+ Keys.ENTER);
+-//
+-//    }
+-//    @Then("user requests appointment and verifies the success message")
+-//    public void user_requests_appointment_and_verifies_the_success_message() {
+-//
+-//        Driver.waitAndClick(appointmentPage.requestButton);
+-//        saveAppointData(appointment);
+-//
+-//        Assert.assertTrue(Driver.waitForVisibility(appointmentPage.successMessageToastContainer, 2).isDisplayed());
+-//    }
+-
+-}
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_22_15__Changes_.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_22_15__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_22_15__Changes_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_22_15__Changes_.xml	(revision efcdffac28679093d2ddcb924c9123d011b78166)
++++ /dev/null	(revision efcdffac28679093d2ddcb924c9123d011b78166)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Update_at_4_03_2022_22_15_[Changes]" date="1646421333317" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_22_15_[Changes]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 4.03.2022 22:15 [Changes]" />
+-</changelist>
+\ No newline at end of file
+Index: src/test/resources/features/us_10.feature
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>@doctor_feature\nFeature: US_10\n  @my_appointments_ui_doctor\n  Scenario Outline: doctor should be able to see his/her appointment list\n    Given user sign in as a \"<title>\"\n    And user selects My Appointments item and clicks\n    When user on the Appointments page\n    And user selects time slots providing \"<fromDate>\" and \"<toDate>\"\n    Then user should see list of appointments and time slots\n    Then user should see information of the appointment list\n    Examples:\n    |title |fromDate|toDate|\n    |doctor|26/02/2022  |11/03/2022|\n\n\n    @appointment_edit_doctor\n    Scenario Outline: doctor should be able to edit appointments\n      Given user on the Create or Edit an Appointment page\n      And user verify appointment details like ID,StartDate,EndDate,Status\n      And user should see three buttons for requesting and showing test and requesting inpatient\n      And user clicks on the Request Inpatient button\n      And user should be able to go back without saving\n      And user changes the status of appointment\n      And user types information for \"<Anamnesis>\", \"<Treatment>\", \"<Diagnosis>\", \"<Prescription>\", \"<Description>\"\n      And user saves the changes\n      Examples:\n        |Anamnesis        |Treatment   |Diagnosis      |Prescription|Description       |\n        |allergic reaction|nasal sprays|Skin Prick Test|Otrivin     |Breathing problems|\n  @ApiRegistrant\n  @my_appointments_api_doctor\n  Scenario: doctor should be able to see his/her appointment list in api\n    Given user sends get request to the \"https://medunna.com/api/appointments/bydateandId?fromDate=2022-03-07&toDate=2022-03-10&userId=10097\"\n    Then status code should be 200\n    And response format should be \"application/json\"\n    And response body should include expected information\n\n  @my_appointments_db_doctor\n  Scenario Outline: doctor should be able to see his/her appointment list in database\n    Given user connects to the Database\n    When user gets \"id, start_date, end_date, status\" from the \"appointment\" table for \"physician_id = 10501\"\n    And user verify that the data includes <id>, \"<start_date>\", \"<end_date>\" and \"<status>\"\n    Then user close the database connection\nExamples:\n    |id   |start_date               |end_date                |status    |\n    |11868|2022-03-07 00:00:00.0|2022-03-07 01:00:00.0|UNAPPROVED|\n    |11883|2022-03-08 00:00:00.0|2022-03-08 01:00:00.0|CANCELLED |\n    |11885|2022-03-10 00:00:00.0|2022-03-10 01:00:00.0|COMPLETED |\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/resources/features/us_10.feature b/src/test/resources/features/us_10.feature
+--- a/src/test/resources/features/us_10.feature	(revision efcdffac28679093d2ddcb924c9123d011b78166)
++++ b/src/test/resources/features/us_10.feature	(date 1647086607628)
+@@ -12,7 +12,7 @@
+     |title |fromDate|toDate|
+     |doctor|26/02/2022  |11/03/2022|
+ 
+-
++    @smoke
+     @appointment_edit_doctor
+     Scenario Outline: doctor should be able to edit appointments
+       Given user on the Create or Edit an Appointment page
+Index: src/test/resources/features/US_07_UI_API_DB.feature
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>@US_07_UI_API_DB\nFeature: Appointment api test\n  @user_login_positive\n  @Appointment_UI\n  Scenario Outline: test appointments\n    Given user clicks on make an appointment\n    And user provides the appoinment name \"<firstname>\"\n    And user provides the appointment lastname \"<lastname>\"\n    And user provides ssn and email \"<SSN>\" and \"<email>\"\n    When user provides the phone number \"<phoneNumber>\"\n    And user provides the date \"<date>\"\n    Then user requests appointment and verifies the success message\n    Examples: test data\n      |firstname|lastname|SSN|email|phoneNumber|date|\n      |eymen    |arzu  |251-48-4848|eymen@arzu.com|123-123-1234|06-07-2022|\n\n  @ApiRegistrant\n  @ApiAppointmentCreationPost\n  Scenario Outline: appointment test\n    Given user sets the necessary path params for appointment creation\n    And user sets the expected data \"<firstname>\", \"<lastname>\" \"<SSN>\" \"<email>\" \"<phone>\"  and \"<date>\"\n    And user sends the POST request and gets the response for appointment creation\n    When user saves the appointment records to correspondent files\n    Then user validates appointment records\n\n    Examples: api test data\n      | firstname | lastname | SSN         | email                  | phone        | date       |\n      |eymen|arzu| 252-48-4848             |eymen@gmailcom|123-123-1234 | 2022-11-12 |\n  @ApiRegistrant\n  @ApiAppointmentCreationGet\n  Scenario: api get request for appointment\n    Given user sends the get request for appointments data\n    And user deserializes data to Java for appointments\n    And user saves the users data to correspondent files for appointments\n\n\n  @AppointmentDBValidation\n  Scenario Outline: Data Base appointment validation  with id\n    Given user connects to the database\n    And user selects all \"id\" column data\n    And user verify \"<id>\" with the database\n    Then close the database connection\n\n    Examples:\n      |id|\n      |2301|\n      |4673|\n      |6557|
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/resources/features/US_07_UI_API_DB.feature b/src/test/resources/features/US_07_UI_API_DB.feature
+--- a/src/test/resources/features/US_07_UI_API_DB.feature	(revision efcdffac28679093d2ddcb924c9123d011b78166)
++++ b/src/test/resources/features/US_07_UI_API_DB.feature	(date 1647086607632)
+@@ -1,5 +1,6 @@
+ @US_07_UI_API_DB
+ Feature: Appointment api test
++  @smoke
+   @user_login_positive
+   @Appointment_UI
+   Scenario Outline: test appointments
+Index: src/test/java/pojos/AppointmentOut.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package pojos;\n\nimport com.fasterxml.jackson.annotation.JsonIgnoreProperties;\n\n@JsonIgnoreProperties(ignoreUnknown = true)\npublic class AppointmentOut {\n\n\n    private AppointmentGet patient;\n    private String startDate;\n    private Integer id;\n    private String firstName;\n\n    public String getFirstName() {\n        return firstName;\n    }\n\n    public void setFirstName(String firstName) {\n        this.firstName = firstName;\n    }\n\n    public AppointmentOut() {\n    }\n\n    public AppointmentOut(String firstName) {\n        this.firstName = firstName;\n    }\n\n    public AppointmentOut(AppointmentGet patient, String startDate, int id) {\n        this.patient = patient;\n        this.startDate = startDate;\n        this.id = id;\n    }\n\n    public AppointmentGet getPatient() {\n        return patient;\n    }\n\n    public void setPatient(AppointmentGet patient) {\n        this.patient = patient;\n    }\n\n    public String getStartDate() {\n        return startDate;\n    }\n\n    public void setStartDate(String startDate) {\n        this.startDate = startDate;\n    }\n\n    public Integer getId() {\n        return id;\n    }\n\n    public void setId(Integer id) {\n        this.id = id;\n    }\n\n    @Override\n    public String toString() {\n        return \"AppointmentOut{\" +\n                \"patient=\" + patient +\n                \", startDate='\" + startDate + '\\'' +\n                \", id=\" + id +\n                \", firstName='\" + firstName + '\\'' +\n                '}';\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/pojos/AppointmentOut.java b/src/test/java/pojos/AppointmentOut.java
+--- a/src/test/java/pojos/AppointmentOut.java	(revision efcdffac28679093d2ddcb924c9123d011b78166)
++++ b/src/test/java/pojos/AppointmentOut.java	(date 1647086179766)
+@@ -1,68 +1,69 @@
+ package pojos;
+ 
+-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
++
++    import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+ 
+-@JsonIgnoreProperties(ignoreUnknown = true)
+-public class AppointmentOut {
++    @JsonIgnoreProperties(ignoreUnknown = true)
++    public class AppointmentOut {
+ 
+ 
+-    private AppointmentGet patient;
+-    private String startDate;
+-    private Integer id;
+-    private String firstName;
++        private AppointmentGet patient;
++        private String startDate;
++        private Integer id;
++        private String firstName;
+ 
+-    public String getFirstName() {
+-        return firstName;
+-    }
++        public String getFirstName() {
++            return firstName;
++        }
+ 
+-    public void setFirstName(String firstName) {
+-        this.firstName = firstName;
+-    }
++        public void setFirstName(String firstName) {
++            this.firstName = firstName;
++        }
+ 
+-    public AppointmentOut() {
+-    }
++        public AppointmentOut() {
++        }
+ 
+-    public AppointmentOut(String firstName) {
+-        this.firstName = firstName;
+-    }
++        public AppointmentOut(String firstName) {
++            this.firstName = firstName;
++        }
+ 
+-    public AppointmentOut(AppointmentGet patient, String startDate, int id) {
+-        this.patient = patient;
+-        this.startDate = startDate;
+-        this.id = id;
+-    }
++        public AppointmentOut(AppointmentGet patient, String startDate, int id) {
++            this.patient = patient;
++            this.startDate = startDate;
++            this.id = id;
++        }
+ 
+-    public AppointmentGet getPatient() {
+-        return patient;
+-    }
++        public AppointmentGet getPatient() {
++            return patient;
++        }
+ 
+-    public void setPatient(AppointmentGet patient) {
+-        this.patient = patient;
+-    }
++        public void setPatient(AppointmentGet patient) {
++            this.patient = patient;
++        }
+ 
+-    public String getStartDate() {
+-        return startDate;
+-    }
++        public String getStartDate() {
++            return startDate;
++        }
+ 
+-    public void setStartDate(String startDate) {
+-        this.startDate = startDate;
+-    }
++        public void setStartDate(String startDate) {
++            this.startDate = startDate;
++        }
+ 
+-    public Integer getId() {
+-        return id;
+-    }
++        public Integer getId() {
++            return id;
++        }
+ 
+-    public void setId(Integer id) {
+-        this.id = id;
+-    }
++        public void setId(Integer id) {
++            this.id = id;
++        }
+ 
+-    @Override
+-    public String toString() {
+-        return "AppointmentOut{" +
+-                "patient=" + patient +
+-                ", startDate='" + startDate + '\'' +
+-                ", id=" + id +
+-                ", firstName='" + firstName + '\'' +
+-                '}';
+-    }
+-}
++        @Override
++        public String toString() {
++            return "AppointmentOut{" +
++                    "patient=" + patient +
++                    ", startDate='" + startDate + '\'' +
++                    ", id=" + id +
++                    ", firstName='" + firstName + '\'' +
++                    '}';
++        }
++    }
+Index: src/test/resources/features/UserSettings.feature
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>@setting_homepage\nFeature: setting homepage feature\n\n  Background:\n    Given User navigates to \"https://www.medunna.com/\"\n    When User clicks on SignIn button  on the right top\n    Then User clicks on signIn in dropdown list\n    Then User enters username \"mclara\"\n    Then User enters password \"123abc$\"\n    Then User clicks on sign in button\n    Then  User clicks on newly signedIn User\n    And User clicks on Setting option\n\n\n  Scenario Outline: TC_001 user setting homepage  firstname editable\n    Then User clears existing firstname\n    And User sends a new firstname \"<firstname>\" and verifies isEnabled\n    Then User clears existing lastname\n    And User sends a new lastname  \"<lastname>\" and verifies isEnabled\n    Then User clears existing email\n    And User sends a new email \"<email>\" and verifies isEnabled\n    And User clicks on Save button\n    Examples:\n\n\n      | firstname | lastname | email        |\n      | David     | Martin   | dm@gmail.com |\n      | Kavin     | Maven    | km@gmail.com |\n\n#Scenario: TC_002\n#  Scenario: TC_001 user setting homepage  firstname editable\n#    Then User clears existing firstname\n#    And User sends a new firstname \"Marry\"\n#    Then User clears existing lastname\n#    Then User clears existing email\n#    And User clicks on Save button
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/resources/features/UserSettings.feature b/src/test/resources/features/UserSettings.feature
+--- a/src/test/resources/features/UserSettings.feature	(revision efcdffac28679093d2ddcb924c9123d011b78166)
++++ b/src/test/resources/features/UserSettings.feature	(date 1647086179787)
+@@ -27,10 +27,3 @@
+       | David     | Martin   | dm@gmail.com |
+       | Kavin     | Maven    | km@gmail.com |
+ 
+-#Scenario: TC_002
+-#  Scenario: TC_001 user setting homepage  firstname editable
+-#    Then User clears existing firstname
+-#    And User sends a new firstname "Marry"
+-#    Then User clears existing lastname
+-#    Then User clears existing email
+-#    And User clicks on Save button
+\ No newline at end of file
+Index: src/test/java/pages/US_07_AppointmentPage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package pages;\n\nimport org.openqa.selenium.WebElement;\nimport org.openqa.selenium.support.FindBy;\nimport org.openqa.selenium.support.PageFactory;\nimport utilities.Driver;\n\npublic class US_07_AppointmentPage {\n\n    public US_07_AppointmentPage(){\n\n        PageFactory.initElements(Driver.getDriver(), this);\n\n    }\n\n    @FindBy(xpath = \"//*[text()='Make an']\")\n    public WebElement MakeAnAppointmentButton;\n\n    @FindBy(id = \"firstName\")\n    public WebElement firstnameTextbox;\n\n    @FindBy(id = \"lastName\")\n    public WebElement lastnameTextbox;\n\n    @FindBy(id = \"ssn\")\n    public WebElement ssnTextbox;\n\n    @FindBy(id = \"email\")\n    public WebElement emailTextbox;\n\n    @FindBy(id = \"phone\")\n    public WebElement phoneTextbox;\n\n    @FindBy(name = \"appoDate\")\n    public WebElement dateTextbox;\n\n    @FindBy(xpath = \"//*[text()='Send an Appointment Request']\")\n    public WebElement requestButton;\n\n\n    @FindBy(xpath = \"//*[text()='Appointment registration saved!']\")\n    public WebElement successMessageToastContainer;\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/pages/US_07_AppointmentPage.java b/src/test/java/pages/US_07_AppointmentPage.java
+--- a/src/test/java/pages/US_07_AppointmentPage.java	(revision efcdffac28679093d2ddcb924c9123d011b78166)
++++ b/src/test/java/pages/US_07_AppointmentPage.java	(date 1647086179791)
+@@ -42,3 +42,4 @@
+     public WebElement successMessageToastContainer;
+ 
+ }
++
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"c28a1f2b-ea9c-46c3-bebd-707f51e01257\" name=\"Changes\" comment=\"Project last version\">\n      <change afterPath=\"$PROJECT_DIR$/src/test/java/pages/US09_patientPage.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/test/java/stepdefinitions/US09_patient.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/test/java/stepdefinitions/US09_patientEdit.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/test/java/stepdefinitions/US13_Doctor_Request_Results_StepDef.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/test/resources/features/PatientAppointmentDB.feature\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/test/resources/features/US09_patients_viewEditDelete.feature\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/test/resources/features/US13_Doctor_Request_Results.feature\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/hooks/Hooks.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/hooks/Hooks.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/runners/Runner.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/runners/Runner.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/stepdefinitions/US02_Username_and_Email_StepDef.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/stepdefinitions/US02_Username_and_Email_StepDef.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/stepdefinitions/US_001_StepDef.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/stepdefinitions/US_001_StepDef.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/resources/features/US02_Username_and_Email.feature\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/resources/features/US02_Username_and_Email.feature\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/resources/features/US09_patientsApi.feature\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/resources/features/US09_patientsApi.feature\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/resources/features/US_001.feature\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/resources/features/US_001.feature\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\n      <map>\n        <entry key=\"$PROJECT_DIR$\" value=\"master\" />\n      </map>\n    </option>\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"GitSEFilterConfiguration\">\n    <file-type-list>\n      <filtered-out-file-type name=\"LOCAL_BRANCH\" />\n      <filtered-out-file-type name=\"REMOTE_BRANCH\" />\n      <filtered-out-file-type name=\"TAG\" />\n      <filtered-out-file-type name=\"COMMIT_BY_MESSAGE\" />\n    </file-type-list>\n  </component>\n  <component name=\"MarkdownSettingsMigration\">\n    <option name=\"stateVersion\" value=\"1\" />\n  </component>\n  <component name=\"MavenImportPreferences\">\n    <option name=\"generalSettings\">\n      <MavenGeneralSettings>\n        <option name=\"useMavenConfig\" value=\"true\" />\n      </MavenGeneralSettings>\n    </option>\n  </component>\n  <component name=\"ProjectId\" id=\"25i3J0oKw0GbkWLgL64in4pxkYw\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\n  </component>\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">\n    <property name=\"Git.Branch.Popup.ShowAllRemotes\" value=\"true\" />\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\n    <property name=\"project.structure.last.edited\" value=\"Project\" />\n    <property name=\"project.structure.proportion\" value=\"0.15\" />\n    <property name=\"project.structure.side.proportion\" value=\"0.2\" />\n    <property name=\"settings.editor.selected.configurable\" value=\"reference.settings.project.maven.repository.indices\" />\n  </component>\n  <component name=\"RecentsManager\">\n    <key name=\"MoveFile.RECENT_KEYS\">\n      <recent name=\"$PROJECT_DIR$/src/test/resources/features\" />\n      <recent name=\"$PROJECT_DIR$/src/test/resources/testdata\" />\n    </key>\n  </component>\n  <component name=\"RunManager\" selected=\"JUnit.Runner (1)\">\n    <configuration name=\"Feature: us_12\" type=\"CucumberJavaRunConfigurationType\" factoryName=\"Cucumber java\" temporary=\"true\" nameIsGenerated=\"true\">\n      <option name=\"CUCUMBER_CORE_VERSION\" value=\"5\" />\n      <option name=\"FILE_PATH\" value=\"$PROJECT_DIR$/src/test/resources/features/us_12.feature\" />\n      <option name=\"GLUE\" value=\"stepdefinitions hooks\" />\n      <option name=\"MAIN_CLASS_NAME\" value=\"io.cucumber.core.cli.Main\" />\n      <module name=\"mycucumberproject\" />\n      <option name=\"PROGRAM_PARAMETERS\" value=\" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter\" />\n      <option name=\"SUGGESTED_NAME\" value=\"Feature: us_12\" />\n      <option name=\"WORKING_DIRECTORY\" value=\"$MODULE_WORKING_DIR$\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"io.cucumber.core.cli.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"Scenario: Verifying user login with correct username and password (1)\" type=\"CucumberJavaRunConfigurationType\" factoryName=\"Cucumber java\" temporary=\"true\" nameIsGenerated=\"true\">\n      <option name=\"CUCUMBER_CORE_VERSION\" value=\"5\" />\n      <option name=\"FILE_PATH\" value=\"$PROJECT_DIR$/src/test/resources/features/login_page.feature\" />\n      <option name=\"GLUE\" value=\"stepdefinitions hooks\" />\n      <option name=\"MAIN_CLASS_NAME\" value=\"io.cucumber.core.cli.Main\" />\n      <module name=\"medunna\" />\n      <option name=\"NAME_FILTER\" value=\"^Verifying user login with correct username and password$\" />\n      <option name=\"PROGRAM_PARAMETERS\" value=\" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verifying user login with correct username and password$&quot;\" />\n      <option name=\"SUGGESTED_NAME\" value=\"Scenario: Verifying user login with correct username and password\" />\n      <option name=\"WORKING_DIRECTORY\" value=\"$MODULE_WORKING_DIR$\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"io.cucumber.core.cli.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"Scenario: Verifying user login with correct username and password\" type=\"CucumberJavaRunConfigurationType\" factoryName=\"Cucumber java\" temporary=\"true\" nameIsGenerated=\"true\">\n      <option name=\"CUCUMBER_CORE_VERSION\" value=\"5\" />\n      <option name=\"FILE_PATH\" value=\"$PROJECT_DIR$/src/test/resources/features/login_page.feature\" />\n      <option name=\"GLUE\" value=\"stepdefinitions Hooks\" />\n      <option name=\"MAIN_CLASS_NAME\" value=\"io.cucumber.core.cli.Main\" />\n      <option name=\"NAME_FILTER\" value=\"^Verifying user login with correct username and password$\" />\n      <option name=\"PROGRAM_PARAMETERS\" value=\" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verifying user login with correct username and password$&quot;\" />\n      <shortenClasspath name=\"NONE\" />\n      <option name=\"SUGGESTED_NAME\" value=\"Scenario: Verifying user login with correct username and password\" />\n      <option name=\"WORKING_DIRECTORY\" value=\"$MODULE_WORKING_DIR$\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"io.cucumber.core.cli.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"Runner (1)\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\n      <module name=\"mycucumberproject\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"runners.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <option name=\"PACKAGE_NAME\" value=\"runners\" />\n      <option name=\"MAIN_CLASS_NAME\" value=\"runners.Runner\" />\n      <option name=\"TEST_OBJECT\" value=\"class\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"Runner\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\n      <module name=\"medunna\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"runners.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <option name=\"PACKAGE_NAME\" value=\"runners\" />\n      <option name=\"MAIN_CLASS_NAME\" value=\"runners.Runner\" />\n      <option name=\"TEST_OBJECT\" value=\"class\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration default=\"true\" type=\"JetRunConfigurationType\">\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration default=\"true\" type=\"KotlinStandaloneScriptRunConfigurationType\">\n      <option name=\"filePath\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"JUnit.Runner (1)\" />\n        <item itemvalue=\"Cucumber Java.Scenario: Verifying user login with correct username and password (1)\" />\n        <item itemvalue=\"Cucumber Java.Feature: us_12\" />\n        <item itemvalue=\"Cucumber Java.Scenario: Verifying user login with correct username and password\" />\n        <item itemvalue=\"JUnit.Runner\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"c28a1f2b-ea9c-46c3-bebd-707f51e01257\" name=\"Changes\" comment=\"\" />\n      <created>1645996007419</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1645996007419</updated>\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"New commit\">\n      <created>1646039392863</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1646039392864</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"New commit\">\n      <created>1646376082469</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1646376082470</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"First commit\">\n      <created>1646400039127</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1646400039128</updated>\n    </task>\n    <task id=\"LOCAL-00004\" summary=\"New commit-login page\">\n      <created>1646558835608</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1646558835608</updated>\n    </task>\n    <task id=\"LOCAL-00005\" summary=\"New commit-login page\">\n      <created>1646577807718</created>\n      <option name=\"number\" value=\"00005\" />\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1646577807718</updated>\n    </task>\n    <task id=\"LOCAL-00006\" summary=\"New commit-login page\">\n      <created>1646640806607</created>\n      <option name=\"number\" value=\"00006\" />\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1646640806607</updated>\n    </task>\n    <task id=\"LOCAL-00007\" summary=\"New commit-login page\">\n      <created>1646663047436</created>\n      <option name=\"number\" value=\"00007\" />\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1646663047437</updated>\n    </task>\n    <task id=\"LOCAL-00008\" summary=\"Project last version\">\n      <created>1646940590691</created>\n      <option name=\"number\" value=\"00008\" />\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1646940590692</updated>\n    </task>\n    <task id=\"LOCAL-00009\" summary=\"Project last version\">\n      <created>1646940882081</created>\n      <option name=\"number\" value=\"00009\" />\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1646940882081</updated>\n    </task>\n    <task id=\"LOCAL-00010\" summary=\"Project last version\">\n      <created>1646941210270</created>\n      <option name=\"number\" value=\"00010\" />\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1646941210270</updated>\n    </task>\n    <task id=\"LOCAL-00011\" summary=\"Project last version\">\n      <created>1646941255010</created>\n      <option name=\"number\" value=\"00011\" />\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1646941255010</updated>\n    </task>\n    <task id=\"LOCAL-00012\" summary=\"Project last version\">\n      <created>1646997904240</created>\n      <option name=\"number\" value=\"00012\" />\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1646997904240</updated>\n    </task>\n    <task id=\"LOCAL-00013\" summary=\"Project last version\">\n      <created>1646997924682</created>\n      <option name=\"number\" value=\"00013\" />\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1646997924682</updated>\n    </task>\n    <task id=\"LOCAL-00014\" summary=\"Project last version\">\n      <created>1646997947119</created>\n      <option name=\"number\" value=\"00014\" />\n      <option name=\"presentableId\" value=\"LOCAL-00014\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1646997947119</updated>\n    </task>\n    <task id=\"LOCAL-00015\" summary=\"Project last version\">\n      <created>1647043986051</created>\n      <option name=\"number\" value=\"00015\" />\n      <option name=\"presentableId\" value=\"LOCAL-00015\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1647043986051</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"16\" />\n    <servers />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State>\n              <option name=\"FILTERS\">\n                <map>\n                  <entry key=\"branch\">\n                    <value>\n                      <list>\n                        <option value=\"origin/hulya\" />\n                      </list>\n                    </value>\n                  </entry>\n                </map>\n              </option>\n            </State>\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"New commit\" />\n    <MESSAGE value=\"First commit\" />\n    <MESSAGE value=\"New commit-login page\" />\n    <MESSAGE value=\"Project last version\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Project last version\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision efcdffac28679093d2ddcb924c9123d011b78166)
++++ b/.idea/workspace.xml	(date 1647087953162)
+@@ -4,22 +4,24 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="c28a1f2b-ea9c-46c3-bebd-707f51e01257" name="Changes" comment="Project last version">
+-      <change afterPath="$PROJECT_DIR$/src/test/java/pages/US09_patientPage.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/test/java/stepdefinitions/US09_patient.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/test/java/stepdefinitions/US09_patientEdit.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/test/java/stepdefinitions/US13_Doctor_Request_Results_StepDef.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/test/resources/features/PatientAppointmentDB.feature" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/test/resources/features/US09_patients_viewEditDelete.feature" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/test/resources/features/US13_Doctor_Request_Results.feature" afterDir="false" />
++    <list default="true" id="c28a1f2b-ea9c-46c3-bebd-707f51e01257" name="Changes" comment="Project final version">
++      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_22_15_[Changes]/shelved.patch" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_22_15__Changes_.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_22_28_[Changes]/shelved.patch" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_03_2022_22_28__Changes_.xml" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/java/hooks/Hooks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hooks/Hooks.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/java/pages/US_07_AppointmentPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/US_07_AppointmentPage.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/java/pojos/AppointmentOut.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pojos/AppointmentOut.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/test/java/runners/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/runners/Runner.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/java/stepdefinitions/US02_Username_and_Email_StepDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepdefinitions/US02_Username_and_Email_StepDef.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/java/stepdefinitions/US_001_StepDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepdefinitions/US_001_StepDef.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/US02_Username_and_Email.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/US02_Username_and_Email.feature" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/US09_patientsApi.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/US09_patientsApi.feature" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/java/runners/SmokeRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/runners/SmokeRunner.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/java/stepdefinitions/US_07_UI_AppointmentSteps.java" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/test/resources/features/US_001.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/US_001.feature" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/resources/features/US_07_UI_API_DB.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/US_07_UI_API_DB.feature" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/resources/features/UserSettings.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/UserSettings.feature" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/resources/features/login_page.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/login_page.feature" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/resources/features/search_patient_staff_page.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/search_patient_staff_page.feature" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/resources/features/us_10.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/us_10.feature" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -49,15 +51,15 @@
+       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+     </file-type-list>
+   </component>
++  <component name="GithubProjectSettings">
++    <option name="branchProtectionPatterns">
++      <list>
++        <option value="master" />
++      </list>
++    </option>
++  </component>
+   <component name="MarkdownSettingsMigration">
+     <option name="stateVersion" value="1" />
+-  </component>
+-  <component name="MavenImportPreferences">
+-    <option name="generalSettings">
+-      <MavenGeneralSettings>
+-        <option name="useMavenConfig" value="true" />
+-      </MavenGeneralSettings>
+-    </option>
+   </component>
+   <component name="ProjectId" id="25i3J0oKw0GbkWLgL64in4pxkYw" />
+   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+@@ -82,15 +84,15 @@
+       <recent name="$PROJECT_DIR$/src/test/resources/testdata" />
+     </key>
+   </component>
+-  <component name="RunManager" selected="JUnit.Runner (1)">
+-    <configuration name="Feature: us_12" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
++  <component name="RunManager" selected="JUnit.Runner">
++    <configuration name="Feature: US_001" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+       <option name="CUCUMBER_CORE_VERSION" value="5" />
+-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/us_12.feature" />
++      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/US_001.feature" />
+       <option name="GLUE" value="stepdefinitions hooks" />
+       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+-      <module name="mycucumberproject" />
++      <module name="medunna" />
+       <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
+-      <option name="SUGGESTED_NAME" value="Feature: us_12" />
++      <option name="SUGGESTED_NAME" value="Feature: US_001" />
+       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+       <extension name="coverage">
+         <pattern>
+@@ -102,15 +104,14 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="Scenario: Verifying user login with correct username and password (1)" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
++    <configuration name="Feature: registration_complete" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+       <option name="CUCUMBER_CORE_VERSION" value="5" />
+-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/login_page.feature" />
++      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/registration_complete.feature" />
+       <option name="GLUE" value="stepdefinitions hooks" />
+       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+       <module name="medunna" />
+-      <option name="NAME_FILTER" value="^Verifying user login with correct username and password$" />
+-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verifying user login with correct username and password$&quot;" />
+-      <option name="SUGGESTED_NAME" value="Scenario: Verifying user login with correct username and password" />
++      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
++      <option name="SUGGESTED_NAME" value="Feature: registration_complete" />
+       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+       <extension name="coverage">
+         <pattern>
+@@ -122,28 +123,23 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="Scenario: Verifying user login with correct username and password" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+-      <option name="CUCUMBER_CORE_VERSION" value="5" />
+-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/login_page.feature" />
+-      <option name="GLUE" value="stepdefinitions Hooks" />
+-      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+-      <option name="NAME_FILTER" value="^Verifying user login with correct username and password$" />
+-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verifying user login with correct username and password$&quot;" />
+-      <shortenClasspath name="NONE" />
+-      <option name="SUGGESTED_NAME" value="Scenario: Verifying user login with correct username and password" />
+-      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
++    <configuration name="FailedRunner" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++      <module name="medunna" />
+       <extension name="coverage">
+         <pattern>
+-          <option name="PATTERN" value="io.cucumber.core.cli.*" />
++          <option name="PATTERN" value="runners.*" />
+           <option name="ENABLED" value="true" />
+         </pattern>
+       </extension>
++      <option name="PACKAGE_NAME" value="runners" />
++      <option name="MAIN_CLASS_NAME" value="runners.FailedRunner" />
++      <option name="TEST_OBJECT" value="class" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="Runner (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+-      <module name="mycucumberproject" />
++    <configuration name="Runner" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++      <module name="medunna" />
+       <extension name="coverage">
+         <pattern>
+           <option name="PATTERN" value="runners.*" />
+@@ -157,7 +153,7 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="Runner" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++    <configuration name="SmokeRunner" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+       <module name="medunna" />
+       <extension name="coverage">
+         <pattern>
+@@ -166,7 +162,7 @@
+         </pattern>
+       </extension>
+       <option name="PACKAGE_NAME" value="runners" />
+-      <option name="MAIN_CLASS_NAME" value="runners.Runner" />
++      <option name="MAIN_CLASS_NAME" value="runners.SmokeRunner" />
+       <option name="TEST_OBJECT" value="class" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+@@ -185,11 +181,11 @@
+     </configuration>
+     <recent_temporary>
+       <list>
+-        <item itemvalue="JUnit.Runner (1)" />
+-        <item itemvalue="Cucumber Java.Scenario: Verifying user login with correct username and password (1)" />
+-        <item itemvalue="Cucumber Java.Feature: us_12" />
+-        <item itemvalue="Cucumber Java.Scenario: Verifying user login with correct username and password" />
+         <item itemvalue="JUnit.Runner" />
++        <item itemvalue="JUnit.FailedRunner" />
++        <item itemvalue="JUnit.SmokeRunner" />
++        <item itemvalue="Cucumber Java.Feature: registration_complete" />
++        <item itemvalue="Cucumber Java.Feature: US_001" />
+       </list>
+     </recent_temporary>
+   </component>
+@@ -332,6 +328,7 @@
+         </entry>
+       </map>
+     </option>
++    <option name="oldMeFiltersMigrated" value="true" />
+   </component>
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="New commit" />

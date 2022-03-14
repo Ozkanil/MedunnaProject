@@ -7,11 +7,9 @@ import utilities.Driver;
 
 public class OptionalPage {
 
-
     public OptionalPage(){
         PageFactory.initElements(Driver.getDriver(), this);
     }
-
 
     @FindBy(xpath = "//*[@id='username']")
     public WebElement username;
@@ -26,8 +24,9 @@ public class OptionalPage {
     public WebElement myAppointment;
     @FindBy(xpath ="//*[@class='btn btn-primary']")
     public WebElement editButton;
-    @FindBy(xpath = "(//td[.])[8]")
+    @FindBy(xpath = "//*[@id='appointment-prescription']")
     public WebElement prescriptionOfFirstAppointment;
-    @FindBy(xpath = "(//td[.])[9]")
+    @FindBy(xpath = "//*[@id='appointment-description']")
     public WebElement descriptionOfFirstAppointment;
 }
+

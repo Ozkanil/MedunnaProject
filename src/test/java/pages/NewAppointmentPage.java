@@ -6,11 +6,9 @@ import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
 public class NewAppointmentPage {
-
     public NewAppointmentPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
-
     @FindBy(id = "account-menu")
     public WebElement loginDropdown;
     @FindBy(id = "account-menu")
@@ -39,11 +37,6 @@ public class NewAppointmentPage {
     public WebElement appointmentDateTimeTextBox;
     @FindBy(id = "register-submit")
     public WebElement sendAndAppointmentRequestButton;
-
     @FindBy(xpath = "//h2")
     public WebElement appointmentVerificationText;
-
-
-
-
 }

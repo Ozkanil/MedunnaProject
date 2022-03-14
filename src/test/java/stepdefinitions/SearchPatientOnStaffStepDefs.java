@@ -2,15 +2,12 @@ package stepdefinitions;
 
 import com.github.javafaker.Faker;
 import io.cucumber.datatable.DataTable;
-import io.cucumber.java.bs.A;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.support.ui.Select;
 import pages.SearchPatientOnStaffPage;
-import pages.SignInPage;
-import utilities.ConfigurationReader;
 import utilities.Driver;
 
 import java.util.List;
@@ -67,14 +64,14 @@ public class SearchPatientOnStaffStepDefs {
 
     }
 
-    @And("user clicks edit button")
-    public void userClicksEditButton() {
+    @And("user clicks patient edit button")
+    public void userClicksPetientEditButton() {
 
        Driver.waitAndClick(searchPatientOnStaffPage.editButtonOnPatientSearch, 5);
     }
 
-    @Then("user verifies create or edit patient page")
-    public void userVerifiesCreateOrEditPatientPage() {
+    @Then("user verifies create or edit patient pages")
+    public void userVerifiesCreateOrEditPatientPages() {
 
         Driver.waitForVisibility(searchPatientOnStaffPage.createEditPatientText,5).isDisplayed();
     }
@@ -93,8 +90,8 @@ public class SearchPatientOnStaffStepDefs {
 
     }
 
-    @And("user clicks save button")
-    public void userClicksSaveButton() {
+    @And("user click save button")
+    public void userClickSaveButton() {
         Driver.waitAndClick(searchPatientOnStaffPage.saveButtonCreateEditPatient,5);
         //searchPatientOnStaffPage.saveButtonCreateEditPatient.click();
     }
@@ -107,8 +104,8 @@ public class SearchPatientOnStaffStepDefs {
 
 
 
-    @And("user clicks show appointments button")
-    public void userClicksShowAppointmentsButton() {
+    @And("user click show appointments button")
+    public void userClickShowAppointmentsButton() {
 
         Driver.waitAndClick(searchPatientOnStaffPage.showAppointmentsButton,5);
     }
@@ -127,7 +124,7 @@ public class SearchPatientOnStaffStepDefs {
 
     @And("user makes necessary updates")
     public void userMakesNecessaryUpdates() throws InterruptedException {
-
+Driver.wait(1);
         searchPatientOnStaffPage.diagnosisBoxCreateEditAppointment.sendKeys("123");
         searchPatientOnStaffPage.prescriptionBoxCreateEditAppointment.sendKeys("987");
         Thread.sleep(3000);

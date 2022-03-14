@@ -18,10 +18,10 @@ public class StatusPage {
     public WebElement password;
     @FindBy(xpath = "(//*[@type='submit'])")
     public WebElement signInButton;
-    @FindBy(xpath = "(//li)[7]")
+    @FindBy(xpath = "//*[.='MY PAGES']")
     public WebElement myPagesDropdown;
     @FindBy(xpath = "(//*[@id='entity-menu']/div/a[1]/span) " )
-     public WebElement myAppointmentIcon;
+    public WebElement myAppointmentIcon;
     @FindBy(xpath = "//*[@id=fromDate]")
     public WebElement fromDateTextBox;
     @FindBy(xpath = "//*[@id=toDate]")
@@ -34,4 +34,3 @@ public class StatusPage {
     public WebElement saveButton;
 
 }
-

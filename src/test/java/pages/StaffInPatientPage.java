@@ -17,6 +17,7 @@ public class StaffInPatientPage {
     @FindBy(xpath = "//input[@id='fromDate']")
     public WebElement fromDateBox;
 
+
     @FindBy(xpath = "//input[@id='toDate']")
     public WebElement toDateBox;
 

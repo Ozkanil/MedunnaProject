@@ -9,9 +9,9 @@ public class SearchPatientOnStaffPage {
 
 
     public SearchPatientOnStaffPage() {
-
         PageFactory.initElements(Driver.getDriver(),this);
     }
+
 
     @FindBy(linkText = "MY PAGES")
     public WebElement myPagesDropdown;

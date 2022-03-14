@@ -6,6 +6,8 @@ import java.util.Properties;
 
 public class ConfigurationReader {
 
+
+
     //1-Properties objesi olusturacagiz
     static Properties properties;
 
@@ -26,6 +28,7 @@ public class ConfigurationReader {
 
 
 
+
     //3-test classlarindan configReader classina
     // ulasip yukaridaki islemleri yapmamizi saglayacak bir method
 
@@ -35,4 +38,3 @@ public class ConfigurationReader {
         return value;
     }
 }
-

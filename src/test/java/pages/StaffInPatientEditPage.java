@@ -16,6 +16,7 @@ public class StaffInPatientEditPage {
     @FindBy(xpath = "//input[@id='in-patient-id']")
     public WebElement idBox;
 
+
     @FindBy(xpath = "//input[@id='in-patient-startDate']")
     public WebElement startDateBox;
 

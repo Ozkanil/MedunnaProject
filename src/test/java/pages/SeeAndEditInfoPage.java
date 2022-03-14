@@ -25,5 +25,5 @@ public class SeeAndEditInfoPage {
     @FindBy(xpath ="//*[@class='btn btn-warning btn-sm']")
     public WebElement showAppointmentButton;
 
+}
 
-        }

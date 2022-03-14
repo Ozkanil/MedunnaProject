@@ -1,18 +1,20 @@
 package pages;
 
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.devtools.v85.page.Page;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
 public class RegistrationPage {
-    public RegistrationPage(){
+    public RegistrationPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
     @FindBy(xpath = "//*[@name='ssn']")
     public WebElement ssn;
+
+    @FindBy(xpath = "//*[contains(text(),'Registration Saved')]")
+    public WebElement successMessageToastContainer;
 
     @FindBy(xpath = "//*[@name='firstName']")
     public WebElement firstName;
@@ -82,4 +84,9 @@ public class RegistrationPage {
 
     @FindBy(xpath = "(//*[@class='invalid-feedback'])[6]")
     public WebElement invalidPasswordFeedback;
+
+    @FindBy(xpath = "(//*[@class='invalid-feedback'])")
+    public WebElement generalInvalidFeedback;
+
+
 }

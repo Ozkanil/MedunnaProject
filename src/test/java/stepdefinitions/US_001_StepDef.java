@@ -2,9 +2,6 @@ package stepdefinitions;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import pages.CommonPage;
 import pages.RegistrationPage;
 import utilities.ConfigurationReader;
@@ -19,7 +16,7 @@ public class US_001_StepDef {
 
     @Given("user is on the common page")
     public void user_is_on_the_common_page() {
-        Driver.getDriver().get(ConfigurationReader.getProperty("medunna_login_url"));
+        Driver.getDriver().get(ConfigurationReader.getProperty("medunna_url"));
     }
     @Given("user navigates to registration page")
     public void user_navigates_to_registration_page() {
@@ -31,6 +28,7 @@ public class US_001_StepDef {
         Driver.waitAndSendText(registrationPage.ssn, snn);
         Driver.waitAndClick(registrationPage.registrationTitle);
     }
+
 
     @Then("should not get any error")
     public void should_not_get_any_error() {
@@ -103,5 +101,46 @@ public class US_001_StepDef {
     @Then("verify Your LastName is required. message")
     public void verify_your_last_name_is_required_message() {
         assertTrue(registrationPage.invalidfeedback.isDisplayed());
+    }
+
+
+    @Given("user provides invalid username {string}")
+    public void userProvidesInvalidUsername(String arg0) {
+Driver.waitAndSendText(registrationPage.username,arg0);
+    }
+
+    @Then("user validates Your username is required. message")
+    public void userValidatesYourUsernameIsRequiredMessage() {
+
+    }
+
+    @Then("user validates Your username is invalid. message")
+    public void userValidatesYourUsernameIsInvalidMessage() {
+
+    }
+
+    @Given("user provides the invalid email {string}")
+    public void userProvidesTheInvalidEmail(String arg0) {
+
+    }
+
+    @Then("user validates This field is invalid")
+    public void userValidatesThisFieldIsInvalid() {
+
+    }
+
+    @Then("user validates Your email is required.")
+    public void userValidatesYourEmailIsRequired() {
+
+    }
+
+    @Given("user provides the password {string}")
+    public void userProvidesThePassword(String arg0) {
+
+    }
+
+    @Then("user validates the password strength {string}")
+    public void userValidatesThePasswordStrength(String arg0) {
+
     }
 }

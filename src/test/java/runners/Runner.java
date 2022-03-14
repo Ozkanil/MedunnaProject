@@ -1,9 +1,12 @@
 package runners;
+
+
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
- @RunWith(Cucumber.class)
- @CucumberOptions(
+
+@RunWith(Cucumber.class)
+@CucumberOptions(
         plugin = {
                 "pretty",
                 "html:target/default-cucumber-reports.html",
@@ -12,9 +15,10 @@ import org.junit.runner.RunWith;
                 "rerun:target/failedRerun.txt"
         },
         features = "./src/test/resources/features",
-        glue = {"stepdefinitions","Hooks"},
-        tags = "@setting_homepage",
+        glue = {"stepdefinitions"},
+        tags = "@user_login_post",
         dryRun = false
 )
+
 public class Runner {
 }
