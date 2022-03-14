@@ -13,6 +13,7 @@ Feature: View
 #    And user views all patient info
 
 
+
       |username  |password  |fromdate     |todate  |
       |penny     |852963    |11-03-2022    |24-03-202|
 
