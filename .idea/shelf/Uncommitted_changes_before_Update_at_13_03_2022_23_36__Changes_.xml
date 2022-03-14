@@ -1,0 +1,414 @@
+<changelist name="Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]" date="1647203789488" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 13.03.2022 23:36 [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/hooks/Hooks.class" />
+    <option name="AFTER_PATH" value="target/test-classes/hooks/Hooks.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/Hooks.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/runners/SmokeRunner.class" />
+    <option name="AFTER_PATH" value="target/test-classes/runners/SmokeRunner.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/SmokeRunner.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/stepdefinitions/PtientUIAppointmentSteps.class" />
+    <option name="AFTER_PATH" value="target/test-classes/stepdefinitions/PtientUIAppointmentSteps.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/PtientUIAppointmentSteps.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/utilities/ConfigurationReader.class" />
+    <option name="AFTER_PATH" value="target/test-classes/utilities/ConfigurationReader.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/ConfigurationReader.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/utilities/ExcelUtil.class" />
+    <option name="AFTER_PATH" value="target/test-classes/utilities/ExcelUtil.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/ExcelUtil.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/stepdefinitions/apistepdefinitions/US09_patientInfoApi.class" />
+    <option name="AFTER_PATH" value="target/test-classes/stepdefinitions/apistepdefinitions/US09_patientInfoApi.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/US09_patientInfoApi.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/stepdefinitions/PatientsMyApptsStep.class" />
+    <option name="AFTER_PATH" value="target/test-classes/stepdefinitions/PatientsMyApptsStep.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/PatientsMyApptsStep.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/pojos/AppointmentGet.class" />
+    <option name="AFTER_PATH" value="target/test-classes/pojos/AppointmentGet.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/AppointmentGet.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/stepdefinitions/PatientMakeAppPgSteps.class" />
+    <option name="AFTER_PATH" value="target/test-classes/stepdefinitions/PatientMakeAppPgSteps.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/PatientMakeAppPgSteps.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/pages/AppointmentEditPageForDoctor.class" />
+    <option name="AFTER_PATH" value="target/test-classes/pages/AppointmentEditPageForDoctor.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/AppointmentEditPageForDoctor.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/pages/SeeAndEditInfoPage.class" />
+    <option name="AFTER_PATH" value="target/test-classes/pages/SeeAndEditInfoPage.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/SeeAndEditInfoPage.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/stepdefinitions/UserSettingsSteps.class" />
+    <option name="AFTER_PATH" value="target/test-classes/stepdefinitions/UserSettingsSteps.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/UserSettingsSteps.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/pages/StaffInPatientPage.class" />
+    <option name="AFTER_PATH" value="target/test-classes/pages/StaffInPatientPage.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/StaffInPatientPage.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/pojos/Appointment.class" />
+    <option name="AFTER_PATH" value="target/test-classes/pojos/Appointment.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/Appointment.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/stepdefinitions/apistepdefinitions/US_07_API_DB_AppointmentStepDefs.class" />
+    <option name="AFTER_PATH" value="target/test-classes/stepdefinitions/apistepdefinitions/US_07_API_DB_AppointmentStepDefs.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/US_07_API_DB_AppointmentStepDefs.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/pages/PatientAppointmentPage.class" />
+    <option name="AFTER_PATH" value="target/test-classes/pages/PatientAppointmentPage.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/PatientAppointmentPage.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/stepdefinitions/EditAppointmentSteps.class" />
+    <option name="AFTER_PATH" value="target/test-classes/stepdefinitions/EditAppointmentSteps.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/EditAppointmentSteps.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/stepdefinitions/OptionalSteps.class" />
+    <option name="AFTER_PATH" value="target/test-classes/stepdefinitions/OptionalSteps.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/OptionalSteps.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/stepdefinitions/PatientLogToPageSteps.class" />
+    <option name="AFTER_PATH" value="target/test-classes/stepdefinitions/PatientLogToPageSteps.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/PatientLogToPageSteps.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/stepdefinitions/US09_patientEdit.class" />
+    <option name="AFTER_PATH" value="target/test-classes/stepdefinitions/US09_patientEdit.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/US09_patientEdit.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/utilities/Driver$1.class" />
+    <option name="AFTER_PATH" value="target/test-classes/utilities/Driver$1.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/Driver$1.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/utilities/ApiUtils.class" />
+    <option name="AFTER_PATH" value="target/test-classes/utilities/ApiUtils.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/ApiUtils.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/stepdefinitions/AppointmentAdminSteps.class" />
+    <option name="AFTER_PATH" value="target/test-classes/stepdefinitions/AppointmentAdminSteps.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/AppointmentAdminSteps.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/stepdefinitions/PasswordSettingUserSteps.class" />
+    <option name="AFTER_PATH" value="target/test-classes/stepdefinitions/PasswordSettingUserSteps.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/PasswordSettingUserSteps.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/stepdefinitions/dbstepdefinitions/RegistrantDBSteps.class" />
+    <option name="AFTER_PATH" value="target/test-classes/stepdefinitions/dbstepdefinitions/RegistrantDBSteps.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/RegistrantDBSteps.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/pages/NewAppointmentPage.class" />
+    <option name="AFTER_PATH" value="target/test-classes/pages/NewAppointmentPage.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/NewAppointmentPage.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/pages/US09_patientPage.class" />
+    <option name="AFTER_PATH" value="target/test-classes/pages/US09_patientPage.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/US09_patientPage.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/pages/CommonPage.class" />
+    <option name="AFTER_PATH" value="target/test-classes/pages/CommonPage.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/CommonPage.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/stepdefinitions/TestResultStepdefs.class" />
+    <option name="AFTER_PATH" value="target/test-classes/stepdefinitions/TestResultStepdefs.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/TestResultStepdefs.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/stepdefinitions/apistepdefinitions/DoctorAppointmentStepdefs.class" />
+    <option name="AFTER_PATH" value="target/test-classes/stepdefinitions/apistepdefinitions/DoctorAppointmentStepdefs.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/DoctorAppointmentStepdefs.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/pages/EditPage.class" />
+    <option name="AFTER_PATH" value="target/test-classes/pages/EditPage.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/EditPage.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/stepdefinitions/apistepdefinitions/RegistrantApiSteps.class" />
+    <option name="AFTER_PATH" value="target/test-classes/stepdefinitions/apistepdefinitions/RegistrantApiSteps.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/RegistrantApiSteps.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/stepdefinitions/MyPatientsSteps.class" />
+    <option name="AFTER_PATH" value="target/test-classes/stepdefinitions/MyPatientsSteps.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/MyPatientsSteps.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/pages/MyAppointmentPageAsDoctor.class" />
+    <option name="AFTER_PATH" value="target/test-classes/pages/MyAppointmentPageAsDoctor.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/MyAppointmentPageAsDoctor.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/pages/RequestATestPage.class" />
+    <option name="AFTER_PATH" value="target/test-classes/pages/RequestATestPage.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/RequestATestPage.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/utilities/ReusableMethods.class" />
+    <option name="AFTER_PATH" value="target/test-classes/utilities/ReusableMethods.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/ReusableMethods.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/pages/CreateOrEditAnAppointmentPage.class" />
+    <option name="AFTER_PATH" value="target/test-classes/pages/CreateOrEditAnAppointmentPage.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/CreateOrEditAnAppointmentPage.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/pages/StaffInPatientEditPage.class" />
+    <option name="AFTER_PATH" value="target/test-classes/pages/StaffInPatientEditPage.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/StaffInPatientEditPage.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/stepdefinitions/RequestATestStepdefs.class" />
+    <option name="AFTER_PATH" value="target/test-classes/stepdefinitions/RequestATestStepdefs.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/RequestATestStepdefs.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/stepdefinitions/dbstepdefinitions/DoctorAppointmentStepdefs.class" />
+    <option name="AFTER_PATH" value="target/test-classes/stepdefinitions/dbstepdefinitions/DoctorAppointmentStepdefs.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/DoctorAppointmentStepdefs1.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/pages/Id_1401_Page.class" />
+    <option name="AFTER_PATH" value="target/test-classes/pages/Id_1401_Page.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/Id_1401_Page.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/pages/AppointmentAdminPage.class" />
+    <option name="AFTER_PATH" value="target/test-classes/pages/AppointmentAdminPage.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/AppointmentAdminPage.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/pages/DoctorTestItemsPage.class" />
+    <option name="AFTER_PATH" value="target/test-classes/pages/DoctorTestItemsPage.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/DoctorTestItemsPage.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/pages/UserSetting.class" />
+    <option name="AFTER_PATH" value="target/test-classes/pages/UserSetting.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/UserSetting.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/pages/MyPatientsPageDoctor.class" />
+    <option name="AFTER_PATH" value="target/test-classes/pages/MyPatientsPageDoctor.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/MyPatientsPageDoctor.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/pojos/Registrant.class" />
+    <option name="AFTER_PATH" value="target/test-classes/pojos/Registrant.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/Registrant.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/stepdefinitions/RegistrationSteps.class" />
+    <option name="AFTER_PATH" value="target/test-classes/stepdefinitions/RegistrationSteps.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/RegistrationSteps.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/stepdefinitions/US_001_StepDef.class" />
+    <option name="AFTER_PATH" value="target/test-classes/stepdefinitions/US_001_StepDef.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/US_001_StepDef.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/pages/StatusPage.class" />
+    <option name="AFTER_PATH" value="target/test-classes/pages/StatusPage.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/StatusPage.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/pages/PatientPageAll.class" />
+    <option name="AFTER_PATH" value="target/test-classes/pages/PatientPageAll.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/PatientPageAll.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/runners/FailedRunner.class" />
+    <option name="AFTER_PATH" value="target/test-classes/runners/FailedRunner.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/FailedRunner.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/utilities/Authentication.class" />
+    <option name="AFTER_PATH" value="target/test-classes/utilities/Authentication.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/Authentication.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/pages/ShowTestResultPage.class" />
+    <option name="AFTER_PATH" value="target/test-classes/pages/ShowTestResultPage.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/ShowTestResultPage.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/stepdefinitions/ReusableStepDefs.class" />
+    <option name="AFTER_PATH" value="target/test-classes/stepdefinitions/ReusableStepDefs.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/ReusableStepDefs.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/pages/OptionalPage.class" />
+    <option name="AFTER_PATH" value="target/test-classes/pages/OptionalPage.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/OptionalPage.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/stepdefinitions/StatusSteps.class" />
+    <option name="AFTER_PATH" value="target/test-classes/stepdefinitions/StatusSteps.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/StatusSteps.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/stepdefinitions/DoctorAppointmentEditStepdefs.class" />
+    <option name="AFTER_PATH" value="target/test-classes/stepdefinitions/DoctorAppointmentEditStepdefs.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/DoctorAppointmentEditStepdefs.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/stepdefinitions/US02_Username_and_Email_StepDef.class" />
+    <option name="AFTER_PATH" value="target/test-classes/stepdefinitions/US02_Username_and_Email_StepDef.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/US02_Username_and_Email_StepDef.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/stepdefinitions/PasswordStrenghtTestSteps.class" />
+    <option name="AFTER_PATH" value="target/test-classes/stepdefinitions/PasswordStrenghtTestSteps.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/PasswordStrenghtTestSteps.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/pages/SearchPatientOnStaffPage.class" />
+    <option name="AFTER_PATH" value="target/test-classes/pages/SearchPatientOnStaffPage.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/SearchPatientOnStaffPage.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/utilities/DBUtils.class" />
+    <option name="AFTER_PATH" value="target/test-classes/utilities/DBUtils.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/DBUtils.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/pages/SignInPage.class" />
+    <option name="AFTER_PATH" value="target/test-classes/pages/SignInPage.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/SignInPage.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/stepdefinitions/MyAppointmentsStepdefs.class" />
+    <option name="AFTER_PATH" value="target/test-classes/stepdefinitions/MyAppointmentsStepdefs.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/MyAppointmentsStepdefs.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/stepdefinitions/NewAppointmentsteps.class" />
+    <option name="AFTER_PATH" value="target/test-classes/stepdefinitions/NewAppointmentsteps.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/NewAppointmentsteps.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/utilities/ReusableMethods$1.class" />
+    <option name="AFTER_PATH" value="target/test-classes/utilities/ReusableMethods$1.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/ReusableMethods$1.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/stepdefinitions/SearchPatientOnStaffStepDefs.class" />
+    <option name="AFTER_PATH" value="target/test-classes/stepdefinitions/SearchPatientOnStaffStepDefs.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/SearchPatientOnStaffStepDefs.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/runners/Runner.class" />
+    <option name="AFTER_PATH" value="target/test-classes/runners/Runner.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/Runner.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/stepdefinitions/US09_patient.class" />
+    <option name="AFTER_PATH" value="target/test-classes/stepdefinitions/US09_patient.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/US09_patient.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/utilities/ReusableMethods$2.class" />
+    <option name="AFTER_PATH" value="target/test-classes/utilities/ReusableMethods$2.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/ReusableMethods$2.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/pojos/Appointments.class" />
+    <option name="AFTER_PATH" value="target/test-classes/pojos/Appointments.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/Appointments.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/stepdefinitions/US13_Doctor_Request_Results_StepDef.class" />
+    <option name="AFTER_PATH" value="target/test-classes/stepdefinitions/US13_Doctor_Request_Results_StepDef.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/US13_Doctor_Request_Results_StepDef.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/stepdefinitions/apistepdefinitions/PatientAppoRegApiSteps.class" />
+    <option name="AFTER_PATH" value="target/test-classes/stepdefinitions/apistepdefinitions/PatientAppoRegApiSteps.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/PatientAppoRegApiSteps.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/pages/RegistrationPage.class" />
+    <option name="AFTER_PATH" value="target/test-classes/pages/RegistrationPage.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/RegistrationPage.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/stepdefinitions/StaffPageStepDefination.class" />
+    <option name="AFTER_PATH" value="target/test-classes/stepdefinitions/StaffPageStepDefination.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/StaffPageStepDefination.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/pages/StaffHomePage.class" />
+    <option name="AFTER_PATH" value="target/test-classes/pages/StaffHomePage.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/StaffHomePage.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/pages/TestResultsPage.class" />
+    <option name="AFTER_PATH" value="target/test-classes/pages/TestResultsPage.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/TestResultsPage.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/pojos/DoctorAppointment.class" />
+    <option name="AFTER_PATH" value="target/test-classes/pojos/DoctorAppointment.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/DoctorAppointment.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/pages/AppointmentPage.class" />
+    <option name="AFTER_PATH" value="target/test-classes/pages/AppointmentPage.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/AppointmentPage.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/stepdefinitions/EditStep.class" />
+    <option name="AFTER_PATH" value="target/test-classes/stepdefinitions/EditStep.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/EditStep.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/utilities/WriteToTxt.class" />
+    <option name="AFTER_PATH" value="target/test-classes/utilities/WriteToTxt.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/WriteToTxt.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/stepdefinitions/SigninStepDefs.class" />
+    <option name="AFTER_PATH" value="target/test-classes/stepdefinitions/SigninStepDefs.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/SigninStepDefs.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/utilities/Driver.class" />
+    <option name="AFTER_PATH" value="target/test-classes/utilities/Driver.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/Driver.class" />
+  </binary>
+</changelist>

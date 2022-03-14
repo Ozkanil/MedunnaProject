@@ -1,4 +1,4 @@
-package stepdefinitions.uistepdefinitions;
+package stepdefinitions;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -7,7 +7,8 @@ import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import pages.PatientPageAll;
 import pojos.Appointment;
-import utilities.*;
+import utilities.Driver;
+
 public class PatientsMyApptsStep {
 
     PatientPageAll patientPageAll= new PatientPageAll();

@@ -8,6 +8,7 @@ import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import pages.PatientAppointmentPage;
 import pojos.Appointments;
+import utilities.Driver;
 
 import static utilities.WriteToTxt.saveAppointData;
 import utilities.*;

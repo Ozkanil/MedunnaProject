@@ -1,9 +1,10 @@
-package stepdefinitions.uistepdefinitions;
+package stepdefinitions;
 
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import pages.UserSetting;
-import utilities.*;
+import utilities.Driver;
+
 public class PasswordSettingUserSteps {
     UserSetting userPage=new UserSetting();
     @Then("User clicks on Password option on the dropdown")

@@ -5,6 +5,7 @@ import io.cucumber.java.en.Then;
 import pages.CommonPage;
 import pages.RegistrationPage;
 import utilities.ConfigurationReader;
+import utilities.Driver;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;

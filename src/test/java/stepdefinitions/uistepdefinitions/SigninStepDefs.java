@@ -1,4 +1,4 @@
-package stepdefinitions.uistepdefinitions;
+package stepdefinitions;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -7,7 +7,7 @@ import org.junit.Assert;
 import pages.CommonPage;
 import pages.SignInPage;
 import utilities.ConfigurationReader;
-import utilities.*;
+import utilities.Driver;
 
 public class SigninStepDefs {
 
@@ -20,39 +20,39 @@ public class SigninStepDefs {
         Driver.getDriver().get(ConfigurationReader.getProperty("medunna_url"));
 
     }
-    @When("user clicks sign in button at the home page and navigates to sign in page")
-    public void user_clicks_sign_in_button_at_the_home_page_and_navigates_to_sign_in_page() {
-
-        Driver.waitAndClick( commonPage.accountMenu);
-        Driver.waitAndClick( commonPage.signIn);
-
-    }
-    @Then("user verifies that sign in page header is visible")
-    public void user_verifies_that_sign_in_page_header_is_visible() {
-
-        Driver.waitForVisibility(signInPage.singinPageHeader, 5);
-        Assert.assertTrue(signInPage.singinPageHeader.isDisplayed());
-
-    }
-    @Then("user enters username {string} and password {string}")
-    public void user_enters_username_and_password(String username, String password) {
-
-        signInPage.username.sendKeys(username);
-        signInPage.password.sendKeys(password);
-
-    }
-    @Then("user clicks sign in button")
-    public void user_clicks_sign_in_button() {
-
-        signInPage.singInButton.click();
-
-    }
-    @Then("user verifies that sign in is successful")
-    public void sser_verifies_that_sign_in_is_successful() {
-
-        Assert.assertTrue(commonPage.accountMenu.isDisplayed());
-
-    }
+//    @When("user clicks sign in button at the home page and navigates to sign in page")
+//    public void user_clicks_sign_in_button_at_the_home_page_and_navigates_to_sign_in_page() {
+//
+//        Driver.waitAndClick( commonPage.accountMenu);
+//        Driver.waitAndClick( commonPage.signIn);
+//
+//    }
+//    @Then("user verifies that sign in page header is visible")
+//    public void user_verifies_that_sign_in_page_header_is_visible() {
+//
+//        Driver.waitForVisibility(signInPage.singinPageHeader, 5);
+//        Assert.assertTrue(signInPage.singinPageHeader.isDisplayed());
+//
+//    }
+//    @Then("user enters username {string} and password {string}")
+//    public void user_enters_username_and_password(String username, String password) {
+//
+//        signInPage.username.sendKeys(username);
+//        signInPage.password.sendKeys(password);
+//
+//    }
+//    @Then("user clicks sign in button")
+//    public void user_clicks_sign_in_button() {
+//
+//        signInPage.singInButton.click();
+//
+//    }
+//    @Then("user verifies that sign in is successful")
+//    public void sser_verifies_that_sign_in_is_successful() {
+//
+//        Assert.assertTrue(commonPage.accountMenu.isDisplayed());
+//
+//    }
 
     @Then("user verifies that sign in is unsuccessful in case {string}")
     public void user_verifies_that_sign_in_is_unsuccessful_in_case(String string) {

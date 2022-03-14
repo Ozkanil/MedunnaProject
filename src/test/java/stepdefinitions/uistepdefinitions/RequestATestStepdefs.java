@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import pages.AppointmentEditPageForDoctor;
 import pages.MyAppointmentPageAsDoctor;
 import pages.RequestATestPage;
+import utilities.Driver;
 
 import java.util.ArrayList;
 import java.util.List;

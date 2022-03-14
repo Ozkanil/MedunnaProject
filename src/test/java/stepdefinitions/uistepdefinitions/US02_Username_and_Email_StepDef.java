@@ -7,6 +7,7 @@ import org.openqa.selenium.interactions.Actions;
 import pages.CommonPage;
 import pages.RegistrationPage;
 import utilities.ConfigurationReader;
+import utilities.Driver;
 
 import static org.hamcrest.Matchers.hasItems;
 import static utilities.ApiUtils.getRequest;

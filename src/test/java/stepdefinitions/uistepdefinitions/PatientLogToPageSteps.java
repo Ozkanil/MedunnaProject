@@ -1,11 +1,12 @@
-package stepdefinitions.uistepdefinitions;
+package stepdefinitions;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import pages.PatientPageAll;
 import pojos.Registrant;
-import utilities.*;
+import utilities.Driver;
+
 public class PatientLogToPageSteps {
 
     PatientPageAll patientPageAll = new PatientPageAll();

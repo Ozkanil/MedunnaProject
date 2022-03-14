@@ -1,8 +1,9 @@
-package stepdefinitions.uistepdefinitions;
+package stepdefinitions;
 
 import io.cucumber.java.en.Given;
 import pages.*;
-import utilities.*;
+import utilities.Driver;
+
 public class EditAppointmentSteps {
     SignInPage signinpage = new SignInPage();
     CommonPage commonPage = new CommonPage();

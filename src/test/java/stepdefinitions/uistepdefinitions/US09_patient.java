@@ -1,10 +1,10 @@
-package stepdefinitions.uistepdefinitions;
+package stepdefinitions;
 
 import pages.US09_patientPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import utilities.*;
+import utilities.Driver;
 
 public class US09_patient {
 

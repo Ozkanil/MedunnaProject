@@ -9,11 +9,13 @@ import io.restassured.specification.RequestSpecification;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import utilities.ConfigurationReader;
+import utilities.Driver;
 
 public class Hooks {
 
     @Before
     public void setUp(){
+Driver.wait(1);
 
     }
 

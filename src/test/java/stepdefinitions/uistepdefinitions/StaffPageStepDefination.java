@@ -8,6 +8,7 @@ import pages.CommonPage;
 import pages.SignInPage;
 import pages.StaffInPatientEditPage;
 import pages.StaffInPatientPage;
+import utilities.Driver;
 import utilities.ReusableMethods;
 
 import java.awt.*;
