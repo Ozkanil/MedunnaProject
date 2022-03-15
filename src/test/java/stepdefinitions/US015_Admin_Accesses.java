@@ -3,13 +3,22 @@ package stepdefinitions;
 import com.github.javafaker.Faker;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.restassured.response.Response;
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.WebElement;
 import pages.*;
 import utilities.ConfigurationReader;
 import utilities.Driver;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import static org.hamcrest.Matchers.hasItems;
+import static utilities.ApiUtils.getRequest;
+import static utilities.Authentication.generateToken;
+
 
 public class US015_Admin_Accesses {
 
@@ -19,10 +28,16 @@ public class US015_Admin_Accesses {
     AdminPage adminPage = new AdminPage();
     Patient1051Page patientInfos=new Patient1051Page();
     CreateOrEditAPatientByAdminPage createPatient = new CreateOrEditAPatientByAdminPage();
-    Faker faker=new Faker();
+    List<String> statesInUs;
+    List<String> firstnameAndLastnameOfNewPatient;
+    List<String> theListOfNameOfStatesFromWebTable;
+    List<String> theListOfFirstnameAndLastnameOfLastPagesWebTable;
 
-    public String Firstname=faker.name().firstName();
-    public String Lastname=faker.name().lastName();
+    Faker faker=new Faker();
+    Response response;
+    public String firstname=faker.name().firstName();
+    public String lastname=faker.name().lastName();
+
 
     @Given("User signs in as an Admin")
     public void user_signs_in_as_an_admin() throws InterruptedException {
@@ -52,8 +67,8 @@ public class US015_Admin_Accesses {
     @Then("User fill out the formula and clicks to Save button")
     public void user_fill_out_the_formula_and_clicks_to_save_button() {
 
-        createPatient.firstName.sendKeys(Firstname);
-        createPatient.lastName.sendKeys(Lastname);
+        createPatient.firstName.sendKeys(firstname);
+        createPatient.lastName.sendKeys(lastname);
         createPatient.birthDate.sendKeys(faker.date().birthday(21,35).toString());
         createPatient.email.sendKeys(faker.internet().emailAddress());
         createPatient.phone.sendKeys("111-111-1111");
@@ -76,6 +91,26 @@ public class US015_Admin_Accesses {
         Driver.waitForVisibility(createPatient.successCreatedMessage,10);
         Assert.assertTrue(createPatient.successCreatedMessage.isEnabled());
 
+    }
+
+    @Then("User verifies that the new Patient also in Patients Page")
+    public void userVerifiesThatTheNewPatientAlsoInPatientsPage() throws InterruptedException {
+        Driver.clickWithJS(adminPage.lastPagelink);
+        Thread.sleep(4000);
+        firstnameAndLastnameOfNewPatient=new ArrayList<>(Arrays.asList(firstname,lastname));
+        theListOfFirstnameAndLastnameOfLastPagesWebTable=new ArrayList<>();
+        for (WebElement each:adminPage.listOfAllFirstnameOfCreatedPatientOnTheLastPage) {
+            String element=each.getText();
+            theListOfFirstnameAndLastnameOfLastPagesWebTable.add(element);
+        }
+
+        for (WebElement each:adminPage.listOfAllLastnameOfCreatedPatientOnTheLastPage) {
+            String element=each.getText();
+            theListOfFirstnameAndLastnameOfLastPagesWebTable.add(element);
+        }
+        System.out.println(theListOfFirstnameAndLastnameOfLastPagesWebTable.toString());
+        System.out.println(firstnameAndLastnameOfNewPatient.toString());
+        Assert.assertTrue(theListOfFirstnameAndLastnameOfLastPagesWebTable.containsAll(firstnameAndLastnameOfNewPatient));
     }
 
 
@@ -169,8 +204,8 @@ public class US015_Admin_Accesses {
 
     }
 
-    @Then("User verifies the Successfuly message")
-    public void user_verifies_the_successfuly_message() {
+    @Then("User verifies the Successfully message")
+    public void user_verifies_the_successfully_message() {
         Driver.waitForVisibility(createPatient.successUpdatedMessage,10);
         Assert.assertTrue(createPatient.successUpdatedMessage.isEnabled());
 
@@ -178,27 +213,46 @@ public class US015_Admin_Accesses {
 
     @Then("User clicks State and City button under Items&Titles")
     public void user_clicks_and_state_city_button_under_items_titles() {
+        commonPage.itemsAndTitles.click();
+        adminPage.stateAndCity.click();
 
     }
 
     @Then("User creates the list of Name of States")
-    public void user_creates_the_list_of_name_of_states() {
+    public void user_creates_the_list_of_name_of_states() throws InterruptedException {
+        statesInUs=new ArrayList<>(Arrays.asList("Alaska", "Alabama", "Arkansas", "American Samoa", "Arizona", "California", "Colorado", "Connecticut", "District of Columbia", "Delaware", "Florida", "Georgia", "Guam", "Hawaii", "Iowa", "Idaho", "Illinois", "Indiana", "Kansas", "Kentucky", "Louisiana", "Massachusetts", "Maryland", "Maine", "Michigan", "Minnesota", "Missouri", "Mississippi", "Montana", "North Carolina", "North Dakota", "Nebraska", "New Hampshire", "New Jersey", "New Mexico", "Nevada", "New York", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Puerto Rico", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Virginia", "Virgin Islands", "Vermont", "Washington", "Wisconsin", "West Virginia", "Wyoming"));
 
+        Thread.sleep(4000);
+        theListOfNameOfStatesFromWebTable=new ArrayList<>();
+        for (WebElement each:adminPage.listOfAllStates) {
+            String element=each.getText();
+            theListOfNameOfStatesFromWebTable.add(element);
+        }
+        System.out.println(theListOfNameOfStatesFromWebTable.toString());
     }
 
     @Then("User verifies that all State are in US")
     public void user_verifies_that_all_state_are_in_us() {
+        Assert.assertTrue(statesInUs.containsAll(theListOfNameOfStatesFromWebTable));
 
     }
 
     @Then("User clicks the first Delete button between Patients")
     public void user_clicks_the_first_delete_button_between_patients() {
+        Driver.waitForVisibility(adminPage.firstDeleteButton,10);
+        Driver.clickWithJS(adminPage.firstDeleteButton);
+        Driver.waitForVisibility(adminPage.confirmationDeleteButton,10);
+        Driver.clickWithJS(adminPage.confirmationDeleteButton);
+        Driver.waitForVisibility(adminPage.failMessageToastContainer,10);
+
+
+
 
     }
 
-    @Then("User verifies the not Successfuly message")
-    public void user_verifies_the_not_successfuly_message() {
-
+    @Then("User verifies the fail message")
+    public void user_verifies_the_fail_message() {
+        Assert.assertTrue(adminPage.failMessageToastContainer.isEnabled());
     }
 
     @Then("You should report this Bug")
@@ -206,10 +260,26 @@ public class US015_Admin_Accesses {
 
     }
 
-    @Then("user validate the all infos")
-    public void user_validate_the_all_infos() {
+    @Given("user set the url and generate the token for getting all patiens")
+    public void userSetTheUrlAndGenerateTheTokenForGettingAllPatiens() {
+        response = getRequest(generateToken(ConfigurationReader.getProperty("admin_username"),ConfigurationReader.getProperty("admin_password")), ConfigurationReader.getProperty("api_getAllPatients"));
+        response.prettyPrint();
 
     }
 
 
+    @Then("user validate the all infos")
+    public void user_validate_the_all_infos() {
+        response.then().assertThat().body("firstName",hasItems("Maria"));
+        response.then().assertThat().body("lastName",hasItems("Bergnaum"));
+
+    }
+
+
+    @Then("User click signout")
+    public void userClickSignout() {
+        commonPage.accountMenu.click();
+        Driver.waitForVisibility(commonPage.signOut,10);
+        Driver.clickWithJS(commonPage.signOut);
+    }
 }
