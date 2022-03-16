@@ -1,0 +1,37 @@
+Index: src/test/java/pages/UserSetting.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package pages;\n\nimport org.openqa.selenium.WebElement;\nimport org.openqa.selenium.support.FindBy;\nimport org.openqa.selenium.support.PageFactory;\nimport utilities.Driver;\n\npublic class UserSetting {\n    public UserSetting(){\n        PageFactory.initElements(Driver.getDriver(),this);\n    }\n    @FindBy(xpath = \"//*[@id=\\\"account-menu\\\"]\")\n    public WebElement sigInIcon;\n    @FindBy(xpath = \"//*[text()='Sign in']\")\n    public WebElement SignIn;\n\n     @FindBy(xpath = \"//*[@id='username']\")\n    public WebElement username;\n\n      @FindBy(xpath = \"//*[@id='password']\")\n     public WebElement password;\n      @FindBy (id = \"rememberMe\")\n      public WebElement rememberMeBtn;\n\n      @FindBy(xpath = \"(//*[text()='Sign in'])[3]\")\n     public WebElement signIn02;\n\n      @FindBy(xpath = \"//*[@id=\\\"account-menu\\\"]/a/span\")\n      public WebElement signedInUser;\n\n      @FindBy(xpath = \"//*[text()='Settings']\")\n       public WebElement settings;\n      @FindBy(xpath = \"//*[text()='Sign out']\")\n      public WebElement signOut;\n\n      @FindBy(id = \"firstName\")\n      public WebElement firstname;\n\n      @FindBy(id =\"lastName\")\n      public WebElement lastname;\n\n      @FindBy(id =\"email\")\n      public WebElement email;\n\n      @FindBy(xpath = \"//*[text()='Save']\")\n      public WebElement save;\n\n    @FindBy(xpath = \"//*[@id=\\\"account-menu\\\"]/a/span\")\n    public WebElement createdUser;\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/pages/UserSetting.java b/src/test/java/pages/UserSetting.java
+--- a/src/test/java/pages/UserSetting.java	
++++ b/src/test/java/pages/UserSetting.java	
+@@ -9,7 +9,7 @@
+     public UserSetting(){
+         PageFactory.initElements(Driver.getDriver(),this);
+     }
+-    @FindBy(xpath = "//*[@id=\"account-menu\"]")
++    @FindBy(xpath = "//*[@id=account-menu]")
+     public WebElement sigInIcon;
+     @FindBy(xpath = "//*[text()='Sign in']")
+     public WebElement SignIn;
+@@ -25,7 +25,7 @@
+       @FindBy(xpath = "(//*[text()='Sign in'])[3]")
+      public WebElement signIn02;
+ 
+-      @FindBy(xpath = "//*[@id=\"account-menu\"]/a/span")
++      @FindBy(xpath = "//*[@id=account-menu]/a/span")
+       public WebElement signedInUser;
+ 
+       @FindBy(xpath = "//*[text()='Settings']")
+@@ -45,7 +45,7 @@
+       @FindBy(xpath = "//*[text()='Save']")
+       public WebElement save;
+ 
+-    @FindBy(xpath = "//*[@id=\"account-menu\"]/a/span")
++    @FindBy(xpath = "//*[@id=account-menu]/a/span")
+     public WebElement createdUser;
+ 
+ }
