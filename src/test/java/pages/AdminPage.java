@@ -42,7 +42,8 @@ public class AdminPage {
     @FindBy(xpath = "//a[contains(text(),'»»')]")
     public WebElement lastPagelink;
 
-
+    @FindBy(xpath = "(//*[@class='page-link'])[8]")
+    public WebElement nextPagelink;
 
     @FindBy(xpath = "//*[span='Appointment']")
     public WebElement adminAppointment;

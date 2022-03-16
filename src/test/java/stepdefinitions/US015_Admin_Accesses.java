@@ -5,8 +5,10 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.restassured.response.Response;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.locators.RelativeLocator;
 import pages.*;
 import utilities.ConfigurationReader;
 import utilities.Driver;
@@ -95,6 +97,7 @@ public class US015_Admin_Accesses {
 
     @Then("User verifies that the new Patient also in Patients Page")
     public void userVerifiesThatTheNewPatientAlsoInPatientsPage() throws InterruptedException {
+        Driver.waitForVisibility(adminPage.lastPagelink,10);
         Driver.clickWithJS(adminPage.lastPagelink);
         Thread.sleep(4000);
         firstnameAndLastnameOfNewPatient=new ArrayList<>(Arrays.asList(firstname,lastname));
@@ -107,32 +110,16 @@ public class US015_Admin_Accesses {
         for (WebElement each:adminPage.listOfAllLastnameOfCreatedPatientOnTheLastPage) {
             String element=each.getText();
             theListOfFirstnameAndLastnameOfLastPagesWebTable.add(element);
+
         }
         System.out.println(theListOfFirstnameAndLastnameOfLastPagesWebTable.toString());
         System.out.println(firstnameAndLastnameOfNewPatient.toString());
         Assert.assertTrue(theListOfFirstnameAndLastnameOfLastPagesWebTable.containsAll(firstnameAndLastnameOfNewPatient));
-    }
-
-
-    @Given("User signs in as an {string},{string}")
-    public void user_signs_in_as_an(String username, String password)  {
-      /*  Driver.getDriver().get("https://medunna.com/");
-        commonPage.accountMenu.click();
-        commonPage.signIn.click();
-        signInPage.username.sendKeys(username);
-        signInPage.password.sendKeys(password);
-        Driver.clickWithJS(signInPage.singInButton);
-        Thread.sleep(3000);
-
-
-       */
+        response = getRequest(generateToken(ConfigurationReader.getProperty("admin_username"),ConfigurationReader.getProperty("admin_password")), ConfigurationReader.getProperty("api_getAllPatients"));
+        response.prettyPrint();
 
     }
 
-    @Then("User verifies that there is noPatient button under Items&Titles")
-    public void user_verifies_that_there_is_no_patient_button_under_items_titles() {
-        //Assert.assertFalse(commonPage.itemsAndTitles.isEnabled());
-    }
 
     @Then("User clicks the first View button between Patients")
     public void user_clicks_the_first_view_button_between_patients() {
@@ -221,13 +208,18 @@ public class US015_Admin_Accesses {
     @Then("User creates the list of Name of States")
     public void user_creates_the_list_of_name_of_states() throws InterruptedException {
         statesInUs=new ArrayList<>(Arrays.asList("Alaska", "Alabama", "Arkansas", "American Samoa", "Arizona", "California", "Colorado", "Connecticut", "District of Columbia", "Delaware", "Florida", "Georgia", "Guam", "Hawaii", "Iowa", "Idaho", "Illinois", "Indiana", "Kansas", "Kentucky", "Louisiana", "Massachusetts", "Maryland", "Maine", "Michigan", "Minnesota", "Missouri", "Mississippi", "Montana", "North Carolina", "North Dakota", "Nebraska", "New Hampshire", "New Jersey", "New Mexico", "Nevada", "New York", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Puerto Rico", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Virginia", "Virgin Islands", "Vermont", "Washington", "Wisconsin", "West Virginia", "Wyoming"));
-
-        Thread.sleep(4000);
         theListOfNameOfStatesFromWebTable=new ArrayList<>();
-        for (WebElement each:adminPage.listOfAllStates) {
+
+        if(adminPage.lastPagelink.isEnabled()){
+            for (WebElement each:adminPage.listOfAllStates) {
             String element=each.getText();
             theListOfNameOfStatesFromWebTable.add(element);
+            }
+                    Driver.waitForVisibility(adminPage.nextPagelink,10);
+                    Driver.clickWithJS(adminPage.nextPagelink);
+
         }
+
         System.out.println(theListOfNameOfStatesFromWebTable.toString());
     }
 
@@ -260,18 +252,22 @@ public class US015_Admin_Accesses {
 
     }
 
-    @Given("user set the url and generate the token for getting all patiens")
-    public void userSetTheUrlAndGenerateTheTokenForGettingAllPatiens() {
-        response = getRequest(generateToken(ConfigurationReader.getProperty("admin_username"),ConfigurationReader.getProperty("admin_password")), ConfigurationReader.getProperty("api_getAllPatients"));
+    @Given("user set the url and generate the token for getting all patients")
+    public void userSetTheUrlAndGenerateTheTokenForGettingAllPatients() {
+        response = getRequest(generateToken(ConfigurationReader.getProperty("admin_username"),
+                        ConfigurationReader.getProperty("admin_password")),
+                ConfigurationReader.getProperty("api_getAllPatients"));
         response.prettyPrint();
+        response.then().assertThat().body("firstName",hasItems(firstname));
+        response.then().assertThat().body("lastName",hasItems(lastname));
 
     }
 
 
     @Then("user validate the all infos")
     public void user_validate_the_all_infos() {
-        response.then().assertThat().body("firstName",hasItems("Maria"));
-        response.then().assertThat().body("lastName",hasItems("Bergnaum"));
+        response.then().assertThat().body("firstName",hasItems(firstname));
+        response.then().assertThat().body("lastName",hasItems(lastname));
 
     }
 
