@@ -35,8 +35,8 @@ Driver.wait(1);
             scenario.attach(screenshot,"image/png","screenshots");
         }
 //         Driver.closeDriver();
-        Driver.wait(1);
-        Driver.closeDriver();
+//        Driver.wait(1);
+//        Driver.closeDriver();
     }
 
     @Before(order = 1, value = "@user_register")

@@ -1,9 +1,6 @@
 package utilities;
 
-import pojos.Appointment;
-import pojos.AppointmentGet;
-import pojos.Appointments;
-import pojos.Registrant;
+import pojos.*;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -100,5 +97,16 @@ public class WriteToTxt {
             e.printStackTrace();
         }
 
+    }
+    public static void savePhysicianData(Physician physician) {
+        try {
+            //src/resources/testdata/Registrantdata.txt
+            FileWriter fileWriter = new FileWriter(ConfigurationReader.getProperty("physician_data"), true);
+            BufferedWriter writer = new BufferedWriter(fileWriter);
+            writer.append(physician + "\n");
+            writer.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

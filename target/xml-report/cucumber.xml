@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="15.743">
-<testcase classname="User login" name="Verifying user login with correct username and password" time="15.246">
-<system-out><![CDATA[When User navigates to the home page........................................passed
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="27.689">
+    <testcase classname="admin on physician page" name="admin create physician from admin page" time="27.174">
+        <system-out>
+            <![CDATA[Given User navigates to the home page.......................................passed
 And user clicks sign in button at the home page and navigates to sign in page.passed
-Then user verifies that sign in page header is visible......................passed
-And user enters username "hazel" and password "13579".......................passed
+And user verifies that sign in page header is visible.......................passed
+And user enters username "olleydone" and password "Cxz098!@#"...............passed
 And user clicks sign in button..............................................passed
-Then user verifies that sign in is successful...............................passed
-And user clicks sign out and verifies sign out..............................passed
-]]></system-out>
-</testcase>
+And user verifies that sign in is successful................................passed
+And user clicks items and titles dropdown...................................passed
+And user clicks on physician button on dropdown.............................passed
+And user verifies physician page is displayed...............................passed
+And user clicks go to last int page button on admin page....................passed
+And user clicks on create a new physician button............................passed
+]]>
+        </system-out>
+    </testcase>
 </testsuite>
