@@ -110,4 +110,28 @@ public class WriteToTxt {
             e.printStackTrace();
         }
     }
+
+    public static void saveRoomData(String roomNumber, int price, String createdDate){
+        try{
+            //src/resources/testdata/Registrantdata.txt
+            FileWriter fileWriter = new FileWriter("//src/resources/testdata/RoomData.txt", true);
+
+            BufferedWriter writer = new BufferedWriter(fileWriter);
+
+
+            writer.append("Room "+roomNumber+"\n");
+
+
+            writer.close();
+
+
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+
+    }
+
 }
