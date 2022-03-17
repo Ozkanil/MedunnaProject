@@ -46,7 +46,8 @@ Feature: Create or Edit Patient by just Admin Validate with API
     Given User signs in as an Admin
     Then User clicks State and City button under Items&Titles
     Then User creates the list of Name of States
-    Then User verifies that all State are in US
+    Then User verifies that all State are not in US
+    Then User verifies that all there is no blank between States name
     Then User click signout
 
 
@@ -56,7 +57,5 @@ Feature: Create or Edit Patient by just Admin Validate with API
     Then User clicks the first Delete button between Patients
     Then User verifies the fail message
     Then You should report this Bug
-
-
 
 

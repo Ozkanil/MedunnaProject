@@ -199,9 +199,10 @@ public class US015_Admin_Accesses {
     }
 
     @Then("User clicks State and City button under Items&Titles")
-    public void user_clicks_and_state_city_button_under_items_titles() {
+    public void user_clicks_and_state_city_button_under_items_titles() throws InterruptedException {
         commonPage.itemsAndTitles.click();
         adminPage.stateAndCity.click();
+        Thread.sleep(5000);
 
     }
 
@@ -210,23 +211,105 @@ public class US015_Admin_Accesses {
         statesInUs=new ArrayList<>(Arrays.asList("Alaska", "Alabama", "Arkansas", "American Samoa", "Arizona", "California", "Colorado", "Connecticut", "District of Columbia", "Delaware", "Florida", "Georgia", "Guam", "Hawaii", "Iowa", "Idaho", "Illinois", "Indiana", "Kansas", "Kentucky", "Louisiana", "Massachusetts", "Maryland", "Maine", "Michigan", "Minnesota", "Missouri", "Mississippi", "Montana", "North Carolina", "North Dakota", "Nebraska", "New Hampshire", "New Jersey", "New Mexico", "Nevada", "New York", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Puerto Rico", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Virginia", "Virgin Islands", "Vermont", "Washington", "Wisconsin", "West Virginia", "Wyoming"));
         theListOfNameOfStatesFromWebTable=new ArrayList<>();
 
-        if(adminPage.lastPagelink.isEnabled()){
             for (WebElement each:adminPage.listOfAllStates) {
             String element=each.getText();
             theListOfNameOfStatesFromWebTable.add(element);
             }
-                    Driver.waitForVisibility(adminPage.nextPagelink,10);
-                    Driver.clickWithJS(adminPage.nextPagelink);
-
+            if (adminPage.nextPagelink.isEnabled()){
+                 Driver.clickWithJS(adminPage.nextPagelink);
+                Thread.sleep(3000);
+                Thread.sleep(3000);
+            }
+        for (WebElement each:adminPage.listOfAllStates) {
+            String element=each.getText();
+            theListOfNameOfStatesFromWebTable.add(element);
+        }
+        if (adminPage.nextPagelink.isEnabled()){
+             Driver.clickWithJS(adminPage.nextPagelink);
+                Thread.sleep(3000);
+        }
+        
+        for (WebElement each:adminPage.listOfAllStates) {
+            String element=each.getText();
+            theListOfNameOfStatesFromWebTable.add(element);
+        }
+        if (adminPage.nextPagelink.isEnabled()){
+             Driver.clickWithJS(adminPage.nextPagelink);
+                Thread.sleep(3000);
+        }
+        for (WebElement each:adminPage.listOfAllStates) {
+            String element=each.getText();
+            theListOfNameOfStatesFromWebTable.add(element);
+        }
+        if (adminPage.nextPagelink.isEnabled()){
+             Driver.clickWithJS(adminPage.nextPagelink);
+                Thread.sleep(3000);
+        }
+        for (WebElement each:adminPage.listOfAllStates) {
+            String element=each.getText();
+            theListOfNameOfStatesFromWebTable.add(element);
+        }
+        if (adminPage.nextPagelink.isEnabled()){
+             Driver.clickWithJS(adminPage.nextPagelink);
+                Thread.sleep(3000);
+        }
+        for (WebElement each:adminPage.listOfAllStates) {
+            String element=each.getText();
+            theListOfNameOfStatesFromWebTable.add(element);
+        }
+        if (adminPage.nextPagelink.isEnabled()){
+             Driver.clickWithJS(adminPage.nextPagelink);
+                Thread.sleep(3000);
+        }
+        for (WebElement each:adminPage.listOfAllStates) {
+            String element=each.getText();
+            theListOfNameOfStatesFromWebTable.add(element);
+        }
+        if (adminPage.nextPagelink.isEnabled()){
+             Driver.clickWithJS(adminPage.nextPagelink);
+                Thread.sleep(3000);
+        }
+        for (WebElement each:adminPage.listOfAllStates) {
+            String element=each.getText();
+            theListOfNameOfStatesFromWebTable.add(element);
+        }
+        if (adminPage.nextPagelink.isEnabled()){
+             Driver.clickWithJS(adminPage.nextPagelink);
+                Thread.sleep(3000);
+        }
+        for (WebElement each:adminPage.listOfAllStates) {
+            String element=each.getText();
+            theListOfNameOfStatesFromWebTable.add(element);
+        }
+        if (adminPage.nextPagelink.isEnabled()){
+             Driver.clickWithJS(adminPage.nextPagelink);
+                Thread.sleep(3000);
+        }
+        for (WebElement each:adminPage.listOfAllStates) {
+            String element=each.getText();
+            theListOfNameOfStatesFromWebTable.add(element);
+        }
+        if (adminPage.nextPagelink.isEnabled()){
+             Driver.clickWithJS(adminPage.nextPagelink);
+                Thread.sleep(3000);
+        }
+        for (WebElement each:adminPage.listOfAllStates) {
+            String element=each.getText();
+            theListOfNameOfStatesFromWebTable.add(element);
         }
 
         System.out.println(theListOfNameOfStatesFromWebTable.toString());
     }
 
-    @Then("User verifies that all State are in US")
-    public void user_verifies_that_all_state_are_in_us() {
-        Assert.assertTrue(statesInUs.containsAll(theListOfNameOfStatesFromWebTable));
+    @Then("User verifies that all State are not in US")
+    public void user_verifies_that_all_state_are_not_in_us() {
+        Assert.assertTrue(!statesInUs.containsAll(theListOfNameOfStatesFromWebTable));
 
+    }
+
+    @Then("User verifies that all there is no blank between States name")
+    public void userVerifiesThatAllThereIsNoBlankBetweenStatesName() {
+        Assert.assertTrue(!theListOfNameOfStatesFromWebTable.contains(null));
     }
 
     @Then("User clicks the first Delete button between Patients")
@@ -278,4 +361,6 @@ public class US015_Admin_Accesses {
         Driver.waitForVisibility(commonPage.signOut,10);
         Driver.clickWithJS(commonPage.signOut);
     }
+
+
 }
