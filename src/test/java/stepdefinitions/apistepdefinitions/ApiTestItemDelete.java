@@ -8,7 +8,6 @@ import io.cucumber.java.en.When;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import pojos.TestItemsList;
 import utilities.ConfigurationReader;
 
 import java.util.ArrayList;
