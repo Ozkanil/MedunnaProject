@@ -113,8 +113,8 @@ public class WriteToTxt {
 
     public static void saveRoomData(String roomNumber, int price, String createdDate){
         try{
-            //src/resources/testdata/Registrantdata.txt
-            FileWriter fileWriter = new FileWriter("//src/resources/testdata/RoomData.txt", true);
+
+            FileWriter fileWriter = new FileWriter("./src/test/resources/testdata/RoomData.txt", false);
 
             BufferedWriter writer = new BufferedWriter(fileWriter);
 

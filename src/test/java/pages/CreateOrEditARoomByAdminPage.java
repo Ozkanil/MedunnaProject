@@ -13,13 +13,13 @@ public class CreateOrEditARoomByAdminPage {
         PageFactory.initElements(Driver.getDriver(), this);
 
     }
-    @FindBy(xpath = "//*[span='Items&Titles']" )
+    @FindBy(xpath = "//*[.='Items&Titles']" )
     public WebElement itemsTitlesDropdown;
 
-    @FindBy(xpath = "//*[span='Room']" )
+    @FindBy(xpath = "//*[.='Room']" )
     public WebElement roomDropdown;
 
-    @FindBy(xpath = "//h2[.='Rooms']" )
+    @FindBy(xpath = "//*[.='Rooms']" )
     public WebElement roomsHeading;
 
     @FindBy(xpath = "//*[.='Create a new Room']")
@@ -37,6 +37,30 @@ public class CreateOrEditARoomByAdminPage {
     @FindBy(xpath = "//input[@name='createdDate']")
     public WebElement createdDateTextBox;
 
-    @FindBy(xpath ="//td[a]")
-    public List<WebElement> idElements;
+    @FindBy(xpath ="//tbody/tr")
+    public List<WebElement> allRows;
+
+    @FindBy(xpath = "//a[.='»»']")
+    public WebElement lastPage;
+
+    @FindBy(xpath = "//div[@class='invalid-feedback']")
+public List<WebElement> invalidFeedbacks;
+
+    @FindBy(xpath = "//input[@name='status']")
+    public WebElement statusCheckBox;
+
+    @FindBy(tagName = "select")
+    public WebElement roomTypeSelect;
+
+    @FindBy(xpath = "//span/span[.='Edit']")
+    public List<WebElement> editElements;
+
+    @FindBy(xpath = "//span/span[.='Delete']")
+    public List<WebElement> deleteElements;
+
+    @FindBy(xpath = "//input[@name='description']")
+    public WebElement descriptionTextBox;
+
+@FindBy(id = "jhi-confirm-delete-room")
+    public WebElement deleteConfirm;
 }
