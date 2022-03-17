@@ -15,8 +15,8 @@ import org.junit.runner.RunWith;
                 "rerun:target/failedRerun.txt"
         },
         features = "./src/test/resources/features",
-        glue = {"stepdefinitions"},
-        tags = "@user_login_post",
+        glue = {"stepdefinitions", "Hooks"},
+        tags = "@ApiTestItemDelete",
         dryRun = false
 )
 
