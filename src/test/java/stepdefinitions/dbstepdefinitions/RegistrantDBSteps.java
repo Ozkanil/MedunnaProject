@@ -10,12 +10,12 @@ import java.sql.SQLException;
 import static org.junit.Assert.assertEquals;
 import static utilities.DBUtils.*;
 
-public class RegistrantDBSteps {
+public class   RegistrantDBSteps {
 
     @Given("user gets the {string} of registrant {string} from {string} table")
     public void user_gets_the_of_registrant_from_table(String column, String name, String table) {
         createConnection();
-        String myDynamicQuery = "Select * from " + table + " where first_name = '" + name + "'";
+        String myDynamicQuery = "Select * from " + table + " where " + column + " = '" + name + "'";
         DBUtils.executeQuery(myDynamicQuery);
     }
 
@@ -29,7 +29,7 @@ public class RegistrantDBSteps {
         DBUtils.closeConnection();
     }
 
-//
+
 //    public static void main(String[] args) throws SQLException {
 //        createConnection();
 //        String myDynamicQuery = "Select * from jhi_user where first_name = 'Makeda'";
