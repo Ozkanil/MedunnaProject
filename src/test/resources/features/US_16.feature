@@ -1,5 +1,5 @@
 @US16
-Feature: Room creation by Admin. View, Update, Delete, Validate them also with API and DB
+Feature: Room creation by Admin. View, Update, Delete.
 
   Background:UI sign in as an admin and navigate to Create or edit a Room page
     Given user sign in as a "admin"
@@ -36,44 +36,6 @@ Feature: Room creation by Admin. View, Update, Delete, Validate them also with A
       Then user should see the "Room is deleted"
 
 
-#
-#  Scenario: Validate all rooms with API creating
-#    Given user sets the necessary path params for "creating" a room
-#    And user sets the expected data "createdBy", "createdDate", "description", "id", "price", "roomNumber", "roomType", "status"
-#      |createdBy|createdDate|description|id|price|roomNumber|roomType|status|
-#    When user sends the "POST" request
-#    Then status code should be 201
-#    Then verify that the response body should be as an expected
-#
-#  Scenario: Validate all rooms with API reading
-#    Given user sets the necessary path params for "reading" a room
-#    And user sets the expected data "createdBy", "createdDate", "description", "id", "price", "roomNumber", "roomType", "status"
-#    |createdBy|createdDate|description|id|price|roomNumber|roomType|status|
-#    When user sends the "GET" request
-#    Then status code should be 200
-#    Then verify that the response body should be as an expected
-#
-#  Scenario: Validate all rooms with API updating
-#    Given user sets the necessary path params for "updating" a room
-#    And user sets the expected data "createdBy", "createdDate", "description", "id", "price", "roomNumber", "roomType", "status"
-#      |createdBy|createdDate|description|id|price|roomNumber|roomType|status|
-#    When user sends the "PUT" request
-#    Then status code should be 200
-#    Then verify that the response body should be as an expected
-#
-#  Scenario: Validate all rooms with API deleting
-#    Given user sets the necessary path params for "deleting" a room
-#    When user sends the "DELETE" request
-#    Then status code should be 202
-#    Then verify that the response body should be as an expected
-#
-#    Scenario: Validate them with DB
-#      Given user connects to the Database
-#      When user gets all data from the "rooms" table
-#      And verify that the data includes "createdBy", "createdDate", "description", "id", "price", "roomNumber", "roomType", "status" information
-#      Then user close the database connection
-#
-#
 
 
 

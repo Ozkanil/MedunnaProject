@@ -1,10 +1,11 @@
 package utilities;
 
 
-import io.restassured.builder.RequestSpecBuilder;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
+import pojos.Room;
+import pojos.RoomPost;
 
 import static io.restassured.RestAssured.given;
 
@@ -38,16 +39,39 @@ public class ApiUtils {
         return  response;
     }
 
-//    public static Response postRequest(String token, RequestSpecification spec, ) {
-//
-//        Response response = given().headers(
-//                "Authorization",
-//                "Bearer " + token).given().spec(spec).contentType(ContentType.JSON).body(testItem).when().post("/{first}/{second}");
-//
-//
-//        return response;
-//
-//
-//    }
+    public static Response postRequestRoom(String token, String endpoint, RoomPost room) throws Exception {
+
+        ObjectMapper obj=new ObjectMapper();
+
+
+        Response response = given().headers(
+                "Authorization",
+                "Bearer " + token,
+                "Content-Type",
+                ContentType.JSON,
+                "Accept",
+                ContentType.JSON).body(obj.writeValueAsString(room)).when().post(endpoint);
+        return  response;
+
+
+    }
+
+
+    public static Response putRequestRoom(String token, String endpoint,Room room) throws Exception {
+
+        ObjectMapper obj=new ObjectMapper();
+
+
+        Response response = given().headers(
+                "Authorization",
+                "Bearer " + token,
+                "Content-Type",
+                ContentType.JSON,
+                "Accept",
+                ContentType.JSON).body(obj.writeValueAsString(room)).when().put(endpoint);
+        return  response;
+
+
+    }
 
 }
