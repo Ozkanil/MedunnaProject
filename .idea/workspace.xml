@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c28a1f2b-ea9c-46c3-bebd-707f51e01257" name="Changes" comment="Project final version">
-      <change afterPath="$PROJECT_DIR$/src/test/java/pages/US_19_UI_Pages.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/pojos/StaffApi.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/stepdefinitions/US_19_UI_StepDefs.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/stepdefinitions/apistepdefinitions/US_19_API_StepDefs.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/stepdefinitions/dbstepdefinitions/US_19_DB_StepDefs.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/features/US_19_NewStaffAmongRegistered.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/configuration.properties" beforeDir="false" afterPath="$PROJECT_DIR$/configuration.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +62,7 @@
       <recent name="$PROJECT_DIR$/src/test/resources/testdata" />
     </key>
   </component>
-  <component name="RunManager" selected="Cucumber Java.Scenario: Create new Staff using Search">
+  <component name="RunManager" selected="Cucumber Java.Scenario: api get request for staff">
     <configuration name="Feature: login_page" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/login_page.feature" />
@@ -106,15 +101,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Scenario: User can see and click remember me box" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+    <configuration name="Scenario: Data Base Staff validation with id" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/login_page.feature" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/US_19_NewStaffAmongRegistered.feature" />
       <option name="GLUE" value="stepdefinitions hooks" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
-      <module name="medunna" />
-      <option name="NAME_FILTER" value="^User can see and click remember me box$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^User can see and click remember me box$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: User can see and click remember me box" />
+      <module name="mycucumberproject" />
+      <option name="NAME_FILTER" value="^Data Base Staff validation with id$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Data Base Staff validation with id$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Data Base Staff validation with id" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -146,15 +141,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Scenario: Verifying user login with correct username and password" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+    <configuration name="Scenario: api get request for staff" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/login_page.feature" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/US_19_NewStaffAmongRegistered.feature" />
       <option name="GLUE" value="stepdefinitions hooks" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
-      <module name="medunna" />
-      <option name="NAME_FILTER" value="^Verifying user login with correct username and password$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verifying user login with correct username and password$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: Verifying user login with correct username and password" />
+      <module name="mycucumberproject" />
+      <option name="NAME_FILTER" value="^api get request for staff$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^api get request for staff$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: api get request for staff" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -168,11 +163,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Cucumber Java.Scenario: api get request for staff" />
+        <item itemvalue="Cucumber Java.Scenario: Data Base Staff validation with id" />
         <item itemvalue="Cucumber Java.Scenario: Create new Staff using Search" />
         <item itemvalue="Cucumber Java.Scenario: Verifying user login with correct username and password (1)" />
         <item itemvalue="Cucumber Java.Feature: login_page" />
-        <item itemvalue="Cucumber Java.Scenario: Verifying user login with correct username and password" />
-        <item itemvalue="Cucumber Java.Scenario: User can see and click remember me box" />
       </list>
     </recent_temporary>
   </component>
@@ -325,7 +320,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647690359828</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Project final version">
+      <created>1647702578453</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1647702578453</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -339,7 +341,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/hulya" />
+                        <option value="origin/farzunew" />
                       </list>
                     </value>
                   </entry>
