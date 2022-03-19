@@ -121,11 +121,7 @@ public class WriteToTxt {
 
             writer.append("Room "+roomNumber+"\n");
 
-
             writer.close();
-
-
-
 
         }catch (Exception e){
             e.printStackTrace();
