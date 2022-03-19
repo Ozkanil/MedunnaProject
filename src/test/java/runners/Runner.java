@@ -16,7 +16,7 @@ import org.junit.runner.RunWith;
         },
         features = "./src/test/resources/features",
         glue = {"stepdefinitions"},
-        tags = "@user_login_post",
+        tags = "@view_by_doctor",
         dryRun = false
 )
 
