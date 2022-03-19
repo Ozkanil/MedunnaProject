@@ -28,7 +28,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static Hooks.Hooks.spec;
+import static hooks.Hooks.spec;
 import static io.restassured.RestAssured.given;
 
 import static org.hamcrest.CoreMatchers.hasItem;
