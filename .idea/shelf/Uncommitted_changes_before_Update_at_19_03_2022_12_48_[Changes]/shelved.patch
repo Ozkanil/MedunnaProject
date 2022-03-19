@@ -6,8 +6,8 @@ Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
 <+>UTF-8
 ===================================================================
 diff --git a/.idea/workspace.xml b/.idea/workspace.xml
---- a/.idea/workspace.xml	(revision 53072356bc1d53bb5f2a0f2570c4dfa711c5a66e)
-+++ b/.idea/workspace.xml	(date 1647629846585)
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
 @@ -6,9 +6,8 @@
    <component name="ChangeListManager">
      <list default="true" id="c28a1f2b-ea9c-46c3-bebd-707f51e01257" name="Changes" comment="Project final version">
