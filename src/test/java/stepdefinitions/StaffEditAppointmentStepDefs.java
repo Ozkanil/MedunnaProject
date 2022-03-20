@@ -57,11 +57,11 @@ public class StaffEditAppointmentStepDefs {
 
     }
 
-    @And("user makes necessary updates and sets the status as unapproved")
-    public void userMakesNecessaryUpdatesAndSetsTheStatusAsUnapproved() throws InterruptedException {
+    @And("user makes necessary updates and sets the status {string}")
+    public void userMakesNecessaryUpdatesAndSetsTheStatus(String status) throws InterruptedException {
 
         Thread.sleep(2000);
-        new Select(searchPatientOnStaffPage.statusDropdownCreateEditAppointment).selectByIndex(0);
+        new Select(searchPatientOnStaffPage.statusDropdownCreateEditAppointment).selectByIndex(Integer.parseInt(status));
 
         searchPatientOnStaffPage.prescriptionBoxCreateEditAppointment.sendKeys("Will be determined");
 
@@ -69,7 +69,7 @@ public class StaffEditAppointmentStepDefs {
 
         Driver.waitForVisibility(searchPatientOnStaffPage.descriptionBoxCreateEditAppointment,5).sendKeys("Will be entered later");
 
-        new Select(searchPatientOnStaffPage.physicianDropdownCreateEditAppointment).selectByIndex(10);
+        new Select(searchPatientOnStaffPage.physicianDropdownCreateEditAppointment).selectByIndex(11);
         Thread.sleep(3000);
         new Select(searchPatientOnStaffPage.patientDropdownCreateEditAppointment).selectByIndex(1);
 
@@ -80,5 +80,32 @@ public class StaffEditAppointmentStepDefs {
     public void userClicksEditButtonAtTheFirstAppointment() {
 
        Driver.waitAndClick(searchPatientOnStaffPage.latestAppointment);
+    }
+
+
+    @Then("user verifies that completed option is disabled")
+    public void userVerifiesThatCompletedOptionIsDisabled() {
+
+      Assert.assertFalse(searchPatientOnStaffPage.completedDisabled.isEnabled());
+
+    }
+
+
+    @Then("user verifies that test results are visible")
+    public void userVerifiesThatTestResultsAreVisible() {
+        
+        Assert.assertTrue(searchPatientOnStaffPage.testResultsPage.isDisplayed());
+    }
+
+    @And("user clicks view tests")
+    public void userClicksViewTests() {
+
+        Driver.waitAndClick(searchPatientOnStaffPage.viewTestsButton);
+    }
+
+    @And("user clicks show tests for the given patient")
+    public void userClicksShowTestsForTheGivenPatient() {
+        Driver.waitAndClick(searchPatientOnStaffPage.showAppointmentButtonJack);
+
     }
 }

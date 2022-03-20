@@ -5,44 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c28a1f2b-ea9c-46c3-bebd-707f51e01257" name="Changes" comment="Project final version">
-      <change afterPath="$PROJECT_DIR$/src/test/java/stepdefinitions/StaffEditTestResultsStepDefs.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/features/staff_edit_test_results.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_12_03_2022_16_38__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_12_03_2022_16_38__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_12_03_2022_16_49__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_12_03_2022_16_49__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_12_03_2022_16_55__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_12_03_2022_16_55__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_03_2022_08_59__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_03_2022_08_59__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_03_2022_00_18__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_03_2022_00_18__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_03_2022_17_30__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_03_2022_17_30__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_03_2022_17_30__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_03_2022_17_30__Changes_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_03_2022_17_30__Changes_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_03_2022_17_30__Changes_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_03_2022_17_30__Changes_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_03_2022_17_30__Changes_3.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_03_2022_17_30__Changes_4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_03_2022_17_30__Changes_4.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_03_2022_17_30__Changes_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_03_2022_17_30__Changes_5.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_03_2022_17_30__Changes_6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_03_2022_17_30__Changes_6.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_03_2022_17_30__Changes_7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_03_2022_17_30__Changes_7.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_03_2022_17_30__Changes_8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_03_2022_17_30__Changes_8.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_03_2022_20_11__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_03_2022_20_11__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_03_2022_12_17__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_03_2022_12_17__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_03_2022_14_23__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_03_2022_14_23__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_03_2022_15_31__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_03_2022_15_31__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_03_2022_11_17__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_03_2022_11_17__Changes_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/SearchPatientOnStaffPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/SearchPatientOnStaffPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/runners/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/runners/Runner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/features/staff_edit_test_result.feature" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/pages/CommonPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/pages/CommonPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/pages/PatientsPage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/stepdefinitions/MyAppointmentsStepdefs.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/stepdefinitions/MyAppointmentsStepdefs.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/stepdefinitions/RoomCreationByAdminStepdefs.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/stepdefinitions/RoomCreationByAdminStepdefs.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/stepdefinitions/StaffEditTestResults.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/stepdefinitions/StaffSeePatientBySSNIDSteps.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/stepdefinitions/US015_Admin_Accesses.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/stepdefinitions/US015_Admin_Accesses.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/stepdefinitions/US02_Username_and_Email_StepDef.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/stepdefinitions/US02_Username_and_Email_StepDef.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/stepdefinitions/dbstepdefinitions/RegistrantDBSteps.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/stepdefinitions/dbstepdefinitions/RegistrantDBSteps.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/utilities/ApiUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/utilities/ApiUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/utilities/WriteToTxt.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/utilities/WriteToTxt.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/stepdefinitions/StaffEditAppointmentStepDefs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepdefinitions/StaffEditAppointmentStepDefs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/staff_edit_appointment.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/staff_edit_appointment.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/default-cucumber-reports.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/default-cucumber-reports.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/failedRerun.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/failedRerun.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/json-reports/cucumber.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/json-reports/cucumber.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/features/staff_edit_appointment.feature" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/features/staff_edit_appointment.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/pages/SearchPatientOnStaffPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/pages/SearchPatientOnStaffPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/runners/Runner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/runners/Runner.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/stepdefinitions/StaffEditAppointmentStepDefs.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/stepdefinitions/StaffEditAppointmentStepDefs.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/stepdefinitions/StaffEditTestResultsStepDefs.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/stepdefinitions/StaffEditTestResultsStepDefs.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/xml-report/cucumber.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/xml-report/cucumber.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +82,7 @@
       <recent name="$PROJECT_DIR$/src/test/resources/testdata" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.Runner (1)">
+  <component name="RunManager" selected="JUnit.Runner">
     <configuration name="Scenario: Staff can edit appointment with unapproved status" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/staff_edit_appointment.feature" />
@@ -115,26 +92,6 @@
       <option name="NAME_FILTER" value="^Staff can edit appointment with unapproved status$" />
       <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Staff can edit appointment with unapproved status$&quot;" />
       <option name="SUGGESTED_NAME" value="Scenario: Staff can edit appointment with unapproved status" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="io.cucumber.core.cli.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Scenario: Verifying user login with correct username and password (1)" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-      <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/login_page.feature" />
-      <option name="GLUE" value="stepdefinitions hooks" />
-      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
-      <module name="mycucumberproject" />
-      <option name="NAME_FILTER" value="^Verifying user login with correct username and password$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verifying user login with correct username and password$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: Verifying user login with correct username and password" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -166,17 +123,42 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Runner (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="mycucumberproject" />
+    <configuration name="Scenario: View patient info" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/Edit.feature" />
+      <option name="GLUE" value="stepdefinitions hooks" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="medunna" />
+      <option name="NAME_FILTER" value="^View patient info$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^View patient info$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: View patient info" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="runners.*" />
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="runners" />
-      <option name="MAIN_CLASS_NAME" value="runners.Runner" />
-      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Scenario: test appointments" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/PatientAppointment.feature" />
+      <option name="GLUE" value="stepdefinitions hooks" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="medunna" />
+      <option name="NAME_FILTER" value="^test appointments$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^test appointments$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: test appointments" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -209,11 +191,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.Runner (1)" />
-        <item itemvalue="Cucumber Java.Scenario: Verifying user login with correct username and password (1)" />
-        <item itemvalue="Cucumber Java.Scenario: Staff can edit appointment with unapproved status" />
         <item itemvalue="JUnit.Runner" />
+        <item itemvalue="Cucumber Java.Scenario: Staff can edit appointment with unapproved status" />
         <item itemvalue="Cucumber Java.Scenario: Verifying user login with correct username and password" />
+        <item itemvalue="Cucumber Java.Scenario: test appointments" />
+        <item itemvalue="Cucumber Java.Scenario: View patient info" />
       </list>
     </recent_temporary>
   </component>
@@ -359,7 +341,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647515987608</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Project final version">
+      <created>1647789110013</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1647789110014</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -384,6 +373,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="New commit" />
