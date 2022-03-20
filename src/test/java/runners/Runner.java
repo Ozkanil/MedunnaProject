@@ -16,7 +16,7 @@ import org.junit.runner.RunWith;
         },
         features = "./src/test/resources/features",
         glue = {"stepdefinitions", "Hooks"},
-        tags = "@appointment_edit_unapproved",
+        tags = "@view_edit_test",
         dryRun = true
 )
 

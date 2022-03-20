@@ -1,5 +1,5 @@
 Feature: Edit test results
-  @view_edit_appointments
+  @view_edit_test
   Scenario Outline: Edit test results
 
     When User navigates to the home page
@@ -15,13 +15,12 @@ Feature: Edit test results
       |175-92-9123|
     And user click show appointments button
     Then user verifies appointments page header
-    And user clicks edit button under appointments
     And user clicks show tests
     And user click view results
     And user clicks edit button on test page
     And user sends value to result box
     Then user clicks sava button and verifies update message
 
-    Examples:
+    Examples: login data
     |username|password|
     |        |        |

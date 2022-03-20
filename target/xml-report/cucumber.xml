@@ -1,8 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="1" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="0.628">
-<testcase classname="Staff can edit patient appointment" name="Staff can edit appointment with unapproved status" time="0.082">
-<failure message="The scenario has pending or undefined step(s)" type="java.lang.Exception"><![CDATA[When User navigates to the home page........................................passed
-And user makes an appointment providing "Alp" "Aslan" "253-143-2837" "hazel@gmail.com" "546987569" "07-09-2022".undefined
-]]></failure>
-</testcase>
+<testsuite errors="0" failures="1" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="0.747">
+    <testcase classname="Edit test results" name="Edit test results" time="0.121">
+        <failure message="The scenario has pending or undefined step(s)" type="java.lang.Exception">
+            <![CDATA[When User navigates to the home page........................................passed
+And user clicks sign in button at the home page and navigates to sign in page.passed
+Then user verifies that sign in page header is visible......................passed
+And user enters username "" and password "".................................passed
+And user clicks sign in button..............................................passed
+Then user verifies that sign in is successful...............................passed
+When user clicks my pages...................................................passed
+And user clicks search patient..............................................passed
+When user provides a valid ssn number into search box.......................passed
+And user click show appointments button.....................................passed
+Then user verifies appointments page header.................................passed
+And user clicks show tests..................................................undefined
+And user click view results.................................................skipped
+And user clicks edit button on test page....................................skipped
+And user sends value to result box..........................................skipped
+Then user clicks sava button and verifies update message....................skipped
+]]>
+        </failure>
+    </testcase>
 </testsuite>
