@@ -8,6 +8,7 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.support.ui.Select;
 import pages.SearchPatientOnStaffPage;
+import utilities.Driver;
 
 import java.util.List;
 

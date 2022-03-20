@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c28a1f2b-ea9c-46c3-bebd-707f51e01257" name="Changes" comment="Project final version">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +22,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="CommonBranch" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -68,15 +68,16 @@
       <recent name="$PROJECT_DIR$/src/test/resources/testdata" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.FailedRunner">
-    <configuration name="Feature: US_001" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Cucumber Java.Scenario: Verifying user login with correct username and password">
+    <configuration name="Scenario: User can see and click remember me box" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/US_001.feature" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/login_page.feature" />
       <option name="GLUE" value="stepdefinitions hooks" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="medunna" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
-      <option name="SUGGESTED_NAME" value="Feature: US_001" />
+      <option name="NAME_FILTER" value="^User can see and click remember me box$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^User can see and click remember me box$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: User can see and click remember me box" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -88,14 +89,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Feature: registration_complete" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+    <configuration name="Scenario: Verifying user login with correct username and password" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/registration_complete.feature" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/login_page.feature" />
       <option name="GLUE" value="stepdefinitions hooks" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="medunna" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
-      <option name="SUGGESTED_NAME" value="Feature: registration_complete" />
+      <option name="NAME_FILTER" value="^Verifying user login with correct username and password$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verifying user login with correct username and password$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Verifying user login with correct username and password" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -165,11 +167,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Cucumber Java.Scenario: Verifying user login with correct username and password" />
+        <item itemvalue="Cucumber Java.Scenario: User can see and click remember me box" />
         <item itemvalue="JUnit.SmokeRunner" />
         <item itemvalue="JUnit.Runner" />
         <item itemvalue="JUnit.FailedRunner" />
-        <item itemvalue="Cucumber Java.Feature: US_001" />
-        <item itemvalue="Cucumber Java.Feature: registration_complete" />
       </list>
     </recent_temporary>
   </component>
@@ -294,7 +296,28 @@
       <option name="project" value="LOCAL" />
       <updated>1647093639642</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Project final version">
+      <created>1647204428501</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1647204428506</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Project final version">
+      <created>1647207038423</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1647207038423</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Project final version">
+      <created>1647515987608</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1647515987608</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

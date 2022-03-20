@@ -7,6 +7,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import pages.*;
 import utilities.ConfigurationReader;
+import utilities.Driver;
 
 import static org.hamcrest.Matchers.hasItems;
 import static utilities.ApiUtils.getRequest;
@@ -67,6 +68,7 @@ public class US13_Doctor_Request_Results_StepDef {
         response.prettyPrint();
 
     }
+
     @Then("user validate the in patient \\( patient can stay in hospital )")
     public void userValidateTheInPatientPatientCanStayInHospital() {
 

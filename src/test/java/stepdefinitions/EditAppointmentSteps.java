@@ -2,6 +2,7 @@ package stepdefinitions;
 
 import io.cucumber.java.en.Given;
 import pages.*;
+import utilities.Driver;
 
 public class EditAppointmentSteps {
     SignInPage signinpage = new SignInPage();

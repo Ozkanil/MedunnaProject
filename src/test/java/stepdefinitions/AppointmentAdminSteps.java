@@ -5,6 +5,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import pages.*;
+import utilities.Driver;
 
 public class AppointmentAdminSteps {
     SignInPage signinpage = new SignInPage();
