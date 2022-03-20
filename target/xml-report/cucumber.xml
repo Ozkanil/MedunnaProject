@@ -1,2 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" time="0.45"/>
+<testsuite errors="0" failures="1" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="0.628">
+<testcase classname="Staff can edit patient appointment" name="Staff can edit appointment with unapproved status" time="0.082">
+<failure message="The scenario has pending or undefined step(s)" type="java.lang.Exception"><![CDATA[When User navigates to the home page........................................passed
+And user makes an appointment providing "Alp" "Aslan" "253-143-2837" "hazel@gmail.com" "546987569" "07-09-2022".undefined
+]]></failure>
+</testcase>
+</testsuite>

@@ -36,7 +36,7 @@ public class Hooks {
         }
 //         Driver.closeDriver();
         Driver.wait(1);
-        Driver.closeDriver();
+       // Driver.closeDriver();
     }
 
     @Before(order = 1, value = "@user_register")
