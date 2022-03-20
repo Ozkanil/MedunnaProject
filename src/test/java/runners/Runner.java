@@ -16,8 +16,8 @@ import org.junit.runner.RunWith;
         },
         features = "./src/test/resources/features",
         glue = {"stepdefinitions", "Hooks"},
-        tags = "@ApiTestItemDelete",
-        dryRun = false
+        tags = "@appointment_edit_unapproved",
+        dryRun = true
 )
 
 public class Runner {
