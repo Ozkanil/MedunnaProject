@@ -5,21 +5,94 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c28a1f2b-ea9c-46c3-bebd-707f51e01257" name="Changes" comment="Project final version">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/ApiUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/Appointment.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/AppointmentAdminPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/AppointmentAdminSteps.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/AppointmentEditPageForDoctor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/AppointmentGet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/AppointmentPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/Appointments.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/Authentication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/CommonPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/ConfigurationReader.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/CreateOrEditAnAppointmentPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/DBUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/DoctorAppointment.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/DoctorAppointmentEditStepdefs.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/DoctorAppointmentStepdefs.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/DoctorAppointmentStepdefs1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/DoctorTestItemsPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/Driver$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/Driver.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/EditAppointmentSteps.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/EditPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/EditStep.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/ExcelUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/FailedRunner.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/Hooks.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/Id_1401_Page.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/MyAppointmentPageAsDoctor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/MyAppointmentsStepdefs.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/MyPatientsPageDoctor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/MyPatientsSteps.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/NewAppointmentPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/NewAppointmentsteps.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/OptionalPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/OptionalSteps.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/PasswordSettingUserSteps.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/PasswordStrenghtTestSteps.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/PatientAppoRegApiSteps.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/PatientAppointmentPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/PatientLogToPageSteps.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/PatientMakeAppPgSteps.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/PatientPageAll.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/PatientsMyApptsStep.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/PtientUIAppointmentSteps.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/Registrant.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/RegistrantApiSteps.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/RegistrantDBSteps.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/RegistrationPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/RegistrationSteps.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/RequestATestPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/RequestATestStepdefs.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/ReusableMethods$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/ReusableMethods$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/ReusableMethods.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/ReusableStepDefs.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/Runner.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/SearchPatientOnStaffPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/SearchPatientOnStaffStepDefs.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/SeeAndEditInfoPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/ShowTestResultPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/SignInPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/SigninStepDefs.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/SmokeRunner.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/StaffHomePage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/StaffInPatientEditPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/StaffInPatientPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/StaffPageStepDefination.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/StatusPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/StatusSteps.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/TestResultStepdefs.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/TestResultsPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/US02_Username_and_Email_StepDef.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/US09_patient.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/US09_patientEdit.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/US09_patientInfoApi.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/US09_patientPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/US13_Doctor_Request_Results_StepDef.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/US_001_StepDef.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/US_07_API_DB_AppointmentStepDefs.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/UserSetting.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/UserSettingsSteps.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/WriteToTxt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2022_23_36__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_03_2022_00_18_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_03_2022_00_18__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/SearchPatientOnStaffPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/SearchPatientOnStaffPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/runners/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/runners/Runner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/stepdefinitions/StaffEditAppointmentStepDefs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepdefinitions/StaffEditAppointmentStepDefs.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/features/staff_edit_appointment.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/staff_edit_appointment.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/default-cucumber-reports.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/default-cucumber-reports.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/failedRerun.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/failedRerun.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/json-reports/cucumber.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/json-reports/cucumber.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/features/staff_edit_appointment.feature" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/features/staff_edit_appointment.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/pages/SearchPatientOnStaffPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/pages/SearchPatientOnStaffPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/runners/Runner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/runners/Runner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/stepdefinitions/StaffEditAppointmentStepDefs.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/stepdefinitions/StaffEditAppointmentStepDefs.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/stepdefinitions/StaffEditTestResultsStepDefs.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/stepdefinitions/StaffEditTestResultsStepDefs.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/xml-report/cucumber.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/xml-report/cucumber.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -348,7 +421,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647789110014</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Project final version">
+      <created>1647801451921</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1647801451921</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

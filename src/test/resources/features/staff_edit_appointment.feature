@@ -30,7 +30,7 @@ Feature: Staff can edit patient appointment
 
 
   @appointment_edit_completed
-  Scenario Outline: Staff can edit appointment with unapplicable status
+  Scenario Outline: Staff can edit appointment with non-applicable status
 
     When User navigates to the home page
     #And user makes an appointment providing "<firstName>" "<lastName>" "<ssn>" "<email>" "<phone>" "<date>"
