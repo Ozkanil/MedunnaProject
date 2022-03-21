@@ -1,0 +1,43 @@
+Index: src/test/resources/features/search_patient_staff_page.feature
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>Feature: Search patient on staff page\n\n  @view_patients_staff_page\n  Scenario Outline: View patient info\n\n    #When User navigates to the home page\n    And user clicks sign in button at the home page and navigates to sign in page\n    Then user verifies that sign in page header is visible\n    And user enters username \"<username>\" and password \"<password>\"\n    And user clicks sign in button\n    Then user verifies that sign in is successful\n     When user clicks my pages\n     And user clicks search patient\n     And user provides a valid ssn number into search box\n        |ssn        |\n        |777-85-7963|\n\n     And user clicks view button\n     Then user verifies patient info is visible\n     And user clicks back button\n\n    Examples:\n      |username|password|\n      |hazel   |13579   |\n\n\n  @edit_patient_info\n  Scenario Outline: Edit patient info\n\n    #@When User navigates to the home page\n    And user clicks sign in button at the home page and navigates to sign in page\n    Then user verifies that sign in page header is visible\n    And user enters username \"<username>\" and password \"<password>\"\n    And user clicks sign in button\n    Then user verifies that sign in is successful\n    When user clicks my pages\n    And user clicks search patient\n    When user provides a valid ssn number into search box\n      |ssn        |\n      |777-85-7963|\n    And user clicks edit button\n    Then user verifies create or edit patient page\n    And user provides necessary data to edit patient info\n    And user clicks save button\n    Then user verifies patient info update message\n\n    Examples:\n      |username|password|\n      |hazel   |13579   |\n\n    @view_edit_appointments\n    Scenario Outline: View appointments\n\n    #When User navigates to the home page\n    And user clicks sign in button at the home page and navigates to sign in page\n    Then user verifies that sign in page header is visible\n    And user enters username \"<username>\" and password \"<password>\"\n    And user clicks sign in button\n    Then user verifies that sign in is successful\n    When user clicks my pages\n    And user clicks search patient\n    When user provides a valid ssn number into search box\n        |ssn        |\n        |610-64-0981|\n    And user clicks show appointments button\n    Then user verifies appointments page header\n    And user clicks edit button under appointments\n    Then user verifies create and edit appointments page\n    And user makes necessary updates\n    And user clicks save button\n    Then verifies update is successful\n\n\n      Examples:\n        |username|password|\n        |hazel   |13579   |\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/resources/features/search_patient_staff_page.feature b/src/test/resources/features/search_patient_staff_page.feature
+--- a/src/test/resources/features/search_patient_staff_page.feature	
++++ b/src/test/resources/features/search_patient_staff_page.feature	
+@@ -36,18 +36,19 @@
+     When user clicks my pages
+     And user clicks search patient
+     When user provides a valid ssn number into search box
+-      |ssn        |
+-      |777-85-7963|
++        |     ssn  |
++        |777-85-7963|
+     And user clicks edit button
+     Then user verifies create or edit patient page
+     And user provides necessary data to edit patient info
+     And user clicks save button
+     Then user verifies patient info update message
+-
+-    Examples:
++      Examples:
+       |username|password|
+       |hazel   |13579   |
+ 
++
++
+     @view_edit_appointments
+     Scenario Outline: View appointments
+ 
+@@ -61,7 +62,7 @@
+     And user clicks search patient
+     When user provides a valid ssn number into search box
+         |ssn        |
+-        |610-64-0981|
++        |128-65-1234|
+     And user clicks show appointments button
+     Then user verifies appointments page header
+     And user clicks edit button under appointments

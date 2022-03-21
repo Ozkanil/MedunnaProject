@@ -1,9 +1,6 @@
 package utilities;
 
-import pojos.Appointment;
-import pojos.AppointmentGet;
-import pojos.Appointments;
-import pojos.Registrant;
+import pojos.*;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -101,4 +98,36 @@ public class WriteToTxt {
         }
 
     }
+
+    public static void saveTestItemData(TestItem testItem) {
+        try {
+            //src/resources/testdata/Registrantdata.txt
+            FileWriter fileWriter = new FileWriter(ConfigurationReader.getProperty("api_test_itmes_data"), true);
+            BufferedWriter writer = new BufferedWriter(fileWriter);
+            writer.append(testItem + "\n");
+            writer.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void saveRoomData(String roomNumber, int price, String createdDate){
+        try{
+
+            FileWriter fileWriter = new FileWriter("./src/test/resources/testdata/RoomData.txt", false);
+
+            BufferedWriter writer = new BufferedWriter(fileWriter);
+
+
+            writer.append("Room "+roomNumber+"\n");
+
+            writer.close();
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+
+    }
+
 }
