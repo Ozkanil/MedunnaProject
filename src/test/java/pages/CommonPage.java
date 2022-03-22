@@ -44,7 +44,7 @@ public class CommonPage {
     @FindBy(xpath = "//span[contains(text(),'Search Patient')]")
     public WebElement searchPatientUnderMyPages;
 
-        @FindBy(xpath = "(//*[@class='d-flex align-items-center dropdown-toggle nav-link'])[1]")
+        @FindBy(xpath = "//*[@id='entity-menu']")
     public WebElement itemsAndTitles;
 
 
@@ -57,4 +57,6 @@ public class CommonPage {
     @FindBy(xpath = "//*[span='My Patients']")
     public WebElement myPatients;
 
+    @FindBy(xpath = "//span[contains(text(),'Sign out')]")
+    public WebElement signOut;
 }
