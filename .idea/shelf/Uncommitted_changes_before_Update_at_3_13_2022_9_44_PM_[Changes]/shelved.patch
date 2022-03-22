@@ -1,0 +1,1495 @@
+Index: src/test/java/Hooks/Hooks.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Hooks;\r\n\r\nimport io.cucumber.java.After;\r\nimport io.cucumber.java.Before;\r\nimport io.cucumber.java.Scenario;\r\nimport org.openqa.selenium.OutputType;\r\nimport org.openqa.selenium.TakesScreenshot;\r\nimport utilities.Driver;\r\n\r\npublic class Hooks {\r\n    @Before\r\n    public void setUp(){\r\n        Driver.wait(5);\r\n\r\n    }\r\n\r\n    @After\r\n    public void tearDown(Scenario scenario){\r\n\r\n        if (scenario.isFailed()) {\r\n            final byte[] screenshot=((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);\r\n\r\n            scenario.attach(screenshot, \"image/png\",\"screenshots\");\r\n        }\r\n     //  Driver.getDriver().close();\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/Hooks/Hooks.java b/src/test/java/Hooks/Hooks.java
+--- a/src/test/java/Hooks/Hooks.java	(revision ddd42c43c687e0d306511df17e6b6e12eff1a38d)
++++ b/src/test/java/Hooks/Hooks.java	(date 1647200393993)
+@@ -3,26 +3,56 @@
+ import io.cucumber.java.After;
+ import io.cucumber.java.Before;
+ import io.cucumber.java.Scenario;
++import io.restassured.builder.RequestSpecBuilder;
++import io.restassured.specification.RequestSpecification;
+ import org.openqa.selenium.OutputType;
+ import org.openqa.selenium.TakesScreenshot;
++import utilities.ConfigurationReader;
+ import utilities.Driver;
+ 
++import static utilities.DatabaseUtility.createConnection;
++
+ public class Hooks {
+     @Before
+     public void setUp(){
+-        Driver.wait(5);
++    }
++    //
++    public static RequestSpecification spec;
++    @Before( value = "@ApiRegistrant")
++    public void setupap(){
++        spec = new RequestSpecBuilder().setBaseUri(ConfigurationReader.getProperty("base_url")).build();
++    }
++    @Before(order = 1, value = "@UIAppointmentAdmin")
++    public void navigateToLoginPage() {
++        Driver.getDriver().get(ConfigurationReader.getProperty("medunna_logIn_url"));
++    }
+ 
++    @Before(order = 1, value = "@UIEditAppointmentAdmin")
++    public void navigateToLoginPage2() {
++        Driver.getDriver().get(ConfigurationReader.getProperty("medunna_logIn_url"));
++    }
++    @Before(order = 1, value = "@UIRegistration")
++    public void navigateToRegistrationPage(){
++        Driver.getDriver().get(ConfigurationReader.getProperty("medunna_registration_url"));
++    }
++    @Before(order = 1, value = "@Appointment")
++    public void navigateToLandingPage(){
++        Driver.getDriver().get(ConfigurationReader.getProperty("medunna_registration_url"));
++    }
++    @Before( value = "@EndToEnd")
++    public void createNewDBConnection(){
++        createConnection(ConfigurationReader.getProperty("db_credentials_url"),
++                ConfigurationReader.getProperty("db_username"),
++                ConfigurationReader.getProperty("db_password"));
+     }
+ 
+     @After
+     public void tearDown(Scenario scenario){
+-
+         if (scenario.isFailed()) {
+             final byte[] screenshot=((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
+-
+             scenario.attach(screenshot, "image/png","screenshots");
+         }
+-     //  Driver.getDriver().close();
+-    }
+ 
++//        Driver.closeDriver();
++    }
+ }
+Index: src/test/java/runners/Runner.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package runners;\r\nimport io.cucumber.junit.Cucumber;\r\nimport io.cucumber.junit.CucumberOptions;\r\nimport org.junit.runner.RunWith;\r\n @RunWith(Cucumber.class)\r\n @CucumberOptions(\r\n        plugin = {\r\n                \"pretty\",\r\n                \"html:target/default-cucumber-reports.html\",\r\n                \"json:target/json-reports/cucumber.json\",\r\n                \"junit:target/xml-report/cucumber.xml\",\r\n                \"rerun:target/failedRerun.txt\"\r\n        },\r\n        features = \"./src/test/resources/features\",\r\n        glue = {\"stepdefinitions\",\"Hooks\"},\r\n        tags = \"@setting_homepage\",\r\n        dryRun = false\r\n)\r\npublic class Runner {\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/runners/Runner.java b/src/test/java/runners/Runner.java
+--- a/src/test/java/runners/Runner.java	(revision ddd42c43c687e0d306511df17e6b6e12eff1a38d)
++++ b/src/test/java/runners/Runner.java	(date 1647193810293)
+@@ -13,7 +13,7 @@
+         },
+         features = "./src/test/resources/features",
+         glue = {"stepdefinitions","Hooks"},
+-        tags = "@setting_homepage",
++        tags = "@DBTest",
+         dryRun = false
+ )
+ public class Runner {
+Index: src/test/java/utilities/ConfigurationReader.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package utilities;\r\n\r\nimport java.io.FileInputStream;\r\nimport java.util.Properties;\r\n\r\npublic class ConfigurationReader {\r\n\r\n    private static Properties properties;\r\n    static {\r\n\r\n        String path = \"configuration.properties\";\r\n        try {\r\n\r\n            FileInputStream file = new FileInputStream(path);\r\n\r\n            properties= new Properties();\r\n            properties.load(file);\r\n\r\n            file.close();\r\n        } catch (Exception e) {\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n\r\n    //    This method accepts the key and returns the value\r\n    public static String getProperty(String key){\r\n        return properties.getProperty(key);\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/utilities/ConfigurationReader.java b/src/test/java/utilities/ConfigurationReader.java
+--- a/src/test/java/utilities/ConfigurationReader.java	(revision ddd42c43c687e0d306511df17e6b6e12eff1a38d)
++++ b/src/test/java/utilities/ConfigurationReader.java	(date 1646511094292)
+@@ -27,4 +27,4 @@
+         return properties.getProperty(key);
+     }
+ 
+-}
++}
+\ No newline at end of file
+Index: src/test/resources/features/APIFeatures/RegistrantApi.feature
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/resources/features/APIFeatures/RegistrantApi.feature b/src/test/resources/features/APIFeatures/RegistrantApi.feature
+new file mode 100644
+--- /dev/null	(date 1647022768440)
++++ b/src/test/resources/features/APIFeatures/RegistrantApi.feature	(date 1647022768440)
+@@ -0,0 +1,20 @@
++Feature: Registrant Api Test
++
++  @ApiRegistrant
++  Scenario Outline: Registrant Test
++    Given user sets the necessary path params
++    And user sets the expected data "<firstname>", "<lastname>" "<SSN>" "<email>" "<login>" "<password>" and "<lan>"
++    And user sends the POST request and gets the response
++    When user saves the api records to correspondent files
++    Then user validates api records
++    Examples:
++      | firstname | lastname | SSN         | email           | login         | password  | lan |
++      | Recep     | Aykurt   | 554-44-9945 | recep@gmail.com | recepaykurt78 | Recep123. | en  |
++
++
++  Scenario: Api Get Request for users
++    Given user sends the get request for users data
++    And user deserializes data do Java
++    And user saves the data records to correspondent files
++
++      #As an adimn i should retrieve all staff data
+Index: src/test/java/stepdefinitions/MyAppointmentsStepdefs.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package stepdefinitions;\r\n\r\nimport io.cucumber.java.en.And;\r\nimport io.cucumber.java.en.Given;\r\nimport io.cucumber.java.en.Then;\r\nimport io.cucumber.java.en.When;\r\nimport org.junit.Assert;\r\nimport pages.CommonPage;\r\nimport pages.MyAppointmentPageAsDoctor;\r\nimport pages.SignInPage;\r\nimport utilities.ConfigurationReader;\r\nimport utilities.Driver;\r\n\r\nimport java.time.Duration;\r\n\r\npublic class MyAppointmentsStepdefs {\r\n    CommonPage commonPage=new CommonPage();\r\n    SignInPage signInPage=new SignInPage();\r\n    MyAppointmentPageAsDoctor myAppointmentPageAsDoctor=new MyAppointmentPageAsDoctor();\r\n\r\n    @Given(\"user sign in as a {string} providing {string} and {string}\")\r\n    public void userSignInAsAProvidingAnd(String arg0, String arg1, String arg2) {\r\n        Driver.getDriver().get(ConfigurationReader.getProperty(\"medunna_sign_in_url\"));\r\n        Driver.waitAndSendText(signInPage.username,arg1);\r\n        Driver.waitAndSendText(signInPage.password,arg2);\r\n        Driver.waitAndClick(signInPage.singInButton);\r\n\r\n        switch (arg0){\r\n            case \"doctor\":\r\n                Driver.waitAndClick(myAppointmentPageAsDoctor.myPagesDropdown);\r\n                Assert.assertTrue(myAppointmentPageAsDoctor.myAppointment.isDisplayed());\r\n            break;\r\n            case \"admin\":\r\n            break;\r\n            case \"patient\":\r\n                Driver.waitAndClick(myAppointmentPageAsDoctor.myPagesDropdown);\r\n            break;\r\n            case \"staff\":\r\n            break;\r\n            case \"user\":\r\n            break;\r\n            default:\r\n            break;\r\n        }\r\n\r\n\r\n    }\r\n\r\n    @And(\"user clicks on the MY PAGES dropdown\")\r\n    public void userClicksOnTheMYPAGESDropdown() {\r\n        Driver.waitAndClick(myAppointmentPageAsDoctor.myPagesDropdown);\r\n    }\r\n\r\n    @And(\"user selects My Appointments item and clicks\")\r\n    public void userSelectsMyAppointmentsItemAndClicks() {\r\n        Driver.waitAndClick(myAppointmentPageAsDoctor.);\r\n    }\r\n\r\n    @When(\"user on the Appointments page\")\r\n    public void userOnTheAppointmentsPage() {\r\n    }\r\n\r\n    @Then(\"user should see list of appointments and time slots\")\r\n    public void userShouldSeeListOfAppointmentsAndTimeSlots() {\r\n    }\r\n\r\n    @Then(\"user should see {string} information of the appointment list\")\r\n    public void userShouldSeeInformationOfTheAppointmentList(String arg0) {\r\n    }\r\n\r\n    @Then(\"user closes the application\")\r\n    public void userClosesTheApplication() {\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/stepdefinitions/MyAppointmentsStepdefs.java b/src/test/java/stepdefinitions/MyAppointmentsStepdefs.java
+--- a/src/test/java/stepdefinitions/MyAppointmentsStepdefs.java	(revision ddd42c43c687e0d306511df17e6b6e12eff1a38d)
++++ b/src/test/java/stepdefinitions/MyAppointmentsStepdefs.java	(date 1646490367309)
+@@ -52,9 +52,7 @@
+     }
+ 
+     @And("user selects My Appointments item and clicks")
+-    public void userSelectsMyAppointmentsItemAndClicks() {
+-        Driver.waitAndClick(myAppointmentPageAsDoctor.);
+-    }
++
+ 
+     @When("user on the Appointments page")
+     public void userOnTheAppointmentsPage() {
+Index: src/test/java/stepdefinitions/uisteps/Dummy.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/stepdefinitions/uisteps/Dummy.java b/src/test/java/stepdefinitions/uisteps/Dummy.java
+new file mode 100644
+--- /dev/null	(date 1646586290102)
++++ b/src/test/java/stepdefinitions/uisteps/Dummy.java	(date 1646586290102)
+@@ -0,0 +1,4 @@
++package stepdefinitions.uisteps;
++
++public class Dummy {
++}
+Index: src/test/java/stepdefinitions/uisteps/RegistrationSteps.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/stepdefinitions/uisteps/RegistrationSteps.java b/src/test/java/stepdefinitions/uisteps/RegistrationSteps.java
+new file mode 100644
+--- /dev/null	(date 1647200483145)
++++ b/src/test/java/stepdefinitions/uisteps/RegistrationSteps.java	(date 1647200483145)
+@@ -0,0 +1,80 @@
++package stepdefinitions.uisteps;
++
++import com.github.javafaker.Faker;
++import io.cucumber.java.en.Given;
++import io.cucumber.java.en.Then;
++import org.junit.Assert;
++import pages.RegistrationPage;
++import pojos.Registrant;
++import utilities.Driver;
++import java.util.List;
++import static utilities.ReadTxt.getSSNIDs;
++import static utilities.WriteToTxt.saveRegistrantData;
++
++public class RegistrationSteps {
++    Registrant registrant = new Registrant();//SAVE DATA AND REUSE DATA
++    Faker faker = new Faker();
++    RegistrationPage rp = new RegistrationPage();//INITIALIZED WEBELEMENTS
++    @Given("user provides ssn id {string}")
++    public void user_provides_ssn_id(String ssn) {
++        ssn = faker.idNumber().ssnValid();
++        registrant.setSsn(ssn);
++        Driver.waitAndSendText(rp.ssnTextBox,ssn);
++    }
++    @Given("user provides firstname and lastname {string} and {string}")
++    public void user_provides_firstname_and_lastname_and(String firstname, String lastname) {
++        firstname = faker.name().firstName();
++        lastname = faker.name().lastName();
++        registrant.setFirstName(firstname);
++        registrant.setLastName(lastname);
++        Driver.waitAndSendText(rp.firstnameTextBox,firstname);
++        Driver.waitAndSendText(rp.lastnameTextBox,lastname);
++    }
++    @Then("user creates username {string}")
++    public void user_creates_username(String username) {
++        username = registrant.getFirstName() + registrant.getLastName();
++        registrant.setLogin(username);
++        Driver.waitAndSendText(rp.usernameTextBox,username);
++    }
++    @Then("user provides also email {string}")
++    public void user_provides_also_email(String email) {
++        email = faker.internet().emailAddress();
++        registrant.setEmail(email);
++        Driver.waitAndSendText(rp.emailTextbox,email);
++    }
++    @Then("user generates the password {string}")
++    public void user_generates_the_password(String password) {
++        password = faker.internet().password(8,20, true,true);
++        registrant.setPassword(password);
++        Driver.waitAndSendText(rp.firstPasswordTextBox,password);
++        Driver.waitAndSendText(rp.newPasswordTextBox,password);
++    }
++    @Then("user registers and validates")
++    public void user_registers_and_validates() {
++        Driver.waitAndClick(rp.registerButton);
++        Assert.assertTrue(Driver.waitForVisibility(rp.successMessageToastContainer, 5).isDisplayed());
++    }
++    @Then("user creates the records to a correspondent file")
++    public void user_creates_the_records_to_a_correspondent_file() {
++        saveRegistrantData(registrant);
++    }
++    @Given("user provides the password {string}")
++    public void user_provides_the_password(String password) {
++        Driver.waitAndSendText(rp.firstPasswordTextBox,password );
++    }
++    @Then("user valides the password strength {string}")
++    public void user_valides_the_password_strength(String level) {
++        if( 1 == Integer.parseInt(level)){
++            Assert.assertTrue(rp.passwordStrength1.isDisplayed());
++        }else if(2 == Integer.parseInt(level)){
++            Assert.assertTrue(rp.passwordStrength2.isDisplayed());
++        }else if(3 == Integer.parseInt(level)){
++            Assert.assertTrue(rp.passwordStrength3.isDisplayed());
++        }
++    }
++    @Then("user gets DB records and validates the ssn")
++    public void user_gets_db_records_and_validates_the_ssn() {
++        List<String> actualSSNIDs = getSSNIDs();
++        Assert.assertTrue(actualSSNIDs.contains(registrant.getSsn()));
++    }
++}
+\ No newline at end of file
+Index: src/test/java/utilities/WriteToTxt.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/utilities/WriteToTxt.java b/src/test/java/utilities/WriteToTxt.java
+new file mode 100644
+--- /dev/null	(date 1647197759805)
++++ b/src/test/java/utilities/WriteToTxt.java	(date 1647197759805)
+@@ -0,0 +1,46 @@
++package utilities;
++
++import pojos.Appointment;
++import pojos.Registrant;
++import java.io.BufferedWriter;
++import java.io.FileWriter;
++import java.util.List;
++
++public class WriteToTxt {
++    public static void saveRegistrantData(Registrant registrant){
++        try{
++            //src/resources/testdata/Registrantdata.txt
++            FileWriter fileWriter = new FileWriter(ConfigurationReader.getProperty("api_registrant_data"), true);
++            BufferedWriter writer = new BufferedWriter(fileWriter);
++            writer.append(registrant+"\n");
++            writer.close();
++        }catch (Exception e){
++            e.printStackTrace();
++        }
++    }
++    public static void saveAppointData(Appointment appointment){
++        try{
++            //src/resources/testdata/Registrantdata.txt
++            FileWriter fileWriter = new FileWriter(ConfigurationReader.getProperty("appointment_records"), true);
++            BufferedWriter writer = new BufferedWriter(fileWriter);
++            writer.append(appointment+"\n");
++            writer.close();
++        }catch (Exception e){
++            e.printStackTrace();
++        }
++    }
++
++    public static void saveRegistrantData(List<Object> SSNIds){
++        try{
++            //src/resources/testdata/Registrantdata.txt
++            FileWriter fileWriter = new FileWriter(ConfigurationReader.getProperty("database_registrant_data"), false);
++            BufferedWriter writer = new BufferedWriter(fileWriter);
++            for(Object eachSSN: SSNIds) {
++                writer.append(eachSSN + ",\n");
++            }
++            writer.close();
++        }catch (Exception e){
++            e.printStackTrace();
++        }
++    }
++}
+Index: src/test/java/pojos/Appointment.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/pojos/Appointment.java b/src/test/java/pojos/Appointment.java
+new file mode 100644
+--- /dev/null	(date 1646586133448)
++++ b/src/test/java/pojos/Appointment.java	(date 1646586133448)
+@@ -0,0 +1,69 @@
++package pojos;
++
++public class Appointment {
++
++private String firstname;
++private String lastname;
++private String ssn;
++private String email;
++private String phoneNumber;
++private String date;
++//variables, constructors, getters and setters, toString
++public Appointment() {
++        }
++public Appointment(String firstname, String lastname, String ssn, String email, String phoneNumber, String date) {
++        this.firstname = firstname;
++        this.lastname = lastname;
++        this.ssn = ssn;
++        this.email = email;
++        this.phoneNumber = phoneNumber;
++        this.date = date;
++        }
++public String getFirstname() {
++        return firstname;
++        }
++public void setFirstname(String firstname) {
++        this.firstname = firstname;
++        }
++public String getLastname() {
++        return lastname;
++        }
++public void setLastname(String lastname) {
++        this.lastname = lastname;
++        }
++public String getSsn() {
++        return ssn;
++        }
++public void setSsn(String ssn) {
++        this.ssn = ssn;
++        }
++public String getEmail() {
++        return email;
++        }
++public void setEmail(String email) {
++        this.email = email;
++        }
++public String getPhoneNumber() {
++        return phoneNumber;
++        }
++public void setPhoneNumber(String phoneNumber) {
++        this.phoneNumber = phoneNumber;
++        }
++public String getDate() {
++        return date;
++        }
++public void setDate(String date) {
++        this.date = date;
++        }
++@Override
++public String toString() {
++        return "Appointment{" +
++        "firstname='" + firstname + '\'' +
++        ", lastname='" + lastname + '\'' +
++        ", ssn='" + ssn + '\'' +
++        ", email='" + email + '\'' +
++        ", phoneNumber='" + phoneNumber + '\'' +
++        ", date='" + date + '\'' +
++        '}';
++        }
++        }
+Index: src/test/java/utilities/DatabaseUtility.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/utilities/DatabaseUtility.java b/src/test/java/utilities/DatabaseUtility.java
+new file mode 100644
+--- /dev/null	(date 1646515138375)
++++ b/src/test/java/utilities/DatabaseUtility.java	(date 1646515138375)
+@@ -0,0 +1,227 @@
++package utilities;
++
++
++import java.sql.*;
++import java.util.ArrayList;
++import java.util.HashMap;
++import java.util.List;
++import java.util.Map;
++
++public class DatabaseUtility {
++    private static Connection connection;
++    private static Statement statement;
++    private static ResultSet resultSet;
++    public static void createConnection() {
++        String url = ConfigurationReader.getProperty("database_url");
++        String user = ConfigurationReader.getProperty("database_user");
++        String password = "Techpro_@126";
++        try {
++            connection = DriverManager.getConnection(url, user, password);
++        } catch (SQLException e) {
++            // TODO Auto-generated catch block
++            e.printStackTrace();
++        }
++    }
++    public static void main(String[] args) {
++        createConnection("jdbc:postgresql://medunna.com:5432/medunna_db","medunnadb_user" , "Medunnadb_@129");
++        System.out.println(getColumnData("Select * FROM jhi_user", "first_name"));
++        closeConnection();
++    }
++    public static void createConnection(String url, String user, String password) {
++        try {
++            connection = DriverManager.getConnection(url, user, password);
++        } catch (SQLException e) {
++            // TODO Auto-generated catch block
++            e.printStackTrace();
++        }
++    }
++    public static void closeConnection() {
++        try {
++            if (resultSet != null) {
++                resultSet.close();
++            }
++            if (statement != null) {
++                statement.close();
++            }
++            if (connection != null) {
++                connection.close();
++            }
++        } catch (SQLException e) {
++            e.printStackTrace();
++        }
++    }
++    /**
++     *
++     * @param query
++     * @return returns a single cell value. If the results in multiple rows and/or
++     *         columns of data, only first column of the first row will be returned.
++     *         The rest of the data will be ignored
++     */
++    public static Object getCellValue(String query) {
++        return getQueryResultList(query).get(0).get(0);
++    }
++    /**
++     *
++     * @param query
++     * @return returns a list of Strings which represent a row of data. If the query
++     *         results in multiple rows and/or columns of data, only first row will
++     *         be returned. The rest of the data will be ignored
++     */
++    public static List<Object> getRowList(String query) {
++        return getQueryResultList(query).get(0);
++    }
++    /**
++     *
++     * @param query
++     * @return returns a map which represent a row of data where key is the column
++     *         name. If the query results in multiple rows and/or columns of data,
++     *         only first row will be returned. The rest of the data will be ignored
++     */
++    public static Map<String, Object> getRowMap(String query) {
++        return getQueryResultMap(query).get(0);
++    }
++    /**
++     *
++     * @param query
++     * @return returns query result in a list of lists where outer list represents
++     *         collection of rows and inner lists represent a single row
++     */
++    public static List<List<Object>> getQueryResultList(String query) {
++        executeQuery(query);
++        List<List<Object>> rowList = new ArrayList<>();
++        ResultSetMetaData rsmd;
++        try {
++            rsmd = resultSet.getMetaData();
++            while (resultSet.next()) {
++                List<Object> row = new ArrayList<>();
++                for (int i = 1; i <= rsmd.getColumnCount(); i++) {
++                    row.add(resultSet.getObject(i));
++                }
++                rowList.add(row);
++            }
++        } catch (SQLException e) {
++            // TODO Auto-generated catch block
++            e.printStackTrace();
++        }
++        return rowList;
++    }
++    /**
++     *
++     * @param query
++     * @param column
++     * @return list of values of a single column from the result set
++     */
++    public static List<Object> getColumnData(String query, String column) {
++        executeQuery(query);
++        List<Object> rowList = new ArrayList<>();
++        ResultSetMetaData rsmd;
++        try {
++            rsmd = resultSet.getMetaData();
++            while (resultSet.next()) {
++                rowList.add(resultSet.getObject(column));
++            }
++        } catch (SQLException e) {
++            // TODO Auto-generated catch block
++            e.printStackTrace();
++        }
++        return rowList;
++    }
++    /**
++     *
++     * @param query
++     * @return returns query result in a list of maps where the list represents
++     *         collection of rows and a map represents represent a single row with
++     *         key being the column name
++     */
++    public static List<Map<String, Object>> getQueryResultMap(String query) {
++        executeQuery(query);
++        List<Map<String, Object>> rowList = new ArrayList<>();
++        ResultSetMetaData rsmd;
++        try {
++            rsmd = resultSet.getMetaData();
++            while (resultSet.next()) {
++                Map<String, Object> colNameValueMap = new HashMap<>();
++                for (int i = 1; i <= rsmd.getColumnCount(); i++) {
++                    colNameValueMap.put(rsmd.getColumnName(i), resultSet.getObject(i));
++                }
++                rowList.add(colNameValueMap);
++            }
++        } catch (SQLException e) {
++            // TODO Auto-generated catch block
++            e.printStackTrace();
++        }
++        return rowList;
++    }
++    /**
++     *
++     * @param query
++     * @return List of columns returned in result set
++     */
++    public static List<String> getColumnNames(String query) {
++        executeQuery(query);
++        List<String> columns = new ArrayList<>();
++        ResultSetMetaData rsmd;
++        try {
++            rsmd = resultSet.getMetaData();
++            int columnCount = rsmd.getColumnCount();
++            for (int i = 1; i <= columnCount; i++) {
++                columns.add(rsmd.getColumnName(i));
++            }
++        } catch (SQLException e) {
++            // TODO Auto-generated catch block
++            e.printStackTrace();
++        }
++        return columns;
++    }
++    public static void executeQuery(String query) {
++        try {
++            statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
++        } catch (SQLException e) {
++            // TODO Auto-generated catch block
++            e.printStackTrace();
++        }
++        try {
++            resultSet = statement.executeQuery(query);
++        } catch (SQLException e) {
++            // TODO Auto-generated catch block
++            e.printStackTrace();
++        }
++    }
++    public static int getRowCount() throws Exception {
++        resultSet.last();
++        int rowCount = resultSet.getRow();
++        return rowCount;
++    }
++    public static void insertCountry(String  countryName){
++    }
++    public static void executeInsertion(String query) {
++        try {
++            statement = connection.createStatement();
++        } catch (SQLException e) {
++            // TODO Auto-generated catch block
++            e.printStackTrace();
++        }
++        try {
++            boolean done = statement.execute(query);
++        } catch (SQLException e) {
++            // TODO Auto-generated catch block
++            e.printStackTrace();
++        }
++    }
++    public static int getMaxCountryId (String query,String column){
++        int max = 0;
++        List<Object> allIds = getColumnData(query, column);
++        for (int i=0; i<allIds.size();i++){
++            int num = Integer.parseInt(allIds.get(i).toString().trim());
++            if(max <= num)
++                max=num;
++        }
++        return max;
++    }
++    public static Object getCellValuewithRowsAndCells(String query,int row,int cell) {
++        return getQueryResultList(query).get(row).get(cell);
++    }
++    public static List<Object> getRowListWithParam(String query,int row) {
++        return getQueryResultList(query).get(row);
++    }
++}
+\ No newline at end of file
+Index: src/test/java/stepdefinitions/apisteps/RegistrantApiSteps.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/stepdefinitions/apisteps/RegistrantApiSteps.java b/src/test/java/stepdefinitions/apisteps/RegistrantApiSteps.java
+new file mode 100644
+--- /dev/null	(date 1647023711674)
++++ b/src/test/java/stepdefinitions/apisteps/RegistrantApiSteps.java	(date 1647023711674)
+@@ -0,0 +1,105 @@
++package stepdefinitions.apisteps;
++
++import com.fasterxml.jackson.databind.ObjectMapper;
++import com.github.javafaker.Faker;
++import io.cucumber.java.en.Given;
++import io.cucumber.java.en.Then;
++import io.cucumber.java.en.When;
++import io.restassured.http.ContentType;
++import io.restassured.response.Response;
++import pojos.Registrant;
++import utilities.ConfigurationReader;
++import static io.restassured.RestAssured.given;
++import static junit.framework.TestCase.assertEquals;
++import static utilities.ApiUtils.getRequest;
++import static utilities.Authentication.generateToken;
++import static utilities.Authentication.generateToken;
++import static utilities.WriteToTxt.saveRegistrantData;
++import static Hooks.Hooks.spec;
++public class RegistrantApiSteps  {
++
++    Registrant registrant = new Registrant();
++    Faker faker = new Faker();
++    Response response;
++    Registrant []registrants;
++
++    @Given("user sets the necessary path params")
++    public void user_sets_the_necessary_path_params() {
++
++        spec.pathParams("first", "api", "second", "register");
++
++    }
++    @Given("user sets the expected data {string}, {string} {string} {string} {string} {string} and {string}")
++    public void user_sets_the_expected_data_and(String firstname, String lastname, String ssn, String email, String username, String password, String lan) {
++
++        firstname = faker.name().firstName();
++        lastname = faker.name().lastName();
++        ssn = faker.idNumber().ssnValid();
++        email = faker.internet().emailAddress();
++        username = faker.name().username();
++        password = faker.internet().password(8, 15, true, true);
++
++        registrant.setFirstName(firstname);
++        registrant.setLastName(lastname);
++        registrant.setSsn(ssn);
++        registrant.setEmail(email);
++        registrant.setLogin(username);
++        registrant.setPassword(password);
++        registrant.setLangKey(lan);
++//        Map<String ,Object> expectedData = new HashMap<>();
++//        expectedData.put("firstName", firstname);
++
++    }
++    @Given("user sends the POST request and gets the response")
++    public void user_sends_the_post_request_and_gets_the_response() {
++
++        response = given().spec(spec).contentType(ContentType.JSON).body(registrant).when().post("/{first}/{second}");
++    }
++    @When("user saves the api records to correspondent files")
++    public void user_saves_the_api_records_to_correspondent_files() {
++        saveRegistrantData(registrant);
++    }
++    @Then("user validates api records")
++    public void user_validates_api_records() throws  Exception{
++        response.then().statusCode(201);
++        response.prettyPrint();
++
++        ObjectMapper obj = new ObjectMapper();
++
++        Registrant actualRegistrant = obj.readValue(response.asString(), Registrant.class);
++
++        System.out.println(actualRegistrant);
++
++        assertEquals(registrant.getFirstName(), actualRegistrant.getFirstName());
++        assertEquals(registrant.getLastName(), actualRegistrant.getLastName());
++        assertEquals(registrant.getSsn(), actualRegistrant.getSsn());
++
++    }
++
++    @Given("user sends the get request for users data")
++    public void user_sends_the_get_request_for_users_data() {
++
++        response =  getRequest(generateToken(),ConfigurationReader.getProperty("registrant_endpoint"));
++        //    response.prettyPrint();
++
++    }
++    @Given("user deserializes data to Java")
++    public void user_deserializes_data_to_java() throws Exception{
++        // WAys of de-serialization
++        // Object Mapper
++
++        ObjectMapper obj = new ObjectMapper();
++
++        registrants = obj.readValue(response.asString(), Registrant[].class);
++        System.out.println("registrants.length = " + registrants.length);
++        for (int i=0; i<registrants.length;i++){
++            System.out.println( registrants[i].getEmail());
++
++        }
++    }
++    @Given("user saves the data records to correspondent files")
++    public void user_saves_the_data_records_to_correspondent_files() {
++
++    }
++
++}
+\ No newline at end of file
+Index: src/test/java/pojos/Registrant.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/pojos/Registrant.java b/src/test/java/pojos/Registrant.java
+new file mode 100644
+--- /dev/null	(date 1646587503656)
++++ b/src/test/java/pojos/Registrant.java	(date 1646587503656)
+@@ -0,0 +1,100 @@
++package pojos;
++
++import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
++@JsonIgnoreProperties(ignoreUnknown = true)
++
++public class Registrant {
++    /*
++    {
++  "activated": true,
++  "authorities": [
++    "string"
++  ],
++  "createdBy": "string",
++  "createdDate": "2022-03-06T16:16:26.333Z",
++  "email": "string",
++  "firstName": "string",
++  "id": 0,
++  "imageUrl": "string",
++  "langKey": "string",
++  "lastModifiedBy": "string",
++  "lastModifiedDate": "2022-03-06T16:16:26.333Z",
++  "lastName": "string",
++  "login": "string",
++  "password": "string",
++  "ssn": "string"
++}
++     */
++    private String firstName;
++    private String lastName;
++    private String ssn;
++    private String login;
++    private String langKey;
++    private String password;
++    private String email;
++    public Registrant() {
++    }
++    public Registrant(String firstName, String lastName, String ssn, String login, String langKey, String password, String email) {
++        this.firstName = firstName;
++        this.lastName = lastName;
++        this.ssn = ssn;
++        this.login = login;
++        this.langKey = langKey;
++        this.password = password;
++        this.email = email;
++    }
++    public String getFirstName() {
++        return firstName;
++    }
++    public void setFirstName(String firstName) {
++        this.firstName = firstName;
++    }
++    public String getLastName() {
++        return lastName;
++    }
++    public void setLastName(String lastName) {
++        this.lastName = lastName;
++    }
++    public String getSsn() {
++        return ssn;
++    }
++    public void setSsn(String ssn) {
++        this.ssn = ssn;
++    }
++    public String getLogin() {
++        return login;
++    }
++    public void setLogin(String login) {
++        this.login = login;
++    }
++    public String getLangKey() {
++        return langKey;
++    }
++    public void setLangKey(String langKey) {
++        this.langKey = langKey;
++    }
++    public String getPassword() {
++        return password;
++    }
++    public void setPassword(String password) {
++        this.password = password;
++    }
++    public String getEmail() {
++        return email;
++    }
++    public void setEmail(String email) {
++        this.email = email;
++    }
++    @Override
++    public String toString() {
++        return "Registrant{" +
++                "firstName='" + firstName + '\'' +
++                ", lastName='" + lastName + '\'' +
++                ", ssn='" + ssn + '\'' +
++                ", login='" + login + '\'' +
++                ", langKey='" + langKey + '\'' +
++                ", password='" + password + '\'' +
++                ", email='" + email + '\'' +
++                '}';
++    }
++}
+\ No newline at end of file
+Index: src/test/java/utilities/ApiUtils.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/utilities/ApiUtils.java b/src/test/java/utilities/ApiUtils.java
+new file mode 100644
+--- /dev/null	(date 1647023448954)
++++ b/src/test/java/utilities/ApiUtils.java	(date 1647023448954)
+@@ -0,0 +1,19 @@
++package utilities;
++
++import io.restassured.http.ContentType;
++import io.restassured.response.Response;
++import static io.restassured.RestAssured.given;
++import static utilities.Authentication.generateToken;
++public class ApiUtils {
++    /*
++         Response response =  given().headers("Authorization","Bearer "+generateToken(),
++                "Content-Type",ContentType.JSON,"Accept",ContentType.JSON).
++                         when().get(ConfigurationReader.getProperty("registrant_endpoint"));
++     */
++    public static Response getRequest(String token, String endpoint) {
++        Response response = given().headers("Authorization","Bearer "+token,
++                        "Content-Type", ContentType.JSON,"Accept",ContentType.JSON).
++                when().get(ConfigurationReader.getProperty(endpoint));
++        return response;
++    }
++}
+Index: configuration.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>browser=chrome\r\ngmi_login_url=https://medunna.com/\r\nmedunna_registration_url=https://medunna.com/account/register\r\nadmin_username=OscarLebsack\r\nadmin_password=$CdG89^svc\r\n\r\n#password: cD5uV$#0#!      username: WadeLakin         Wade,Lakin,WadeLakin,517-49-4533\r\n#password:  $CdG89^svc    username: OscarLebsack       Oscar,Lebsack,OscarLebsack,383-28-3054\r\n#you will use those to create admin, doctor, user , etc.\r\n#you will use only username and password to create the other roles.\r\n\r\n# user_name=MedunnaAdmin\r\n# password=1@qweASD
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/configuration.properties b/configuration.properties
+--- a/configuration.properties	(revision ddd42c43c687e0d306511df17e6b6e12eff1a38d)
++++ b/configuration.properties	(date 1647191364009)
+@@ -1,13 +1,24 @@
+ browser=chrome
+-gmi_login_url=https://medunna.com/
++medunna_login_url=https://medunna.com/
+ medunna_registration_url=https://medunna.com/account/register
+-admin_username=OscarLebsack
+-admin_password=$CdG89^svc
+-
+-#password: cD5uV$#0#!      username: WadeLakin         Wade,Lakin,WadeLakin,517-49-4533
+-#password:  $CdG89^svc    username: OscarLebsack       Oscar,Lebsack,OscarLebsack,383-28-3054
+-#you will use those to create admin, doctor, user , etc.
+-#you will use only username and password to create the other roles.
+-
+-# user_name=MedunnaAdmin
+-# password=1@qweASD
+\ No newline at end of file
++app_url=https://medunna.com/
++file_name=src/test/resources/testdata/AllRegistrantData.txt
++registrant_endpoint=https://medunna.com/api/users?=size=200
++api_registrant_data_file_name=src/test/resources/testdata/AllApiRegistrantData.txt
++registrant_endpoint_post=https://medunna.com/api/register
++registrant_endpoint_put=https://medunna.com/api/users
++db_credentials_url=jdbc:postgresql://medunna.com:5432/medunna_db
++db_username=medunnadb_user
++db_password=Medunnadb_@129
++db_user_ssn=src/test/resources/testdata/DBAllUserSSNs.txt
++appointments_endpoint=https://medunna.com/api/appointments?=size=200
++appointment_file_name=src/test/resources/testdata/AllAppointmentsApi.txt
++registrant_filename=src/test/resources/testdata/Medunna.txt
++appointment_records=src/test/resources/testdata/AppointmentData.txt
++base_url=https://medunna.com
++api_registrant_data=src/test/resources/testdata/ApiRegistrantData.txt
++medunna_logIn_url=https://medunna.com/login
++registrant_endpoint=https://medunna.com/api/users?=size=2000
++db_credentials_url=jdbc:postgresql://medunna.com:5432/medunna_db
++db_username=medunnadb_user
++db_password=Medunnadb_@129
+Index: pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project xmlns=\"http://maven.apache.org/POM/4.0.0\"\r\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n         xsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd\">\r\n    <modelVersion>4.0.0</modelVersion>\r\n\r\n    <groupId>org.example</groupId>\r\n    <artifactId>mycucumberproject</artifactId>\r\n    <version>1.0-SNAPSHOT</version>\r\n\r\n    <properties>\r\n        <maven.compiler.source>1.8</maven.compiler.source>\r\n        <maven.compiler.target>1.8</maven.compiler.target>\r\n    </properties>\r\n\r\n    <dependencies>\r\n        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->\r\n        <dependency>\r\n            <groupId>org.seleniumhq.selenium</groupId>\r\n            <artifactId>selenium-java</artifactId>\r\n            <version>4.1.1</version>\r\n        </dependency>\r\n\r\n        <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->\r\n        <dependency>\r\n            <groupId>io.github.bonigarcia</groupId>\r\n            <artifactId>webdrivermanager</artifactId>\r\n            <version>5.0.3</version>\r\n        </dependency>\r\n        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->\r\n        <dependency>\r\n            <groupId>org.apache.poi</groupId>\r\n            <artifactId>poi</artifactId>\r\n            <version>4.1.2</version>\r\n        </dependency>\r\n        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->\r\n        <dependency>\r\n            <groupId>org.apache.poi</groupId>\r\n            <artifactId>poi-ooxml</artifactId>\r\n            <version>4.1.2</version>\r\n        </dependency>\r\n        <!--        a library to generate fake data when needed-->\r\n        <!-- https://mvnrepository.com/artifact/com.github.javafaker/javafaker -->\r\n        <dependency>\r\n            <groupId>com.github.javafaker</groupId>\r\n            <artifactId>javafaker</artifactId>\r\n            <version>1.0.2</version>\r\n        </dependency>\r\n\r\n        <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->\r\n        <dependency>\r\n            <groupId>io.cucumber</groupId>\r\n            <artifactId>cucumber-java</artifactId>\r\n            <version>7.2.3</version>\r\n        </dependency>\r\n        <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->\r\n        <dependency>\r\n            <groupId>io.cucumber</groupId>\r\n            <artifactId>cucumber-junit</artifactId>\r\n            <version>7.2.3</version>\r\n            <scope>test</scope>\r\n        </dependency>\r\n        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-compress -->\r\n        <dependency>\r\n            <groupId>org.apache.commons</groupId>\r\n            <artifactId>commons-compress</artifactId>\r\n            <version>1.20</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>org.apache.poi</groupId>\r\n            <artifactId>poi</artifactId>\r\n            <version>4.0.1</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>org.apache.poi</groupId>\r\n            <artifactId>poi-ooxml</artifactId>\r\n            <version>4.0.1</version>\r\n        </dependency>\r\n        <!-- https://mvnrepository.com/artifact/com.itextpdf/itextpdf -->\r\n        <dependency>\r\n            <groupId>com.itextpdf</groupId>\r\n            <artifactId>itextpdf</artifactId>\r\n            <version>5.4.2</version>\r\n        </dependency>\r\n\r\n        <dependency>\r\n            <groupId>io.rest-assured</groupId>\r\n            <artifactId>rest-assured</artifactId>\r\n            <version>4.3.0</version>\r\n        </dependency>\r\n\r\n        <dependency>\r\n            <groupId>com.fasterxml.jackson.core</groupId>\r\n            <artifactId>jackson-databind</artifactId>\r\n            <version>2.9.8</version>\r\n        </dependency>\r\n\r\n<!--        &lt;!&ndash; https://mvnrepository.com/artifact/tech.grasshopper/extentreports-cucumber7-adapter &ndash;&gt;-->\r\n<!--        <dependency>-->\r\n<!--            <groupId>tech.grasshopper</groupId>-->\r\n<!--            <artifactId>extentreports-cucumber7-adapter</artifactId>-->\r\n<!--            <version>1.2.0</version>-->\r\n<!--        </dependency>-->\r\n\r\n        <dependency>\r\n            <groupId>org.postgresql</groupId>\r\n            <artifactId>postgresql</artifactId>\r\n            <version>42.2.8</version>\r\n        </dependency>\r\n\r\n    </dependencies>\r\n\r\n    <build>\r\n        <plugins>\r\n            <plugin>\r\n                <groupId>org.apache.maven.plugins</groupId>\r\n                <artifactId>maven-failsafe-plugin</artifactId>\r\n                <version>3.0.0-M1</version>\r\n                <configuration>\r\n                    <testFailureIgnore>true</testFailureIgnore>\r\n                    <skipTests>false</skipTests>\r\n                    <includes>\r\n                        <include>**/runners/*TestRunner*.java</include>\r\n                    </includes>\r\n                </configuration>\r\n            </plugin>\r\n            <plugin>\r\n                <groupId>org.apache.maven.plugins</groupId>\r\n                <artifactId>maven-surefire-plugin</artifactId>\r\n                <version>3.0.0-M1</version>\r\n                <configuration>\r\n                    <parallel>classes</parallel>\r\n                    <forkMode>perthread</forkMode>\r\n                    <threadCount>2</threadCount>\r\n                    <reuseForks>false</reuseForks>\r\n                    <argLine>-Duser.language=en</argLine>\r\n                    <argLine>-Xmx1024m</argLine>\r\n                    <argLine>-XX:MaxPermSize=256m</argLine>\r\n                    <argLine>-Dfile.encoding=UTF-8</argLine>\r\n                    <useFile>false</useFile>\r\n                    <includes>\r\n                        <include>**/runners/*TestRunner*.java</include>\r\n                    </includes>\r\n                    <testFailureIgnore>true</testFailureIgnore>\r\n                </configuration>\r\n            </plugin>\r\n            <plugin>\r\n                <groupId>net.masterthought</groupId>\r\n                <artifactId>maven-cucumber-reporting</artifactId>\r\n                <version>5.0.0</version>\r\n                <executions>\r\n                    <execution>\r\n                        <id>execution</id>\r\n                        <phase>verify</phase>\r\n                        <goals>\r\n                            <goal>generate</goal>\r\n                        </goals>\r\n                        <configuration>\r\n                            <projectName>cucumber-framework</projectName>\r\n                            <outputDirectory>${project.build.directory}</outputDirectory>\r\n                            <!--                            <cucumberOutput>${project.build.directory}</cucumberOutput>-->\r\n                            <inputDirectory>${project.build.directory}</inputDirectory>\r\n                            <jsonFiles>\r\n                                <param>**/json-reports/*.json</param>\r\n                            </jsonFiles><classificationFiles>->\r\n                            <param>sample.properties</param>\r\n                            <param>other.properties</param>\r\n                        </classificationFiles>\r\n                        </configuration>\r\n                    </execution>\r\n                </executions>\r\n            </plugin>\r\n        </plugins>\r\n    </build>\r\n\r\n\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/pom.xml b/pom.xml
+--- a/pom.xml	(revision ddd42c43c687e0d306511df17e6b6e12eff1a38d)
++++ b/pom.xml	(date 1646507896052)
+@@ -107,6 +107,12 @@
+             <artifactId>postgresql</artifactId>
+             <version>42.2.8</version>
+         </dependency>
++        
++        <dependency>
++            <groupId>org.postgresql</groupId>
++            <artifactId>postgresql</artifactId>
++            <version>42.2.8</version>
++        </dependency>
+ 
+     </dependencies>
+ 
+Index: src/test/java/utilities/Authentication.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/utilities/Authentication.java b/src/test/java/utilities/Authentication.java
+new file mode 100644
+--- /dev/null	(date 1647018502160)
++++ b/src/test/java/utilities/Authentication.java	(date 1647018502160)
+@@ -0,0 +1,49 @@
++package utilities;
++
++import io.restassured.builder.RequestSpecBuilder;
++import io.restassured.http.ContentType;
++import io.restassured.path.json.JsonPath;
++import io.restassured.response.Response;
++import io.restassured.specification.RequestSpecification;
++import java.util.HashMap;
++import java.util.Map;
++import static io.restassured.RestAssured.given;
++
++public class Authentication {
++    // I will send a post request to generate a token
++    public static RequestSpecification spec;
++    public static String generateToken() {
++
++        // Set the url
++        spec = new RequestSpecBuilder().setBaseUri(ConfigurationReader.getProperty("base_url")).build();
++
++        // path params
++        spec.pathParams("first", "api", "second", "authenticate");
++
++        // Set the expected data
++        /*
++        {
++  "password": "admin",
++  "rememberMe": "true",
++  "username": "admin79"
++}
++         */
++        Map<String, Object> reqBody = new HashMap<>();
++        reqBody.put("username", "admin79");
++        reqBody.put("password", "admin");
++        reqBody.put("rememberMe", "true");
++
++        // Send the request
++        Response response = given().
++                spec(spec).
++                contentType(ContentType.JSON).
++                body(reqBody).
++                when().
++                post("/{first}/{second}");
++        //  response.prettyPrint();
++
++        JsonPath json = response.jsonPath();
++
++        return json.getString("id_token");
++    }
++}
+\ No newline at end of file
+Index: src/test/java/stepdefinitions/US_001_StepDef.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package stepdefinitions;\r\n\r\nimport io.cucumber.java.en.Given;\r\nimport io.cucumber.java.en.Then;\r\nimport org.junit.Assert;\r\nimport org.openqa.selenium.By;\r\nimport org.openqa.selenium.Keys;\r\nimport pages.CommonPage;\r\nimport pages.RegistrationPage;\r\nimport utilities.ConfigurationReader;\r\nimport utilities.Driver;\r\n\r\nimport static org.junit.Assert.assertFalse;\r\nimport static org.junit.Assert.assertTrue;\r\n\r\npublic class US_001_StepDef {\r\n    CommonPage commonPage = new CommonPage();\r\n    RegistrationPage registrationPage = new RegistrationPage();\r\n\r\n    @Given(\"user is on the common page\")\r\n    public void user_is_on_the_common_page() {\r\n        Driver.getDriver().get(ConfigurationReader.getProperty(\"medunna_login_url\"));\r\n    }\r\n    @Given(\"user navigates to registration page\")\r\n    public void user_navigates_to_registration_page() {\r\n        Driver.waitAndClick(commonPage.accountMenu);\r\n        Driver.waitAndClick(commonPage.Register);\r\n    }\r\n    @Given(\"user provides the valid {string} of the applicant\")\r\n    public void user_provides_the_valid_of_the_applicant(String snn) {\r\n        Driver.waitAndSendText(registrationPage.ssn, snn);\r\n        Driver.waitAndClick(registrationPage.registrationTitle);\r\n    }\r\n\r\n    @Then(\"should not get any error\")\r\n    public void should_not_get_any_error() {\r\n\r\n    }\r\n\r\n    @Given(\"user provides the invalid {string} of the applicant\")\r\n    public void user_provides_the_invalid_of_the_applicant(String ssn) {\r\n        Driver.waitAndSendText(registrationPage.ssn, ssn);\r\n        Driver.waitAndClick(registrationPage.registrationTitle);\r\n    }\r\n    @Then(\"there should be displayed Your SSN is invalid message\")\r\n    public void there_should_be_displayed_your_ssn_is_invalid_message() {\r\n        assertTrue(registrationPage.invalidSsnFeedback.isDisplayed());\r\n    }\r\n\r\n    @Given(\"user lefts {string} textbox blank\")\r\n    public void user_lefts_textbox_blank(String ssn) {\r\n        Driver.waitAndSendText(registrationPage.ssn, ssn);\r\n        Driver.waitAndClick(registrationPage.registrationTitle);\r\n    }\r\n\r\n    @Given(\"user types some spaces on {string} textbox\")\r\n    public void user_types_some_spaces_on_textbox(String ssn) {\r\n        Driver.waitAndSendText(registrationPage.ssn, ssn);\r\n        Driver.waitAndClick(registrationPage.registrationTitle);\r\n    }\r\n\r\n    @Given(\"user provides the valid first name {string} of the applicant\")\r\n    public void user_provides_the_valid_first_name_of_the_applicant(String firstName) {\r\n        Driver.waitAndSendText(registrationPage.firstName, firstName);\r\n        Driver.waitAndClick(registrationPage.registrationTitle);\r\n    }\r\n\r\n    @Given(\"user lefts first name {string} textbox blank\")\r\n    public void user_lefts_first_name_textbox_blank(String firstName) {\r\n        Driver.waitAndSendText(registrationPage.firstName, firstName);\r\n        Driver.waitAndClick(registrationPage.registrationTitle);\r\n    }\r\n\r\n    @Given(\"user types some spaces on first name {string} textbox\")\r\n    public void user_types_some_spaces_on_first_name_textbox(String firstName) {\r\n        Driver.waitAndSendText(registrationPage.firstName, firstName);\r\n        Driver.waitAndClick(registrationPage.registrationTitle);\r\n    }\r\n\r\n    @Then(\"verify Your FirstName is required. message\")\r\n    public void verify_your_first_name_is_required_message() {\r\n        assertTrue(registrationPage.invalidfeedback.isDisplayed());\r\n    }\r\n\r\n    @Given(\"user provides the valid last Name {string} of the applicant\")\r\n    public void user_provides_the_valid_last_name_of_the_applicant(String lastName) {\r\n        Driver.waitAndSendText(registrationPage.lastName, lastName);\r\n        Driver.waitAndClick(registrationPage.registrationTitle);\r\n    }\r\n\r\n    @Given(\"user lefts last Name {string} textbox blank\")\r\n    public void user_lefts_last_name_textbox_blank(String lastName) {\r\n        Driver.waitAndSendText(registrationPage.lastName, lastName);\r\n        Driver.waitAndClick(registrationPage.registrationTitle);\r\n    }\r\n\r\n    @Given(\"user types some spaces on last Name {string} textbox\")\r\n    public void user_types_some_spaces_on_last_name_textbox(String lastName) {\r\n        Driver.waitAndSendText(registrationPage.lastName, lastName);\r\n        Driver.waitAndClick(registrationPage.registrationTitle);\r\n    }\r\n\r\n    @Then(\"verify Your LastName is required. message\")\r\n    public void verify_your_last_name_is_required_message() {\r\n        assertTrue(registrationPage.invalidfeedback.isDisplayed());\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/stepdefinitions/US_001_StepDef.java b/src/test/java/stepdefinitions/US_001_StepDef.java
+--- a/src/test/java/stepdefinitions/US_001_StepDef.java	(revision ddd42c43c687e0d306511df17e6b6e12eff1a38d)
++++ b/src/test/java/stepdefinitions/US_001_StepDef.java	(date 1646647464385)
+@@ -1,107 +1,107 @@
+-package stepdefinitions;
+-
+-import io.cucumber.java.en.Given;
+-import io.cucumber.java.en.Then;
+-import org.junit.Assert;
+-import org.openqa.selenium.By;
+-import org.openqa.selenium.Keys;
+-import pages.CommonPage;
+-import pages.RegistrationPage;
+-import utilities.ConfigurationReader;
+-import utilities.Driver;
+-
+-import static org.junit.Assert.assertFalse;
+-import static org.junit.Assert.assertTrue;
+-
+-public class US_001_StepDef {
+-    CommonPage commonPage = new CommonPage();
+-    RegistrationPage registrationPage = new RegistrationPage();
+-
+-    @Given("user is on the common page")
+-    public void user_is_on_the_common_page() {
+-        Driver.getDriver().get(ConfigurationReader.getProperty("medunna_login_url"));
+-    }
+-    @Given("user navigates to registration page")
+-    public void user_navigates_to_registration_page() {
+-        Driver.waitAndClick(commonPage.accountMenu);
+-        Driver.waitAndClick(commonPage.Register);
+-    }
+-    @Given("user provides the valid {string} of the applicant")
+-    public void user_provides_the_valid_of_the_applicant(String snn) {
+-        Driver.waitAndSendText(registrationPage.ssn, snn);
+-        Driver.waitAndClick(registrationPage.registrationTitle);
+-    }
+-
+-    @Then("should not get any error")
+-    public void should_not_get_any_error() {
+-
+-    }
+-
+-    @Given("user provides the invalid {string} of the applicant")
+-    public void user_provides_the_invalid_of_the_applicant(String ssn) {
+-        Driver.waitAndSendText(registrationPage.ssn, ssn);
+-        Driver.waitAndClick(registrationPage.registrationTitle);
+-    }
+-    @Then("there should be displayed Your SSN is invalid message")
+-    public void there_should_be_displayed_your_ssn_is_invalid_message() {
+-        assertTrue(registrationPage.invalidSsnFeedback.isDisplayed());
+-    }
+-
+-    @Given("user lefts {string} textbox blank")
+-    public void user_lefts_textbox_blank(String ssn) {
+-        Driver.waitAndSendText(registrationPage.ssn, ssn);
+-        Driver.waitAndClick(registrationPage.registrationTitle);
+-    }
+-
+-    @Given("user types some spaces on {string} textbox")
+-    public void user_types_some_spaces_on_textbox(String ssn) {
+-        Driver.waitAndSendText(registrationPage.ssn, ssn);
+-        Driver.waitAndClick(registrationPage.registrationTitle);
+-    }
+-
+-    @Given("user provides the valid first name {string} of the applicant")
+-    public void user_provides_the_valid_first_name_of_the_applicant(String firstName) {
+-        Driver.waitAndSendText(registrationPage.firstName, firstName);
+-        Driver.waitAndClick(registrationPage.registrationTitle);
+-    }
+-
+-    @Given("user lefts first name {string} textbox blank")
+-    public void user_lefts_first_name_textbox_blank(String firstName) {
+-        Driver.waitAndSendText(registrationPage.firstName, firstName);
+-        Driver.waitAndClick(registrationPage.registrationTitle);
+-    }
+-
+-    @Given("user types some spaces on first name {string} textbox")
+-    public void user_types_some_spaces_on_first_name_textbox(String firstName) {
+-        Driver.waitAndSendText(registrationPage.firstName, firstName);
+-        Driver.waitAndClick(registrationPage.registrationTitle);
+-    }
+-
+-    @Then("verify Your FirstName is required. message")
+-    public void verify_your_first_name_is_required_message() {
+-        assertTrue(registrationPage.invalidfeedback.isDisplayed());
+-    }
+-
+-    @Given("user provides the valid last Name {string} of the applicant")
+-    public void user_provides_the_valid_last_name_of_the_applicant(String lastName) {
+-        Driver.waitAndSendText(registrationPage.lastName, lastName);
+-        Driver.waitAndClick(registrationPage.registrationTitle);
+-    }
+-
+-    @Given("user lefts last Name {string} textbox blank")
+-    public void user_lefts_last_name_textbox_blank(String lastName) {
+-        Driver.waitAndSendText(registrationPage.lastName, lastName);
+-        Driver.waitAndClick(registrationPage.registrationTitle);
+-    }
+-
+-    @Given("user types some spaces on last Name {string} textbox")
+-    public void user_types_some_spaces_on_last_name_textbox(String lastName) {
+-        Driver.waitAndSendText(registrationPage.lastName, lastName);
+-        Driver.waitAndClick(registrationPage.registrationTitle);
+-    }
+-
+-    @Then("verify Your LastName is required. message")
+-    public void verify_your_last_name_is_required_message() {
+-        assertTrue(registrationPage.invalidfeedback.isDisplayed());
+-    }
+-}
++//package stepdefinitions;
++//
++//import io.cucumber.java.en.Given;
++//import io.cucumber.java.en.Then;
++//import org.junit.Assert;
++//import org.openqa.selenium.By;
++//import org.openqa.selenium.Keys;
++//import pages.CommonPage;
++//import pages.RegistrationPage;
++//import utilities.ConfigurationReader;
++//import utilities.Driver;
++//
++//import static org.junit.Assert.assertFalse;
++//import static org.junit.Assert.assertTrue;
++//
++//public class US_001_StepDef {
++//    CommonPage commonPage = new CommonPage();
++//    RegistrationPage registrationPage = new RegistrationPage();
++//
++//    @Given("user is on the common page")
++//    public void user_is_on_the_common_page() {
++//        Driver.getDriver().get(ConfigurationReader.getProperty("medunna_login_url"));
++//    }
++//    @Given("user navigates to registration page")
++//    public void user_navigates_to_registration_page() {
++//        Driver.waitAndClick(commonPage.accountMenu);
++//        Driver.waitAndClick(commonPage.Register);
++//    }
++//    @Given("user provides the valid {string} of the applicant")
++//    public void user_provides_the_valid_of_the_applicant(String snn) {
++//        Driver.waitAndSendText(registrationPage.ssn, snn);
++//        Driver.waitAndClick(registrationPage.registrationTitle);
++//    }
++//
++//    @Then("should not get any error")
++//    public void should_not_get_any_error() {
++//
++//    }
++//
++//    @Given("user provides the invalid {string} of the applicant")
++//    public void user_provides_the_invalid_of_the_applicant(String ssn) {
++//        Driver.waitAndSendText(registrationPage.ssn, ssn);
++//        Driver.waitAndClick(registrationPage.registrationTitle);
++//    }
++//    @Then("there should be displayed Your SSN is invalid message")
++//    public void there_should_be_displayed_your_ssn_is_invalid_message() {
++//        assertTrue(registrationPage.invalidSsnFeedback.isDisplayed());
++//    }
++//
++//    @Given("user lefts {string} textbox blank")
++//    public void user_lefts_textbox_blank(String ssn) {
++//        Driver.waitAndSendText(registrationPage.ssn, ssn);
++//        Driver.waitAndClick(registrationPage.registrationTitle);
++//    }
++//
++//    @Given("user types some spaces on {string} textbox")
++//    public void user_types_some_spaces_on_textbox(String ssn) {
++//        Driver.waitAndSendText(registrationPage.ssn, ssn);
++//        Driver.waitAndClick(registrationPage.registrationTitle);
++//    }
++//
++//    @Given("user provides the valid first name {string} of the applicant")
++//    public void user_provides_the_valid_first_name_of_the_applicant(String firstName) {
++//        Driver.waitAndSendText(registrationPage.firstName, firstName);
++//        Driver.waitAndClick(registrationPage.registrationTitle);
++//    }
++//
++//    @Given("user lefts first name {string} textbox blank")
++//    public void user_lefts_first_name_textbox_blank(String firstName) {
++//        Driver.waitAndSendText(registrationPage.firstName, firstName);
++//        Driver.waitAndClick(registrationPage.registrationTitle);
++//    }
++//
++//    @Given("user types some spaces on first name {string} textbox")
++//    public void user_types_some_spaces_on_first_name_textbox(String firstName) {
++//        Driver.waitAndSendText(registrationPage.firstName, firstName);
++//        Driver.waitAndClick(registrationPage.registrationTitle);
++//    }
++//
++//    @Then("verify Your FirstName is required. message")
++//    public void verify_your_first_name_is_required_message() {
++//        assertTrue(registrationPage.invalidfeedback.isDisplayed());
++//    }
++//
++//    @Given("user provides the valid last Name {string} of the applicant")
++//    public void user_provides_the_valid_last_name_of_the_applicant(String lastName) {
++//        Driver.waitAndSendText(registrationPage.lastName, lastName);
++//        Driver.waitAndClick(registrationPage.registrationTitle);
++//    }
++//
++//    @Given("user lefts last Name {string} textbox blank")
++//    public void user_lefts_last_name_textbox_blank(String lastName) {
++//        Driver.waitAndSendText(registrationPage.lastName, lastName);
++//        Driver.waitAndClick(registrationPage.registrationTitle);
++//    }
++//
++//    @Given("user types some spaces on last Name {string} textbox")
++//    public void user_types_some_spaces_on_last_name_textbox(String lastName) {
++//        Driver.waitAndSendText(registrationPage.lastName, lastName);
++//        Driver.waitAndClick(registrationPage.registrationTitle);
++//    }
++//
++//    @Then("verify Your LastName is required. message")
++//    public void verify_your_last_name_is_required_message() {
++//        assertTrue(registrationPage.invalidfeedback.isDisplayed());
++//    }
++//}
+Index: src/test/resources/features/DBFeatures/RegistrantDB/RegistrantDB.feature
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/resources/features/DBFeatures/RegistrantDB/RegistrantDB.feature b/src/test/resources/features/DBFeatures/RegistrantDB/RegistrantDB.feature
+new file mode 100644
+--- /dev/null	(date 1647192621394)
++++ b/src/test/resources/features/DBFeatures/RegistrantDB/RegistrantDB.feature	(date 1647192621394)
+@@ -0,0 +1,17 @@
++Feature: DB Registrants tests
++
++
++
++
++  Background: db connection set up
++    Given user creates a connection with DB using "jdbc:postgresql://medunna.com:5432/medunna_db" and "medunna_user" , "Medunnadb_@129"
++
++  @DBTest
++  Scenario Outline: db validations
++    Given user sends the query to DB and gets the column data "<query>" and "<columnName>"
++    And user saves the data records to correspondent files
++    Then user validates DB Registrant data
++
++    Examples: test data
++    |query|columnName|
++    |Select * from jhi_user|ssn|
+Index: src/test/java/pages/CommonPage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package pages;\r\n\r\nimport org.openqa.selenium.WebElement;\r\nimport org.openqa.selenium.support.FindBy;\r\nimport org.openqa.selenium.support.PageFactory;\r\nimport utilities.Driver;\r\n\r\nimport java.nio.file.WatchEvent;\r\n\r\npublic class CommonPage {\r\n\r\n    public CommonPage(){\r\n        PageFactory.initElements(Driver.getDriver(), this);\r\n    }\r\n\r\n    @FindBy(xpath = \"//li[@id='account-menu']\")\r\n    public WebElement accountMenu;\r\n\r\n    @FindBy(xpath = \"(//*[@class='dropdown-item'])[1]\")\r\n    public WebElement signIn;\r\n\r\n    @FindBy(xpath = \"(//*[@class='dropdown-item'])[2]\")\r\n    public WebElement Register;\r\n\r\n    @FindBy(xpath = \"//*[@id='ssn']\")\r\n    public WebElement ssn;\r\n\r\n    @FindBy(xpath = \"//*[@id='email']\")\r\n    public WebElement email;\r\n\r\n    @FindBy(xpath = \"//*[@id='phone']\")\r\n    public WebElement phone;\r\n\r\n    @FindBy(xpath = \"//*[@id='appoDate']\")\r\n    public WebElement appointmentDate;\r\n\r\n    @FindBy(xpath = \"//*[@id='register-submit']\")\r\n    public WebElement sendAppointment;\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/pages/CommonPage.java b/src/test/java/pages/CommonPage.java
+--- a/src/test/java/pages/CommonPage.java	(revision ddd42c43c687e0d306511df17e6b6e12eff1a38d)
++++ b/src/test/java/pages/CommonPage.java	(date 1646741520819)
+@@ -36,4 +36,11 @@
+ 
+     @FindBy(xpath = "//*[@id='register-submit']")
+     public WebElement sendAppointment;
++
++    @FindBy(xpath = "//*[@id='entity-menu']")
++    public WebElement ItemsOrTitles;
++
++    @FindBy(xpath = "(//*[.='Appointment']) [1]")
++    public WebElement Appointment;
++
+ }
+Index: src/test/java/stepdefinitions/dbsteps/RegistrantDBSteps.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/stepdefinitions/dbsteps/RegistrantDBSteps.java b/src/test/java/stepdefinitions/dbsteps/RegistrantDBSteps.java
+new file mode 100644
+--- /dev/null	(date 1647200610063)
++++ b/src/test/java/stepdefinitions/dbsteps/RegistrantDBSteps.java	(date 1647200610063)
+@@ -0,0 +1,36 @@
++package stepdefinitions.dbsteps;
++
++import io.cucumber.java.en.Given;
++import io.cucumber.java.en.Then;
++import org.junit.Assert;
++import utilities.DatabaseUtility;
++import java.util.ArrayList;
++import java.util.List;
++import static utilities.DatabaseUtility.createConnection;
++import static utilities.ReadTxt.getSSNIDs;
++import static utilities.WriteToTxt.saveRegistrantData;
++
++public class RegistrantDBSteps {
++    List< Object> allDBSSNs;
++    @Given("user creates a connection with DB using {string} and {string} , {string}")
++    public void user_creates_a_connection_with_db_using_and(String url, String username, String password) {
++        DatabaseUtility.createConnection(url, username,password);
++    }
++    @Given("user sends the query to DB and gets the column data {string} and {string}")
++    public void user_sends_the_query_to_db_and_gets_the_column_data_and(String query, String columnName) {
++        allDBSSNs = DatabaseUtility.getColumnData(query, columnName);
++        System.out.println(allDBSSNs);
++    }
++    @Given("user saves the DB records to correspondent files")
++    public void user_saves_the_db_records_to_correspondent_files() {
++        saveRegistrantData(allDBSSNs);
++    }
++    @Then("user validates DB Registrant data")
++    public void user_validates_db_registrant_data() {
++        List<String> expectedSSNIDs = new ArrayList<>();
++        expectedSSNIDs.add("662-32-9756");
++        expectedSSNIDs.add("369-93-5260");
++        List<String> actualData = getSSNIDs();//All records
++        Assert.assertTrue(actualData.containsAll(expectedSSNIDs));
++    }
++}
+Index: src/test/java/utilities/ReadTxt.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/utilities/ReadTxt.java b/src/test/java/utilities/ReadTxt.java
+new file mode 100644
+--- /dev/null	(date 1647199164931)
++++ b/src/test/java/utilities/ReadTxt.java	(date 1647199164931)
+@@ -0,0 +1,57 @@
++package utilities;
++
++import java.io.BufferedReader;
++import java.io.FileReader;
++import java.util.ArrayList;
++import java.util.List;
++
++public class ReadTxt {
++
++
++
++    public static List<String> getSSNIDs(){
++        List <String > list = new ArrayList<>();
++
++
++        try{
++            //identify file location
++            FileReader fileReader = new FileReader(ConfigurationReader.getProperty("database_registrant_data"));
++            //Read the records of the file in given location
++            BufferedReader br = new BufferedReader(fileReader);
++
++            String line = br.readLine();//856-45-6789,
++
++            while(line != null){
++
++                String ssn = line.split(",")[0];
++                list.add(ssn);
++
++                line = br.readLine();
++
++            }
++
++
++
++
++
++
++
++
++        }catch (Exception e){
++
++            e.printStackTrace();
++
++        }
++
++
++
++
++
++        return list;
++    }
++
++
++
++
++
++}
+Index: src/test/resources/features/UIFeatures/EndToEnd.feature
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/resources/features/UIFeatures/EndToEnd.feature b/src/test/resources/features/UIFeatures/EndToEnd.feature
+new file mode 100644
+--- /dev/null	(date 1647200429223)
++++ b/src/test/resources/features/UIFeatures/EndToEnd.feature	(date 1647200429223)
+@@ -0,0 +1,19 @@
++Feature: End To End test
++
++
++  @EndToEnd
++    @UIRegistration
++  Scenario Outline: test registration
++    Given user provides ssn id "<SSN>"
++    And  user provides firstname and lastname "<firstname>" and "<lastname>"
++    Then user creates username "<username>"
++    And user provides also email "<email>"
++    And user generates the password "<password>"
++    And user registers and validates
++    Then user creates the records to a correspondent file
++    Given user sends the query to DB and gets the column data "<query>" and "<columnName>"
++    And user saves the DB records to correspondent files
++    And user gets DB records and validates the ssn
++    Examples: test data
++      |SSN|firstname|lastname|username|email|password|query|columnName|
++      |384-37-3827|Irfan|Pishkin|irfanpish|irfan@gmail.com|asdfA123.|Select * from jhi_user|ssn|
+Index: src/test/java/pages/RegistrationPage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package pages;\r\n\r\nimport org.openqa.selenium.WebElement;\r\nimport org.openqa.selenium.devtools.v85.page.Page;\r\nimport org.openqa.selenium.support.FindBy;\r\nimport org.openqa.selenium.support.PageFactory;\r\nimport utilities.Driver;\r\n\r\npublic class RegistrationPage {\r\n    public RegistrationPage(){\r\n        PageFactory.initElements(Driver.getDriver(), this);\r\n    }\r\n\r\n    @FindBy(xpath = \"//*[@name='ssn']\")\r\n    public WebElement ssn;\r\n\r\n    @FindBy(xpath = \"//*[@name='firstName']\")\r\n    public WebElement firstName;\r\n\r\n    @FindBy(xpath = \"//*[@name='lastName']\")\r\n    public WebElement lastName;\r\n\r\n    @FindBy(xpath = \"//*[@name='username']\")\r\n    public WebElement username;\r\n\r\n    @FindBy(xpath = \"//*[@name='email']\")\r\n    public WebElement email;\r\n\r\n    @FindBy(xpath = \"//*[@name='firstPassword']\")\r\n    public WebElement firstPassword;\r\n\r\n    @FindBy(xpath = \"//*[@name='secondPassword']\")\r\n    public WebElement secondPassword;\r\n\r\n    @FindBy(xpath = \"//*[@id='strengthBar']\")\r\n    public WebElement strengthBar;\r\n\r\n    @FindBy(xpath = \"(//*[@class='point'])[1]\")\r\n    public WebElement strengthPoint1;\r\n\r\n    @FindBy(xpath = \"(//*[@class='point'])[2]\")\r\n    public WebElement strengthPoint2;\r\n\r\n    @FindBy(xpath = \"(//*[@class='point'])[3]\")\r\n    public WebElement strengthPoint3;\r\n\r\n    @FindBy(xpath = \"(//*[@class='point'])[4]\")\r\n    public WebElement strengthPoint4;\r\n\r\n    @FindBy(xpath = \"(//*[@class='point'])[5]\")\r\n    public WebElement strengthPoint5;\r\n\r\n    @FindBy(xpath = \"//*[@id='register-submit']\")\r\n    public WebElement registerButton;\r\n\r\n    @FindBy(xpath = \"//*[@id='register-title']\")\r\n    public WebElement registrationTitle;\r\n\r\n    @FindBy(xpath = \"(//*[@class='invalid-feedback'])[1]\")\r\n    public WebElement invalidSsnFeedback;\r\n\r\n    @FindBy(xpath = \"//*[@class='invalid-feedback']\")\r\n    public WebElement invalidfeedback;\r\n\r\n    @FindBy(xpath = \"(//*[@class='invalid-feedback'])[2]\")\r\n    public WebElement invalidFirstNameFeedback;\r\n\r\n    @FindBy(xpath = \"(//*[@class='invalid-feedback'])[3]\")\r\n    public WebElement invalidLastNameFeedback;\r\n\r\n    @FindBy(xpath = \"(//*[@class='invalid-feedback'])[4]\")\r\n    public WebElement invalidUsernameFeedback;\r\n\r\n    @FindBy(xpath = \"(//*[@class='invalid-feedback'])[5]\")\r\n    public WebElement invalidEmailFeedback;\r\n\r\n    @FindBy(xpath = \"(//*[@class='invalid-feedback'])[6]\")\r\n    public WebElement invalidPassword1Feedback;\r\n\r\n    @FindBy(xpath = \"(//*[@class='invalid-feedback'])[7]\")\r\n    public WebElement invalidPassword2Feedback;\r\n\r\n    @FindBy(xpath = \"(//*[@class='invalid-feedback'])[6]\")\r\n    public WebElement invalidPasswordFeedback;\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/pages/RegistrationPage.java b/src/test/java/pages/RegistrationPage.java
+--- a/src/test/java/pages/RegistrationPage.java	(revision ddd42c43c687e0d306511df17e6b6e12eff1a38d)
++++ b/src/test/java/pages/RegistrationPage.java	(date 1646739514752)
+@@ -7,6 +7,7 @@
+ import utilities.Driver;
+ 
+ public class RegistrationPage {
++
+     public RegistrationPage(){
+         PageFactory.initElements(Driver.getDriver(), this);
+     }
+@@ -15,10 +16,10 @@
+     public WebElement ssn;
+ 
+     @FindBy(xpath = "//*[@name='firstName']")
+-    public WebElement firstName;
++    public WebElement firstname;
+ 
+     @FindBy(xpath = "//*[@name='lastName']")
+-    public WebElement lastName;
++    public WebElement lastname;
+ 
+     @FindBy(xpath = "//*[@name='username']")
+     public WebElement username;
+@@ -82,4 +83,20 @@
+ 
+     @FindBy(xpath = "(//*[@class='invalid-feedback'])[6]")
+     public WebElement invalidPasswordFeedback;
++
++    @FindBy(xpath = "//*[contains(text()='Registration Saved!')]")
++    public WebElement successMessageToastContainer;
++
++    @FindBy(xpath = "//*[@id='strengthBar']/li[contains(@style,'rgb(255, 0, 0)')]")
++    public WebElement passwordStrength1;
++
++    @FindBy(xpath = "//*[@id='strengthBar']/li[contains(@style,'rgb(255, 153, 0)')]")
++    public WebElement passwordStrength2;
++
++    @FindBy(xpath = "//*[@id='strengthBar']/li[contains(@style,'rgb(153, 255, 0)')]")
++    public WebElement passwordStrength3;
++
++    @FindBy(xpath = "//*[@id='strengthBar']/li[contains(@style,'rgb(0, 255, 0)')]")
++    public WebElement passwordStrength4;
++
+ }
+diff --git a/src/test/resources/testdata/AppointmentData.txt b/src/test/resources/testdata/AppointmentData.txt
+new file mode 100644
+diff --git a/src/test/resources/testdata/Medunna.txt b/src/test/resources/testdata/Medunna.txt
+new file mode 100644

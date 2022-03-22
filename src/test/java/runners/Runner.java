@@ -16,7 +16,7 @@ import org.junit.runner.RunWith;
         },
         features = "./src/test/resources/features",
         glue = {"stepdefinitions", "Hooks"},
-        tags = "@ApiTestItemDelete",
+        tags = "@staff_view_test_result",
         dryRun = false
 )
 

@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="15.743">
-<testcase classname="User login" name="Verifying user login with correct username and password" time="15.246">
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="25.327">
+<testcase classname="Staff can edit patient appointment" name="Staff can edit appointment with unapproved status" time="24.725">
 <system-out><![CDATA[When User navigates to the home page........................................passed
-And user clicks sign in button at the home page and navigates to sign in page.passed
-Then user verifies that sign in page header is visible......................passed
-And user enters username "hazel" and password "13579".......................passed
-And user clicks sign in button..............................................passed
-Then user verifies that sign in is successful...............................passed
-And user clicks sign out and verifies sign out..............................passed
+And user signs in as staff providing "hazel" "13579"........................passed
+When user clicks my pages...................................................passed
+And user clicks search patient..............................................passed
+And user provides a valid ssn number into search box........................passed
+And user click show appointments button.....................................passed
+Then user verifies appointments page header.................................passed
+And user clicks show tests for the given patient............................passed
+And user clicks view tests..................................................passed
+Then user verifies that test results are visible............................passed
 ]]></system-out>
 </testcase>
 </testsuite>
