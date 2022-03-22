@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
@@ -54,22 +55,31 @@ public class RoomReservedSteps {
         view.toDateTextBox.sendKeys(todate);
     }
     @When("user clicks on the edit button")
-        public void user_clicks_on_the_edit_button() {
-           Driver.waitAndClick(roomReservedPage.editButton,5);
-           roomReservedPage.editButton.click();
+    public void user_clicks_on_the_edit_button() {
+        Driver.waitAndClick(roomReservedPage.editButton,5);
+        roomReservedPage.editButton.click();
 
         }
-        @When("user provides room number {string} in room TextBox")
-        public void user_provides_room_number_in_room_text_box(String roomnumber) {
-           Driver.wait(3);
-
-        }
-        @Then("user clicks on the save button")
-        public void user_clicks_on_the_save_button() {
-           Driver.waitAndClick(roomReservedPage.saveButton,5);
-           roomReservedPage.saveButton.click();
-
-        }
-
+    @And("user selects room number {string} in room TextBox")
+    public void userSelectsRoomNumberInRoomTextBox(String room) {
+        Driver.wait(5);
+        Driver.selectByIndex(roomReservedPage.roomTextBox,1);
+          roomReservedPage.roomTextBox.isSelected();
+      }
+    @And ("user clicks roomtextbox")
+    public void userClicksRoomtextbox() {
+        Driver.waitAndClick(roomReservedPage.roomTextBox,5);
+        roomReservedPage.roomTextBox.click();
     }
+
+    @Then("user clicks on the save button")
+    public void user_clicks_on_the_save_button() {
+        Driver.waitAndClick(roomReservedPage.saveButton,5);
+        roomReservedPage.saveButton.click();
+
+        }
+
+
+
+}
 

@@ -1,6 +1,6 @@
-@View_and_update_by_doctor
+@View_by_doctor
 Feature: View by doctor
-  @View_and_update_by_doctor
+  @View_by_doctor
   Scenario Outline:TC_001 user views all information
     When user navigates to the home page
     And user clicks sign in button at the home page and navigates to sign in page
@@ -11,10 +11,7 @@ Feature: View by doctor
     Then user clicks my Inpatients dropdown
     And user verifies Inpatients page
     And user provides from date "<fromdate>" and to date "<todate>"
-    And user views all patient info
-    Then user clicks edit button in the patient page
-    And user can update all patient informations
-    Then user clicks save button in create or edit a in patients page
+    And user views id number and all patient info
 
       Examples: test data
       |username     |password|fromdate  |todate   |

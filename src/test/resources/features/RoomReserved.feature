@@ -2,20 +2,22 @@
   Feature: Room reserved by doctor
     @Room_reserved
     Scenario Outline: TC_003 room reserved by doctor
-    When user navigates to the medunna home page
-    And user clicks sign in icon above the registration icon and navigates to sign in page
-      And user enters user name "<username>" and password "<password>"
-    And user clicks on Sign in button
-    And user verifies the home page
-    And user clicks my page icon
-    And user clicks my InPatient icon
-    And user verifies to InPatients page
-    And user provıdes from date "<fromdate>" and to date "<todate>" in date text boxes
-    And user clicks on the edit button
-    And user provides room number "<roomnumber>" in room TextBox
-    Then user clicks on the save button
+      When User navigates to the home page
+      And user clicks sign in button at the home page and navigates to sign in page
+      Then user verifies that sign in page header is visible
+      And user enters username "<username>" and password "<password>"
+      And user clicks sign in button
+      Then user verifies that sign in is successful
+      And user clicks my pages dropdown
+      Then user clicks my Inpatients dropdown
+      And user verifies Inpatients page
+      And user provides from date "<fromdate>" and to date "<todate>"
+      Then user clicks edit button
+      And user clicks roomtextbox
+      And user selects room number "<902>" in room TextBox
+      Then user clicks on the save button
 
 
       Examples: test data
         |username     |password |fromdate  |todate    |roomnumber |
-        |arifcanpol135|!2qweASD |14-03-2022|25-03-2022|256        |
+        |arifcanpol135|!2qweASD |01-03-2022|15-03-2022|902       |

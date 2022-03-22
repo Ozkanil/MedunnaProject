@@ -11,9 +11,9 @@ import utilities.Driver;
 
 public class UpdateSteps {
 
-    //StatusPage statusPage = new StatusPage();
+
     UpdatePage updatePage = new UpdatePage();
-    //ViewByDoctorPage view = new ViewByDoctorPage();
+
 
     @When("user click sign in button at the home page and navigates to sign in page")
     public void user_click_sign_in_button_at_the_home_page_and_navigates_to_sign_in_page() {
@@ -25,7 +25,7 @@ public class UpdateSteps {
     public void userVerifyThatSignInTextIsVisible() {
 
     }
-        @When("user enters user name {string} and password {string}")
+    @When("user enters user name {string} and password {string}")
     public void user_enters_user_name_and_password(String username , String password)  {
         updatePage.username.clear();
         Driver.waitAndSendText(updatePage.username,username);
@@ -44,15 +44,21 @@ public class UpdateSteps {
     }
     @Then("user schould see and verify all patient information")
     public void userSchouldSeeAndVerifyAllPatientInformation() {
+        Driver.wait(5);
     }
-    @Then("user provides staying {string}")
-    public void user_provides_staying(String status) {
+
+    @And("user clicks status textbox")
+    public void userClicksStatusTextbox() {
+        Driver.waitAndClick(updatePage.statusTextBox,5);
+        updatePage.statusTextBox.click();
+    }
+
+    @And("user selects cancelled choice from status")
+    public void userSelectsCancelledChoiceFromStatus() {
         Driver.waitForVisibility(updatePage.statusTextBox,5);
-
+        Driver.selectByIndex(updatePage.statusTextBox,3);
     }
-
-
-    }
+}
 
 
 
