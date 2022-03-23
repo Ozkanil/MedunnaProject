@@ -22,6 +22,7 @@ Feature: Edit test results
     And user sends value to result box and  description box
     Then user clicks save button and verifies update message
 
+
     Examples: login data
       | username   | password |
       | staffrecep | 123Recep |
