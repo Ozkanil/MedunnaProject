@@ -42,22 +42,30 @@ public class US20_userManagement {
     }
     @Given("clicks user management")
     public void clicks_user_management() {
-        Driver.waitAndClick(patient.PatientDropDown);
+        Driver.waitAndClick(userManagementPage.dropAdministration);
+        Driver.waitAndClick(userManagementPage.dropUserManagement);
+
+
 
     }
     @Given("navigates and clicks the view button of the first user")
     public void navigates_and_clicks_the_view_button_of_the_first_user() {
-       String firstUserLogin= Driver.waitAndGetText(userManagementPage.firstUserLoginName,2);
-       Driver.waitAndClick(userManagementPage.firstUserLoginNameViewButton,2);
-       String firstUserLoginNameView= Driver.waitAndGetText(userManagementPage.firstUserLoginNameView,2);
+       //String firstUserLogin= Driver.waitAndGetText(userManagementPage.firstUserLoginName,2);
 
-        assert firstUserLogin != null;
-        assertTrue(firstUserLogin.equals(firstUserLoginNameView));
+        //System.out.println(firstUserLogin);
+       Driver.waitAndClick(userManagementPage.firstUserLoginNameViewButton,2);
+       //String firstUserLoginNameView= Driver.waitAndGetText(userManagementPage.firstUserLoginNameView,2);
+       // String firstUserLoginNameView= Driver.waitAndGetText(userManagementPage.firstUserLoginNameView,2);
+       // System.out.println(firstUserLoginNameView);
+//Driver.selectByVisibleText(,"User");
+
+
+
 
     }
     @Given("verifies that the registered user info is visible")
     public void verifies_that_the_registered_user_info_is_visible() {
-
+        Driver.waitForVisibility(userManagementPage.userVievTitle,2);
 
     }
     @Then("user signs out")
@@ -71,42 +79,55 @@ public class US20_userManagement {
 
     @And("navigates and clicks on the create a new user button")
     public void navigatesAndClicksOnTheCreateANewUserButton() {
+        Driver.waitAndClick(userManagementPage.navigateToNewUser);
     }
 
     @And("clicks login box and provides a login")
     public void clicksLoginBoxAndProvidesALogin() {
+        Driver.waitAndSendText(userManagementPage.newUserLoginTxt,"userAli");
+
     }
 
     @And("clicks the first name box and provides the first name")
     public void clicksTheFirstNameBoxAndProvidesTheFirstName() {
+        Driver.waitAndSendText(userManagementPage.newUserFirstNameTxt,"Ali");
     }
 
     @And("clicks the last name box and provides the last name")
     public void clicksTheLastNameBoxAndProvidesTheLastName() {
+        Driver.waitAndSendText(userManagementPage.newUserlastNameTxt,"Veli");
     }
 
     @And("clicks the email box and provides the email")
     public void clicksTheEmailBoxAndProvidesTheEmail() {
+          Driver.waitAndSendText(userManagementPage.newUseremailTxt,"ali@veli.com");
     }
 
     @And("clicks on the SSN box and provides a valid SSN")
     public void clicksOnTheSSNBoxAndProvidesAValidSSN() {
+        Driver.waitAndSendText(userManagementPage.newUserSnnTxt,"333-22-4444");
+
     }
 
     @And("clicks on the language dropdown and selects english")
     public void clicksOnTheLanguageDropdownAndSelectsEnglish() {
+        Driver.selectAnItemFromDropdown(userManagementPage.newUserDropDownLanguage,"English");
+
     }
 
     @And("selects Role_Staff in profiles")
     public void selectsRole_StaffInProfiles() {
+        Driver.selectAnItemFromDropdown(userManagementPage.newUserDropDownLanguage,"ROLE_STAFF");
     }
 
     @And("clicks save button then click last page button")
     public void clicksSaveButtonThenClickLastPageButton() {
+        Driver.waitAndClick(userManagementPage.newUserSaveButton);
     }
 
     @And("on the last page edits the last user as a patient role and saves")
     public void onTheLastPageEditsTheLastUserAsAPatientRoleAndSaves() {
+
     }
 
     @And("deletes the patient that has just been edited")

@@ -1,6 +1,6 @@
 @User_Management_UI
 Feature: user management
-
+  @Admin_view_users
   Scenario Outline:
 
     Given user in on the medunna home page
