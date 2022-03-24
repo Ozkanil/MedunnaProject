@@ -6,7 +6,7 @@ import org.junit.*;
 import pages.*;
 import pojos.*;
 import utilities.*;
-import static utilities.WriteToTxt.savePhysicianData;
+
 public class AdminCreatePhysicianSteps {
 
     Physician physician = new Physician();
