@@ -1,0 +1,19 @@
+Index: src/test/java/runners/Runner.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package runners;\nimport io.cucumber.junit.Cucumber;\nimport io.cucumber.junit.CucumberOptions;\nimport org.junit.runner.RunWith;\n @RunWith(Cucumber.class)\n @CucumberOptions(\n        plugin = {\n                \"pretty\",\n                \"html:target/default-cucumber-reports.html\",\n                \"json:target/json-reports/cucumber.json\",\n                \"junit:target/xml-report/cucumber.xml\",\n                \"rerun:target/failedRerun.txt\"\n        },\n        features = \"./src/test/resources/features\",\n        glue = {\"stepdefinitions\",\"Hooks\"},\n        tags = \"@setting_homepage\",\n        dryRun = false\n)\npublic class Runner {\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/runners/Runner.java b/src/test/java/runners/Runner.java
+--- a/src/test/java/runners/Runner.java	
++++ b/src/test/java/runners/Runner.java	
+@@ -13,7 +13,7 @@
+         },
+         features = "./src/test/resources/features",
+         glue = {"stepdefinitions","Hooks"},
+-        tags = "@setting_homepage",
++        tags = "@edit_info",
+         dryRun = false
+ )
+ public class Runner {

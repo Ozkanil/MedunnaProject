@@ -1,0 +1,54 @@
+Index: src/test/java/stepdefinitions/MyAppointmentsStepdefs.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package stepdefinitions;\n\nimport io.cucumber.java.en.And;\nimport io.cucumber.java.en.Given;\nimport io.cucumber.java.en.Then;\nimport io.cucumber.java.en.When;\nimport org.junit.Assert;\nimport org.openqa.selenium.WebDriver;\nimport pages.CommonPage;\nimport pages.MyAppointmentPageAsDoctor;\nimport pages.SignInPage;\nimport utilities.ConfigurationReader;\nimport utilities.Driver;\n\nimport java.time.Duration;\n\npublic class MyAppointmentsStepdefs {\n    WebDriver driver;\n    CommonPage commonPage=new CommonPage();\n    SignInPage signInPage=new SignInPage();\n    MyAppointmentPageAsDoctor myAppointmentPageAsDoctor=new MyAppointmentPageAsDoctor();\n    @Given(\"user sign in as a {string}\")\n    public void userSignInAsA(String arg0) {\n        Driver.getDriver().get(ConfigurationReader.getProperty(\"medunna_sign_in_url\"));\n        switch (arg0){\n            case \"doctor\":\n                Driver.waitAndSendText(signInPage.username,ConfigurationReader.getProperty(\"doctor_username\"));\n                Driver.waitAndSendText(signInPage.password,ConfigurationReader.getProperty(\"doctor_password\"));\n                Driver.waitAndClick(signInPage.singInButton);\n                Driver.waitAndClick(myAppointmentPageAsDoctor.myPagesDropdown);\n                Assert.assertTrue(myAppointmentPageAsDoctor.myAppointment.isDisplayed());\n                Driver.waitAndClick(myAppointmentPageAsDoctor.myPagesDropdown);\n                break;\n            case \"admin\":\n                Driver.waitAndSendText(signInPage.username,ConfigurationReader.getProperty(\"admin_username\"));\n                Driver.waitAndSendText(signInPage.password,ConfigurationReader.getProperty(\"admin_password\"));\n                Driver.waitAndClick(signInPage.singInButton);\n                break;\n            case \"patient\":\n                Driver.waitAndSendText(signInPage.username,ConfigurationReader.getProperty(\"patient_username\"));\n                Driver.waitAndSendText(signInPage.password,ConfigurationReader.getProperty(\"patient_password\"));\n                Driver.waitAndClick(signInPage.singInButton);\n                Driver.waitAndClick(myAppointmentPageAsDoctor.myPagesDropdown);\n                break;\n            case \"staff\":\n                Driver.waitAndSendText(signInPage.username,ConfigurationReader.getProperty(\"staff_username\"));\n                Driver.waitAndSendText(signInPage.password,ConfigurationReader.getProperty(\"staff_password\"));\n                Driver.waitAndClick(signInPage.singInButton);\n                break;\n            case \"user\":\n                Driver.waitAndSendText(signInPage.username,ConfigurationReader.getProperty(\"user_username\"));\n                Driver.waitAndSendText(signInPage.password,ConfigurationReader.getProperty(\"user_password\"));\n                Driver.waitAndClick(signInPage.singInButton);\n                break;\n            default:\n                System.out.println(\"No such user found\");\n                break;\n\n    }\n\n    }\n\n    @And(\"user clicks on the MY PAGES dropdown\")\n    public void userClicksOnTheMYPAGESDropdown() {\n        Driver.waitAndClick(myAppointmentPageAsDoctor.myPagesDropdown);\n    }\n\n    @And(\"user selects My Appointments item and clicks\")\n    public void userSelectsMyAppointmentsItemAndClicks() {\n        Driver.waitAndClick(myAppointmentPageAsDoctor.myAppointment);\n    }\n\n    @When(\"user on the Appointments page\")\n    public void userOnTheAppointmentsPage() {\n        Driver.waitForVisibility(myAppointmentPageAsDoctor.appointmentHeading,1);\n        Assert.assertTrue(myAppointmentPageAsDoctor.appointmentHeading.isDisplayed());\n    }\n\n    @Then(\"user should see list of appointments and time slots\")\n    public void userShouldSeeListOfAppointmentsAndTimeSlots() {\n        Assert.assertTrue(Driver.waitForVisibility(myAppointmentPageAsDoctor.toDateAppointment,1).isDisplayed());\n        Assert.assertTrue(Driver.waitForVisibility(myAppointmentPageAsDoctor.fromDateAppointment,1).isDisplayed());\n        Assert.assertTrue(Driver.waitForVisibility(myAppointmentPageAsDoctor.allDataOfAppointmentsTable,1).isDisplayed());\n    }\n\n    @Then(\"user should see {string} information of the appointment list\")\n    public void userShouldSeeInformationOfTheAppointmentList(String arg0) {\n        Assert.assertTrue(Driver.waitAndGetText(myAppointmentPageAsDoctor.headersOfAppointmentsTable,1).contains(arg0));\n    }\n\n    @And(\"user selects time slots providing {string} and {string}\")\n    public void userSelectsTimeSlotsProvidingAnd(String arg0, String arg1) {\n        Driver.waitAndSendText(myAppointmentPageAsDoctor.fromDateAppointment, arg0);\n        Driver.waitAndSendText(myAppointmentPageAsDoctor.toDateAppointment, arg1);\n        Driver.wait(1);\n        try {\n            System.out.println(Driver.waitAndGetText(myAppointmentPageAsDoctor.alertMessage,1));\n        } catch (Exception e) {\n        }\n    }\n\n    @Then(\"user cliks on the edit button\")\n    public void userCliksOnTheEditButton() {\n        Driver.waitAndClick(myAppointmentPageAsDoctor.editFirstAppointment);\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/stepdefinitions/MyAppointmentsStepdefs.java b/src/test/java/stepdefinitions/MyAppointmentsStepdefs.java
+--- a/src/test/java/stepdefinitions/MyAppointmentsStepdefs.java	
++++ b/src/test/java/stepdefinitions/MyAppointmentsStepdefs.java	
+@@ -26,7 +26,7 @@
+             case "doctor":
+                 Driver.waitAndSendText(signInPage.username,ConfigurationReader.getProperty("doctor_username"));
+                 Driver.waitAndSendText(signInPage.password,ConfigurationReader.getProperty("doctor_password"));
+-                Driver.waitAndClick(signInPage.singInButton);
++                Driver.waitAndClick(signInPage.signInButton);
+                 Driver.waitAndClick(myAppointmentPageAsDoctor.myPagesDropdown);
+                 Assert.assertTrue(myAppointmentPageAsDoctor.myAppointment.isDisplayed());
+                 Driver.waitAndClick(myAppointmentPageAsDoctor.myPagesDropdown);
+@@ -34,23 +34,23 @@
+             case "admin":
+                 Driver.waitAndSendText(signInPage.username,ConfigurationReader.getProperty("admin_username"));
+                 Driver.waitAndSendText(signInPage.password,ConfigurationReader.getProperty("admin_password"));
+-                Driver.waitAndClick(signInPage.singInButton);
++                Driver.waitAndClick(signInPage.signInButton);
+                 break;
+             case "patient":
+                 Driver.waitAndSendText(signInPage.username,ConfigurationReader.getProperty("patient_username"));
+                 Driver.waitAndSendText(signInPage.password,ConfigurationReader.getProperty("patient_password"));
+-                Driver.waitAndClick(signInPage.singInButton);
++                Driver.waitAndClick(signInPage.signInButton);
+                 Driver.waitAndClick(myAppointmentPageAsDoctor.myPagesDropdown);
+                 break;
+             case "staff":
+                 Driver.waitAndSendText(signInPage.username,ConfigurationReader.getProperty("staff_username"));
+                 Driver.waitAndSendText(signInPage.password,ConfigurationReader.getProperty("staff_password"));
+-                Driver.waitAndClick(signInPage.singInButton);
++                Driver.waitAndClick(signInPage.signInButton);
+                 break;
+             case "user":
+                 Driver.waitAndSendText(signInPage.username,ConfigurationReader.getProperty("user_username"));
+                 Driver.waitAndSendText(signInPage.password,ConfigurationReader.getProperty("user_password"));
+-                Driver.waitAndClick(signInPage.singInButton);
++                Driver.waitAndClick(signInPage.signInButton);
+                 break;
+             default:
+                 System.out.println("No such user found");
+@@ -103,4 +103,6 @@
+     public void userCliksOnTheEditButton() {
+         Driver.waitAndClick(myAppointmentPageAsDoctor.editFirstAppointment);
+     }
++
++
+ }
