@@ -1,16 +1,52 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="25.327">
-<testcase classname="Staff can edit patient appointment" name="Staff can edit appointment with unapproved status" time="24.725">
-<system-out><![CDATA[When User navigates to the home page........................................passed
-And user signs in as staff providing "hazel" "13579"........................passed
-When user clicks my pages...................................................passed
-And user clicks search patient..............................................passed
-And user provides a valid ssn number into search box........................passed
-And user click show appointments button.....................................passed
-Then user verifies appointments page header.................................passed
-And user clicks show tests for the given patient............................passed
-And user clicks view tests..................................................passed
-Then user verifies that test results are visible............................passed
-]]></system-out>
-</testcase>
+<testsuite errors="0" failures="1" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="30.896">
+    <testcase classname="View by doctor" name="TC_001 user views all information" time="30.317">
+        <failure message="no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//*[@id='app-view-container']/div/div/div/div/div/table/tbody/tr/td[10]/div/a/span&quot;}&#10;  (Session info: chrome=99.0.4844.74)&#10;For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element&#10;Build info: version: '4.1.1', revision: 'e8fcc2cecf'&#10;System info: host: 'MacPros-MBP.fritz.box', ip: '192.168.178.91', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.6', java.version: '11.0.13'&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [0bd0951acf62e42942aa082ea49e0f90, findElement {using=xpath, value=//*[@id='app-view-container']/div/div/div/div/div/table/tbody/tr/td[10]/div/a/span}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 99.0.4844.74, chrome: {chromedriverVersion: 99.0.4844.51 (d537ec02474b5..., userDataDir: /var/folders/2l/t70g3l9d4kl...}, goog:chromeOptions: {debuggerAddress: localhost:51150}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), se:cdp: ws://localhost:51150/devtoo..., se:cdpVersion: 99.0.4844.74, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Session ID: 0bd0951acf62e42942aa082ea49e0f90" type="org.openqa.selenium.NoSuchElementException">
+            <![CDATA[When user navigates to the home page........................................passed
+And user clicks sign in button at the home page and navigates to sign in page.passed
+And user enters username "arifcanpol135" and password "!2qweASD"............passed
+And user clicks sign in button..............................................passed
+And user verifies home page.................................................passed
+And user clicks my pages dropdown...........................................passed
+Then user clicks my Inpatients dropdown.....................................passed
+And user verifies Inpatients page...........................................passed
+And user provides from date "14-03-2022" and to date "25-03-2022"...........passed
+And user views all patient info.............................................passed
+Then user clicks edit button in the patient page............................failed
+And user can update all patient informations................................skipped
+Then user clicks save button in create or edit a in patients page...........skipped
+
+StackTrace:
+org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id='app-view-container']/div/div/div/div/div/table/tbody/tr/td[10]/div/a/span"}
+  (Session info: chrome=99.0.4844.74)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.1.1', revision: 'e8fcc2cecf'
+System info: host: 'MacPros-MBP.fritz.box', ip: '192.168.178.91', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.6', java.version: '11.0.13'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [0bd0951acf62e42942aa082ea49e0f90, findElement {using=xpath, value=//*[@id='app-view-container']/div/div/div/div/div/table/tbody/tr/td[10]/div/a/span}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 99.0.4844.74, chrome: {chromedriverVersion: 99.0.4844.51 (d537ec02474b5..., userDataDir: /var/folders/2l/t70g3l9d4kl...}, goog:chromeOptions: {debuggerAddress: localhost:51150}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), se:cdp: ws://localhost:51150/devtoo..., se:cdpVersion: 99.0.4844.74, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 0bd0951acf62e42942aa082ea49e0f90
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:543)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:367)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:359)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:70)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:39)
+	at com.sun.proxy.$Proxy24.click(Unknown Source)
+	at stepdefinitions.ViewByDoctorStep.userClicksEditButtonInThePatientPage(ViewByDoctorStep.java:73)
+	at ✽.user clicks edit button in the patient page(file:///Users/macpro/MedunnaFinal/./src/test/resources/features/ViewByDoctor.feature:15)
+]]>
+        </failure>
+    </testcase>
 </testsuite>
