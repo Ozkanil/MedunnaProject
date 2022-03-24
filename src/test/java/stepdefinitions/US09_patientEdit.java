@@ -9,6 +9,7 @@ import pages.US09_patientPage;
 import utilities.Driver;
 
 import static org.junit.Assert.assertFalse;
+import utilities.*;
 
 
 public class US09_patientEdit {

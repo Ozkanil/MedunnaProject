@@ -11,6 +11,7 @@ import pages.SearchPatientOnStaffPage;
 import utilities.Driver;
 
 import java.util.List;
+import utilities.*;
 
 public class SearchPatientOnStaffStepDefs {
 
