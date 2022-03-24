@@ -89,4 +89,34 @@ public class UserSetting {
 
     @FindBy(xpath = "//*[text()='Password changed!']")
     public WebElement successMsg;
+    @FindBy(xpath = "//span[contains(text(),'MY PAGES')]")
+    public WebElement myPages;
+
+    @FindBy(xpath = "//span[contains(text(),'Search Patient')]")
+    public WebElement searchPatientUnderMyPages;
+
+    @FindBy(xpath = "//*[text()='Show Appointments']")
+    public WebElement showAppointmentsBtn;
+
+    @FindBy(xpath = "//*[@name='ssn']")
+    public WebElement patientSSN;
+
+    @FindBy(xpath = "(//*[text()='Payment / Invoice Process'])[2]")
+    public WebElement  paymentInvoice;
+
+    @FindBy(xpath = "(//*[text()='COMPLETED'])[2]")
+    public WebElement statusCompleted;
+
+    @FindBy(xpath = "//*[@id=\"app-view-container\"]/div/div/div/a")
+    public WebElement showInvoice;
+
+    @FindBy(xpath = "//*[@id=\"app-view-container\"]/div/div/div/div/table/thead/tr[4]/th[2]")
+    public WebElement invoiceSSN;
+
+    @FindBy(xpath = "//*[@id=\"app-view-container\"]/div/div/div/div/table/thead/tr[5]/th[2]")
+    public WebElement invoiceName;
+
+    @FindBy(xpath = "//*[@id=\"app-view-container\"]/div/div/div/div/table/thead/tr[7]/th[2]")
+    public WebElement invoiceCost;
+
 }
