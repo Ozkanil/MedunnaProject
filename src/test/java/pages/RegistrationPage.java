@@ -22,7 +22,7 @@ public class RegistrationPage {
     @FindBy(xpath = "//*[@name='lastName']")
     public WebElement lastName;
 
-    @FindBy(xpath = "//*[@name='login']")
+    @FindBy(xpath = "//*[@name='username']")
     public WebElement username;
 
     @FindBy(xpath = "//*[@name='email']")
