@@ -15,12 +15,81 @@ public class MyAppointmentPageAsDoctor {
 
     @FindBy(xpath = "//*[span='MY PAGES']" )
     public WebElement myPagesDropdown;
+
+    @FindBy(xpath = "//*[span='My Inpatients']" )
+    public WebElement myInpatientsDropdown;
+
 //=======ADMIN========
     @FindBy(xpath = "//*[span='Items&Titles']" )
     public WebElement itemsTitlesDropdown;
+
+    @FindBy(xpath = "//*[span='Physician']")
+    public WebElement physicianDropdown;
+
+    @FindBy(xpath = "//*[span='Patient']")
+    public WebElement patientDropdown;
+
+    @FindBy(xpath = "//*[span='Staff']")
+    public WebElement staffDropdown;
+
+    @FindBy(xpath = "//*[span='Create a new Patient']")
+    public WebElement createANewPatientButton;
+
+    @FindBy(xpath = "//*[span='Create a new Physician']")
+    public WebElement createANewStaffButton;
+
+    @FindBy(xpath = "//*[span='Create a new Physician']")
+    public WebElement createANewPhysicianButton;
+
+    @FindBy(xpath = "//*[span='Administration']")
+    public WebElement adminDropdown;
+
+    @FindBy(xpath = "//*[span='User management']")
+    public WebElement userManagementDropdown;
+
+    @FindBy(xpath = "//*[@value='ROLE_PATIENT']")
+    public WebElement userRolePatient;
+
+    @FindBy(xpath = "//*[@value='ROLE_STAFF']")
+    public WebElement userRoleStaff;
+
+    @FindBy(xpath = "//*[@value='ROLE_PHYSICIAN']")
+    public WebElement userRoleDoctor;
+
+    @FindBy(xpath = "//*[span='Save']")
+    public WebElement saveButton;
+
+    @FindBy(xpath = "//input[@name='activated']")
+    public WebElement activatedCheck;
+
+    @FindBy(xpath = "//input[@name='examFee']")
+    public WebElement examFeeTextBox;
+
+    @FindBy(xpath = "//option[@value='10501']")
+    public WebElement selectDoctorArif;
+
+    @FindBy(xpath = "//input[@name='phone']")
+    public WebElement phoneTextBox;
+
+    @FindBy(xpath = "//input[@name='useSSNSearch']")
+    public WebElement useSSNCheckBox;
+
+    @FindBy(xpath = "//button[contains(text(),'Search User')]")
+    public WebElement searchSSNButton;
+
+    @FindBy(xpath = "//input[@name='searchSSN']")
+    public WebElement patientSSNSearchBox;
+
+
 //========PATIENT=======
-@FindBy(xpath = "//*[span='MY PAGES(PATIENT)']" )
-public WebElement patientMyPagesDropdown;
+    @FindBy(xpath = "//*[span='MY PAGES(PATIENT)']" )
+    public WebElement patientMyPagesDropdown;
+
+    @FindBy(xpath = "//*[span='Make an Appointment']" )
+    public WebElement patientMakeAnAppointment;
+
+    @FindBy(xpath = "//button[@id='register-submit']")
+    public WebElement makeAnAppointmentButton;
 
     @FindBy(xpath = "//*[span='My Appointments']" )
     public WebElement myAppointment;
@@ -28,6 +97,36 @@ public WebElement patientMyPagesDropdown;
     @FindBy(xpath = "//*[span='Appointment']" )
     public WebElement adminAppointment;
 
+    @FindBy(xpath = "//input[@name='appoDate']")
+    public WebElement appointmentDate;
+
+    @FindBy(xpath = "//*[span='Show Invoice']")
+    public WebElement showInvoiceButton;
+    // =============STAFF APPOINTMENT===========
+
+    @FindBy(xpath = "(//*[span='View Results'])[1]")
+    public WebElement viewTestResults;
+
+    @FindBy(xpath = "//input[@name='result']")
+    public WebElement editResultTextBox;
+
+    @FindBy(xpath = "//input[@name='description']")
+    public WebElement editDescriptionTextBox;
+
+    @FindBy(xpath = "//*[span='In Patient']")
+    public WebElement inPatientDropdown;
+
+    @FindBy(xpath = "//input[@name='endDate']")
+    public WebElement endDateRoom;
+
+    @FindBy(xpath = "//select[@name='room.id']")
+    public WebElement roomSelection;
+
+    @FindBy(xpath = "//*[span='Payment / Invoice Process']")
+    public WebElement invoice;
+
+    @FindBy(xpath = "//*[.=' Create Invoice']")
+    public WebElement createInvoiceButton;
 
     @FindBy(id="appointment-heading")
     public WebElement appointmentHeading;
@@ -138,6 +237,9 @@ public WebElement patientMyPagesDropdown;
     public WebElement alertMessage;
     @FindBy(className = "Toastify__toast-body")
     public WebElement alertElement;
+
+    @FindBy(xpath = "//h3")
+    public WebElement h3;
 
 
 

@@ -1,4 +1,4 @@
-package Hooks;
+package hooks;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -36,7 +36,7 @@ public class Hooks {
         }
 //         Driver.closeDriver();
         Driver.wait(1);
-        Driver.closeDriver();
+       // Driver.closeDriver();
     }
 
     @Before(order = 1, value = "@user_register")

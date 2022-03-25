@@ -9,6 +9,7 @@ import pojos.Registrant;
 import utilities.Driver;
 
 import static utilities.WriteToTxt.saveRegistrantData;
+import utilities.*;
 
 public class RegistrationSteps {
 

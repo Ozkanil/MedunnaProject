@@ -11,6 +11,7 @@ import pages.SearchPatientOnStaffPage;
 import utilities.Driver;
 
 import java.util.List;
+import utilities.*;
 
 public class SearchPatientOnStaffStepDefs {
 
@@ -34,10 +35,11 @@ public class SearchPatientOnStaffStepDefs {
     }
 
     @And("user provides a valid ssn number into search box")
-    public void userProvidesAValidSsnNumberIntoSearchBox(DataTable ssn) {
+    public void userProvidesAValidSsnNumberIntoSearchBox(DataTable ssn) throws InterruptedException {
 
         List<String> ssnList= ssn.row(1);
         searchPatientOnStaffPage.patientSSNSearchBox.sendKeys(ssnList.get(0));
+        Thread.sleep(5000);
 
     }
 
@@ -105,9 +107,10 @@ public class SearchPatientOnStaffStepDefs {
 
 
     @And("user click show appointments button")
-    public void userClickShowAppointmentsButton() {
+    public void userClickShowAppointmentsButton() throws InterruptedException {
 
         Driver.waitAndClick(searchPatientOnStaffPage.showAppointmentsButton,5);
+        Thread.sleep(3000);
     }
 
     @And("user verifies appointments page header")

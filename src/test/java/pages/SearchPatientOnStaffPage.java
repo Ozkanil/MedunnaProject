@@ -124,7 +124,7 @@ public class SearchPatientOnStaffPage {
     @FindBy(name="prescription")
     public WebElement prescriptionBoxCreateEditAppointment;
 
-    @FindBy(name="description")
+    @FindBy(xpath = "//textarea[@name='description']")
     public WebElement descriptionBoxCreateEditAppointment;
 
     @FindBy(xpath = "//*[@id='appointment-physician']")
@@ -150,5 +150,20 @@ public class SearchPatientOnStaffPage {
 
     @FindBy(xpath = "//*[@class='btn btn-warning btn-sm']")
     public WebElement editButtonAppointments;
+
+    @FindBy(xpath = "//*[@class='btn btn-warning btn-sm']")
+    public WebElement latestAppointment;
+
+    @FindBy(xpath = "//option[@value='COMPLETED']")
+    public WebElement completedDisabled;
+
+    @FindBy (xpath = "//*[@class='d-none d-md-inline']")
+    public WebElement viewTestsButton;
+
+    @FindBy(xpath = "//*[@id='c-test-result-heading']")
+    public WebElement testResultsPage;
+
+    @FindBy(xpath = "(//*[@class='btn btn-primary btn-sm'])[23]")
+    public WebElement showAppointmentButtonJack;
 
 }

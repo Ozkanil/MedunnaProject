@@ -12,6 +12,7 @@ import utilities.Driver;
 import static org.hamcrest.Matchers.hasItems;
 import static utilities.ApiUtils.getRequest;
 import static utilities.Authentication.generateToken;
+import utilities.*;
 
 public class US02_Username_and_Email_StepDef {
 
