@@ -11,6 +11,8 @@ import pojos.Appointments;
 import utilities.Driver;
 
 import static utilities.WriteToTxt.saveAppointData;
+import utilities.*;
+
 public class PtientUIAppointmentSteps {
     PatientAppointmentPage appointmentPage = new PatientAppointmentPage();
     Faker faker = new Faker();

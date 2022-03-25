@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
 import java.util.List;
+import utilities.*;
 
 public class RequestATestPage {
 
@@ -19,7 +20,7 @@ public class RequestATestPage {
     @FindBy(xpath = "//*[.='Test Items']")
     public WebElement testItemsHeading;
 
-    @FindBy(id = "1401")
+    @FindBy(xpath = "//input[@id = '1401']")
     public WebElement glucoseCheck;
 
     @FindBy(id = "1402")

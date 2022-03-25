@@ -11,6 +11,8 @@ import pages.EditPage;
 import utilities.Driver;
 
 import java.util.List;
+import utilities.*;
+
 public class EditStep {
 
     SearchPatientOnStaffPage searchPatientOnStaffPage = new SearchPatientOnStaffPage();

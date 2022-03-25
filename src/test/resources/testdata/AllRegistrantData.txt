@@ -1,0 +1,3 @@
+Registrant{firstName='patientRudy', lastName='EndtoendAbshire', ssn='266-94-9083', login='patientRudyEndtoendAbshire139', langKey='null', password='EndtoendAbshire266-94-9083', email='kent.stoltenberg@gmail.com'}
+Registrant{firstName='patientFrancie', lastName='EndtoendCormier', ssn='319-90-7959', login='patientFrancieEndtoendCormier524', langKey='null', password='EndtoendCormier319-90-7959', email='adriana.ruecker@hotmail.com'}
+Registrant{firstName='staffNoble', lastName='EndtoendWalter', ssn='720-10-4476', login='staffNobleEndtoendWalter270', langKey='null', password='EndtoendWalter720-10-4476', email='jacques.ferry@yahoo.com'}

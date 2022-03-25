@@ -20,13 +20,14 @@ public class StatusSteps {
     }
     @When("user clicks my pages dropdown")
     public void user_clicks_my_pages_dropdown() {
-        Driver.waitForVisibility(statusPage.myPagesDropdown,5);
+        Driver.waitAndClick(statusPage.myPagesDropdown, 5);
         statusPage.myPagesDropdown.click();
-
     }
+
     @And("user types from date {string}")
     public void userTypesFromDate(String fromdate) throws InterruptedException {
         Thread.sleep(3);
+
     }
 
     @And("user types to date on {string}")

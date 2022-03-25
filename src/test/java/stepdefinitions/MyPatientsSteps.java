@@ -7,7 +7,7 @@ import pages.SignInPage;
 import utilities.Driver;
 
 import static org.junit.Assert.assertTrue;
-
+import utilities.*;
 public class MyPatientsSteps {
     SignInPage signInPage = new SignInPage();
     CommonPage commonPage = new CommonPage();
