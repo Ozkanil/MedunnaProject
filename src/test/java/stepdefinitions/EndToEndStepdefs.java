@@ -513,11 +513,11 @@ public class EndToEndStepdefs {
         waitAndClick(myAppointmentPageAsDoctor.showInvoiceButton);
         Driver.wait(2);
         Thread.sleep(2000);
-        invoice=new Invoice(myAppointmentPageAsDoctor.invoiceDate.getText(),
-                myAppointmentPageAsDoctor.invoiceName.getText(),
-                myAppointmentPageAsDoctor.invoiceSsn.getText(),
-                myAppointmentPageAsDoctor.invoicePaymentMethod.getText(),
-                myAppointmentPageAsDoctor.invoiceTotalCost.getText().substring(0,3));
+//        invoice=new Invoice(myAppointmentPageAsDoctor.invoiceDate.getText(),
+//                myAppointmentPageAsDoctor.invoiceName.getText(),
+//                myAppointmentPageAsDoctor.invoiceSsn.getText(),
+//                myAppointmentPageAsDoctor.invoicePaymentMethod.getText(),
+//                myAppointmentPageAsDoctor.invoiceTotalCost.getText().substring(0,3));
 //        actions.sendKeys(Keys.PAGE_DOWN).perform();
 //        Driver.wait(2);
 //        actions.sendKeys(Keys.PAGE_DOWN).perform();
@@ -621,11 +621,12 @@ public class EndToEndStepdefs {
 //        response.prettyPrint();
 
 //        createConnection();
+
         java.lang.String query="Select bill_date,ssn,bill_name,payment_method,total_cost from bill where appointment_id ="+ doctorAppointment.getId();
         executeQuery(query);
         System.out.println("Actual appointment data from API: "+actualData);
         System.out.println("Actual inpatient data from DataBase: "+getRowMap(query));
-        System.out.println("Expected inpatient data: "+invoice);
+        System.out.println("Expected inpatient data: "+actualData);
 
 
 
