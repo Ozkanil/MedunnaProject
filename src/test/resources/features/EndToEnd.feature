@@ -12,9 +12,13 @@ Feature:validating whole process from making an appointment to receiving an invo
     And The doctor edits the appointment by asking test results
     And The staff approves the test request and updates it
     And The doctor views test results, gives prescription, changes status as completed and request inpatient
-#    And Admin create a room for inpatients
+
     And The staff approves inpatient request and assigns a room for patient
+
     And The doctor updates status inpatient as discharged
     And The staff views updated status and creates an invoice
     When The patient views the invoice
     Then The patient has an heart attack
+    Then validate the appointment with api and database
+    Then validate the room with api and database
+    Then validate the invoice with api and database

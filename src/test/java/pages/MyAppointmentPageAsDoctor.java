@@ -11,7 +11,7 @@ public class MyAppointmentPageAsDoctor {
     }
 
     @FindBy(xpath =" (//a[span])[8]")
-     public WebElement myAccountDropdownText;
+    public WebElement myAccountDropdownText;
 
     @FindBy(xpath = "//*[span='MY PAGES']" )
     public WebElement myPagesDropdown;
@@ -19,7 +19,7 @@ public class MyAppointmentPageAsDoctor {
     @FindBy(xpath = "//*[span='My Inpatients']" )
     public WebElement myInpatientsDropdown;
 
-//=======ADMIN========
+    //=======ADMIN========
     @FindBy(xpath = "//*[span='Items&Titles']" )
     public WebElement itemsTitlesDropdown;
 
@@ -81,7 +81,7 @@ public class MyAppointmentPageAsDoctor {
     public WebElement patientSSNSearchBox;
 
 
-//========PATIENT=======
+    //========PATIENT=======
     @FindBy(xpath = "//*[span='MY PAGES(PATIENT)']" )
     public WebElement patientMyPagesDropdown;
 
@@ -241,10 +241,26 @@ public class MyAppointmentPageAsDoctor {
     @FindBy(xpath = "//h3")
     public WebElement h3;
 
+    @FindBy(xpath = "//input[@name='username']")
+    public WebElement usernameTextBox;
 
+    @FindBy(xpath = "(//tr/th)[6]")
+    public WebElement invoiceDate;
 
+    @FindBy(xpath = "(//tr/th)[9]")
+    public WebElement invoiceSsn;
 
+    @FindBy(xpath = "(//tr/th)[12]")
+    public WebElement invoiceName;
 
+    @FindBy(xpath = "(//tr/th)[15]")
+    public WebElement invoicePaymentMethod;
+
+    @FindBy(xpath = "(//tr/th)[18]")
+    public WebElement invoiceTotalCost;
+
+@FindBy(xpath = "//input[@name='id']")
+    public WebElement idBoxInPatient;
 
 
 
