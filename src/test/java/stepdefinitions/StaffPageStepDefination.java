@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
@@ -90,4 +91,6 @@ public class StaffPageStepDefination extends ReusableMethods {
         staffInPatientEdit.saveButton.click();
         Assert.assertTrue(Driver.waitForVisibility(staffInPatientEdit.redAlert,10).isDisplayed());
     }
+
+
 }

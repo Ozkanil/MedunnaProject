@@ -21,7 +21,7 @@ public class StatusSteps {
     @When("user clicks my pages dropdown")
     public void user_clicks_my_pages_dropdown() {
         Driver.waitAndClick(statusPage.myPagesDropdown, 5);
-        statusPage.myPagesDropdown.click();
+        //statusPage.myPagesDropdown.click();
     }
 
     @And("user types from date {string}")
